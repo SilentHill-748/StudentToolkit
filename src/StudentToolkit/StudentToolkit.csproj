@@ -8,4 +8,8 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="MVVM\Models\" />
+  </ItemGroup>
+
 </Project>
