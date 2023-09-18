@@ -1,8 +1,4 @@
-﻿using System.Windows;
-
-using StudentToolkit.MVVM.ViewModels;
-
-namespace StudentToolkit.MVVM.Views.Windows;
+﻿namespace StudentToolkit.MVVM.Views.Windows;
 
 public partial class MainWindow : Window
 {
