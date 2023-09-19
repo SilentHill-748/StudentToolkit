@@ -8,4 +8,17 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="MVVM\Models\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="SimpleInjector" Version="5.4.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\StudentToolkit.Application\StudentToolkit.Application.csproj" />
+    <ProjectReference Include="..\StudentToolkit.Infrastructure\StudentToolkit.Infrastructure.csproj" />
+  </ItemGroup>
+
 </Project>
