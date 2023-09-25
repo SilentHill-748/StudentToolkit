@@ -11,6 +11,7 @@ public partial class App : DotNetApplication
     protected override void OnStartup(StartupEventArgs e)
     {
         AddServices();
+        ApplyDataTemplates();
 
         MainWindow = _container.GetInstance<MainWindow>();
         MainWindow.Show();
@@ -26,5 +27,17 @@ public partial class App : DotNetApplication
     private void AddServices()
     {
         _container.ConfigureServices();
+    }
+
+    private void ApplyDataTemplates()
+    {
+        var dataTemplates = _container
+            .GetInstance<DataTemplateService>()
+            .GenerateDataTemplates();
+
+        foreach (DataTemplate template in dataTemplates)
+        {
+            Resources.Add(template.DataTemplateKey, template);
+        }
     }
 }
