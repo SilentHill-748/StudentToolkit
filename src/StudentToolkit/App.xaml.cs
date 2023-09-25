@@ -1,6 +1,10 @@
-﻿namespace StudentToolkit;
+﻿using System.Windows;
 
-public partial class App : Application
+using DotNetApplication = System.Windows.Application;
+
+namespace StudentToolkit;
+
+public partial class App : DotNetApplication
 {
     private readonly Container _container = new();
 

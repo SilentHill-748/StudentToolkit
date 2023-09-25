@@ -1,8 +1,4 @@
-﻿using CommunityToolkit.Mvvm.Messaging;
-
-using StudentToolkit.MVVM.Models.Navigation.Messages;
-
-namespace StudentToolkit.MVVM.ViewModels;
+﻿namespace StudentToolkit.MVVM.ViewModels;
 
 public class MainViewModel : ViewModel
 {
