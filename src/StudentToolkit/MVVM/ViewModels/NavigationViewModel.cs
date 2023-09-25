@@ -1,10 +1,10 @@
 ﻿namespace StudentToolkit.MVVM.ViewModels;
 
-public class MainViewModel : ViewModel
+public class NavigationViewModel : ViewModel
 {
     private ViewModel _currentViewMdoel;
 
-    public MainViewModel(ViewModel defaultViewModel)
+    public NavigationViewModel(ViewModel defaultViewModel)
     {
         _currentViewMdoel = defaultViewModel;
 
