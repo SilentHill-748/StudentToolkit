@@ -6,11 +6,9 @@
         xmlns:VM="clr-namespace:StudentToolkit.MVVM.ViewModels"
         mc:Ignorable="d"
         d:DataContext="{d:DesignInstance Type=VM:MainViewModel}"
-        Title="MainWindow" 
         WindowStartupLocation="CenterScreen"
         Height="450"
         Width="800">
-    <Grid>
-        
-    </Grid>
+
+    <ContentControl Content="{Binding CurrentViewModel}"/>
 </Window>
