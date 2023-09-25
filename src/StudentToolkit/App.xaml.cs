@@ -25,6 +25,6 @@ public partial class App : DotNetApplication
 
     private void AddServices()
     {
-        _container.RegisterServices();
+        _container.ConfigureServices();
     }
 }

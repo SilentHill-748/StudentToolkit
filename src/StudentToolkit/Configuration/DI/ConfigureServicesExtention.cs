@@ -1,8 +1,8 @@
 ﻿namespace StudentToolkit.Configuration.DI;
 
-public static class RegisterServicesExtention
+public static class ConfigureServicesExtention
 {
-    public static void RegisterServices(this Container container)
+    public static void ConfigureServices(this Container container)
     {
         container
             .RegisterViewModels()
