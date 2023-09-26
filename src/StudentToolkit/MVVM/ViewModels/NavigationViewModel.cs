@@ -4,7 +4,7 @@ public class NavigationViewModel : ViewModel
 {
     private ViewModel _currentViewMdoel;
 
-    public NavigationViewModel(MainViewModel defaultViewModel)
+    public NavigationViewModel(ViewModel defaultViewModel)
     {
         _currentViewMdoel = defaultViewModel;
 
