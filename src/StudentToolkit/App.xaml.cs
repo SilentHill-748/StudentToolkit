@@ -1,12 +1,17 @@
-﻿namespace StudentToolkit;
+﻿using System.Windows;
 
-public partial class App : Application
+using DotNetApplication = System.Windows.Application;
+
+namespace StudentToolkit;
+
+public partial class App : DotNetApplication
 {
     private readonly Container _container = new();
 
     protected override void OnStartup(StartupEventArgs e)
     {
         AddServices();
+        ApplyDataTemplates();
 
         MainWindow = _container.GetInstance<MainWindow>();
         MainWindow.Show();
@@ -21,6 +26,18 @@ public partial class App : Application
 
     private void AddServices()
     {
-        _container.RegisterServices();
+        _container.ConfigureServices();
+    }
+
+    private void ApplyDataTemplates()
+    {
+        var dataTemplates = _container
+            .GetInstance<DataTemplateService>()
+            .GenerateDataTemplates();
+
+        foreach (DataTemplate template in dataTemplates)
+        {
+            Resources.Add(template.DataTemplateKey, template);
+        }
     }
 }

@@ -1,13 +1,11 @@
 ﻿namespace StudentToolkit.Configuration.DI;
-
 public static class RegisterServicesExtention
 {
-    public static void RegisterServices(this Container container)
+    public static Container RegisterServices(this Container container)
     {
-        container
-            .RegisterViewModels()
-            .RegisterViews();
+        container.RegisterSingleton<NavigationService>();
+        container.RegisterSingleton<DataTemplateService>();
 
-        container.Verify();
+        return container;
     }
 }

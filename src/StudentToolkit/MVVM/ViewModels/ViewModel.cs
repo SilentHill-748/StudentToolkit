@@ -5,16 +5,18 @@ namespace StudentToolkit.MVVM.ViewModels;
 
 public class ViewModel : INotifyPropertyChanged
 {
+    public string WindowTitle { get; set; } = string.Empty;
+
     public event PropertyChangedEventHandler? PropertyChanged;
 
-    protected void Set<T>(ref T field, T value, string propertyName)
+    protected void Set<T>(ref T field, T value, [CallerMemberName] string propertyName = "")
     {
         if (field is null || !field.Equals(value))
         {
             field = value;
-        }
 
-        OnPropertyChanged(propertyName);
+            OnPropertyChanged(propertyName);
+        }
     }
 
     protected void OnPropertyChanged([CallerMemberName] string propertyName = "")
