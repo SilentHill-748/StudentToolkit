@@ -3,13 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34031.279
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudentToolkit", "StudentToolkit.csproj", "{4C960377-A55D-4107-9945-AEC920A0ED34}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StudentToolkit", "StudentToolkit.csproj", "{4C960377-A55D-4107-9945-AEC920A0ED34}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudentToolkit.Domain", "..\StudentToolkit.Domain\StudentToolkit.Domain.csproj", "{DBECA39E-CF71-4921-BB84-724882946AF8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StudentToolkit.Domain", "..\StudentToolkit.Domain\StudentToolkit.Domain.csproj", "{DBECA39E-CF71-4921-BB84-724882946AF8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudentToolkit.Infrastructure", "..\StudentToolkit.Infrastructure\StudentToolkit.Infrastructure.csproj", "{00E36243-A5AD-4990-AD5B-8E383B97A0A4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StudentToolkit.Infrastructure", "..\StudentToolkit.Infrastructure\StudentToolkit.Infrastructure.csproj", "{00E36243-A5AD-4990-AD5B-8E383B97A0A4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudentToolkit.Application", "..\StudentToolkit.Application\StudentToolkit.Application.csproj", "{6E261C20-7CA7-49C6-9F33-F22BC3A6EBA9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StudentToolkit.Application", "..\StudentToolkit.Application\StudentToolkit.Application.csproj", "{6E261C20-7CA7-49C6-9F33-F22BC3A6EBA9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudentToolkit.Tests", "..\..\tests\StudentToolkit.Tests\StudentToolkit.Tests.csproj", "{16DA95D2-1B0E-455F-A31E-1343754C0947}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{6E261C20-7CA7-49C6-9F33-F22BC3A6EBA9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6E261C20-7CA7-49C6-9F33-F22BC3A6EBA9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6E261C20-7CA7-49C6-9F33-F22BC3A6EBA9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{16DA95D2-1B0E-455F-A31E-1343754C0947}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{16DA95D2-1B0E-455F-A31E-1343754C0947}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{16DA95D2-1B0E-455F-A31E-1343754C0947}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{16DA95D2-1B0E-455F-A31E-1343754C0947}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
