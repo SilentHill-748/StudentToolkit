@@ -8,7 +8,7 @@ public static class RegisterServicesExtention
         container.RegisterSingleton<NavigationService>();
         container.RegisterSingleton<DataTemplateService>();
 
-        container.Register<Func<Type, object>>(() => container.GetInstance);
+        container.RegisterSingleton<Func<Type, object>>(() => container.GetInstance);
 
         return container;
     }
