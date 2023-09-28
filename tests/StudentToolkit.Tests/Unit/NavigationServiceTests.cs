@@ -1,4 +1,7 @@
-﻿namespace StudentToolkit.Tests.Unit;
+﻿using StudentToolkit.Tests.Stubs.Wpf.MVVM.Models.Messages;
+using StudentToolkit.Tests.Stubs.Wpf.MVVM.ViewModels;
+
+namespace StudentToolkit.Tests.Unit;
 
 public class NavigationServiceTests
 {
