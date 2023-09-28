@@ -1,15 +1,27 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Windows;
+
+using StudentToolkit.Configuration;
 
 namespace StudentToolkit.WpfCore.Services;
 
 /// <summary>
 /// Service for generating <see cref="DataTemplate"/> collection of mappings view model to view.
 /// </summary>
-internal class DataTemplateService
+public class DataTemplateService
 {
+    private readonly Assembly _targetAssembly;
+
+    public DataTemplateService(Assembly targetAssembly)
+    {
+        ArgumentNullException.ThrowIfNull(targetAssembly, nameof(targetAssembly));
+
+        _targetAssembly = targetAssembly;
+    }
+
     /// <summary>
     /// Create collection of <see cref="DataTemplate"/> objects.
     /// </summary>
@@ -18,18 +30,18 @@ internal class DataTemplateService
     {
         var assembly = GetType().Assembly;
 
-        var viewModelTypes = assembly
-            .GetTypes()
-            .Where(type => type.Name.EndsWith("ViewModel"));
+        var viewToViewModelMap = from type in _targetAssembly.GetTypes()
+                                 let viewName = type.Name.Replace("ViewModel", "View")
+                                 where type.Name.EndsWith("ViewModel") && _targetAssembly.HasType(viewName)
+                                 select new 
+                                 { 
+                                     View = _targetAssembly.GetType(typeName: viewName), 
+                                     ViewModel = type 
+                                 };
 
-        foreach (Type viewModelType in viewModelTypes)
+        foreach (var item in viewToViewModelMap)
         {
-            Type? viewType = GetViewType(viewModelType);
-
-            if (viewType is not null)
-            {
-                yield return GenerateDataTemplate(viewModelType, viewType);
-            }
+            yield return GenerateDataTemplate(item.ViewModel, item.View);
         }
     }
 
@@ -39,12 +51,5 @@ internal class DataTemplateService
         {
             VisualTree = new FrameworkElementFactory(viewType)
         };
-    }
-
-    private static Type? GetViewType(Type viewModelType)
-    {
-        var viewTypeName = viewModelType.FullName!.Replace("ViewModel", "View");
-
-        return Type.GetType(viewTypeName);
     }
 }

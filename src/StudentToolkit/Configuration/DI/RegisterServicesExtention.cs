@@ -1,14 +1,17 @@
 ﻿using System;
 
 namespace StudentToolkit.Configuration.DI;
+
 public static class RegisterServicesExtention
 {
     public static Container RegisterServices(this Container container)
     {
-        container.RegisterSingleton<NavigationService>();
-        container.RegisterSingleton<DataTemplateService>();
+        var assembly = typeof(RegisterServicesExtention).Assembly;
 
-        container.Register<Func<Type, object>>(() => container.GetInstance);
+        container.RegisterSingleton<NavigationService>();
+        container.RegisterSingleton(() => new DataTemplateService(assembly));
+
+        container.RegisterSingleton<Func<Type, object>>(() => container.GetInstance);
 
         return container;
     }
