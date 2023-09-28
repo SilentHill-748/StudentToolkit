@@ -2,46 +2,32 @@
 
 namespace StudentToolkit.WpfCore.Services;
 
-internal class NavigationService
+public class NavigationService
 {
-    private readonly Container _container;
+    private readonly Func<Type, object> _viewModelResolver;
 
-    public NavigationService(Container container)
+    public NavigationService(Func<Type, object> viewModelResolver)
     {
-        ArgumentNullException.ThrowIfNull(container, nameof(container));
-
-        _container = container;
+        _viewModelResolver = viewModelResolver;
     }
 
     /// <summary>
-    /// Do navigation to specified view.
+    /// Do navigation to specified view by her view model.
     /// </summary>
-    /// <typeparam name="TViewModel">The view model of specified view.</typeparam>
-    public void NavigateToWindowView<TViewModel>()
+    /// <typeparam name="TViewModel">The navigating view model type.</typeparam>
+    /// <typeparam name="TMessage">The navigation message type.</typeparam>
+    /// <param name="navigationQuery">Query for generating navigation message.</param>
+    /// <exception cref="NavigationDeniedException"></exception>
+    public void NavigateTo<TViewModel, TMessage>(NavigationQuery<TMessage> navigationQuery)
         where TViewModel : ViewModel
+        where TMessage : ValueChangedMessage<NavigationModel>
     {
-        NavigateTo<TViewModel>(typeof(WindowContentNavigationMessage));
-    }
+        var viewModel = (TViewModel)_viewModelResolver(typeof(TViewModel));
 
-    /// <summary>
-    /// Do navigation inside UI control to specified view.
-    /// </summary>
-    /// <typeparam name="TViewModel">The view model of specified view.</typeparam>
-    public void NavigateToControlView<TViewModel>()
-        where TViewModel : ViewModel
-    {
-        NavigateTo<TViewModel>(typeof(ControlContentNavigationMessage));
-    }
+        if (viewModel is not INavigatingViewModel)
+            throw new NavigationDeniedException($"Navigation view model '{typeof(TViewModel).Name}' cannot be use for navigation!");
 
-    private void NavigateTo<TViewModel>(Type messageType)
-        where TViewModel : ViewModel
-    {
-        ViewModel viewModel = _container.GetInstance<TViewModel>();
-
-        var model = new NavigationModel(viewModel);
-
-        var message = Activator.CreateInstance(messageType, model) ??
-            throw new ArgumentException($"Cannot create instance the message of type '{messageType.Name}'!");
+        var message = navigationQuery.Execute(viewModel);
 
         WeakReferenceMessenger.Default.Send(message);
     }

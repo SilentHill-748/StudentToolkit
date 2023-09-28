@@ -1,6 +1,6 @@
 ﻿namespace StudentToolkit.MVVM.Models.Navigation;
 
-internal sealed class NavigationModel
+public sealed class NavigationModel
 {
     public NavigationModel(ViewModel viewModel)
     {
