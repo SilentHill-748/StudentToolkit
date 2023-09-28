@@ -11,7 +11,7 @@ namespace StudentToolkit.WpfCore.Services;
 /// <summary>
 /// Service for generating <see cref="DataTemplate"/> collection of mappings view model to view.
 /// </summary>
-internal class DataTemplateService
+public class DataTemplateService
 {
     private readonly Assembly _targetAssembly;
 
