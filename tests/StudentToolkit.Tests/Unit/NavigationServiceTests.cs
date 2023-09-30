@@ -3,7 +3,7 @@
 public class NavigationServiceTests
 {
     [Fact]
-    public void Should_success_navigation()
+    public void The_navigation_with_the_INavigatingViewModel_and_message_with_a_handler_is_success()
     {
         Dictionary<Type, ViewModel> viewModels = CreateViewModelCollection();
         Func<Type, ViewModel> viewModelResolver = (type) => viewModels[type];
@@ -18,7 +18,7 @@ public class NavigationServiceTests
     }
 
     [Fact]
-    public void Should_throw_navigation_denied_exception_by_window_navigate()
+    public void The_navigation_with_the_not_INavigatingViewModel_is_throw_NavigationDeniedException()
     {
         Dictionary<Type, ViewModel> viewModels = CreateViewModelCollection();
         Func<Type, ViewModel> viewModelResolver = (type) => viewModels[type];
@@ -31,7 +31,7 @@ public class NavigationServiceTests
     }
 
     [Fact]
-    public void Should_does_not_throw_navigation_denied_exception_and_does_not_navigating()
+    public void Without_the_navigation_with_message_without_a_handler()
     {
         Dictionary<Type, ViewModel> viewModels = CreateViewModelCollection();
         Func<Type, ViewModel> viewModelResolver = (type) => viewModels[type];
