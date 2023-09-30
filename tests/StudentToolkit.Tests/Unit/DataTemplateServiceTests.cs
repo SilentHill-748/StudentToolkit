@@ -3,7 +3,7 @@
 public class DataTemplateServiceTests
 {
     [Fact]
-    public void Should_correct_generate_data_templates()
+    public void Data_templates_generating_by_current_assembly_is_correct()
     {
         DataTemplateService dataTemplateService = new(typeof(DataTemplateServiceTests).Assembly);
 
