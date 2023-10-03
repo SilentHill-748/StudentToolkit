@@ -1,4 +1,6 @@
-﻿namespace StudentToolkit.MVVM.ViewModels.Model;
+﻿using System.ComponentModel;
+
+namespace StudentToolkit.MVVM.ViewModels.Model;
 
 public sealed class StudentViewModel : ViewModel
 {
