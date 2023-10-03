@@ -1,4 +1,4 @@
-﻿namespace StudentToolkit.Tests.Unit;
+﻿namespace StudentToolkit.WPF.UnitTests.Services;
 
 public class DataTemplateServiceTests
 {
