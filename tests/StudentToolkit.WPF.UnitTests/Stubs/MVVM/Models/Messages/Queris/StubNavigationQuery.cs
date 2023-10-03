@@ -1,4 +1,4 @@
-﻿namespace StudentToolkit.WPF.UnitTests.Stubs.Wpf.MVVM.Models.Messages.Queris;
+﻿namespace StudentToolkit.WPF.UnitTests.Stubs.MVVM.Models.Messages.Queris;
 
 public sealed class StubNavigationQuery : NavigationQuery<StubNavigationMessage>
 {

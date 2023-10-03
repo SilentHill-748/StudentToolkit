@@ -1,4 +1,4 @@
-﻿namespace StudentToolkit.WPF.UnitTests.Stubs.Wpf.MVVM.ViewModels;
+﻿namespace StudentToolkit.WPF.UnitTests.Stubs.MVVM.ViewModels;
 
 /// <summary>
 /// Stub view model for testing navigation.

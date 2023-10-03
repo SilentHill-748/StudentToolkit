@@ -1,4 +1,4 @@
-﻿namespace StudentToolkit.WPF.UnitTests.Stubs.Wpf.MVVM.Models.Messages;
+﻿namespace StudentToolkit.WPF.UnitTests.Stubs.MVVM.Models.Messages;
 
 public sealed class StubNavigationMessage : ValueChangedMessage<NavigationModel>
 {
