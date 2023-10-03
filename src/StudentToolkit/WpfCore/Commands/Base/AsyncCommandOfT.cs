@@ -4,12 +4,12 @@ using System.Windows.Input;
 
 namespace StudentToolkit.WpfCore.Commands.Base;
 
-public abstract class AsyncParameterizedCommand<T> : ICommand
+public abstract class AsyncCommand<T> : ICommand
 {
     private readonly Action<Exception> _exceptionHandler;
     private bool _isExecuting;
 
-    public AsyncParameterizedCommand(Action<Exception> exceptionHandler)
+    public AsyncCommand(Action<Exception> exceptionHandler)
     {
         ArgumentNullException.ThrowIfNull(exceptionHandler, nameof(exceptionHandler));
 

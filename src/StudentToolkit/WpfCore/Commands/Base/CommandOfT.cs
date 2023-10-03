@@ -3,16 +3,17 @@ using System.Windows.Input;
 
 namespace StudentToolkit.WpfCore.Commands.Base;
 
-public abstract class ParameterizedCommand<T> : ICommand
+public abstract class Command<T> : ICommand
 {
-    public event EventHandler? CanExecuteChanged;
+    public event EventHandler? CanExecuteChanged
+    {
+        add => CommandManager.RequerySuggested += value;
+        remove => CommandManager.RequerySuggested -= value;
+    }
 
     public abstract void Execute(T parameter);
 
     public virtual bool CanExecute(T parameter) => true;
-
-    public void OnCanExecuteChanged()
-        => CanExecuteChanged?.Invoke(this, new EventArgs());
 
     bool ICommand.CanExecute(object? parameter)
     {
