@@ -5,14 +5,15 @@ namespace StudentToolkit.WpfCore.Commands.Base;
 
 public abstract class Command : ICommand
 {
-    public event EventHandler? CanExecuteChanged;
+    public event EventHandler? CanExecuteChanged
+    {
+        add => CommandManager.RequerySuggested += value;
+        remove => CommandManager.RequerySuggested -= value;
+    }
 
     public abstract void Execute();
 
     public virtual bool CanExecute() => true;
-
-    public virtual void OnCanExecuteChanged()
-        => CanExecuteChanged?.Invoke(this, new EventArgs());
     
     bool ICommand.CanExecute(object? parameter) => CanExecute();
     

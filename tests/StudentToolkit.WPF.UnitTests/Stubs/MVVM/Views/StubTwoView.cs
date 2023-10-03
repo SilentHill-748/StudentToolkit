@@ -1,5 +1,5 @@
 ﻿using System.Windows;
 
-namespace StudentToolkit.Tests.Stubs.Wpf.MVVM.Views;
+namespace StudentToolkit.WPF.UnitTests.Stubs.MVVM.Views;
 
 internal class StubTwoView : FrameworkElement { }
