@@ -1,4 +1,6 @@
-﻿global using CommunityToolkit.Mvvm.Messaging;
+﻿global using System.ComponentModel;
+
+global using CommunityToolkit.Mvvm.Messaging;
 global using CommunityToolkit.Mvvm.Messaging.Messages;
 
 global using SimpleInjector;
