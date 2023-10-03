@@ -1,6 +1,8 @@
 ﻿global using CommunityToolkit.Mvvm.Messaging;
 global using CommunityToolkit.Mvvm.Messaging.Messages;
 
+global using Serilog;
+
 global using SimpleInjector;
 
 global using StudentToolkit.Configuration.DI;
