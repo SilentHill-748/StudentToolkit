@@ -1,7 +1,4 @@
-﻿using StudentToolkit.WPF.UnitTests.Stubs.MVVM.Models.Messages;
-using StudentToolkit.WPF.UnitTests.Stubs.MVVM.ViewModels;
-
-namespace StudentToolkit.WPF.UnitTests.Services;
+﻿namespace StudentToolkit.WPF.UnitTests.Services;
 
 public class NavigationServiceTests
 {
@@ -13,11 +10,10 @@ public class NavigationServiceTests
         NavigationService navigationService = new(viewModelResolver);
         NavigationViewModel navigationViewModel = (NavigationViewModel)viewModelResolver(typeof(NavigationViewModel));
 
-        navigationService.NavigateTo<StubNavigatingViewModel, WindowContentNavigationMessage>(new WindowNavigationQuery());
+        navigationService.NavigateTo<DummyNavigatingViewModel, WindowContentNavigationMessage>(new WindowNavigationQuery());
 
-        Assert.NotNull(navigationViewModel.CurrentViewModel);
         Assert.IsNotType<MainViewModel>(navigationViewModel.CurrentViewModel);
-        Assert.IsType<StubNavigatingViewModel>(navigationViewModel.CurrentViewModel);
+        Assert.IsType<DummyNavigatingViewModel>(navigationViewModel.CurrentViewModel);
     }
 
     [Fact]
@@ -28,7 +24,7 @@ public class NavigationServiceTests
         NavigationService navigationService = new(viewModelResolver);
         NavigationViewModel navigationViewModel = (NavigationViewModel)viewModelResolver(typeof(NavigationViewModel));
 
-        void act() => navigationService.NavigateTo<StubNotNavigatingViewModel, WindowContentNavigationMessage>(new WindowNavigationQuery());
+        void act() => navigationService.NavigateTo<DummyNotNavigatingViewModel, WindowContentNavigationMessage>(new WindowNavigationQuery());
 
         Assert.Throws<NavigationDeniedException>(act);
     }
@@ -41,11 +37,10 @@ public class NavigationServiceTests
         NavigationService navigationService = new(viewModelResolver);
         NavigationViewModel navigationViewModel = (NavigationViewModel)viewModelResolver(typeof(NavigationViewModel));
 
-        navigationService.NavigateTo<StubNavigatingViewModel, StubNavigationMessage>(new StubNavigationQuery());
+        navigationService.NavigateTo<DummyNavigatingViewModel, DummyNavigationMessage>(new StubNavigationQuery());
 
-        Assert.NotNull(navigationViewModel.CurrentViewModel);
         Assert.IsType<MainViewModel>(navigationViewModel.CurrentViewModel);
-        Assert.IsNotType<StubNavigatingViewModel>(navigationViewModel.CurrentViewModel);
+        Assert.IsNotType<DummyNavigatingViewModel>(navigationViewModel.CurrentViewModel);
     }
 
     private static Dictionary<Type, ViewModel> CreateViewModelCollection()
@@ -53,8 +48,8 @@ public class NavigationServiceTests
         var viewModels = new Dictionary<Type, ViewModel>()
         {
             { typeof(MainViewModel), new MainViewModel() },
-            { typeof(StubNavigatingViewModel), new StubNavigatingViewModel() },
-            { typeof(StubNotNavigatingViewModel), new StubNotNavigatingViewModel() },
+            { typeof(DummyNavigatingViewModel), new DummyNavigatingViewModel() },
+            { typeof(DummyNotNavigatingViewModel), new DummyNotNavigatingViewModel() },
             { typeof(NavigationViewModel), new NavigationViewModel(new MainViewModel()) }
         };
 

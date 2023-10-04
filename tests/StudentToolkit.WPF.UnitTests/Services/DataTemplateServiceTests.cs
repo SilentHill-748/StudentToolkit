@@ -10,13 +10,11 @@ public class DataTemplateServiceTests
         var dataTemplates = dataTemplateService.GenerateDataTemplates().ToArray();
 
         Assert.NotEmpty(dataTemplates);
-        Assert.True(dataTemplates.Length > 0);
-        Assert.True(dataTemplates.Length < 3);
         Assert.True(dataTemplates.Length == 2);
         // Assert.IsType(..) throws error, because DataType is RuntimeType, but DataType has correct Stub...ViewModel type.
-        Assert.Equal("StubOneViewModel", ((Type)dataTemplates[0].DataType).Name);
-        Assert.Equal("StubTwoViewModel", ((Type)dataTemplates[1].DataType).Name);
-        Assert.Equal("StubOneView", dataTemplates[0].VisualTree.Type.Name);
-        Assert.Equal("StubTwoView", dataTemplates[1].VisualTree.Type.Name);
+        Assert.Equal("DummyOneViewModel", ((Type)dataTemplates[0].DataType).Name);
+        Assert.Equal("DummyTwoViewModel", ((Type)dataTemplates[1].DataType).Name);
+        Assert.Equal("DummyOneView", dataTemplates[0].VisualTree.Type.Name);
+        Assert.Equal("DummyTwoView", dataTemplates[1].VisualTree.Type.Name);
     }
 }
