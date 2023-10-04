@@ -6,6 +6,7 @@ public static class ConfigureServicesExtention
     {
         container
             .RegisterServices()
+            .RegisterValidation()
             .RegisterLogger()
             .RegisterViewModels()
             .RegisterViews();
