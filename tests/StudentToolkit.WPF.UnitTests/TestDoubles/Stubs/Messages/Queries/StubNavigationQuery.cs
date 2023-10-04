@@ -1,4 +1,4 @@
-﻿namespace StudentToolkit.WPF.UnitTests.TestDoubles.Stubs.Messages.Queris;
+﻿namespace StudentToolkit.WPF.UnitTests.TestDoubles.Stubs.Messages.Queries;
 
 public sealed class StubNavigationQuery : NavigationQuery<DummyNavigationMessage>
 {
