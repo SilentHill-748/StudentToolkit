@@ -28,8 +28,6 @@ public class DataTemplateService
     /// <returns><see cref="IEnumerable{T}"/> collection of <see cref="DataTemplate"/>.</returns>
     public IEnumerable<DataTemplate> GenerateDataTemplates()
     {
-        var assembly = GetType().Assembly;
-
         var viewToViewModelMap = from type in _targetAssembly.GetTypes()
                                  let viewName = type.Name.Replace("ViewModel", "View")
                                  where type.Name.EndsWith("ViewModel") && _targetAssembly.HasType(viewName)
