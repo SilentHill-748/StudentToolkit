@@ -1,6 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Windows;
+﻿using System.Windows;
+using System.Windows.Controls;
 
 using StudentToolkit.MVVM.Models.DialogResults;
 
@@ -11,49 +10,43 @@ namespace StudentToolkit.WpfCore.Services;
 /// </summary>
 public sealed class DialogService
 {
-    private readonly Dictionary<Type, Type> _viewModelToViewTypeMap = new();
-
-    /// <summary>
-    /// Register the type map between <typeparamref name="TViewModel"/> as key and <typeparamref name="TDialogView"/> as value.
-    /// </summary>
-    /// <typeparam name="TViewModel">The view model type.</typeparam>
-    /// <typeparam name="TDialogView">The view type.</typeparam>
-    public void RegisterDialog<TViewModel, TDialogView>()
-        where TViewModel : DialogViewModel
-        where TDialogView : Window
-    {
-        _viewModelToViewTypeMap[typeof(TViewModel)] = typeof(TDialogView);
-    }
+    private const string ContentControlName = "DialogContentView";
 
     /// <summary>
     /// Open dialog window that represents the specialize view model.
     /// </summary>
     /// <typeparam name="TViewModel">The view model of dialog window.</typeparam>
     /// <param name="viewModel">The instance of view model for dialog window.</param>
+    /// /// <param name="resizeMode">The resize mode of dialog window.</param>
     /// <returns>The <see cref="DialogResult"/> object.</returns>
-    public DialogResult ShowDialog<TViewModel>(TViewModel viewModel)
+    public static DialogResult ShowDialog<TViewModel>(TViewModel viewModel, ResizeMode resizeMode = ResizeMode.NoResize)
         where TViewModel : DialogViewModel
     {
-        bool result = ShowWithResult(viewModel);
+        bool result = ShowWithResult(viewModel, resizeMode);
 
         if (result)
         {
-            viewModel.Result.IsSuccess = true;
+            viewModel.DialogResult.IsSuccess = true;
         }
 
-        return viewModel.Result;
+        return viewModel.DialogResult;
     }
 
-    private bool ShowWithResult<TViewModel>(TViewModel viewModel)
+    private static bool ShowWithResult<TViewModel>(TViewModel viewModel, ResizeMode resizeMode)
         where TViewModel : DialogViewModel
     {
-        var viewType = _viewModelToViewTypeMap[typeof(TViewModel)];
+        var dialogWindow = new DialogWindow()
+        {
+            Title = viewModel.WindowTitle,
+            ResizeMode = resizeMode
+        };
 
-        var dialogVindow = (Window?)Activator.CreateInstance(viewType) ??
-            throw new Exception($"Cannot create the window instance! Check {viewType.Name} and registrations!");
+        viewModel.Close = dialogWindow.Close;
 
-        dialogVindow.DataContext = viewModel;
+        var control = (ContentControl)dialogWindow.FindName(ContentControlName);
 
-        return dialogVindow.ShowDialog() == true;
+        control.Content = viewModel;
+
+        return dialogWindow.ShowDialog() == true;
     }
 }

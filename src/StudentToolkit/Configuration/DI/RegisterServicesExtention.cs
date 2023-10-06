@@ -10,16 +10,8 @@ public static class RegisterServicesExtention
 
         container.RegisterSingleton<NavigationService>();
         container.RegisterSingleton(() => new DataTemplateService(assembly));
-        container.RegisterSingleton(CreateDialogService);
         container.RegisterSingleton<Func<Type, object>>(() => container.GetInstance);
 
         return container;
-    }
-
-    private static DialogService CreateDialogService()
-    {
-        var dialogService = new DialogService();
-
-        return dialogService;
     }
 }
