@@ -26,10 +26,10 @@ public sealed class DialogService
 
         if (result)
         {
-            viewModel.Result.IsSuccess = true;
+            viewModel.DialogResult.IsSuccess = true;
         }
 
-        return viewModel.Result;
+        return viewModel.DialogResult;
     }
 
     private static bool ShowWithResult<TViewModel>(TViewModel viewModel, ResizeMode resizeMode)

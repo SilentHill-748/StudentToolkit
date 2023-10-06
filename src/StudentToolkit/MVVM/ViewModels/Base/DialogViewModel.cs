@@ -17,7 +17,7 @@ public class DialogViewModel : ValidatableViewModel
         get => _resizeMode;
         set => Set(ref _resizeMode, value);
     }
-    public DialogResult Result
+    public DialogResult DialogResult
     {
         get => _result;
         set => Set(ref _result, value);
