@@ -3,10 +3,33 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:viewModel="clr-namespace:StudentToolkit.MVVM.ViewModels"
+             xmlns:ViewModel="clr-namespace:StudentToolkit.MVVM.ViewModels"
+             xmlns:Components="clr-namespace:StudentToolkit.WpfCore.Components"
              mc:Ignorable="d"
-             d:DataContext="{d:DesignInstance Type=viewModel:MainViewModel}">
+             FontSize="16"
+             SnapsToDevicePixels="True"
+             d:DataContext="{d:DesignInstance Type=ViewModel:MainViewModel}">
     <Grid>
-        <TextBlock Text="This is MainView, managed by MainViewModel."/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Menu FontSize="16" Grid.Row="0" Background="White">
+            <MenuItem Header="Модули">
+                <MenuItem Header="Составить расписание"/>
+                <MenuItem Header="Работа с посещаемостью"/>
+                <MenuItem Header="Домашние задания"/>
+            </MenuItem>
+            <MenuItem Header="Настройки"/>
+            <MenuItem Header="О программе"/>
+        </Menu>
+
+        <ContentControl Grid.Row="1" Content="{Binding Content}"/>
+
+        <Components:StatusBarView 
+            Grid.Row="2" 
+            DataContext="{Binding StatusBarViewModel}"/>
     </Grid>
 </UserControl>

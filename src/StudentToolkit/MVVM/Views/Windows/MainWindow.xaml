@@ -5,10 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:VM="clr-namespace:StudentToolkit.MVVM.ViewModels"
         mc:Ignorable="d"
-        d:DataContext="{d:DesignInstance Type=VM:MainViewModel}"
+        d:DataContext="{d:DesignInstance Type=VM:NavigationViewModel}"
         WindowStartupLocation="CenterScreen"
-        Height="450"
-        Width="800">
+        Title="{Binding CurrentViewModel.WindowTitle}"
+        FontSize="16"
+        Height="800"
+        Width="1200">
 
     <ContentControl Content="{Binding CurrentViewModel}"/>
 </Window>
