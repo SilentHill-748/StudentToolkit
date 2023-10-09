@@ -7,7 +7,7 @@ public sealed class StudentViewModel : ViewModel
     private string _firstName = string.Empty;
     private string _middlename = string.Empty;
     private string _lastName = string.Empty;
-    private GroupViewModel? _groupViewModel;
+    private string _groupName = string.Empty;
 
     public StudentViewModel()
     {
@@ -32,10 +32,10 @@ public sealed class StudentViewModel : ViewModel
         get => _lastName;
         set => Set(ref _lastName, value);
     }
-    public GroupViewModel? Group
+    public string GroupName
     {
-        get => _groupViewModel;
-        set => Set(ref _groupViewModel, value);
+        get => _groupName;
+        set => Set(ref _groupName, value);
     }
 
     private void StudentViewModel_PropertyChanged(object? sender, PropertyChangedEventArgs e)
