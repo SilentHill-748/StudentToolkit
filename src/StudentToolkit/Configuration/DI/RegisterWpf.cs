@@ -1,6 +1,6 @@
 ﻿namespace StudentToolkit.Configuration.DI;
 
-public static class ConfigureServicesExtention
+public static class RegisterWpf
 {
     public static Container RegisterWpfServices(this Container container)
     {
