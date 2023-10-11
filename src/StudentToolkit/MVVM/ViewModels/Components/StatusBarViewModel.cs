@@ -1,35 +1,27 @@
 ﻿using System;
 using System.Windows.Threading;
 
-using StudentToolkit.MVVM.ViewModels.Model;
-
 namespace StudentToolkit.MVVM.ViewModels.Components;
 
 public sealed class StatusBarViewModel : ViewModel
 {
-    private readonly GroupViewModel _groupViewModel;
+    private string _groupName = string.Empty;
     private DateTime _date;
 
-    public StatusBarViewModel(GroupViewModel groupViewModel)
+    public StatusBarViewModel()
     {
-        _groupViewModel = groupViewModel;
-
         InitializeTimer();
     }
 
-    public string GroupName => GetGroupName();
-
+    public string GroupName
+    {
+        get => string.IsNullOrWhiteSpace(_groupName) ? "-" : _groupName;
+        set => Set(ref _groupName, value);
+    }
     public DateTime CurrentDate
     {
         get => _date;
         set => Set(ref _date, value);
-    }
-
-    private string GetGroupName()
-    {
-        var nameIsNullOrEmpty = string.IsNullOrEmpty(_groupViewModel.Name);
-
-        return "Группа: " + (nameIsNullOrEmpty ? "-" : _groupViewModel.Name);
     }
 
     private void InitializeTimer()

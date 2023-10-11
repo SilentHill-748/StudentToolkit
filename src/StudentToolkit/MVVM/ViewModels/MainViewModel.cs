@@ -1,5 +1,4 @@
 ﻿using StudentToolkit.MVVM.ViewModels.Components;
-using StudentToolkit.MVVM.ViewModels.Model;
 
 namespace StudentToolkit.MVVM.ViewModels;
 
@@ -11,11 +10,11 @@ public class MainViewModel : ViewModel, INavigatingViewModel
     {
         _content = new AboutViewModel();
 
-        StatusBarViewModel = new StatusBarViewModel(new GroupViewModel());
+        StatusBarViewModel = new StatusBarViewModel();
         WindowTitle = "Student Toolkit";
     }
 
-    public StatusBarViewModel StatusBarViewModel { get; set; }
+    public StatusBarViewModel StatusBarViewModel { get; }
 
     public ViewModel? Content
     {
