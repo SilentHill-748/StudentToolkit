@@ -26,7 +26,11 @@ public partial class App : DotNetApplication
 
     private void AddServices()
     {
-        _container.ConfigureServices();
+        _container
+            .RegisterWpfServices()
+            .RegisterApplicationServices(typeof(App).Assembly);
+
+        _container.Verify();
     }
 
     private void ApplyDataTemplates()

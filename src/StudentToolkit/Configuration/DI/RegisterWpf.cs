@@ -2,15 +2,13 @@
 
 public static class ConfigureServicesExtention
 {
-    public static void ConfigureServices(this Container container)
+    public static Container RegisterWpfServices(this Container container)
     {
         container
             .RegisterServices()
-            .RegisterValidation()
-            .RegisterLogger()
             .RegisterViewModels()
             .RegisterViews();
 
-        container.Verify();
+        return container;
     }
 }

@@ -14,3 +14,4 @@ global using StudentToolkit.MVVM.ViewModels.Base;
 global using StudentToolkit.MVVM.Views.Windows;
 global using StudentToolkit.WpfCore.Exceptions.Navigation;
 global using StudentToolkit.WpfCore.Services;
+global using StudentToolkit.Application.DI;

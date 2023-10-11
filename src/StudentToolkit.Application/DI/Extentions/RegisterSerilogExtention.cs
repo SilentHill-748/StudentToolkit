@@ -1,14 +1,14 @@
 ﻿using Serilog.Core;
 using Serilog.Events;
 
-namespace StudentToolkit.Configuration.DI;
+namespace StudentToolkit.Application.DI.Extentions;
 
-public static class RegisterLoggerExtention
+public static class RegisterSerilogExtention
 {
-    private const string OutputTemplate 
+    private const string OutputTemplate
         = "{Timestamp:[dd-MM-yyyy] [HH:mm:ss]} [{Level:u3}] {Message:lj}{NewLine}{Exception}";
 
-    public static Container RegisterLogger(this Container container)
+    public static Container RegisterSerilog(this Container container)
     {
         var minLogLevel = LogEventLevel.Information;
 
