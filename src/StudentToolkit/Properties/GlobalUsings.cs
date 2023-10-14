@@ -5,7 +5,10 @@ global using Serilog;
 
 global using SimpleInjector;
 
+global using Microsoft.Extensions.Configuration;
+
 global using StudentToolkit.Application.DI;
+global using StudentToolkit.Infrastructure.DI;
 global using StudentToolkit.Configuration.DI;
 global using StudentToolkit.MVVM.Models.Navigation;
 global using StudentToolkit.MVVM.Models.Navigation.Messages;
