@@ -14,7 +14,7 @@ public static class RegisterDbContextExtention
             .UseSqlServer(connectionString)
             .Options;
 
-        container.Register(() => new AppDbContext(options));
+        container.RegisterSingleton(() => new AppDbContext(options));
         container.Register<AppDbContextInitializer>();
 
         return container;

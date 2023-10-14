@@ -1,4 +1,6 @@
-﻿namespace StudentToolkit.Infrastructure.Data.Configurations;
+﻿using StudentToolkit.Infrastructure.Data.Configurations.Converters;
+
+namespace StudentToolkit.Infrastructure.Data.Configurations;
 
 public sealed class AbsenceConfiguration : IEntityTypeConfiguration<Absence>
 {
@@ -8,7 +10,7 @@ public sealed class AbsenceConfiguration : IEntityTypeConfiguration<Absence>
 
         builder
             .Property(x => x.Date)
-            .HasColumnType("DATE")
+            .HasConversion<DateOnlyConverter>()
             .IsRequired();
 
         builder
