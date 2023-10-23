@@ -1,6 +1,4 @@
-﻿using StudentToolkit.MVVM.ViewModels.Model;
-using StudentToolkit.MVVM.ViewModels.Presentation.CreateGroup;
-using StudentToolkit.WpfCore.Commands.Base;
+﻿using StudentToolkit.WpfCore.Commands.Base;
 
 namespace StudentToolkit.WpfCore.Commands.CreateGroup;
 

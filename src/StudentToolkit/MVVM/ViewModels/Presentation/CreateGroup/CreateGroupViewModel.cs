@@ -8,7 +8,7 @@ namespace StudentToolkit.MVVM.ViewModels.Presentation.CreateGroup;
 public sealed class CreateGroupViewModel : ValidatableViewModel
 {
     private readonly CreateGroupViewModelValidator _validator;
-    private string _groupName = string.Empty;
+    private string _groupCode = string.Empty;
 
     public CreateGroupViewModel(NavigationService navigationService)
     {
@@ -26,10 +26,10 @@ public sealed class CreateGroupViewModel : ValidatableViewModel
 
     public ObservableCollection<StudentViewModel> Students { get; }
 
-    public string GroupName
+    public string GroupCode
     {
-        get => _groupName;
-        set => ValidatableSet(_validator, this, ref _groupName, value);
+        get => _groupCode;
+        set => ValidatableSet(_validator, this, ref _groupCode, value);
     }
 
     public ICommand ShowCreateStudentDialogCommand { get; }
