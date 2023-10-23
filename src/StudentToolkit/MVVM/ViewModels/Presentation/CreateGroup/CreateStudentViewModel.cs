@@ -1,35 +1,42 @@
 ﻿using System.Windows.Input;
 
+using StudentToolkit.MVVM.Validation.CreateGroup;
+
 namespace StudentToolkit.MVVM.ViewModels.Presentation.CreateGroup;
 
 public sealed class CreateStudentViewModel : DialogViewModel
 {
+    private readonly CreateStudentViewModelValidator _validator;
+
     private string _firstName = string.Empty;
     private string _middleName = string.Empty;
     private string _lastName = string.Empty;
 
     public CreateStudentViewModel()
     {
+        _validator = new CreateStudentViewModelValidator();
         WindowTitle = "Добавить студента";
 
         CreateStudentCommand = new CreateStudentCommand(this);
         CancelCommand = new CancelStudentCreatingCommand(this);
+
+        Validate(_validator, this);
     }
 
     public string FirstName
     {
         get => _firstName;
-        set => Set(ref _firstName, value);
+        set => ValidatableSet(_validator, this, ref _firstName, value);
     }
     public string MiddleName
     {
         get => _middleName;
-        set => Set(ref _middleName, value);
+        set => ValidatableSet(_validator, this, ref _middleName, value);
     }
     public string LastName
     {
         get => _lastName;
-        set => Set(ref _lastName, value);
+        set => ValidatableSet(_validator, this, ref _lastName, value);
     }
 
     public ICommand CreateStudentCommand { get; }
