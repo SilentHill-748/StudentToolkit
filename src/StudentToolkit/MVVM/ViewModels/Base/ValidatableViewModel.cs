@@ -30,6 +30,17 @@ public class ValidatableViewModel : ViewModel, INotifyDataErrorInfo
         return new List<string>();
     }
 
+    protected void ValidatableSet<TViewModel, TField>(
+        AbstractValidator<TViewModel> validator,
+        TViewModel instance,
+        ref TField field,
+        TField value,
+        [CallerMemberName] string propertyName = "")
+    {
+        Set(ref field, value, propertyName);
+        Validate(validator, instance, propertyName);
+    }
+
     protected void Validate<TViewModel>(
         AbstractValidator<TViewModel> validator,
         TViewModel instance,
