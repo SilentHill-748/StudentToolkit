@@ -6,6 +6,7 @@ public static class RegisterViewModelsExtention
     {
         container.Register<MainViewModel>();
         container.Register<NavigationViewModel>();
+        container.Register<CreateGroupViewModel>();
 
         return container;
     }

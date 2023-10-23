@@ -2,19 +2,19 @@
 
 public class NavigationViewModel : ViewModel
 {
-    private ViewModel _currentViewMdoel;
+    private ViewModel _currentViewModel;
 
-    public NavigationViewModel(MainViewModel defaultViewModel)
+    public NavigationViewModel(CreateGroupViewModel defaultViewModel)
     {
-        _currentViewMdoel = defaultViewModel;
+        _currentViewModel = defaultViewModel;
 
         WeakReferenceMessenger.Default.Register<WindowContentNavigationMessage>(this, OnNavigated);
     }
 
     public ViewModel CurrentViewModel
     {
-        get => _currentViewMdoel;
-        set => Set(ref _currentViewMdoel, value);
+        get => _currentViewModel;
+        set => Set(ref _currentViewModel, value);
     }
 
     private void OnNavigated(object recipient, WindowContentNavigationMessage message)

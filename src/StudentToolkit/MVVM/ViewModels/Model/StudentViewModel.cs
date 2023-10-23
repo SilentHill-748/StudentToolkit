@@ -1,21 +1,13 @@
-﻿using System.ComponentModel;
-
-namespace StudentToolkit.MVVM.ViewModels.Model;
+﻿namespace StudentToolkit.MVVM.ViewModels.Model;
 
 public sealed class StudentViewModel : ViewModel
 {
     private string _firstName = string.Empty;
     private string _middlename = string.Empty;
     private string _lastName = string.Empty;
-    private string _groupName = string.Empty;
 
-    public StudentViewModel()
-    {
-        PropertyChanged += StudentViewModel_PropertyChanged; ;
-    }
-
-    public string FullName => $"{MiddleName} {FirstName} {LastName}";
-    public string ShortFullName => $"{MiddleName} {FirstName[0]}. {LastName[0]}.";
+    public string FullName => $"{LastName} {FirstName} {MiddleName}";
+    public string ShortFullName => $"{LastName} {FirstName[0]}. {MiddleName[0]}.";
 
     public string FirstName
     {
@@ -31,16 +23,5 @@ public sealed class StudentViewModel : ViewModel
     {
         get => _lastName;
         set => Set(ref _lastName, value);
-    }
-    public string GroupName
-    {
-        get => _groupName;
-        set => Set(ref _groupName, value);
-    }
-
-    private void StudentViewModel_PropertyChanged(object? sender, PropertyChangedEventArgs e)
-    {
-        OnPropertyChanged(nameof(FullName));
-        OnPropertyChanged(nameof(ShortFullName));
     }
 }
