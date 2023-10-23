@@ -29,11 +29,7 @@ public sealed class CreateGroupViewModel : ValidatableViewModel
     public string GroupName
     {
         get => _groupName;
-        set
-        {
-            Set(ref _groupName, value);
-            Validate(_validator, this);
-        }
+        set => ValidatableSet(_validator, this, ref _groupName, value);
     }
 
     public ICommand ShowCreateStudentDialogCommand { get; }
