@@ -2,14 +2,14 @@
 
 namespace StudentToolkit.MVVM.Validation.CreateGroup;
 
-public sealed partial class CreateGroupValidator : AbstractValidator<CreateGroupViewModel>
+public sealed partial class CreateGroupViewModelValidator : AbstractValidator<CreateGroupViewModel>
 {
     private const string GroupNameEmptyErrorMessage
         = "Шифр группы должен быть заполнен.";
     private const string GroupNameIncorrectErrorMessage 
         = "Шифр группы указан неверно. Пример: ЭВТ-99-9бЛФ";
 
-    public CreateGroupValidator()
+    public CreateGroupViewModelValidator()
     {
         RuleFor(vm => vm.GroupName)
             .NotEmpty()

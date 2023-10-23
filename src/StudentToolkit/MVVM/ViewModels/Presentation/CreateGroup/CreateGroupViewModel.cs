@@ -7,12 +7,12 @@ namespace StudentToolkit.MVVM.ViewModels.Presentation.CreateGroup;
 
 public sealed class CreateGroupViewModel : ValidatableViewModel
 {
-    private readonly CreateGroupValidator _validator;
+    private readonly CreateGroupViewModelValidator _validator;
     private string _groupName = string.Empty;
 
     public CreateGroupViewModel(NavigationService navigationService)
     {
-        _validator = new CreateGroupValidator();
+        _validator = new CreateGroupViewModelValidator();
         WindowTitle = "Создание группы студентов";
 
         Students = new ObservableCollection<StudentViewModel>();
