@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
-using FluentValidation;
 using FluentValidation.Results;
 
 namespace StudentToolkit.MVVM.ViewModels.Base;
@@ -43,7 +42,7 @@ public class ValidatableViewModel : ViewModel, INotifyDataErrorInfo
 
         ClearErrors(propertyName);
 
-        AddErrors(result, propertyName);
+        AddErrors(result);
     }
 
     protected void OnErorrsChanged([CallerMemberName] string propertyName = "")
@@ -51,22 +50,27 @@ public class ValidatableViewModel : ViewModel, INotifyDataErrorInfo
         ErrorsChanged?.Invoke(this, new DataErrorsChangedEventArgs(propertyName));
     }
 
-    private void ClearErrors(string propertyName)
+    private void ClearErrors(string propertyName = "")
     {
-        if (_errors.Remove(propertyName))
+        if (string.IsNullOrEmpty(propertyName))
         {
-            OnErorrsChanged(propertyName);
+            _errors.Clear();
+            return;
         }
+
+        _errors.Remove(propertyName);
+
+        OnErorrsChanged(propertyName);
     }
 
-    private void AddErrors(ValidationResult validationResult, string propertyName)
+
+    private void AddErrors(ValidationResult validationResult)
     {
         var errors = validationResult.Errors;
 
         foreach (ValidationFailure error in errors)
         {
-            if (error.PropertyName.Equals(propertyName))
-                AddError(error);
+            AddError(error);
         }
     }
 

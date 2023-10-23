@@ -19,4 +19,10 @@ public sealed class CreateGroupCommand : Command
 
         _navigationService.NavigateTo<MainViewModel, WindowContentNavigationMessage>(navigationQuery);
     }
+
+    public override bool CanExecute()
+    {
+        return  _viewModel.HasNoErrors && 
+                _viewModel.Students.Count > 5;
+    }
 }
