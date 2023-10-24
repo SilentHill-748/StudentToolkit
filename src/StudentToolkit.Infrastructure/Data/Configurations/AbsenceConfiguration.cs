@@ -2,14 +2,29 @@
 
 namespace StudentToolkit.Infrastructure.Data.Configurations;
 
-public sealed class AbsenceConfiguration : IEntityTypeConfiguration<Absence>
+internal sealed class AbsenceConfiguration : IEntityTypeConfiguration<Absence>
 {
     public void Configure(EntityTypeBuilder<Absence> builder)
     {
         builder.ToTable("absences");
 
         builder
+            .Property(x => x.Id)
+            .HasColumnName("absence_id");
+
+        builder
+            .Property(x => x.SubjectId)
+            .HasColumnName("subject_id")
+            .IsRequired();
+
+        builder
+            .Property(x => x.StudentId)
+            .HasColumnName("student_id")
+            .IsRequired();
+
+        builder
             .Property(x => x.Date)
+            .HasColumnName("date")
             .HasConversion<DateOnlyConverter>()
             .IsRequired();
 

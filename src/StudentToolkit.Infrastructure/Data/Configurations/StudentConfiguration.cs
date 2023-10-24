@@ -1,6 +1,6 @@
 ﻿namespace StudentToolkit.Infrastructure.Data.Configurations;
 
-public sealed class StudentConfiguration : IEntityTypeConfiguration<Student>
+internal sealed class StudentConfiguration : IEntityTypeConfiguration<Student>
 {
     public void Configure(EntityTypeBuilder<Student> builder)
     {
@@ -9,6 +9,11 @@ public sealed class StudentConfiguration : IEntityTypeConfiguration<Student>
         builder
             .Property(x => x.Id)
             .HasColumnName("student_id");
+
+        builder
+            .Property(x => x.GroupId)
+            .HasColumnName("group_id")
+            .IsRequired();
 
         builder
             .Property(x => x.FirstName)
@@ -26,12 +31,6 @@ public sealed class StudentConfiguration : IEntityTypeConfiguration<Student>
             .Property(x => x.LastName)
             .HasColumnName("last_name")
             .HasMaxLength(50)
-            .IsRequired();
-
-        builder
-            .Property(x => x.GroupName)
-            .HasColumnName("group_name")
-            .HasMaxLength(11)
             .IsRequired();
     }
 }

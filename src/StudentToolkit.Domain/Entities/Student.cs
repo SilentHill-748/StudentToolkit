@@ -2,5 +2,7 @@
 
 public sealed class Student : PersonEntity
 {
-    public string? GroupName { get; set; }
+    public Guid GroupId { get; set; }
+    public Group? Group { get; set; }
+    public ICollection<Absence>? Absences { get; set; }
 }
