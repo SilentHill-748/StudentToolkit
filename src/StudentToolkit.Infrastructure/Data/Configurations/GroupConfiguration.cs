@@ -13,6 +13,7 @@ internal sealed class GroupConfiguration : IEntityTypeConfiguration<Group>
         builder
             .Property(x => x.GroupCode)
             .HasColumnName("group_code")
+            .HasMaxLength(11)
             .IsRequired();
     }
 }
