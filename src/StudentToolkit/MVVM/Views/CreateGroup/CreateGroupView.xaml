@@ -1,0 +1,106 @@
+﻿<UserControl x:Class="StudentToolkit.MVVM.Views.CreateGroup.CreateGroupView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:ViewModel="clr-namespace:StudentToolkit.MVVM.ViewModels.Presentation.CreateGroup"
+             d:DataContext="{d:DesignInstance Type=ViewModel:CreateGroupViewModel}"
+             mc:Ignorable="d"
+             SnapsToDevicePixels="True"
+             FontSize="20">
+
+    <UserControl.Resources>
+        <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
+
+        <Style TargetType="TextBox">
+            <Style.Triggers>
+                <Trigger Property="Validation.HasError" Value="True">
+                    <Setter Property="ToolTip" 
+                            Value="{Binding RelativeSource={RelativeSource Self}, Path=(Validation.Errors)[0].ErrorContent}"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </UserControl.Resources>
+    
+    <Grid Margin="50">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <TextBlock 
+            Text="{Binding WindowTitle}"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Top"
+            FontSize="28"
+            Margin="0 0 0 20"/>
+
+        <StackPanel 
+            Grid.Row="1"
+            Orientation="Horizontal">
+            
+            <TextBlock 
+                Text="Название группы:"
+                Margin="0 0 5 0"/>
+            
+            <TextBox 
+                Text="{Binding GroupCode, UpdateSourceTrigger=PropertyChanged}" 
+                MinWidth="200" 
+                Padding="5 0 0 0"/>
+        </StackPanel>
+
+        <Button 
+            Grid.Row="2"
+            Padding="10 3"
+            Margin="0 10 0 50"
+            HorizontalAlignment="Left"
+            Content="Добавить студента"
+            Command="{Binding ShowCreateStudentDialogCommand, Mode=OneTime}"/>
+
+        <TextBlock 
+            Grid.Row="3"
+            Text="Студенты"
+            Margin="0 0 0 3"
+            FontSize="26"/>
+
+        <Border
+            Grid.Row="4"
+            BorderBrush="Gray"
+            BorderThickness="5 0 0 0"
+            Margin="0 0 0 50">
+            
+            <ItemsControl 
+                ItemsSource="{Binding Students}" 
+                Padding="10 0 0 0">
+
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate DataType="StudentViewModel">
+                        <TextBlock Text="{Binding ShortFullName}"/>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </Border>
+
+        <StackPanel 
+            Grid.Row="5"
+            Orientation="Horizontal"
+            VerticalAlignment="Top"
+            HorizontalAlignment="Center">
+            
+            <Button 
+                Content="Создать группу"
+                Margin="0 0 10 0"
+                Padding="10 3"
+                Command="{Binding CreateGroupCommand, Mode=OneTime}"/>
+            
+            <Button
+                Content="Выход"
+                Click="CloseBtn_Click"
+                Padding="10 3"/>
+        </StackPanel>
+    </Grid>
+</UserControl>
