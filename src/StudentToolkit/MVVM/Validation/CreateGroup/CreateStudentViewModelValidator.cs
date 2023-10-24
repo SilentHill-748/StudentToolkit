@@ -41,6 +41,6 @@ public sealed partial class CreateStudentViewModelValidator : AbstractValidator<
     [GeneratedRegex("^[А-ЯЁ]{1}[а-яё]+$")]
     private static partial Regex FirstNameRegex();
 
-    [GeneratedRegex("^[A-ЯЁ][а-яё]+[ '-]*[A-ЯЁа-яё]+$")]
+    [GeneratedRegex("^[а-яёА-ЯЁ]+(?:[-' ][а-яёА-ЯЁ]+)*$")]
     private static partial Regex LastAndMiddleNameRegex();
 }

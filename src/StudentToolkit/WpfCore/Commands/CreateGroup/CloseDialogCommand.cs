@@ -2,11 +2,11 @@
 
 namespace StudentToolkit.WpfCore.Commands.CreateGroup;
 
-public sealed class CancelStudentCreatingCommand : Command
+public sealed class CloseDialogCommand : Command
 {
-    private readonly CreateStudentViewModel _viewModel;
+    private readonly DialogViewModel _viewModel;
 
-    public CancelStudentCreatingCommand(CreateStudentViewModel viewModel)
+    public CloseDialogCommand(DialogViewModel viewModel)
     {
         _viewModel = viewModel;
     }

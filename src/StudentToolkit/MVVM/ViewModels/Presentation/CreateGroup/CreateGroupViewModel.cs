@@ -1,4 +1,5 @@
-﻿using System.Collections.ObjectModel;
+﻿using System;
+using System.Collections.ObjectModel;
 using System.Windows.Input;
 
 using StudentToolkit.MVVM.Validation.CreateGroup;
@@ -10,15 +11,22 @@ public sealed class CreateGroupViewModel : ValidatableViewModel
     private readonly CreateGroupViewModelValidator _validator;
     private string _groupCode = string.Empty;
 
-    public CreateGroupViewModel(NavigationService navigationService)
+    public CreateGroupViewModel(
+        CreateGroupViewModelValidator validator,
+        CreateStudentViewModelValidator studentValidator,
+        NavigationService navigationService)
     {
-        _validator = new CreateGroupViewModelValidator();
+        ArgumentNullException.ThrowIfNull(validator, nameof(validator));
+        ArgumentNullException.ThrowIfNull(studentValidator, nameof(studentValidator));
+        ArgumentNullException.ThrowIfNull(navigationService, nameof(navigationService));
+
+        _validator = validator;
         WindowTitle = "Создание группы студентов";
 
         Students = new ObservableCollection<StudentViewModel>();
         Students.CollectionChanged += Students_CollectionChanged;
 
-        ShowCreateStudentDialogCommand = new ShowCreateStudentDialogCommand(this);
+        ShowCreateStudentDialogCommand = new ShowCreateStudentDialogCommand(this, studentValidator);
         CreateGroupCommand = new CreateGroupCommand(this, navigationService);
 
         Validate(_validator, this);

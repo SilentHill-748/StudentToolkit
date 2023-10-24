@@ -10,8 +10,11 @@ public static class RegisterValidationExtention
 
         var serviceImplementations = container.GetTypesToRegister(serviceType, assemplies);
 
-        container.Register(serviceType, serviceImplementations);
-
+        foreach (Type serviceImplementation in serviceImplementations)
+        {
+            container.Register(serviceImplementation);
+        } 
+        
         return container;
     }
 }

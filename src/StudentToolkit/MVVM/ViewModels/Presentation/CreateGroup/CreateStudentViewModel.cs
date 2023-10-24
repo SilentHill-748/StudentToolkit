@@ -12,13 +12,13 @@ public sealed class CreateStudentViewModel : DialogViewModel
     private string _middleName = string.Empty;
     private string _lastName = string.Empty;
 
-    public CreateStudentViewModel()
+    public CreateStudentViewModel(CreateStudentViewModelValidator validator)
     {
-        _validator = new CreateStudentViewModelValidator();
+        _validator = validator;
         WindowTitle = "Добавить студента";
 
         CreateStudentCommand = new CreateStudentCommand(this);
-        CancelCommand = new CancelStudentCreatingCommand(this);
+        CancelCommand = new CloseDialogCommand(this);
 
         Validate(_validator, this);
     }
