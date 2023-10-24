@@ -1,13 +1,22 @@
 ﻿namespace StudentToolkit.Infrastructure.Data.Configurations;
 
-public sealed class SubjectConfiguration : IEntityTypeConfiguration<Subject>
+internal sealed class SubjectConfiguration : IEntityTypeConfiguration<Subject>
 {
     public void Configure(EntityTypeBuilder<Subject> builder)
     {
         builder.ToTable("subjects");
 
         builder
+            .Property(x => x.Id)
+            .HasColumnName("subject_id");
+
+        builder
+            .Property(x => x.TeacherId)
+            .HasColumnName("teacher_id");
+
+        builder
             .Property(x => x.Name)
+            .HasColumnName("name")
             .HasMaxLength(50)
             .IsRequired();
     }

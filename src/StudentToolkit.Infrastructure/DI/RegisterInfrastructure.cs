@@ -6,9 +6,9 @@ namespace StudentToolkit.Infrastructure.DI;
 
 public static class RegisterInfrastructure
 {
-    public static Container RegisterInfrastructureServices(this Container container, IConfiguration configuration)
+    public static Container RegisterInfrastructureServices(this Container container, string[] args)
     {
-        container.RegisterDbContext(configuration);
+        container.RegisterDbContext(args);
 
         return container;
     }

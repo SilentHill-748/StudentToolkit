@@ -1,7 +1,4 @@
-﻿using System.Threading.Tasks;
-using System.Windows;
-
-using StudentToolkit.Infrastructure.Data;
+﻿using System.Windows;
 
 using DotNetApplication = System.Windows.Application;
 
@@ -10,21 +7,11 @@ namespace StudentToolkit;
 public partial class App : DotNetApplication
 {
     private readonly Container _container = new();
-    private readonly IConfiguration _configuration;
 
-    public App()
+    protected override void OnStartup(StartupEventArgs e)
     {
-        _configuration = new ConfigurationBuilder()
-            .AddEnvironmentVariables()
-            .Build();
-    }
-
-    protected override async void OnStartup(StartupEventArgs e)
-    {
-        AddServices();
+        AddServices(e.Args);
         ApplyDataTemplates();
-
-        await InitializeDatabaseAsync();
 
         MainWindow = _container.GetInstance<MainWindow>();
         MainWindow.Show();
@@ -37,20 +24,13 @@ public partial class App : DotNetApplication
         base.OnExit(e);
     }
 
-    private void AddServices()
+    private void AddServices(string[] args)
     {
         _container
             .RegisterWpfServices()
             .RegisterApplicationServices(typeof(App).Assembly)
-            .RegisterInfrastructureServices(_configuration)
+            .RegisterInfrastructureServices(args)
             .Verify();
-    }
-
-    private async Task InitializeDatabaseAsync()
-    {
-        var initializer = _container.GetInstance<AppDbContextInitializer>();
-
-        await initializer.InitializeAsync();
     }
 
     private void ApplyDataTemplates()

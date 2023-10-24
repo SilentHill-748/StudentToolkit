@@ -1,6 +1,6 @@
 ﻿namespace StudentToolkit.Infrastructure.Data.Configurations;
 
-public sealed class TeacherConfiguration : IEntityTypeConfiguration<Teacher>
+internal sealed class TeacherConfiguration : IEntityTypeConfiguration<Teacher>
 {
     public void Configure(EntityTypeBuilder<Teacher> builder)
     {
