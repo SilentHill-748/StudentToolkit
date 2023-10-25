@@ -8,7 +8,4 @@
         SizeToContent="WidthAndHeight"
         SnapsToDevicePixels="True"
         MinWidth="300"
-        MinHeight="150">
-
-    <ContentControl x:Name="DialogContentView"/>
-</Window>
+        MinHeight="150"/>

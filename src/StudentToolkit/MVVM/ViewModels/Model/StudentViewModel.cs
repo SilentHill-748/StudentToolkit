@@ -1,6 +1,8 @@
-﻿namespace StudentToolkit.MVVM.ViewModels.Model;
+﻿using StudentToolkit.WpfCore;
 
-public sealed class StudentViewModel : ViewModel
+namespace StudentToolkit.MVVM.ViewModels.Model;
+
+public sealed class StudentViewModel : ViewModel, IDialogResult
 {
     private string _firstName = string.Empty;
     private string _middlename = string.Empty;

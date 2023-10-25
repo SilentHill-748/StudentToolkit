@@ -1,6 +1,7 @@
 ﻿using System.Windows.Input;
 
 using StudentToolkit.MVVM.Validation.CreateGroup;
+using StudentToolkit.WpfCore.Commands.Dialog;
 
 namespace StudentToolkit.MVVM.ViewModels.Presentation.CreateGroup;
 
@@ -17,8 +18,8 @@ public sealed class CreateStudentViewModel : DialogViewModel
         _validator = validator;
         WindowTitle = "Добавить студента";
 
-        CreateStudentCommand = new CreateStudentCommand(this);
-        CancelCommand = new CloseDialogCommand(this);
+        CreateStudentCommand = new ApplyDialogCommand(this, () => HasNoErrors);
+        CancelCommand = new CancelDialogCommand(this);
 
         Validate(_validator, this);
     }
@@ -41,4 +42,14 @@ public sealed class CreateStudentViewModel : DialogViewModel
 
     public ICommand CreateStudentCommand { get; }
     public ICommand CancelCommand { get; }
+
+    public override void CreateDialogResult()
+    {
+        DialogResult = new StudentViewModel()
+        {
+            FirstName = _firstName,
+            MiddleName = _middleName,
+            LastName = _lastName
+        };
+    }
 }

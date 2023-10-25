@@ -1,7 +1,4 @@
 ﻿using System.Windows;
-using System.Windows.Controls;
-
-using StudentToolkit.MVVM.Models.DialogResults;
 
 namespace StudentToolkit.WpfCore.Services;
 
@@ -10,43 +7,32 @@ namespace StudentToolkit.WpfCore.Services;
 /// </summary>
 public sealed class DialogService
 {
-    private const string ContentControlName = "DialogContentView";
-
     /// <summary>
-    /// Open dialog window that represents the specialize view model.
+    /// Open <see cref="DialogWindow"/> with <see cref="DialogViewModel"/> as window content.
     /// </summary>
-    /// <typeparam name="TViewModel">The view model of dialog window.</typeparam>
+    /// <typeparam name="TResult">The result of <see cref="DialogWindow"/>. Represents <see cref="IDialogResult"/>.</typeparam>
     /// <param name="viewModel">The instance of view model for dialog window.</param>
-    /// /// <param name="resizeMode">The resize mode of dialog window.</param>
-    /// <returns>The <see cref="DialogResult"/> object.</returns>
-    public static DialogResult ShowDialog<TViewModel>(TViewModel viewModel, ResizeMode resizeMode = ResizeMode.NoResize)
-        where TViewModel : DialogViewModel
+    /// /// <param name="resizeMode">The resize mode of dialog window. <see cref="ResizeMode.NoResize"/> by default.</param>
+    /// <returns>The <see cref="IDialogResult"/> object that represents the specified <typeparamref name="TResult"/>.</returns>
+    public static TResult? ShowDialog<TResult>(DialogViewModel viewModel, ResizeMode resizeMode = ResizeMode.NoResize)
+        where TResult: IDialogResult
     {
-        bool result = ShowWithResult(viewModel, resizeMode);
+        ShowDialogInternal(viewModel, resizeMode);
 
-        if (result)
-        {
-            viewModel.DialogResult.IsSuccess = true;
-        }
-
-        return viewModel.DialogResult;
+        return (TResult?)viewModel.DialogResult;
     }
 
-    private static bool ShowWithResult<TViewModel>(TViewModel viewModel, ResizeMode resizeMode)
-        where TViewModel : DialogViewModel
+    private static void ShowDialogInternal(DialogViewModel viewModel, ResizeMode resizeMode)
     {
         var dialogWindow = new DialogWindow()
         {
-            Title = viewModel.WindowTitle,
-            ResizeMode = resizeMode
+            Content = viewModel,
+            ResizeMode = resizeMode,
+            Title = viewModel.WindowTitle
         };
 
         viewModel.Close = dialogWindow.Close;
 
-        var control = (ContentControl)dialogWindow.FindName(ContentControlName);
-
-        control.Content = viewModel;
-
-        return dialogWindow.ShowDialog() == true;
+        dialogWindow.ShowDialog();
     }
 }
