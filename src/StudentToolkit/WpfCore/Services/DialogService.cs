@@ -17,12 +17,11 @@ public sealed class DialogService
     public static TResult? ShowDialog<TResult>(DialogViewModel viewModel, ResizeMode resizeMode = ResizeMode.NoResize)
         where TResult: IDialogResult
     {
-        ShowDialogInternal(viewModel, resizeMode);
-
-        return (TResult?)viewModel.DialogResult;
+        return InternalShowDialog<TResult>(viewModel, resizeMode);
     }
 
-    private static void ShowDialogInternal(DialogViewModel viewModel, ResizeMode resizeMode)
+    private static TResult? InternalShowDialog<TResult>(DialogViewModel viewModel, ResizeMode resizeMode)
+        where TResult: IDialogResult
     {
         var dialogWindow = new DialogWindow()
         {
@@ -34,5 +33,7 @@ public sealed class DialogService
         viewModel.Close = dialogWindow.Close;
 
         dialogWindow.ShowDialog();
+
+        return (TResult?)viewModel.DialogResult;
     }
 }

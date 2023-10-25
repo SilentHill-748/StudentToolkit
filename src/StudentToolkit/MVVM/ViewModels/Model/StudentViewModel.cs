@@ -1,6 +1,4 @@
-﻿using StudentToolkit.WpfCore;
-
-namespace StudentToolkit.MVVM.ViewModels.Model;
+﻿namespace StudentToolkit.MVVM.ViewModels.Model;
 
 public sealed class StudentViewModel : ViewModel, IDialogResult
 {

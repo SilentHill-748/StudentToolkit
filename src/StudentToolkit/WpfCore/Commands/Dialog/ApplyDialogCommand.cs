@@ -4,7 +4,7 @@ using StudentToolkit.WpfCore.Commands.Base;
 
 namespace StudentToolkit.WpfCore.Commands.Dialog;
 
-public class ApplyDialogCommand : Command
+public sealed class ApplyDialogCommand : Command
 {
     private readonly DialogViewModel _viewModel;
     private readonly Func<bool>? _canExecute;
