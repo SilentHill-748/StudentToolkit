@@ -1,12 +1,12 @@
 ﻿using StudentToolkit.WpfCore.Commands.Base;
 
-namespace StudentToolkit.WpfCore.Commands.CreateGroup;
+namespace StudentToolkit.WpfCore.Commands.Dialog;
 
-public sealed class CloseDialogCommand : Command
+public sealed class CancelDialogCommand : Command
 {
     private readonly DialogViewModel _viewModel;
 
-    public CloseDialogCommand(DialogViewModel viewModel)
+    public CancelDialogCommand(DialogViewModel viewModel)
     {
         _viewModel = viewModel;
     }

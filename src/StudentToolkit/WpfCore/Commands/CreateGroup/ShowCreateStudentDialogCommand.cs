@@ -18,11 +18,14 @@ public sealed class ShowCreateStudentDialogCommand : Command
 
     public override void Execute()
     {
-        var dialogResult = DialogService.ShowDialog(
-            new CreateStudentViewModel(_validator));
+        var dialogViewModel = new CreateStudentViewModel(_validator);
 
-        if (dialogResult.IsSuccess)
-            _viewModel.Students.Add((StudentViewModel)dialogResult.Result!);
+        var student = DialogService.ShowDialog<StudentViewModel>(dialogViewModel);
+
+        if (student is null)
+            return;
+
+        _viewModel.Students.Add(student);
     }
 
     public override bool CanExecute()

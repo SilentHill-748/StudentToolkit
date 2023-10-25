@@ -1,25 +1,15 @@
 ﻿using System;
 using System.Windows;
 
-using StudentToolkit.MVVM.Models.DialogResults;
-
 namespace StudentToolkit.MVVM.ViewModels.Base;
 
-public class DialogViewModel : ValidatableViewModel
+public abstract class DialogViewModel : ValidatableViewModel
 {
-    private DialogResult _result = new();
-    private ResizeMode _resizeMode;
-
     public Action? Close { get; set; }
 
-    public ResizeMode ResizeMode
-    {
-        get => _resizeMode;
-        set => Set(ref _resizeMode, value);
-    }
-    public DialogResult DialogResult
-    {
-        get => _result;
-        set => Set(ref _result, value);
-    }
+    public ResizeMode ResizeMode { get; set; }
+
+    public IDialogResult? DialogResult { get; set; }
+
+    public abstract void CreateDialogResult();
 }
