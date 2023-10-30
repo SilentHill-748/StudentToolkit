@@ -11,6 +11,10 @@ internal sealed class GroupConfiguration : IEntityTypeConfiguration<Group>
             .HasColumnName("group_id");
 
         builder
+            .HasIndex(x => x.GroupCode)
+            .IsUnique();
+
+        builder
             .Property(x => x.GroupCode)
             .HasColumnName("group_code")
             .HasMaxLength(11)
