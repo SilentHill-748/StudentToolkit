@@ -11,7 +11,7 @@ public sealed partial class CreateGroupViewModelValidator : AbstractValidator<Cr
 
     public CreateGroupViewModelValidator()
     {
-        RuleFor(vm => vm.Group.GroupCode)
+        RuleFor(vm => vm.GroupCode)
             .NotEmpty()
             .WithMessage(GroupCodeEmptyErrorMessage)
             .Must(name => NameRegex().IsMatch(name))

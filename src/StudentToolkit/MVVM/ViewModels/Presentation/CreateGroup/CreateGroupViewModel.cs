@@ -9,6 +9,8 @@ public sealed class CreateGroupViewModel : ValidatableViewModel
 {
     private readonly CreateGroupViewModelValidator _validator;
 
+    private string _groupCode = string.Empty;
+
     public CreateGroupViewModel(
         GroupStore groupStore,
         ILogger logger,
@@ -35,6 +37,12 @@ public sealed class CreateGroupViewModel : ValidatableViewModel
     }
 
     public GroupViewModel Group { get; }
+
+    public string GroupCode
+    {
+        get => _groupCode;
+        set => ValidatableSet(_validator, this, ref _groupCode, value);
+    }
 
     public ICommand ShowCreateStudentDialogCommand { get; }
     public ICommand CreateGroupCommand { get; }
