@@ -1,6 +1,7 @@
 ﻿using System.Linq.Expressions;
 
 using StudentToolkit.Application.Common.Interfaces;
+using StudentToolkit.Domain.Exceptions;
 
 namespace StudentToolkit.Application.Services;
 
@@ -17,7 +18,7 @@ public sealed class GroupService : Service, IGroupService
         var group = await DbContext.Groups
             .Include(g => g.Students)
             .FirstOrDefaultAsync(predicate) ??
-                throw new ArgumentException($"Group is not found by predicate.\n{predicate}");
+                throw new GroupNotFoundException(predicate);
 
         return group.Adapt<GroupDto>();
     }
@@ -38,7 +39,7 @@ public sealed class GroupService : Service, IGroupService
 
         var group = await DbContext.Groups
             .FirstOrDefaultAsync(g => g.GroupCode == groupDto.GroupCode) ??
-                throw new ArgumentException($"Group '{groupDto.GroupCode}' is not found.");
+                throw new GroupNotFoundException(groupDto);
 
         group.GroupCode = groupDto.GroupCode;
         group.Students = groupDto.Students.Adapt<ICollection<Student>>();
