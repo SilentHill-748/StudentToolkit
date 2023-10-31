@@ -15,6 +15,7 @@ public sealed class GroupService : Service, IGroupService
         ArgumentNullException.ThrowIfNull(predicate, nameof(predicate));
 
         var group = await DbContext.Groups
+            .Include(g => g.Students)
             .FirstOrDefaultAsync(predicate) ??
                 throw new ArgumentException($"Group is not found by predicate.\n{predicate}");
 

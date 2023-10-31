@@ -4,7 +4,7 @@ public static class RegisterViewModelsExtention
 {
     public static Container RegisterViewModels(this Container container)
     {
-        container.Register<MainViewModel>();
+        container.RegisterSingleton<MainViewModel>();
         container.Register<CreateGroupViewModel>();
 
         return container;

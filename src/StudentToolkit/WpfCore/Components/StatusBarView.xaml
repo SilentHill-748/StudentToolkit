@@ -13,7 +13,7 @@
             <TextBlock Text="{Binding StringFormat={}Сегодня: {0:yyyy-MM-dd HH:mm:ss}, Path=CurrentDate}"
                        Margin="10 0 0 0"/>
             
-            <TextBlock Text="{Binding StringFormat={}Группа: {0}, Path=GroupName}"
+            <TextBlock Text="{Binding StringFormat={}Группа: {0}, Path=GroupCode}"
                        Margin="10 0 0 0"/>
         </StackPanel>
     </Border>

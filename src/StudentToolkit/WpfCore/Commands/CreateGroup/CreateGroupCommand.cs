@@ -24,6 +24,8 @@ public sealed class CreateGroupCommand : AsyncCommand
 
     public override async Task ExecuteAsync()
     {
+        _viewModel.Group.GroupCode = _viewModel.GroupCode;
+
         await _groupStore.CreateGroupAsync(_viewModel.Group);
 
         var navigationQuery = new WindowNavigationQuery();

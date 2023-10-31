@@ -1,4 +1,4 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 
 using Mapster;
@@ -32,8 +32,8 @@ public sealed class GroupStore : IDisposable
         _lazyInitialization = new Lazy<Task>(InternalLoadAsync, true);
     }
 
-    public event Action? Loaded;
-    public event Action? Updated;
+    public event Action<GroupViewModel>? Loaded;
+    public event Action<GroupViewModel>? Updated;
 
     public GroupViewModel Group => _group;
 
@@ -41,9 +41,7 @@ public sealed class GroupStore : IDisposable
     {
         await _lazyInitialization.Value;
 
-        _logger.Debug($"GroupStore is loaded. Group code is {_group.GroupCode}, count of students is {_group.Students.Count}.");
-
-        Loaded?.Invoke();
+        Loaded?.Invoke(_group);
     }
 
     public async Task CreateGroupAsync(GroupViewModel groupVm)
@@ -77,7 +75,7 @@ public sealed class GroupStore : IDisposable
 
         _logger.Debug("GroupStore is updated.");
 
-        Updated?.Invoke();
+        Updated?.Invoke(_group);
     }
 
     private async Task InternalLoadAsync()
@@ -94,7 +92,7 @@ public sealed class GroupStore : IDisposable
 
             var groupDto = await _groupService.GetGroupAsync(g => g.GroupCode.Equals(groupCode));
                 
-            var students = groupDto.Students.Adapt<IQueryable<StudentViewModel>>();
+            var students = groupDto.Students.Adapt<ICollection<StudentViewModel>>();
 
             _group = new GroupViewModel()
             {
