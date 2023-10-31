@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace StudentToolkit.Configuration.DI;
+namespace StudentToolkit.Configuration.DI.Extentions;
 
 public static class RegisterServicesExtention
 {

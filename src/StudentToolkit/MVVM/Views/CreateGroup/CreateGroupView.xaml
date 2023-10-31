@@ -48,7 +48,7 @@
                 Margin="0 0 5 0"/>
             
             <TextBox 
-                Text="{Binding GroupCode, UpdateSourceTrigger=PropertyChanged}" 
+                Text="{Binding Group.GroupCode, UpdateSourceTrigger=PropertyChanged}" 
                 MinWidth="200" 
                 Padding="5 0 0 0"/>
         </StackPanel>
@@ -74,7 +74,7 @@
             Margin="0 0 0 50">
             
             <ItemsControl 
-                ItemsSource="{Binding Students}" 
+                ItemsSource="{Binding Group.Students}" 
                 Padding="10 0 0 0">
 
                 <ItemsControl.ItemTemplate>

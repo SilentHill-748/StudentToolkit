@@ -4,7 +4,7 @@ public class NavigationViewModel : ViewModel
 {
     private ViewModel _currentViewModel;
 
-    public NavigationViewModel(CreateGroupViewModel defaultViewModel)
+    public NavigationViewModel(ViewModel defaultViewModel)
     {
         _currentViewModel = defaultViewModel;
 
