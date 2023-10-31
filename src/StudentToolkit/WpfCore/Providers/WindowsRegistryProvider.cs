@@ -29,17 +29,16 @@ public class WindowsRegistryProvider : IDisposable
         _appSubKey.DeleteSubKeyTree(subKeyName, true);
     }
 
-    public bool HasValue(string valueName, string subKeyName)
+    public bool HasValue(string valueName, string subKeyName = "")
     {
         ArgumentException.ThrowIfNullOrEmpty(valueName, nameof(valueName));
-        ArgumentException.ThrowIfNullOrEmpty(subKeyName, nameof(subKeyName));
 
         using var subKey = TryOpenSubKey(subKeyName);
 
         return subKey.GetValueNames().Contains(valueName);
     }
 
-    public void WriteValue<TValue>(string valueName, string subKeyName, TValue value)
+    public void WriteValue<TValue>(string valueName, TValue value, string subKeyName = "")
     {
         ArgumentException.ThrowIfNullOrEmpty(valueName, nameof(valueName));
         ArgumentNullException.ThrowIfNull(value, nameof(value));
@@ -49,7 +48,7 @@ public class WindowsRegistryProvider : IDisposable
         subKey.SetValue(valueName, value);
     }
 
-    public TValue ReadValue<TValue>(string valueName, string subKeyName)
+    public TValue ReadValue<TValue>(string valueName, string subKeyName = "")
     {
         ArgumentException.ThrowIfNullOrEmpty(valueName, nameof(valueName));
 
@@ -61,7 +60,7 @@ public class WindowsRegistryProvider : IDisposable
             throw new ArgumentException($"Value '{valueName}' not found on application subkey tree.", nameof(valueName));
     }
 
-    public void DeleteValue(string valueName, string subKeyName)
+    public void DeleteValue(string valueName, string subKeyName = "")
     {
         ArgumentException.ThrowIfNullOrEmpty(valueName, nameof(valueName));
         ArgumentException.ThrowIfNullOrEmpty(subKeyName, nameof(subKeyName));

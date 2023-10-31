@@ -36,8 +36,8 @@ public sealed class GroupService : Service, IGroupService
         ArgumentNullException.ThrowIfNull(groupDto, nameof(groupDto));
 
         var group = await DbContext.Groups
-            .FirstOrDefaultAsync(g => g.Id == groupDto.Id) ??
-                throw new ArgumentException($"Group '{groupDto.Id}' is not found.");
+            .FirstOrDefaultAsync(g => g.GroupCode == groupDto.GroupCode) ??
+                throw new ArgumentException($"Group '{groupDto.GroupCode}' is not found.");
 
         group.GroupCode = groupDto.GroupCode;
         group.Students = groupDto.Students.Adapt<ICollection<Student>>();
