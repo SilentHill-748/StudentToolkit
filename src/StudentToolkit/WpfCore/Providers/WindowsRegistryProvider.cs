@@ -63,7 +63,6 @@ public class WindowsRegistryProvider : IDisposable
     public void DeleteValue(string valueName, string subKeyName = "")
     {
         ArgumentException.ThrowIfNullOrEmpty(valueName, nameof(valueName));
-        ArgumentException.ThrowIfNullOrEmpty(subKeyName, nameof(subKeyName));
 
         using var subKey = TryOpenSubKey(subKeyName);
 
