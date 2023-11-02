@@ -6,30 +6,22 @@ namespace StudentToolkit.WpfCore.Commands.Base;
 
 public abstract class AsyncCommand : ICommand
 {
-    private readonly Action<Exception> _exceptionHandler;
-    private bool _isExecuting;
+    private readonly ILogger _logger;
 
-    public AsyncCommand(Action<Exception> exceptionHandler)
+    public AsyncCommand(ILogger logger)
     {
-        ArgumentNullException.ThrowIfNull(exceptionHandler, nameof(exceptionHandler));
+        ArgumentNullException.ThrowIfNull(logger, nameof(logger));
 
-        _exceptionHandler = exceptionHandler;
+        _logger = logger;
     }
 
-    public event EventHandler? CanExecuteChanged;
-
-    public bool IsExecuting
+    public event EventHandler? CanExecuteChanged
     {
-        get => _isExecuting;
-        set
-        {
-            _isExecuting = value;
-            OnCanExecuteChanged();
-        }
+        add => CommandManager.RequerySuggested += value;
+        remove => CommandManager.RequerySuggested -= value;
     }
 
-    public void OnCanExecuteChanged()
-        => CanExecuteChanged?.Invoke(this, new EventArgs());
+    public bool IsExecuting { get; set; }
 
     public virtual bool CanExecute() => !IsExecuting;
 
@@ -39,14 +31,19 @@ public abstract class AsyncCommand : ICommand
 
     async void ICommand.Execute(object? parameter)
     {
+        var commandName = GetType().Name;
+
         try
         {
             IsExecuting = true;
+            
             await ExecuteAsync();
+
+            _logger.Debug($"The async command '{commandName}' is executed success.");
         }
         catch (Exception ex)
         {
-            _exceptionHandler?.Invoke(ex);
+            _logger.Error(ex, $"An exception has occurred on executing process of async command '{commandName}'.");
         }
         finally
         {

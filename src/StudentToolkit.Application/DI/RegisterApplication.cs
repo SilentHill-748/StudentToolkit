@@ -9,6 +9,7 @@ public static class RegisterApplication
     public static Container RegisterApplicationServices(this Container container, params Assembly[] assemblies)
     {
         container
+            .RegisterServices()
             .RegisterSerilog()
             .RegisterValidation(assemblies);
 

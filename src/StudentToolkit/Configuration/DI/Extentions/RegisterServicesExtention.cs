@@ -1,6 +1,6 @@
-﻿using System;
+﻿using StudentToolkit.WpfCore.Providers;
 
-namespace StudentToolkit.Configuration.DI;
+namespace StudentToolkit.Configuration.DI.Extentions;
 
 public static class RegisterServicesExtention
 {
@@ -8,6 +8,7 @@ public static class RegisterServicesExtention
     {
         var assembly = typeof(RegisterServicesExtention).Assembly;
 
+        container.RegisterSingleton<WindowsRegistryProvider>();
         container.RegisterSingleton<NavigationService>();
         container.RegisterSingleton(() => new DataTemplateService(assembly));
         container.RegisterSingleton<Func<Type, object>>(() => container.GetInstance);

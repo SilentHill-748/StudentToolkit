@@ -8,6 +8,7 @@ public sealed class StudentViewModel : ViewModel, IDialogResult
 
     public string FullName => $"{LastName} {FirstName} {MiddleName}";
     public string ShortFullName => $"{LastName} {FirstName[0]}. {MiddleName[0]}.";
+    public Guid Id {  get; set; }
 
     public string FirstName
     {

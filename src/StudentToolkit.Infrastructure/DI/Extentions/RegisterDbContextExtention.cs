@@ -6,7 +6,9 @@ public static class RegisterDbContextExtention
 {
     public static Container RegisterDbContext(this Container container, string[] args)
     {
-        container.RegisterSingleton(() => new AppDbContextFactory().CreateDbContext(args));
+        container.RegisterSingleton<IAppDbContext>(() => 
+            new AppDbContextFactory()
+                .CreateDbContext(args));
 
         return container;
     }

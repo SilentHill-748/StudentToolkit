@@ -5,7 +5,7 @@ namespace StudentToolkit.MVVM.ViewModels.Components;
 
 public sealed class StatusBarViewModel : ViewModel
 {
-    private string _groupName = string.Empty;
+    private string _groupCode = "-";
     private DateTime _date;
 
     public StatusBarViewModel()
@@ -13,10 +13,10 @@ public sealed class StatusBarViewModel : ViewModel
         InitializeTimer();
     }
 
-    public string GroupName
+    public string GroupCode
     {
-        get => string.IsNullOrWhiteSpace(_groupName) ? "-" : _groupName;
-        set => Set(ref _groupName, value);
+        get => _groupCode;
+        set => Set(ref _groupCode, value);
     }
     public DateTime CurrentDate
     {

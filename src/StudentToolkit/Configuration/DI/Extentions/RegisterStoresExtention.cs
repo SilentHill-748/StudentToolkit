@@ -1,0 +1,13 @@
+﻿using StudentToolkit.MVVM.Stores;
+
+namespace StudentToolkit.Configuration.DI.Extentions;
+
+public static class RegisterStoresExtention
+{
+    public static Container RegisterStores(this Container container)
+    {
+        container.RegisterSingleton<GroupStore>();
+
+        return container;
+    }
+}

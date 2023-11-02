@@ -1,9 +1,15 @@
-﻿global using CommunityToolkit.Mvvm.Messaging;
+﻿global using System;
+global using System.Collections.ObjectModel;
+
+global using CommunityToolkit.Mvvm.Messaging;
 global using CommunityToolkit.Mvvm.Messaging.Messages;
 
 global using FluentValidation;
 
+global using Mapster;
+
 global using Serilog;
+
 global using SimpleInjector;
 
 global using StudentToolkit.Application.DI;

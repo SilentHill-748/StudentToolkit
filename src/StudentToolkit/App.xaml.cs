@@ -1,4 +1,7 @@
-﻿using System.Windows;
+﻿using System.Threading.Tasks;
+using System.Windows;
+
+using StudentToolkit.MVVM.Stores;
 
 using DotNetApplication = System.Windows.Application;
 
@@ -8,12 +11,16 @@ public partial class App : DotNetApplication
 {
     private readonly Container _container = new();
 
-    protected override void OnStartup(StartupEventArgs e)
+    protected override async void OnStartup(StartupEventArgs e)
     {
         AddServices(e.Args);
         ApplyDataTemplates();
 
-        MainWindow = _container.GetInstance<MainWindow>();
+        var startupVm = await GetStartupViewModelAsync();
+
+        MainWindow = new MainWindow(
+            new NavigationViewModel(startupVm));
+
         MainWindow.Show();
     }
 
@@ -22,6 +29,20 @@ public partial class App : DotNetApplication
         _container.Dispose();
 
         base.OnExit(e);
+    }
+
+    private async Task<ViewModel> GetStartupViewModelAsync()
+    {
+        var store = _container.GetInstance<GroupStore>();
+
+        await store.LoadAsync();
+
+        if (string.IsNullOrEmpty(store.Group.GroupCode))
+        {
+            return _container.GetInstance<CreateGroupViewModel>();
+        }
+
+        return _container.GetInstance<MainViewModel>();
     }
 
     private void AddServices(string[] args)

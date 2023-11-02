@@ -1,4 +1,6 @@
-﻿namespace StudentToolkit.Configuration.DI;
+﻿using StudentToolkit.Configuration.DI.Extentions;
+
+namespace StudentToolkit.Configuration.DI;
 
 public static class RegisterWpf
 {
@@ -7,7 +9,7 @@ public static class RegisterWpf
         container
             .RegisterServices()
             .RegisterViewModels()
-            .RegisterViews();
+            .RegisterStores();
 
         return container;
     }
