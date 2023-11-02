@@ -6,6 +6,8 @@ global using CommunityToolkit.Mvvm.Messaging.Messages;
 
 global using FluentValidation;
 
+global using Mapster;
+
 global using Serilog;
 
 global using SimpleInjector;

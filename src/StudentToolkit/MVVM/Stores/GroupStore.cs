@@ -1,8 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 
-using Mapster;
-
 using StudentToolkit.Application.Common.Interfaces.Services;
 using StudentToolkit.Domain.Dto;
 using StudentToolkit.WpfCore.Providers;
