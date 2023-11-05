@@ -17,4 +17,8 @@
     <ProjectReference Include="..\StudentToolkit.Infrastructure\StudentToolkit.Infrastructure.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Resources\Assets\Notification\" />
+  </ItemGroup>
+
 </Project>
