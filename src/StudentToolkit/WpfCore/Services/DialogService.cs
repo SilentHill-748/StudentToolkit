@@ -8,20 +8,34 @@ namespace StudentToolkit.WpfCore.Services;
 public sealed class DialogService
 {
     /// <summary>
-    /// Open <see cref="DialogWindow"/> with <see cref="DialogViewModel"/> as window content.
+    /// Open the dialog window.
     /// </summary>
     /// <typeparam name="TResult">The result of <see cref="DialogWindow"/>. Represents <see cref="IDialogResult"/>.</typeparam>
     /// <param name="viewModel">The instance of view model for dialog window.</param>
     /// /// <param name="resizeMode">The resize mode of dialog window. <see cref="ResizeMode.NoResize"/> by default.</param>
-    /// <returns>The <see cref="IDialogResult"/> object that represents the specified <typeparamref name="TResult"/>.</returns>
-    public static TResult? ShowDialog<TResult>(DialogViewModel viewModel, ResizeMode resizeMode = ResizeMode.NoResize)
-        where TResult: IDialogResult
+    /// <returns>The result object that represents the specified <typeparamref name="TResult"/>.</returns>
+    public static TResult? ShowDialog<TResult>(
+        ResultDialogViewModel<TResult> viewModel,
+        ResizeMode resizeMode = ResizeMode.NoResize)
     {
-        return InternalShowDialog<TResult>(viewModel, resizeMode);
+        InternalShowDialog(viewModel, resizeMode);
+
+        return viewModel.DialogResult;
     }
 
-    private static TResult? InternalShowDialog<TResult>(DialogViewModel viewModel, ResizeMode resizeMode)
-        where TResult: IDialogResult
+    /// <summary>
+    /// <inheritdoc cref="ShowDialog{TResult}(ResultDialogViewModel{TResult}, ResizeMode)"/>
+    /// </summary>
+    /// <param name="viewModel">The instance of view model for dialog window.</param>
+    /// <param name="resizeMode">The resize mode of dialog window. <see cref="ResizeMode.NoResize"/> by default.</param>
+    public static void ShowDialog(
+        DialogViewModel viewModel, 
+        ResizeMode resizeMode = ResizeMode.NoResize)
+    {
+        InternalShowDialog(viewModel, resizeMode);
+    }
+
+    private static void InternalShowDialog(DialogViewModel viewModel, ResizeMode resizeMode)
     {
         var dialogWindow = new DialogWindow()
         {
@@ -30,10 +44,8 @@ public sealed class DialogService
             Title = viewModel.WindowTitle
         };
 
-        viewModel.Close = dialogWindow.Close;
+        viewModel.CloseDialog = dialogWindow.Close;
 
         dialogWindow.ShowDialog();
-
-        return (TResult?)viewModel.DialogResult;
     }
 }

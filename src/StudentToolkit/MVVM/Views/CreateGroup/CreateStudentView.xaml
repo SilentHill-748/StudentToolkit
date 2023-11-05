@@ -78,7 +78,7 @@
             <Button Grid.Column="2"
                     Content="Отмена"
                     Padding="10 0"
-                    Command="{Binding CancelCommand, Mode=OneTime}"/>
+                    Command="{Binding CloseDialogCommand, Mode=OneTime}"/>
         </StackPanel>
     </Grid>
 </UserControl>

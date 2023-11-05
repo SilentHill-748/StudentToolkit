@@ -1,15 +1,17 @@
-﻿using System;
-using System.Windows;
+﻿using System.Windows.Input;
+
+using StudentToolkit.WpfCore.Commands.Dialog;
 
 namespace StudentToolkit.MVVM.ViewModels.Base;
 
 public abstract class DialogViewModel : ValidatableViewModel
 {
-    public Action? Close { get; set; }
+    protected DialogViewModel()
+    {
+        CloseDialogCommand = new CloseDialogCommand(this);
+    }
 
-    public ResizeMode ResizeMode { get; set; }
+    public Action? CloseDialog { get; set; }
 
-    public IDialogResult? DialogResult { get; set; }
-
-    public abstract void CreateDialogResult();
+    public virtual ICommand CloseDialogCommand { get; }
 }
