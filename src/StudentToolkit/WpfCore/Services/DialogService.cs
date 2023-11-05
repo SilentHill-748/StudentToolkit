@@ -1,5 +1,7 @@
 ﻿using System.Windows;
 
+using StudentToolkit.MVVM.ViewModels.Base.Notification;
+
 namespace StudentToolkit.WpfCore.Services;
 
 /// <summary>
@@ -33,6 +35,35 @@ public sealed class DialogService
         ResizeMode resizeMode = ResizeMode.NoResize)
     {
         InternalShowDialog(viewModel, resizeMode);
+    }
+
+    /// <summary>
+    /// Show notification window.
+    /// </summary>
+    /// <param name="title">The notification window title.</param>
+    /// <param name="message">The notification message.</param>
+    /// <param name="icon">The notification message icon.</param>
+    public static void ShowNotification(string title, string message, NotificationIcon icon)
+    {
+        var notificationVm = new NotificationViewModel(title, message, icon);
+
+        InternalShowDialog(notificationVm, ResizeMode.NoResize);
+    }
+
+    /// <summary>
+    /// <inheritdoc cref="ShowNotification(string, string, NotificationIcon)"/>
+    /// </summary>
+    /// <param name="title">The notification window title.</param>
+    /// <param name="message">The notification message.</param>
+    /// <param name="icon">The notification message icon.</param>
+    /// <returns><see langword="True"/> if the notification is confirm; overwide <see langword="False"/>.</returns>
+    public static bool ShowNotificationWithConfirm(string title, string message, NotificationIcon icon)
+    {
+        var notificationVm = new NotificationWithConfirmViewModel(title, message, icon);
+
+        InternalShowDialog(notificationVm, ResizeMode.NoResize);
+
+        return notificationVm.IsConfirmed;
     }
 
     private static void InternalShowDialog(DialogViewModel viewModel, ResizeMode resizeMode)

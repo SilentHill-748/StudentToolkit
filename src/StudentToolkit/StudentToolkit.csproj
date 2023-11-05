@@ -9,6 +9,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resources\Assets\Notification\error.png" />
+    <None Remove="Resources\Assets\Notification\info.png" />
+    <None Remove="Resources\Assets\Notification\warning.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.2" />
   </ItemGroup>
 
@@ -18,7 +24,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Resources\Assets\Notification\" />
+    <Resource Include="Resources\Assets\Notification\error.png" />
+    <Resource Include="Resources\Assets\Notification\info.png" />
+    <Resource Include="Resources\Assets\Notification\warning.png" />
   </ItemGroup>
 
 </Project>
