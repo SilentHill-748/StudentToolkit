@@ -23,7 +23,7 @@ global using StudentToolkit.MVVM.ViewModels.Base;
 global using StudentToolkit.MVVM.ViewModels.Model;
 global using StudentToolkit.MVVM.ViewModels.Presentation.CreateGroup;
 global using StudentToolkit.MVVM.Views.Windows;
-global using StudentToolkit.WpfCore;
+global using StudentToolkit.WpfCore.Common.Enums;
 global using StudentToolkit.WpfCore.Commands.CreateGroup;
 global using StudentToolkit.WpfCore.Exceptions.Navigation;
 global using StudentToolkit.WpfCore.Services;

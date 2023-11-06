@@ -2,17 +2,17 @@
 
 namespace StudentToolkit.WpfCore.Commands.Dialog;
 
-public sealed class CancelDialogCommand : Command
+public sealed class CloseDialogCommand : Command
 {
     private readonly DialogViewModel _viewModel;
 
-    public CancelDialogCommand(DialogViewModel viewModel)
+    public CloseDialogCommand(DialogViewModel viewModel)
     {
         _viewModel = viewModel;
     }
 
     public override void Execute()
     {
-        _viewModel.Close?.Invoke();
+        _viewModel.CloseDialog?.Invoke();
     }
 }

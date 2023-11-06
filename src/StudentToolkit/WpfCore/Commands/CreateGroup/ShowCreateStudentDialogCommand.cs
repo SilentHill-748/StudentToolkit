@@ -20,7 +20,7 @@ public sealed class ShowCreateStudentDialogCommand : Command
     {
         var dialogViewModel = new CreateStudentViewModel(_validator);
 
-        var student = DialogService.ShowDialog<StudentViewModel>(dialogViewModel);
+        var student = DialogService.ShowDialog(dialogViewModel);
 
         if (student is null)
             return;
