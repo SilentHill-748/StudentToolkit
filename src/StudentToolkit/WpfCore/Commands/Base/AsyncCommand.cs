@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq.Expressions;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
@@ -44,6 +45,7 @@ public abstract class AsyncCommand : ICommand
         catch (Exception ex)
         {
             _logger.Error(ex, $"An exception has occurred on executing process of async command '{commandName}'.");
+            throw;
         }
         finally
         {
