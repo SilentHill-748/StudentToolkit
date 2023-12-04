@@ -10,12 +10,7 @@ namespace StudentToolkit.MVVM.ViewModels.Base;
 
 public class ValidatableViewModel : ViewModel, INotifyDataErrorInfo
 {
-    private readonly Dictionary<string, List<string>> _errors;
-
-    public ValidatableViewModel()
-    {
-        _errors = new Dictionary<string, List<string>>();
-    }
+    private readonly Dictionary<string, List<string>> _errors = [];
 
     public bool HasErrors => _errors.Count > 0;
     public bool HasNoErrors => _errors.Count == 0;
@@ -25,7 +20,7 @@ public class ValidatableViewModel : ViewModel, INotifyDataErrorInfo
     public IEnumerable GetErrors(string? propertyName)
     {
         if (propertyName is not null)
-            return _errors.GetValueOrDefault(propertyName, new List<string>());
+            return _errors.GetValueOrDefault(propertyName, []);
 
         return new List<string>();
     }
@@ -88,7 +83,7 @@ public class ValidatableViewModel : ViewModel, INotifyDataErrorInfo
     private void AddError(ValidationFailure error)
     {
         if (!_errors.ContainsKey(error.PropertyName))
-            _errors[error.PropertyName] = new List<string>();
+            _errors[error.PropertyName] = [];
 
         _errors[error.PropertyName].Add(error.ErrorMessage);
 

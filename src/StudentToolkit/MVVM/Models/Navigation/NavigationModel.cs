@@ -1,11 +1,6 @@
 ﻿namespace StudentToolkit.MVVM.Models.Navigation;
 
-public sealed class NavigationModel
+public sealed class NavigationModel(ViewModel _viewModel)
 {
-    public NavigationModel(ViewModel viewModel)
-    {
-        DestinationViewModel = viewModel;
-    }
-
-    public ViewModel DestinationViewModel { get; set; }
+    public ViewModel DestinationViewModel => _viewModel;
 }

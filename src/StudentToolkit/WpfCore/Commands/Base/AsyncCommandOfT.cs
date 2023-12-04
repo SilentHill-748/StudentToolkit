@@ -4,17 +4,9 @@ using System.Windows.Input;
 
 namespace StudentToolkit.WpfCore.Commands.Base;
 
-public abstract class AsyncCommand<T> : ICommand
+public abstract class AsyncCommand<T>(ILogger _logger) 
+    : ICommand
 {
-    private readonly ILogger _logger;
-
-    public AsyncCommand(ILogger logger)
-    {
-        ArgumentNullException.ThrowIfNull(logger, nameof(logger));
-
-        _logger = logger;
-    }
-
     public event EventHandler? CanExecuteChanged
     {
         add => CommandManager.RequerySuggested += value;

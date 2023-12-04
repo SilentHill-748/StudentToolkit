@@ -2,15 +2,9 @@
 
 namespace StudentToolkit.WpfCore.Commands.CreateGroup;
 
-public sealed class CreateStudentCommand : Command
+public sealed class CreateStudentCommand(CreateStudentViewModel _viewModel) 
+    : Command
 {
-    private readonly CreateStudentViewModel _viewModel;
-
-    public CreateStudentCommand(CreateStudentViewModel viewModel)
-    {
-        _viewModel = viewModel;
-    }
-
     public override void Execute()
     {
         _viewModel.DialogResult = CreateStudent();

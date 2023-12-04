@@ -5,23 +5,13 @@ using StudentToolkit.WpfCore.Commands.Base;
 
 namespace StudentToolkit.WpfCore.Commands.CreateGroup;
 
-public sealed class CreateGroupCommand : AsyncCommand
+public sealed class CreateGroupCommand(
+    ILogger _logger,
+    CreateGroupViewModel _viewModel,
+    GroupStore _groupStore,
+    NavigationService _navigationService) 
+        : AsyncCommand(_logger)
 {
-    private readonly CreateGroupViewModel _viewModel;
-    private readonly GroupStore _groupStore;
-    private readonly NavigationService _navigationService;
-
-    public CreateGroupCommand(
-        ILogger logger,
-        CreateGroupViewModel viewModel,
-        GroupStore groupStore,
-        NavigationService navigationService) : base(logger)
-    {
-        _viewModel = viewModel;
-        _groupStore = groupStore;
-        _navigationService = navigationService;
-    }
-
     public override async Task ExecuteAsync()
     {
         _viewModel.Group.GroupCode = _viewModel.GroupCode;

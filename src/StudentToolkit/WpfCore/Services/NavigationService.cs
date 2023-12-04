@@ -1,16 +1,7 @@
-﻿using System;
+﻿namespace StudentToolkit.WpfCore.Services;
 
-namespace StudentToolkit.WpfCore.Services;
-
-public class NavigationService
+public class NavigationService(Func<Type, object> _viewModelResolver)
 {
-    private readonly Func<Type, object> _viewModelResolver;
-
-    public NavigationService(Func<Type, object> viewModelResolver)
-    {
-        _viewModelResolver = viewModelResolver;
-    }
-
     /// <summary>
     /// Do navigation to specified view by her view model.
     /// </summary>

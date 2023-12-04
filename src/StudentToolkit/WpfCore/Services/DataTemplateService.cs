@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Windows;
@@ -11,17 +10,8 @@ namespace StudentToolkit.WpfCore.Services;
 /// <summary>
 /// Service for generating <see cref="DataTemplate"/> collection of mappings view model to view.
 /// </summary>
-public class DataTemplateService
+public class DataTemplateService(Assembly _targetAssembly)
 {
-    private readonly Assembly _targetAssembly;
-
-    public DataTemplateService(Assembly targetAssembly)
-    {
-        ArgumentNullException.ThrowIfNull(targetAssembly, nameof(targetAssembly));
-
-        _targetAssembly = targetAssembly;
-    }
-
     /// <summary>
     /// Create collection of <see cref="DataTemplate"/> objects.
     /// </summary>

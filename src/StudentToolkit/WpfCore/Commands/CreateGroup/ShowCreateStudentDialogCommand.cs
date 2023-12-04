@@ -3,19 +3,11 @@ using StudentToolkit.WpfCore.Commands.Base;
 
 namespace StudentToolkit.WpfCore.Commands.CreateGroup;
 
-public sealed class ShowCreateStudentDialogCommand : Command
+public sealed class ShowCreateStudentDialogCommand(
+    CreateGroupViewModel _viewModel,
+    CreateStudentViewModelValidator _validator) 
+        : Command
 {
-    private readonly CreateGroupViewModel _viewModel;
-    private readonly CreateStudentViewModelValidator _validator;
-
-    public ShowCreateStudentDialogCommand(
-        CreateGroupViewModel viewModel, 
-        CreateStudentViewModelValidator validator)
-    {
-        _viewModel = viewModel;
-        _validator = validator;
-    }
-
     public override void Execute()
     {
         var dialogViewModel = new CreateStudentViewModel(_validator);

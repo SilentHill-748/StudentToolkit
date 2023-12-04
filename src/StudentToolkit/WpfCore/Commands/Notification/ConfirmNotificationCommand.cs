@@ -3,15 +3,9 @@ using StudentToolkit.WpfCore.Commands.Base;
 
 namespace StudentToolkit.WpfCore.Commands.Notification;
 
-public class ConfirmNotificationCommand : Command
+public class ConfirmNotificationCommand(NotificationWithConfirmViewModel _viewModel) 
+    : Command
 {
-    private readonly NotificationWithConfirmViewModel _viewModel;
-
-    public ConfirmNotificationCommand(NotificationWithConfirmViewModel viewModel)
-    {
-        _viewModel = viewModel;
-    }
-
     public override void Execute()
     {
         _viewModel.IsConfirmed = true;

@@ -4,7 +4,7 @@ namespace StudentToolkit.WpfCore.Exceptions;
 
 public static class CustomExceptionMessages
 {
-    private static readonly Dictionary<Type, string> UserMessages = new();
+    private static readonly Dictionary<Type, string> UserMessages = [];
 
     public static void Register<TException>(string userMessage)
     {
