@@ -5,12 +5,9 @@ using StudentToolkit.Domain.Exceptions;
 
 namespace StudentToolkit.Application.Services;
 
-public sealed class GroupService : Service, IGroupService
+public sealed class GroupService(IAppDbContext appDbContext)
+    : Service(appDbContext), IGroupService
 {
-    public GroupService(IAppDbContext appDbContext) 
-        : base(appDbContext)
-    { }
-
     public async Task<GroupDto> GetGroupAsync(Expression<Func<Group, bool>> predicate)
     {
         ArgumentNullException.ThrowIfNull(predicate, nameof(predicate));

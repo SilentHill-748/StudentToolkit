@@ -4,17 +4,9 @@ using System.Windows.Input;
 
 namespace StudentToolkit.WpfCore.Commands.Base;
 
-public abstract class AsyncCommand<T> : ICommand
+public abstract class AsyncCommand<T>(ILogger logger) 
+    : ICommand
 {
-    private readonly ILogger _logger;
-
-    public AsyncCommand(ILogger logger)
-    {
-        ArgumentNullException.ThrowIfNull(logger, nameof(logger));
-
-        _logger = logger;
-    }
-
     public event EventHandler? CanExecuteChanged
     {
         add => CommandManager.RequerySuggested += value;
@@ -38,11 +30,11 @@ public abstract class AsyncCommand<T> : ICommand
             IsExecuting = true;
             await ExecuteAsync(CastParameter(parameter));
 
-            _logger.Debug($"The generic async command '{commandName}' is executed success.");
+            logger.Debug($"The generic async command '{commandName}' is executed success.");
         }
         catch (Exception ex)
         {
-            _logger.Error(ex, $"An exception has occurred on executing process of generic async command '{commandName}'.");
+            logger.Error(ex, $"An exception has occurred on executing process of generic async command '{commandName}'.");
 
             DialogService.ShowNotification(
                 "Ошибка",

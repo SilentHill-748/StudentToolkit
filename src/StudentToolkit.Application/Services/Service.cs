@@ -2,14 +2,7 @@
 
 namespace StudentToolkit.Application.Services;
 
-public abstract class Service
+public abstract class Service(IAppDbContext appDbContext)
 {
-    public Service(IAppDbContext appDbContext)
-    {
-        ArgumentNullException.ThrowIfNull(appDbContext, nameof(appDbContext));
-
-        DbContext = appDbContext;
-    }
-
-    protected IAppDbContext DbContext { get; }
+    protected IAppDbContext DbContext => appDbContext;
 }

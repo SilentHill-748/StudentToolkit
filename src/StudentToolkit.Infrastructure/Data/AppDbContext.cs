@@ -1,9 +1,8 @@
 ﻿namespace StudentToolkit.Infrastructure.Data;
 
-public sealed class AppDbContext : DbContext, IAppDbContext
+public sealed class AppDbContext(DbContextOptions<AppDbContext> options)
+    : DbContext(options), IAppDbContext
 {
-    public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
-
     public DbSet<Group> Groups => Set<Group>();
     public DbSet<Student> Students => Set<Student>();
     public DbSet<Teacher> Teachers => Set<Teacher>();

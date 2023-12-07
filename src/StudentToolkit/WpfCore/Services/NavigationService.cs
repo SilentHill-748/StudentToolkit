@@ -1,16 +1,7 @@
-﻿using System;
+﻿namespace StudentToolkit.WpfCore.Services;
 
-namespace StudentToolkit.WpfCore.Services;
-
-public class NavigationService
+public class NavigationService(Func<Type, object> viewModelResolver)
 {
-    private readonly Func<Type, object> _viewModelResolver;
-
-    public NavigationService(Func<Type, object> viewModelResolver)
-    {
-        _viewModelResolver = viewModelResolver;
-    }
-
     /// <summary>
     /// Do navigation to specified view by her view model.
     /// </summary>
@@ -22,7 +13,7 @@ public class NavigationService
         where TViewModel : ViewModel
         where TMessage : ValueChangedMessage<NavigationModel>
     {
-        var viewModel = (TViewModel)_viewModelResolver(typeof(TViewModel));
+        var viewModel = (TViewModel)viewModelResolver(typeof(TViewModel));
 
         if (viewModel is not INavigatingViewModel)
             throw new NavigationDeniedException($"Navigation view model '{typeof(TViewModel).Name}' cannot be use for navigation!");
