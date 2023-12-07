@@ -5,7 +5,7 @@ using System.Windows.Input;
 
 namespace StudentToolkit.WpfCore.Commands.Base;
 
-public abstract class AsyncCommand(ILogger _logger) 
+public abstract class AsyncCommand(ILogger logger) 
     : ICommand
 {
     public event EventHandler? CanExecuteChanged
@@ -32,11 +32,11 @@ public abstract class AsyncCommand(ILogger _logger)
             
             await ExecuteAsync();
 
-            _logger.Debug($"The async command '{commandName}' is executed success.");
+            logger.Debug($"The async command '{commandName}' is executed success.");
         }
         catch (Exception ex)
         {
-            _logger.Error(ex, $"An exception has occurred on executing process of async command '{commandName}'.");
+            logger.Error(ex, $"An exception has occurred on executing process of async command '{commandName}'.");
             
             DialogService.ShowNotification(
                 "Ошибка", 

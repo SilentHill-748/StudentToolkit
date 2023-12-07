@@ -4,24 +4,24 @@ using StudentToolkit.WpfCore.Commands.Base;
 namespace StudentToolkit.WpfCore.Commands.CreateGroup;
 
 public sealed class ShowCreateStudentDialogCommand(
-    CreateGroupViewModel _viewModel,
-    CreateStudentViewModelValidator _validator) 
+    CreateGroupViewModel viewModel,
+    CreateStudentViewModelValidator validator) 
         : Command
 {
     public override void Execute()
     {
-        var dialogViewModel = new CreateStudentViewModel(_validator);
+        var dialogViewModel = new CreateStudentViewModel(validator);
 
         var student = DialogService.ShowDialog(dialogViewModel);
 
         if (student is null)
             return;
 
-        _viewModel.Group.Students.Add(student);
+        viewModel.Group.Students.Add(student);
     }
 
     public override bool CanExecute()
     {
-        return _viewModel.HasNoErrors;
+        return viewModel.HasNoErrors;
     }
 }

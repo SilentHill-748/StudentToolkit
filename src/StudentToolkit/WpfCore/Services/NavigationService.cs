@@ -1,6 +1,6 @@
 ﻿namespace StudentToolkit.WpfCore.Services;
 
-public class NavigationService(Func<Type, object> _viewModelResolver)
+public class NavigationService(Func<Type, object> viewModelResolver)
 {
     /// <summary>
     /// Do navigation to specified view by her view model.
@@ -13,7 +13,7 @@ public class NavigationService(Func<Type, object> _viewModelResolver)
         where TViewModel : ViewModel
         where TMessage : ValueChangedMessage<NavigationModel>
     {
-        var viewModel = (TViewModel)_viewModelResolver(typeof(TViewModel));
+        var viewModel = (TViewModel)viewModelResolver(typeof(TViewModel));
 
         if (viewModel is not INavigatingViewModel)
             throw new NavigationDeniedException($"Navigation view model '{typeof(TViewModel).Name}' cannot be use for navigation!");

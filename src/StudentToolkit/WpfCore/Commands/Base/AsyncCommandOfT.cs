@@ -4,7 +4,7 @@ using System.Windows.Input;
 
 namespace StudentToolkit.WpfCore.Commands.Base;
 
-public abstract class AsyncCommand<T>(ILogger _logger) 
+public abstract class AsyncCommand<T>(ILogger logger) 
     : ICommand
 {
     public event EventHandler? CanExecuteChanged
@@ -30,11 +30,11 @@ public abstract class AsyncCommand<T>(ILogger _logger)
             IsExecuting = true;
             await ExecuteAsync(CastParameter(parameter));
 
-            _logger.Debug($"The generic async command '{commandName}' is executed success.");
+            logger.Debug($"The generic async command '{commandName}' is executed success.");
         }
         catch (Exception ex)
         {
-            _logger.Error(ex, $"An exception has occurred on executing process of generic async command '{commandName}'.");
+            logger.Error(ex, $"An exception has occurred on executing process of generic async command '{commandName}'.");
 
             DialogService.ShowNotification(
                 "Ошибка",

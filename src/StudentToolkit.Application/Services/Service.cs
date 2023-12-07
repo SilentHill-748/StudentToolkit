@@ -2,7 +2,7 @@
 
 namespace StudentToolkit.Application.Services;
 
-public abstract class Service(IAppDbContext _appDbContext)
+public abstract class Service(IAppDbContext appDbContext)
 {
-    protected IAppDbContext DbContext => _appDbContext;
+    protected IAppDbContext DbContext => appDbContext;
 }
