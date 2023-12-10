@@ -12,7 +12,7 @@ public class WindowsRegistryProvider : IDisposable
     public WindowsRegistryProvider()
     {
         _appSubKey = Registry.CurrentUser.CreateSubKey(
-            Constants.StringConstants.AppRegPath, 
+            Constants.AppRegPath, 
             RegistryKeyPermissionCheck.ReadWriteSubTree);
     }
 

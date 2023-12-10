@@ -4,7 +4,6 @@ using System.Windows.Threading;
 
 using StudentToolkit.Domain.Exceptions;
 using StudentToolkit.WpfCore;
-using StudentToolkit.WpfCore.Common.Constants;
 using StudentToolkit.WpfCore.Exceptions;
 
 using DotNetApplication = System.Windows.Application;
@@ -17,7 +16,7 @@ public partial class App : DotNetApplication
 
     public App()
     {
-        CustomExceptionMessages.Register<GroupNotFoundException>(ExceptionMessageConstants.GroupNotFound);
+        CustomExceptionMessages.Register<GroupNotFoundException>(UserMessageConstants.GroupNotFound);
 
         DispatcherUnhandledException += OnUnhandledExceptionCatched;
     }
