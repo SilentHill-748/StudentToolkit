@@ -3,7 +3,6 @@ using System.Windows;
 using System.Windows.Threading;
 
 using StudentToolkit.Domain.Exceptions;
-using StudentToolkit.MVVM.Stores;
 using StudentToolkit.WpfCore.Common.Constants;
 using StudentToolkit.WpfCore.Exceptions;
 

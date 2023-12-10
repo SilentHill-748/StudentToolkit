@@ -1,6 +1,5 @@
 ﻿using System.Linq.Expressions;
 
-using StudentToolkit.Application.Common.Interfaces;
 using StudentToolkit.Domain.Exceptions;
 
 namespace StudentToolkit.Application.Services;

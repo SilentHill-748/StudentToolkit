@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace StudentToolkit.WpfCore.Exceptions;
+﻿namespace StudentToolkit.WpfCore.Exceptions;
 
 public static class CustomExceptionMessages
 {

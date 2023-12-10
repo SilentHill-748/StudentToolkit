@@ -1,6 +1,4 @@
-﻿using StudentToolkit.MVVM.ViewModels.Base;
-
-namespace StudentToolkit.MVVM.Models.Navigation.Messages.Queries;
+﻿namespace StudentToolkit.MVVM.Models.Navigation.Messages.Queries;
 
 public sealed class WindowNavigationQuery : NavigationQuery<WindowContentNavigationMessage>
 {

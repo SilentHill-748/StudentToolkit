@@ -1,7 +1,5 @@
-﻿using System.Collections.Generic;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 
-using StudentToolkit.Application.Common.Interfaces.Services;
 using StudentToolkit.Domain.Dto;
 using StudentToolkit.WpfCore.Providers;
 

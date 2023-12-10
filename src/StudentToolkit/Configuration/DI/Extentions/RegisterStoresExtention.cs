@@ -1,6 +1,4 @@
-﻿using StudentToolkit.MVVM.Stores;
-
-namespace StudentToolkit.Configuration.DI.Extentions;
+﻿namespace StudentToolkit.Configuration.DI.Extentions;
 
 public static class RegisterStoresExtention
 {

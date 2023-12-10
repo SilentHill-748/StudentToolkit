@@ -1,6 +1,4 @@
-﻿using Microsoft.Extensions.Configuration;
-
-using StudentToolkit.Infrastructure.DI.Extentions;
+﻿using StudentToolkit.Infrastructure.DI.Extentions;
 
 namespace StudentToolkit.Infrastructure.DI;
 
