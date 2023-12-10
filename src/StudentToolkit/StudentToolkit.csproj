@@ -27,6 +27,7 @@
     <Resource Include="Resources\Assets\Notification\error.png" />
     <Resource Include="Resources\Assets\Notification\info.png" />
     <Resource Include="Resources\Assets\Notification\warning.png" />
+    <Resource Include="Resources\Assets\Notification\ask.png" />
   </ItemGroup>
 
 </Project>

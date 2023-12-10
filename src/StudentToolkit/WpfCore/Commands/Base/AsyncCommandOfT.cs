@@ -38,7 +38,7 @@ public abstract class AsyncCommand<T>(ILogger logger)
 
             var message = CustomExceptionMessages.GetMessage(ex);
 
-            DialogService.ShowNotification("Ошибка", message, NotificationIcon.Error);
+            NotificationService.Alert("Ошибка", message);
         }
         finally
         {

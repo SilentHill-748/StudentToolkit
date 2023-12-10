@@ -4,11 +4,8 @@ namespace StudentToolkit.MVVM.ViewModels.Base.Notification;
 
 public class NotificationWithConfirmViewModel : NotificationViewModel
 {
-    public NotificationWithConfirmViewModel(
-        string title,
-        string message,
-        NotificationIcon icon)
-            : base(title, message, icon)
+    public NotificationWithConfirmViewModel(string title, string message)
+        : base(title, message, NotificationIcon.Ask)
     {
         OkCommand = new ConfirmNotificationCommand(this);
     }

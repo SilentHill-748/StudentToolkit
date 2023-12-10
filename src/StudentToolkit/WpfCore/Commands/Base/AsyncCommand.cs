@@ -36,10 +36,10 @@ public abstract class AsyncCommand(ILogger logger)
         catch (Exception ex)
         {
             logger.Error(ex, $"An exception has occurred on executing process of async command '{commandName}'.");
-            
+
             var message = CustomExceptionMessages.GetMessage(ex);
 
-            DialogService.ShowNotification("Ошибка", message, NotificationIcon.Error);
+            NotificationService.Alert("Ошибка", message);
         }
         finally
         {

@@ -4,5 +4,6 @@ public enum NotificationIcon
 {
     Info,
     Warning,
-    Error
+    Error,
+    Ask
 }
