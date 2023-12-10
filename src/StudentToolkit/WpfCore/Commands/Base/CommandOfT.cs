@@ -1,7 +1,4 @@
-﻿using System;
-using System.Windows.Input;
-
-namespace StudentToolkit.WpfCore.Commands.Base;
+﻿namespace StudentToolkit.WpfCore.Commands.Base;
 
 public abstract class Command<T> : ICommand
 {

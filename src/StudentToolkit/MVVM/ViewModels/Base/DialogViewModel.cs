@@ -1,6 +1,4 @@
-﻿using System.Windows.Input;
-
-using StudentToolkit.WpfCore.Commands.Dialog;
+﻿using StudentToolkit.WpfCore.Commands.Dialog;
 
 namespace StudentToolkit.MVVM.ViewModels.Base;
 

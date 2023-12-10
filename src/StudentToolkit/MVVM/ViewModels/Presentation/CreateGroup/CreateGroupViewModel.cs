@@ -1,7 +1,4 @@
-﻿using System.Windows.Input;
-
-using StudentToolkit.MVVM.Stores;
-using StudentToolkit.MVVM.Validation.CreateGroup;
+﻿using StudentToolkit.MVVM.Validation.CreateGroup;
 
 namespace StudentToolkit.MVVM.ViewModels.Presentation.CreateGroup;
 
@@ -31,7 +28,7 @@ public sealed class CreateGroupViewModel : ValidatableViewModel
         Group.Students.CollectionChanged += Students_CollectionChanged;
 
         ShowCreateStudentDialogCommand = new ShowCreateStudentDialogCommand(this, studentValidator);
-        CreateGroupCommand = new CreateGroupCommand(logger, this, groupStore, navigationService);
+        CreateGroupCommand = new AsyncCreateGroupCommand(logger, this, groupStore, navigationService);
 
         Validate(_validator, this);
     }

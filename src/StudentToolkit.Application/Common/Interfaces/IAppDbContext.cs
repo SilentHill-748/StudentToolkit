@@ -1,6 +1,4 @@
-﻿using StudentToolkit.Domain.Entities;
-
-namespace StudentToolkit.Application.Common.Interfaces;
+﻿namespace StudentToolkit.Application.Common.Interfaces;
 
 public interface IAppDbContext
 {

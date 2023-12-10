@@ -1,6 +1,4 @@
-﻿using System.Windows.Input;
-
-using StudentToolkit.WpfCore.Commands.Notification;
+﻿using StudentToolkit.WpfCore.Commands.Notification;
 
 namespace StudentToolkit.MVVM.ViewModels.Base.Notification;
 

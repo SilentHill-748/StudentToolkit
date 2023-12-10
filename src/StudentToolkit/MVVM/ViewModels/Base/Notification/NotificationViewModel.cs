@@ -23,7 +23,7 @@ public class NotificationViewModel : DialogViewModel
     private Uri GetImageSource()
     {
         var imageName = _icon.ToString().ToLower() + ".png";
-        var path = $"/Resources/Assets/Notification/{imageName}";
+        var path = Constants.WpfAssetsPath + imageName;
 
         return new Uri(path, UriKind.Relative);
     }

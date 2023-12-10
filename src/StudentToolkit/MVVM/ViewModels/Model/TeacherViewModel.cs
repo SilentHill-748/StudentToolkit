@@ -1,6 +1,4 @@
-﻿using System.ComponentModel;
-
-namespace StudentToolkit.MVVM.ViewModels.Model;
+﻿namespace StudentToolkit.MVVM.ViewModels.Model;
 
 public sealed class TeacherViewModel : ViewModel
 {
