@@ -42,12 +42,7 @@ public static class NotificationService
     /// <returns><see langword="True"/> if the notification is confirm; overwide <see langword="False"/>.</returns>
     public static bool Ask(string title, string message)
     {
-        return InternalShowAsk(title, message, NotificationIcon.Ask);
-    }
-
-    private static bool InternalShowAsk(string title, string message, NotificationIcon icon)
-    {
-        var notificationVm = new NotificationWithConfirmViewModel(title, message, icon);
+        var notificationVm = new NotificationWithConfirmViewModel(title, message);
 
         ShowDialog(title, notificationVm);
 
