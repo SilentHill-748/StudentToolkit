@@ -36,10 +36,9 @@ public abstract class AsyncCommand<T>(ILogger logger)
         {
             logger.Error(ex, $"An exception has occurred on executing process of generic async command '{commandName}'.");
 
-            DialogService.ShowNotification(
-                "Ошибка",
-                "При выполнении операции произошла ошибка. Попробуйте выполнить действие позже.",
-                NotificationIcon.Error);
+            var message = "При выполнении операции произошла ошибка. Попробуйте выполнить действие позже.";
+
+            NotificationService.Alert("Ошибка", message);
         }
         finally
         {

@@ -32,7 +32,7 @@ public partial class App : DotNetApplication
 
         logger.Fatal(exception, logMessage);
 
-        DialogService.ShowNotification("Критическая ошибка!", userMessage, NotificationIcon.Error);
+        NotificationService.Alert("Критическая ошибка!", userMessage);
     }
 
     protected override async void OnStartup(StartupEventArgs e)
