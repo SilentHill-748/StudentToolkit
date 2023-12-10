@@ -1,20 +1,26 @@
-﻿namespace StudentToolkit.WPF.UnitTests.Services;
+﻿using System.Windows;
+
+using StudentToolkit.WpfCore;
+
+namespace StudentToolkit.WPF.UnitTests.Services;
 
 public class DataTemplateServiceTests
 {
     [Fact]
-    public void Data_templates_generating_by_current_assembly_is_correct()
+    public void Correct_mapping_view_and_view_model_to_data_template_collection()
     {
-        DataTemplateService dataTemplateService = new(typeof(DataTemplateServiceTests).Assembly);
-
-        var dataTemplates = dataTemplateService.GenerateDataTemplates().ToArray();
+        var dataTemplates = ViewToViewModelDataTemplateMapper.Map();
 
         Assert.NotEmpty(dataTemplates);
-        Assert.True(dataTemplates.Length == 2);
-        // Assert.IsType(..) throws error, because DataType is RuntimeType, but DataType has correct Stub...ViewModel type.
-        Assert.Equal("DummyOneViewModel", ((Type)dataTemplates[0].DataType).Name);
-        Assert.Equal("DummyTwoViewModel", ((Type)dataTemplates[1].DataType).Name);
-        Assert.Equal("DummyOneView", dataTemplates[0].VisualTree.Type.Name);
-        Assert.Equal("DummyTwoView", dataTemplates[1].VisualTree.Type.Name);
+        
+        foreach (DataTemplate template in dataTemplates)
+        {
+            var viewModelTypeName = ((Type)template.DataType).Name;
+            var viewTypeName = template.VisualTree.Type.Name;
+
+            Assert.Contains("ViewModel", viewModelTypeName);
+            Assert.Contains("View", viewTypeName);
+            Assert.DoesNotContain("Model", viewTypeName);
+        }
     }
 }

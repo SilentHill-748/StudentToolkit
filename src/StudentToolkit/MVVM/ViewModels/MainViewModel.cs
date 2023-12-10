@@ -1,7 +1,4 @@
-﻿using StudentToolkit.MVVM.Stores;
-using StudentToolkit.MVVM.ViewModels.Components;
-
-namespace StudentToolkit.MVVM.ViewModels;
+﻿namespace StudentToolkit.MVVM.ViewModels;
 
 public class MainViewModel : ViewModel, INavigatingViewModel
 {

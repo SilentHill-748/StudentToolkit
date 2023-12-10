@@ -1,5 +1,4 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using System.Reflection;
 
 namespace StudentToolkit.Configuration;
@@ -11,12 +10,7 @@ public static class AssemblyExtentions
         return assembly.GetTypes().Any(t => t.Name == typeName);
     }
 
-    public static bool HasType(this Assembly assembly, Type type)
-    {
-        return assembly.GetTypes().Any(t => t.Equals(type));
-    }
-
-    public static Type GetType(this Assembly assembly, string typeName)
+    public static Type GetTypeByName(this Assembly assembly, string typeName)
     {
         if (string.IsNullOrEmpty(typeName))
             throw new ArgumentException("Type name wasn't be null or empty!", nameof(typeName));

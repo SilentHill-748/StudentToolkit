@@ -1,7 +1,6 @@
-﻿using System;
-using System.Linq.Expressions;
-using System.Threading.Tasks;
-using System.Windows.Input;
+﻿using System.Threading.Tasks;
+
+using StudentToolkit.WpfCore.Exceptions;
 
 namespace StudentToolkit.WpfCore.Commands.Base;
 
@@ -38,10 +37,9 @@ public abstract class AsyncCommand(ILogger logger)
         {
             logger.Error(ex, $"An exception has occurred on executing process of async command '{commandName}'.");
             
-            DialogService.ShowNotification(
-                "Ошибка", 
-                "При выполнении операции произошла ошибка. Попробуйте выполнить действие позже.", 
-                NotificationIcon.Error);
+            var message = CustomExceptionMessages.GetMessage(ex);
+
+            DialogService.ShowNotification("Ошибка", message, NotificationIcon.Error);
         }
         finally
         {

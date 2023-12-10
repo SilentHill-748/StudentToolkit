@@ -1,6 +1,4 @@
-﻿using System.Windows.Input;
-
-using StudentToolkit.MVVM.Validation.CreateGroup;
+﻿using StudentToolkit.MVVM.Validation.CreateGroup;
 
 namespace StudentToolkit.MVVM.ViewModels.Presentation.CreateGroup;
 

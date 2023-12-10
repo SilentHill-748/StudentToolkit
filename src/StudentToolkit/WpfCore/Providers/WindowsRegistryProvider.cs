@@ -1,5 +1,4 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 
 using Microsoft.Win32;
 
@@ -7,14 +6,14 @@ namespace StudentToolkit.WpfCore.Providers;
 
 public class WindowsRegistryProvider : IDisposable
 {
-    private const string AppPath = "SOFTWARE\\StudentToolkit";
     private readonly RegistryKey _appSubKey;
     private bool _disposedValue;
 
     public WindowsRegistryProvider()
     {
-        _appSubKey = Registry.CurrentUser
-            .CreateSubKey(AppPath, RegistryKeyPermissionCheck.ReadWriteSubTree);
+        _appSubKey = Registry.CurrentUser.CreateSubKey(
+            Constants.AppRegPath, 
+            RegistryKeyPermissionCheck.ReadWriteSubTree);
     }
 
     public void CreateSubKey(string subKeyName)

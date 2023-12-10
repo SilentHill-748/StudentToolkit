@@ -3,8 +3,7 @@ using System.Windows;
 using System.Windows.Threading;
 
 using StudentToolkit.Domain.Exceptions;
-using StudentToolkit.MVVM.Stores;
-using StudentToolkit.WpfCore.Common.Constants;
+using StudentToolkit.WpfCore;
 using StudentToolkit.WpfCore.Exceptions;
 
 using DotNetApplication = System.Windows.Application;
@@ -17,7 +16,7 @@ public partial class App : DotNetApplication
 
     public App()
     {
-        CustomExceptionMessages.Register<GroupNotFoundException>(ExceptionMessageConstants.GroupNotFound);
+        CustomExceptionMessages.Register<GroupNotFoundException>(UserMessageConstants.GroupNotFound);
 
         DispatcherUnhandledException += OnUnhandledExceptionCatched;
     }
@@ -40,10 +39,7 @@ public partial class App : DotNetApplication
         AddServices(e.Args);
         ApplyDataTemplates();
 
-        var startupVm = await GetStartupViewModelAsync();
-
-        MainWindow = new MainWindow(
-            new NavigationViewModel(startupVm));
+        await SetStartupViewModelAsync();
 
         MainWindow.Show();
     }
@@ -55,18 +51,19 @@ public partial class App : DotNetApplication
         base.OnExit(e);
     }
 
-    private async Task<ViewModel> GetStartupViewModelAsync()
+    private async Task SetStartupViewModelAsync()
     {
-        var store = _container.GetInstance<GroupStore>();
+        var groupStore = _container.GetInstance<GroupStore>();
 
-        await store.LoadAsync();
+        await groupStore.LoadAsync();
 
-        if (string.IsNullOrEmpty(store.Group.GroupCode))
-        {
-            return _container.GetInstance<CreateGroupViewModel>();
-        }
+        ViewModel startupVm = string.IsNullOrEmpty(groupStore.Group.GroupCode)
+            ? _container.GetInstance<CreateGroupViewModel>()
+            : _container.GetInstance<MainViewModel>();
 
-        return _container.GetInstance<MainViewModel>();
+        var navigationVm = new NavigationViewModel(startupVm);
+
+        MainWindow = new MainWindow(navigationVm);
     }
 
     private void AddServices(string[] args)
@@ -80,9 +77,7 @@ public partial class App : DotNetApplication
 
     private void ApplyDataTemplates()
     {
-        var dataTemplates = _container
-            .GetInstance<DataTemplateService>()
-            .GenerateDataTemplates();
+        var dataTemplates = ViewToViewModelDataTemplateMapper.Map();
 
         foreach (DataTemplate template in dataTemplates)
         {

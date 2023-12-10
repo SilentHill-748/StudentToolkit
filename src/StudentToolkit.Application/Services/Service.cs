@@ -1,6 +1,4 @@
-﻿using StudentToolkit.Application.Common.Interfaces;
-
-namespace StudentToolkit.Application.Services;
+﻿namespace StudentToolkit.Application.Services;
 
 public abstract class Service(IAppDbContext appDbContext)
 {

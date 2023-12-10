@@ -6,11 +6,8 @@ public static class RegisterServicesExtention
 {
     public static Container RegisterServices(this Container container)
     {
-        var assembly = typeof(RegisterServicesExtention).Assembly;
-
         container.RegisterSingleton<WindowsRegistryProvider>();
         container.RegisterSingleton<NavigationService>();
-        container.RegisterSingleton(() => new DataTemplateService(assembly));
         container.RegisterSingleton<Func<Type, object>>(() => container.GetInstance);
 
         return container;
