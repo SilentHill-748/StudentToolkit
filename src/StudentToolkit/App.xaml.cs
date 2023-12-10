@@ -3,6 +3,7 @@ using System.Windows;
 using System.Windows.Threading;
 
 using StudentToolkit.Domain.Exceptions;
+using StudentToolkit.WpfCore;
 using StudentToolkit.WpfCore.Common.Constants;
 using StudentToolkit.WpfCore.Exceptions;
 
@@ -79,9 +80,7 @@ public partial class App : DotNetApplication
 
     private void ApplyDataTemplates()
     {
-        var dataTemplates = _container
-            .GetInstance<DataTemplateService>()
-            .GenerateDataTemplates();
+        var dataTemplates = ViewToViewModelDataTemplateMapper.Map();
 
         foreach (DataTemplate template in dataTemplates)
         {

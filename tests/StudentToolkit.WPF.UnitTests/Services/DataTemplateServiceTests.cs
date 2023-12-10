@@ -1,13 +1,15 @@
-﻿namespace StudentToolkit.WPF.UnitTests.Services;
+﻿using StudentToolkit.WpfCore;
+
+namespace StudentToolkit.WPF.UnitTests.Services;
 
 public class DataTemplateServiceTests
 {
     [Fact]
     public void Data_templates_generating_by_current_assembly_is_correct()
     {
-        DataTemplateService dataTemplateService = new(typeof(DataTemplateServiceTests).Assembly);
+        ViewToViewModelDataTemplateMapper dataTemplateService = new(typeof(DataTemplateServiceTests).Assembly);
 
-        var dataTemplates = dataTemplateService.GenerateDataTemplates().ToArray();
+        var dataTemplates = dataTemplateService.Map().ToArray();
 
         Assert.NotEmpty(dataTemplates);
         Assert.True(dataTemplates.Length == 2);
