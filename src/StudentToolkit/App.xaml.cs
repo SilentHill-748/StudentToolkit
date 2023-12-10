@@ -40,10 +40,7 @@ public partial class App : DotNetApplication
         AddServices(e.Args);
         ApplyDataTemplates();
 
-        var startupVm = await GetStartupViewModelAsync();
-
-        MainWindow = new MainWindow(
-            new NavigationViewModel(startupVm));
+        await SetStartupViewModel();
 
         MainWindow.Show();
     }
@@ -55,18 +52,19 @@ public partial class App : DotNetApplication
         base.OnExit(e);
     }
 
-    private async Task<ViewModel> GetStartupViewModelAsync()
+    private async Task SetStartupViewModel()
     {
-        var store = _container.GetInstance<GroupStore>();
+        var groupStore = _container.GetInstance<GroupStore>();
 
-        await store.LoadAsync();
+        await groupStore.LoadAsync();
 
-        if (string.IsNullOrEmpty(store.Group.GroupCode))
-        {
-            return _container.GetInstance<CreateGroupViewModel>();
-        }
+        ViewModel startupVm = string.IsNullOrEmpty(groupStore.Group.GroupCode)
+            ? _container.GetInstance<CreateGroupViewModel>()
+            : _container.GetInstance<MainViewModel>();
 
-        return _container.GetInstance<MainViewModel>();
+        var navigationVm = new NavigationViewModel(startupVm);
+
+        MainWindow = new MainWindow(navigationVm);
     }
 
     private void AddServices(string[] args)
