@@ -39,7 +39,7 @@ public partial class App : DotNetApplication
         AddServices(e.Args);
         ApplyDataTemplates();
 
-        await SetStartupViewModel();
+        await SetStartupViewModelAsync();
 
         MainWindow.Show();
     }
@@ -51,7 +51,7 @@ public partial class App : DotNetApplication
         base.OnExit(e);
     }
 
-    private async Task SetStartupViewModel()
+    private async Task SetStartupViewModelAsync()
     {
         var groupStore = _container.GetInstance<GroupStore>();
 
