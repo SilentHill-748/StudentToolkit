@@ -28,7 +28,7 @@ public sealed class CreateGroupViewModel : ValidatableViewModel
         Group.Students.CollectionChanged += Students_CollectionChanged;
 
         ShowCreateStudentDialogCommand = new ShowCreateStudentDialogCommand(this, studentValidator);
-        CreateGroupCommand = new CreateGroupCommand(logger, this, groupStore, navigationService);
+        CreateGroupCommand = new AsyncCreateGroupCommand(logger, this, groupStore, navigationService);
 
         Validate(_validator, this);
     }

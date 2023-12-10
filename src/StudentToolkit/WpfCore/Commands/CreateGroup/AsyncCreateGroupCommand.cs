@@ -4,7 +4,7 @@ using StudentToolkit.WpfCore.Commands.Base;
 
 namespace StudentToolkit.WpfCore.Commands.CreateGroup;
 
-public sealed class CreateGroupCommand(
+public sealed class AsyncCreateGroupCommand(
     ILogger logger,
     CreateGroupViewModel viewModel,
     GroupStore groupStore,
