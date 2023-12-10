@@ -11,13 +11,13 @@
             <FlowDocument>
                 <Paragraph 
                     FontWeight="Bold"
-                    FontSize="{Binding TitleFontSize}">
+                    FontSize="26">
                     Студенческий инструментарий Student Toolkit
                 </Paragraph>
                 <Section>
                     <Paragraph 
                         FontWeight="Bold"
-                        FontSize="{Binding SubTitleFontSize}">
+                        FontSize="22">
                         Что из себя представляет инструментарий?
                     </Paragraph>
                     <Paragraph>
@@ -53,7 +53,7 @@
                 <Section>
                     <Paragraph 
                         FontWeight="Bold"
-                        FontSize="{Binding SubTitleFontSize}">
+                        FontSize="22">
                         Как пользоваться программой?
                     </Paragraph>
 
