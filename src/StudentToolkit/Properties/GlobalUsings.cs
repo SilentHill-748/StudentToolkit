@@ -13,6 +13,7 @@ global using Mapster;
 
 global using Serilog;
 
+global using StudentToolkit.Application.Common;
 global using StudentToolkit.Application.Common.Interfaces.Services;
 global using StudentToolkit.Application.DI;
 global using StudentToolkit.Configuration.DI;
