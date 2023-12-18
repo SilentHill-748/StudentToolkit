@@ -1,7 +1,5 @@
 ﻿using System.Threading.Tasks;
 
-using StudentToolkit.WpfCore.Exceptions;
-
 namespace StudentToolkit.WpfCore.Commands.Base;
 
 public abstract class AsyncCommand(ILogger logger) 

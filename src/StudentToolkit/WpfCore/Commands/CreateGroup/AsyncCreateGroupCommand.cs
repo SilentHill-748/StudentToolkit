@@ -7,8 +7,7 @@ namespace StudentToolkit.WpfCore.Commands.CreateGroup;
 public sealed class AsyncCreateGroupCommand(
     ILogger logger,
     CreateGroupViewModel viewModel,
-    GroupStore groupStore,
-    NavigationService navigationService) 
+    GroupStore groupStore) 
         : AsyncCommand(logger)
 {
     public override async Task ExecuteAsync()
@@ -17,9 +16,7 @@ public sealed class AsyncCreateGroupCommand(
 
         await groupStore.CreateGroupAsync(viewModel.Group);
 
-        var navigationQuery = new WindowNavigationQuery();
-
-        navigationService.NavigateTo<MainViewModel, WindowContentNavigationMessage>(navigationQuery);
+        NavigationService.Navigate<NavigationViewModel, MainViewModel>();
     }
 
     public override bool CanExecute()

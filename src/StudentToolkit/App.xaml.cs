@@ -2,9 +2,10 @@
 using System.Windows;
 using System.Windows.Threading;
 
+using SimpleInjector;
+
 using StudentToolkit.Domain.Exceptions;
 using StudentToolkit.WpfCore;
-using StudentToolkit.WpfCore.Exceptions;
 
 using DotNetApplication = System.Windows.Application;
 
@@ -17,6 +18,8 @@ public partial class App : DotNetApplication
     public App()
     {
         CustomExceptionMessages.Register<GroupNotFoundException>(UserMessageConstants.GroupNotFound);
+        CustomExceptionMessages.Register<ViewModelProviderNotSetException>(UserMessageConstants.NavigationError);
+        CustomExceptionMessages.Register<ActivationException>(UserMessageConstants.ActivationException);
 
         DispatcherUnhandledException += OnUnhandledExceptionCatched;
     }
@@ -41,6 +44,7 @@ public partial class App : DotNetApplication
 
         await SetStartupViewModelAsync();
 
+        MainWindow = _container.GetInstance<MainWindow>();
         MainWindow.Show();
     }
 
@@ -53,17 +57,16 @@ public partial class App : DotNetApplication
 
     private async Task SetStartupViewModelAsync()
     {
+        NavigationService.Navigate<NavigationViewModel, MainViewModel>();
+
         var groupStore = _container.GetInstance<GroupStore>();
 
         await groupStore.LoadAsync();
 
-        ViewModel startupVm = string.IsNullOrEmpty(groupStore.Group.GroupCode)
-            ? _container.GetInstance<CreateGroupViewModel>()
-            : _container.GetInstance<MainViewModel>();
-
-        var navigationVm = new NavigationViewModel(startupVm);
-
-        MainWindow = new MainWindow(navigationVm);
+        if (string.IsNullOrEmpty(groupStore.Group.GroupCode))
+        {
+            NavigationService.Navigate<NavigationViewModel, CreateGroupViewModel>();
+        }
     }
 
     private void AddServices(string[] args)
