@@ -1,58 +1,83 @@
-﻿namespace StudentToolkit.WPF.UnitTests.Services;
+﻿using StudentToolkit.Configuration.DI;
+
+namespace StudentToolkit.WPF.UnitTests.Services;
 
 public class NavigationServiceTests
 {
-    [Fact]
-    public void The_navigation_with_the_INavigatingViewModel_and_message_with_a_handler_is_success()
+    private readonly Container _container;
+
+    public NavigationServiceTests()
     {
-        Dictionary<Type, ViewModel> viewModels = CreateViewModelCollection();
-        Func<Type, ViewModel> viewModelResolver = (type) => viewModels[type];
-        NavigationService navigationService = new(viewModelResolver);
-        NavigationViewModel navigationViewModel = (NavigationViewModel)viewModelResolver(typeof(NavigationViewModel));
+        _container = new Container();
 
-        navigationService.NavigateTo<DummyNavigatingViewModel, WindowContentNavigationMessage>(new WindowNavigationQuery());
+        _container.Register<DummyViewModelOne>();
+        _container.Register<DummyViewModelTwo>();
+        _container.Register<DummyViewModelThree>();
 
-        Assert.IsNotType<MainViewModel>(navigationViewModel.CurrentViewModel);
-        Assert.IsType<DummyNavigatingViewModel>(navigationViewModel.CurrentViewModel);
-    }
+        _container.Verify();
 
-    [Fact]
-    public void The_navigation_with_the_not_INavigatingViewModel_is_throw_NavigationDeniedException()
-    {
-        Dictionary<Type, ViewModel> viewModels = CreateViewModelCollection();
-        Func<Type, ViewModel> viewModelResolver = (type) => viewModels[type];
-        NavigationService navigationService = new(viewModelResolver);
-        NavigationViewModel navigationViewModel = (NavigationViewModel)viewModelResolver(typeof(NavigationViewModel));
-
-        void act() => navigationService.NavigateTo<DummyNotNavigatingViewModel, WindowContentNavigationMessage>(new WindowNavigationQuery());
-
-        Assert.Throws<NavigationDeniedException>(act);
-    }
-
-    [Fact]
-    public void Without_the_navigation_with_message_without_a_handler()
-    {
-        Dictionary<Type, ViewModel> viewModels = CreateViewModelCollection();
-        Func<Type, ViewModel> viewModelResolver = (type) => viewModels[type];
-        NavigationService navigationService = new(viewModelResolver);
-        NavigationViewModel navigationViewModel = (NavigationViewModel)viewModelResolver(typeof(NavigationViewModel));
-
-        navigationService.NavigateTo<DummyNavigatingViewModel, DummyNavigationMessage>(new StubNavigationQuery());
-
-        Assert.IsType<MainViewModel>(navigationViewModel.CurrentViewModel);
-        Assert.IsNotType<DummyNavigatingViewModel>(navigationViewModel.CurrentViewModel);
-    }
-
-    private static Dictionary<Type, ViewModel> CreateViewModelCollection()
-    {
-        var viewModels = new Dictionary<Type, ViewModel>()
+        if (ViewModelSource.Instance.Provider is null)
         {
-            { typeof(MainViewModel), new MainViewModel() },
-            { typeof(DummyNavigatingViewModel), new DummyNavigatingViewModel() },
-            { typeof(DummyNotNavigatingViewModel), new DummyNotNavigatingViewModel() },
-            { typeof(NavigationViewModel), new NavigationViewModel(new MainViewModel()) }
-        };
+            ViewModelSource.Instance.Provider = CreateViewModelProvider();
+        }
+    }
 
-        return viewModels;
+    [Fact]
+    public void Navigation_to_ViewModel_by_it_type_is_successful()
+    {
+        var stubNavigationVm = new StubNavigationViewModel();
+
+        NavigationService.Navigate<StubNavigationViewModel, DummyViewModelOne>();
+
+        Assert.IsType<DummyViewModelOne>(stubNavigationVm.CurrentViewModel);
+    }
+
+    [Fact]
+    public void Navigation_to_ViewModel_by_instance_is_successful()
+    {
+        var stubNavigationVm = new StubNavigationViewModel();
+        var viewModel = new DummyViewModelOne();
+
+        NavigationService.Navigate<StubNavigationViewModel>(viewModel);
+
+        Assert.IsType<DummyViewModelOne>(stubNavigationVm.CurrentViewModel);
+    }
+
+    [Theory]
+    [InlineData(typeof(DummyViewModelOne))]
+    [InlineData(typeof(DummyViewModelTwo))]
+    [InlineData(typeof(DummyViewModelThree))]
+    public void Multiple_navigation_by_sequence_of_ViewModel_instances_is_successful(Type viewModelType)
+    {
+        var stubNavigationVm = new StubNavigationViewModel();
+        var viewModel = (ViewModel)_container.GetInstance(viewModelType);
+
+        NavigationService.Navigate<StubNavigationViewModel>(viewModel);
+
+        Assert.IsType(viewModelType, stubNavigationVm.CurrentViewModel);
+    }
+
+    [Fact]
+    public void Navigation_to_ViewModel_that_is_null_is_throw_ArgumentNullException()
+    {
+
+        var stubNavigationVm = new StubNavigationViewModel();
+
+        Assert.Throws<ArgumentNullException>(() =>
+            NavigationService.Navigate<StubNavigationViewModel>(null!));
+    }
+
+    [Fact]
+    public void Navigation_to_ViewModel_that_dont_got_from_view_model_locator_is_throw_ActivationException()
+    {
+        var stubNavigationViewModel = new StubNavigationViewModel();
+
+        Assert.Throws<ActivationException>(() =>
+            NavigationService.Navigate<StubNavigationViewModel, DummyViewModelFour>());
+    }
+
+    private Func<Type, ViewModel> CreateViewModelProvider()
+    {
+        return type => (ViewModel)_container.GetInstance(type);
     }
 }

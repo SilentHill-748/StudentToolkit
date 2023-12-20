@@ -6,11 +6,20 @@ public static class RegisterWpf
 {
     public static Container RegisterWpfServices(this Container container)
     {
+        ViewModelSource.Instance.Provider = CreateViewModelResolver(container);
+
+        container.Register<MainWindow>();
+
         container
             .RegisterServices()
             .RegisterViewModels()
             .RegisterStores();
 
         return container;
+    }
+
+    private static Func<Type, ViewModel> CreateViewModelResolver(Container container)
+    {
+        return type => (ViewModel)container.GetInstance(type);
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace StudentToolkit.MVVM.ViewModels;
 
-public class MainViewModel : ViewModel, INavigatingViewModel
+public class MainViewModel : ViewModel
 {
     private ViewModel? _content;
 
@@ -13,6 +13,11 @@ public class MainViewModel : ViewModel, INavigatingViewModel
 
         groupStore.Updated += OnStoreChanged;
         groupStore.Loaded += OnStoreChanged;
+
+        WeakReferenceMessenger.Default.Register<NavigationMessage>(this, (recipient, message) =>
+        {
+            Content = message.GetDestinationViewModel<MainViewModel>() ?? Content;
+        });
     }
 
     public StatusBarViewModel StatusBarViewModel { get; }
@@ -23,7 +28,7 @@ public class MainViewModel : ViewModel, INavigatingViewModel
         set => Set(ref _content, value);
     }
 
-    public void OnStoreChanged(GroupViewModel groupVm)
+    private void OnStoreChanged(GroupViewModel groupVm)
     {
         StatusBarViewModel.GroupCode = groupVm.GroupCode;
     }

@@ -2,9 +2,10 @@
 using System.Windows;
 using System.Windows.Threading;
 
+using SimpleInjector;
+
 using StudentToolkit.Domain.Exceptions;
 using StudentToolkit.WpfCore;
-using StudentToolkit.WpfCore.Exceptions;
 
 using DotNetApplication = System.Windows.Application;
 
@@ -17,6 +18,8 @@ public partial class App : DotNetApplication
     public App()
     {
         CustomExceptionMessages.Register<GroupNotFoundException>(UserMessageConstants.GroupNotFound);
+        CustomExceptionMessages.Register<ViewModelProviderNotSetException>(UserMessageConstants.NavigationError);
+        CustomExceptionMessages.Register<ActivationException>(UserMessageConstants.ActivationException);
 
         DispatcherUnhandledException += OnUnhandledExceptionCatched;
     }
@@ -41,6 +44,7 @@ public partial class App : DotNetApplication
 
         await SetStartupViewModelAsync();
 
+        MainWindow = _container.GetInstance<MainWindow>();
         MainWindow.Show();
     }
 
@@ -61,9 +65,7 @@ public partial class App : DotNetApplication
             ? _container.GetInstance<CreateGroupViewModel>()
             : _container.GetInstance<MainViewModel>();
 
-        var navigationVm = new NavigationViewModel(startupVm);
-
-        MainWindow = new MainWindow(navigationVm);
+        NavigationService.Navigate<NavigationViewModel>(startupVm);
     }
 
     private void AddServices(string[] args)

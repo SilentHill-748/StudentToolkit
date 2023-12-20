@@ -20,7 +20,6 @@ global using StudentToolkit.Configuration.DI;
 global using StudentToolkit.Infrastructure.DI;
 global using StudentToolkit.MVVM.Models.Navigation;
 global using StudentToolkit.MVVM.Models.Navigation.Messages;
-global using StudentToolkit.MVVM.Models.Navigation.Messages.Queries;
 global using StudentToolkit.MVVM.Stores;
 global using StudentToolkit.MVVM.ViewModels;
 global using StudentToolkit.MVVM.ViewModels.Base;
@@ -30,7 +29,7 @@ global using StudentToolkit.MVVM.ViewModels.Presentation.CreateGroup;
 global using StudentToolkit.MVVM.Views.Windows;
 global using StudentToolkit.WpfCore.Commands.CreateGroup;
 global using StudentToolkit.WpfCore.Common.Enums;
-global using StudentToolkit.WpfCore.Exceptions.Navigation;
+global using StudentToolkit.WpfCore.Exceptions;
 global using StudentToolkit.WpfCore.Services;
 
 global using Container = SimpleInjector.Container;

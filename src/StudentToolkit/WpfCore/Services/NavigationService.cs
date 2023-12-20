@@ -1,24 +1,38 @@
 ﻿namespace StudentToolkit.WpfCore.Services;
 
-public class NavigationService(Func<Type, object> viewModelResolver)
+public static class NavigationService
 {
     /// <summary>
-    /// Do navigation to specified view by her view model.
+    /// Begin navigation to <typeparamref name="TDestinationViewModel"/> into <typeparamref name="TSourceViewModel"/>.
     /// </summary>
-    /// <typeparam name="TViewModel">The navigating view model type.</typeparam>
-    /// <typeparam name="TMessage">The navigation message type.</typeparam>
-    /// <param name="navigationQuery">Query for generating navigation message.</param>
-    /// <exception cref="NavigationDeniedException"></exception>
-    public void NavigateTo<TViewModel, TMessage>(NavigationQuery<TMessage> navigationQuery)
-        where TViewModel : ViewModel
-        where TMessage : ValueChangedMessage<NavigationModel>
+    /// <typeparam name="TSourceViewModel">The view model which contains content view that need changed.</typeparam>
+    /// <typeparam name="TDestinationViewModel">The view model that must change previous view model.</typeparam>
+    public static void Navigate<TSourceViewModel, TDestinationViewModel>()
+        where TSourceViewModel : ViewModel
+        where TDestinationViewModel : ViewModel
     {
-        var viewModel = (TViewModel)viewModelResolver(typeof(TViewModel));
+        var destinationVm = ViewModelSource.Instance.Resolve<TDestinationViewModel>();
 
-        if (viewModel is not INavigatingViewModel)
-            throw new NavigationDeniedException($"Navigation view model '{typeof(TViewModel).Name}' cannot be use for navigation!");
+        SendNavigationMessage<TSourceViewModel>(destinationVm);
+    }
 
-        var message = navigationQuery.Execute(viewModel);
+    /// <summary>
+    /// Begin navigation to specified view model into <typeparamref name="TSourceViewModel"/>.
+    /// </summary>
+    /// <typeparam name="TSourceViewModel">The view model which contains content view that need changed.</typeparam>
+    /// <param name="destinationVm">The view model that must change previous view model.</param>
+    public static void Navigate<TSourceViewModel>(ViewModel destinationVm)
+    {
+        ArgumentNullException.ThrowIfNull(destinationVm, nameof(destinationVm));
+
+        SendNavigationMessage<TSourceViewModel>(destinationVm);
+    }
+
+    private static void SendNavigationMessage<TSourceViewModel>(ViewModel destinationVm)
+    {
+        var message = 
+            new NavigationMessage(
+                new NavigationModel(destinationVm, typeof(TSourceViewModel)));
 
         WeakReferenceMessenger.Default.Send(message);
     }
