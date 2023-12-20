@@ -6,8 +6,6 @@ public sealed class TeacherViewModel : ViewModel
     private string _middlename = string.Empty;
     private string _lastName = string.Empty;
 
-    public string ShortFullName => $"{MiddleName} {FirstName[0]}. {LastName[0]}.";
-
     public string FirstName
     {
         get => _firstName;
