@@ -6,11 +6,6 @@ public sealed class TeacherViewModel : ViewModel
     private string _middlename = string.Empty;
     private string _lastName = string.Empty;
 
-    public TeacherViewModel()
-    {
-        PropertyChanged += TeacherViewModel_PropertyChanged;
-    }
-
     public string ShortFullName => $"{MiddleName} {FirstName[0]}. {LastName[0]}.";
 
     public string FirstName
@@ -29,8 +24,11 @@ public sealed class TeacherViewModel : ViewModel
         set => Set(ref _lastName, value);
     }
 
-    private void TeacherViewModel_PropertyChanged(object? sender, PropertyChangedEventArgs e)
+    public override string ToString()
     {
-        OnPropertyChanged(nameof(ShortFullName));
+        var shortFirstName = FirstName.Length > 0 ? '\0' : FirstName[0];
+        var shortLastName = LastName.Length > 0 ? '\0' : LastName[0];
+
+        return $"{MiddleName} {shortFirstName}. {shortLastName}.";
     }
 }
