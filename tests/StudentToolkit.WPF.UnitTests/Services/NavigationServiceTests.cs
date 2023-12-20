@@ -29,7 +29,6 @@ public class NavigationServiceTests
 
         NavigationService.Navigate<StubNavigationViewModel, DummyViewModelOne>();
 
-        Assert.NotNull(stubNavigationVm.CurrentViewModel);
         Assert.IsType<DummyViewModelOne>(stubNavigationVm.CurrentViewModel);
     }
 
@@ -41,7 +40,6 @@ public class NavigationServiceTests
 
         NavigationService.Navigate<StubNavigationViewModel>(viewModel);
 
-        Assert.NotNull(stubNavigationVm.CurrentViewModel);
         Assert.IsType<DummyViewModelOne>(stubNavigationVm.CurrentViewModel);
     }
 
@@ -56,7 +54,6 @@ public class NavigationServiceTests
 
         NavigationService.Navigate<StubNavigationViewModel>(viewModel);
 
-        Assert.NotNull(stubNavigationVm.CurrentViewModel);
         Assert.IsType(viewModelType, stubNavigationVm.CurrentViewModel);
     }
 
