@@ -1,12 +1,18 @@
 ﻿using System.Threading.Tasks;
 
-using StudentToolkit.WpfCore.Exceptions;
-
 namespace StudentToolkit.WpfCore.Commands.Base;
 
-public abstract class AsyncCommand<T>(ILogger logger) 
-    : ICommand
+public abstract class AsyncCommand<T> : ICommand
 {
+    private readonly ILogger _logger;
+
+    public AsyncCommand(ILogger logger)
+    {
+        ArgumentNullException.ThrowIfNull(logger, nameof(logger));
+
+        _logger = logger;
+    }
+
     public event EventHandler? CanExecuteChanged
     {
         add => CommandManager.RequerySuggested += value;
@@ -30,11 +36,11 @@ public abstract class AsyncCommand<T>(ILogger logger)
             IsExecuting = true;
             await ExecuteAsync(CastParameter(parameter));
 
-            logger.Debug($"The generic async command '{commandName}' is executed success.");
+            _logger.Debug($"The generic async command '{commandName}' is executed success.");
         }
         catch (Exception ex)
         {
-            logger.Error(ex, $"An exception has occurred on executing process of generic async command '{commandName}'.");
+            _logger.Error(ex, $"An exception has occurred on executing process of generic async command '{commandName}'.");
 
             var message = CustomExceptionMessages.GetMessage(ex);
 

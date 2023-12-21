@@ -3,13 +3,19 @@ using StudentToolkit.WpfCore.Commands.Base;
 
 namespace StudentToolkit.WpfCore.Commands.Notification;
 
-public class ConfirmNotificationCommand(NotificationWithConfirmViewModel viewModel) 
-    : Command
+public class ConfirmNotificationCommand : Command
 {
+    private readonly NotificationWithConfirmViewModel _viewModel;
+
+    public ConfirmNotificationCommand(NotificationWithConfirmViewModel viewModel)
+    {
+        _viewModel = viewModel;
+    }
+
     public override void Execute()
     {
-        viewModel.IsConfirmed = true;
+        _viewModel.IsConfirmed = true;
 
-        viewModel.CloseDialog?.Invoke();
+        _viewModel.CloseDialog?.Invoke();
     }
 }

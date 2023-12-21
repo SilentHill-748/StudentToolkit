@@ -2,9 +2,17 @@
 
 namespace StudentToolkit.WpfCore.Commands.Base;
 
-public abstract class AsyncCommand(ILogger logger) 
-    : ICommand
+public abstract class AsyncCommand : ICommand
 {
+    private readonly ILogger _logger;
+
+    public AsyncCommand(ILogger logger)
+    {
+        ArgumentNullException.ThrowIfNull(logger, nameof(logger));
+
+        _logger = logger;
+    }
+
     public event EventHandler? CanExecuteChanged
     {
         add => CommandManager.RequerySuggested += value;
@@ -29,11 +37,11 @@ public abstract class AsyncCommand(ILogger logger)
             
             await ExecuteAsync();
 
-            logger.Debug($"The async command '{commandName}' is executed success.");
+            _logger.Debug($"The async command '{commandName}' is executed success.");
         }
         catch (Exception ex)
         {
-            logger.Error(ex, $"An exception has occurred on executing process of async command '{commandName}'.");
+            _logger.Error(ex, $"An exception has occurred on executing process of async command '{commandName}'.");
 
             var message = CustomExceptionMessages.GetMessage(ex);
 
