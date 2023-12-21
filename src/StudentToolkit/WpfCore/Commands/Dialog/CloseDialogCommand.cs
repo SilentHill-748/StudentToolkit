@@ -2,8 +2,7 @@
 
 namespace StudentToolkit.WpfCore.Commands.Dialog;
 
-public sealed class CloseDialogCommand 
-    : Command
+public sealed class CloseDialogCommand : Command
 {
     private readonly DialogViewModel _viewModel;
 
