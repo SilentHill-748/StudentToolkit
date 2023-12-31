@@ -1,8 +1,9 @@
 ﻿namespace StudentToolkit.MVVM.Models.Navigation.Messages;
 
-public sealed class NavigationMessage(NavigationModel value) 
-    : ValueChangedMessage<NavigationModel>(value) 
+public sealed class NavigationMessage : ValueChangedMessage<NavigationModel>
 {
+    public NavigationMessage(NavigationModel value) : base(value) { }
+
     public ViewModel? GetDestinationViewModel<TSourceViewModel>()
     {
         if (Value.SourceViewModelType == typeof(TSourceViewModel))

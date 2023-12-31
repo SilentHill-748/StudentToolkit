@@ -6,6 +6,8 @@
     <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>
     <AppDesignerFolder>Properties</AppDesignerFolder>
+	<NoWarn>IDE0290</NoWarn>
+	<WarningsAsErrors>CS8602</WarningsAsErrors>
   </PropertyGroup>
 
   <ItemGroup>

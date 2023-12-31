@@ -1,7 +1,16 @@
 ﻿namespace StudentToolkit.MVVM.Models.Navigation;
 
-public sealed class NavigationModel(ViewModel destinationVm, Type sourceVmType)
+public sealed class NavigationModel
 {
-    public ViewModel DestinationViewModel => destinationVm;
-    public Type SourceViewModelType => sourceVmType;
+    public NavigationModel(ViewModel destinationVm, Type sourceVmType)
+    {
+        ArgumentNullException.ThrowIfNull(destinationVm, nameof(destinationVm));
+        ArgumentNullException.ThrowIfNull(sourceVmType, nameof(sourceVmType));
+
+        DestinationViewModel = destinationVm;
+        SourceViewModelType = sourceVmType;
+    }
+
+    public ViewModel DestinationViewModel { get; }
+    public Type SourceViewModelType { get; }
 }
