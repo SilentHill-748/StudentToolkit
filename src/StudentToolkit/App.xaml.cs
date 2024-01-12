@@ -1,11 +1,7 @@
 ﻿using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Threading;
 
-using SimpleInjector;
-
-using StudentToolkit.Domain.Exceptions;
-using StudentToolkit.WpfCore;
+using StudentToolkit.Configuration;
 
 using DotNetApplication = System.Windows.Application;
 
@@ -13,77 +9,41 @@ namespace StudentToolkit;
 
 public partial class App : DotNetApplication
 {
-    private readonly Container _container = new();
+    private readonly AppOptions _options = new();
 
     public App()
     {
-        CustomExceptionMessages.Register<GroupNotFoundException>(UserMessageConstants.GroupNotFound);
-        CustomExceptionMessages.Register<ViewModelProviderNotSetException>(UserMessageConstants.NavigationError);
-        CustomExceptionMessages.Register<ActivationException>(UserMessageConstants.ActivationException);
+        _options.RegisterCustomExceptionMessages();
 
-        DispatcherUnhandledException += OnUnhandledExceptionCatched;
-    }
-
-    private void OnUnhandledExceptionCatched(object sender, DispatcherUnhandledExceptionEventArgs e)
-    {
-        var logger = _container.GetInstance<ILogger>();
-        var exception = e.Exception;
-
-        var logMessage = $"{exception.Source}: {exception.Message}";
-        var userMessage = CustomExceptionMessages.GetMessage(exception);
-
-        logger.Fatal(exception, logMessage);
-
-        NotificationService.Alert("Критическая ошибка!", userMessage);
+        DispatcherUnhandledException += _options.OnExceptionHandler;
     }
 
     protected override async void OnStartup(StartupEventArgs e)
     {
-        AddServices(e.Args);
-        ApplyDataTemplates();
+        _options.RegisterServices(e.Args);
+        _options.ApplyDataTemplates(Resources);
 
         await SetStartupViewModelAsync();
 
-        MainWindow = _container.GetInstance<MainWindow>();
+        MainWindow = _options.Services.GetInstance<MainWindow>();
         MainWindow.Show();
     }
 
     protected override void OnExit(ExitEventArgs e)
     {
-        _container.Dispose();
-
-        base.OnExit(e);
+        _options.Dispose();
     }
 
     private async Task SetStartupViewModelAsync()
     {
-        var groupStore = _container.GetInstance<GroupStore>();
+        var groupStore = _options.Services.GetInstance<GroupStore>();
 
         await groupStore.LoadAsync();
 
         ViewModel startupVm = string.IsNullOrEmpty(groupStore.Group.GroupCode)
-            ? _container.GetInstance<CreateGroupViewModel>()
-            : _container.GetInstance<MainViewModel>();
+            ? _options.Services.GetInstance<CreateGroupViewModel>()
+            : _options.Services.GetInstance<MainViewModel>();
 
         NavigationService.Navigate<NavigationViewModel>(startupVm);
-    }
-
-    private void AddServices(string[] args)
-    {
-        _container
-            .RegisterWpfServices()
-            .RegisterApplicationServices(typeof(App).Assembly)
-            .RegisterInfrastructureServices(args)
-            .Verify();
-    }
-
-    private void ApplyDataTemplates()
-    {
-        var dataTemplates = ViewToViewModelDataTemplateMapper.Map();
-
-        foreach (DataTemplate template in dataTemplates)
-        {
-            Resources.Add(template.DataTemplateKey, template);
-        }
     }
 }
