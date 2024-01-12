@@ -39,7 +39,7 @@ public class AppOptions : IDisposable
         }
     }
 
-    public void OnExceptionHandler(object sender, DispatcherUnhandledExceptionEventArgs e)
+    public void GlobalExceptionHandler(object sender, DispatcherUnhandledExceptionEventArgs e)
     {
         var logger = Services.GetInstance<ILogger>();
         var exception = e.Exception;

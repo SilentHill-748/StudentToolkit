@@ -15,7 +15,7 @@ public partial class App : DotNetApplication
     {
         _options.RegisterCustomExceptionMessages();
 
-        DispatcherUnhandledException += _options.OnExceptionHandler;
+        DispatcherUnhandledException += _options.GlobalExceptionHandler;
     }
 
     protected override async void OnStartup(StartupEventArgs e)
