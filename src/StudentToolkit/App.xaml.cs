@@ -36,13 +36,15 @@ public partial class App : DotNetApplication
 
     private async Task SetStartupViewModelAsync()
     {
-        var groupStore = _options.Services.GetInstance<GroupStore>();
+        Container services = _options.Services;
+        
+        var groupStore = services.GetInstance<GroupStore>();
 
         await groupStore.LoadAsync();
 
         ViewModel startupVm = string.IsNullOrEmpty(groupStore.Group.GroupCode)
-            ? _options.Services.GetInstance<CreateGroupViewModel>()
-            : _options.Services.GetInstance<MainViewModel>();
+            ? services.GetInstance<CreateGroupViewModel>()
+            : services.GetInstance<MainViewModel>();
 
         NavigationService.Navigate<NavigationViewModel>(startupVm);
     }
