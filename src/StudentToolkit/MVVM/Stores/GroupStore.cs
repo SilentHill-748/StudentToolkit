@@ -14,7 +14,7 @@ public sealed class GroupStore : IDisposable
     private readonly WindowsRegistryProvider _registryProvider;
     private readonly Lazy<Task> _lazyInitialization;
 
-    private GroupViewModel _group;
+    private GroupModel _group;
 
     public GroupStore(
         IGroupService groupService,
@@ -24,14 +24,14 @@ public sealed class GroupStore : IDisposable
         _logger = logger;
         _registryProvider = new WindowsRegistryProvider();
 
-        _group = new GroupViewModel();
+        _group = new GroupModel();
         _lazyInitialization = new Lazy<Task>(InternalLoadAsync, true);
     }
 
-    public event Action<GroupViewModel>? Loaded;
-    public event Action<GroupViewModel>? Updated;
+    public event Action<GroupModel>? Loaded;
+    public event Action<GroupModel>? Updated;
 
-    public GroupViewModel Group => _group;
+    public GroupModel Group => _group;
 
     public async Task LoadAsync()
     {
@@ -40,7 +40,7 @@ public sealed class GroupStore : IDisposable
         Loaded?.Invoke(_group);
     }
 
-    public async Task CreateGroupAsync(GroupViewModel groupVm)
+    public async Task CreateGroupAsync(GroupModel groupVm)
     {
         var groupDto = groupVm.Adapt<GroupDto>();
 
@@ -88,12 +88,12 @@ public sealed class GroupStore : IDisposable
 
             var groupDto = await _groupService.GetGroupAsync(g => g.GroupCode.Equals(groupCode));
                 
-            var students = groupDto.Students.Adapt<ICollection<StudentViewModel>>();
+            var students = groupDto.Students.Adapt<ICollection<StudentModel>>();
 
-            _group = new GroupViewModel()
+            _group = new GroupModel()
             {
                 GroupCode = groupCode,
-                Students = new ObservableCollection<StudentViewModel>(students)
+                Students = new ObservableCollection<StudentModel>(students)
             };
         }
         catch (Exception ex)

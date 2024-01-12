@@ -2,7 +2,7 @@
 
 namespace StudentToolkit.MVVM.ViewModels.Presentation.CreateGroup;
 
-public sealed class CreateStudentViewModel : ResultDialogViewModel<StudentViewModel>
+public sealed class CreateStudentViewModel : ResultDialogViewModel<StudentModel>
 {
     private readonly CreateStudentViewModelValidator _validator;
 

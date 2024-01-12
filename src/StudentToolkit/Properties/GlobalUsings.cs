@@ -1,6 +1,7 @@
 ﻿global using System;
 global using System.Collections.Generic;
 global using System.Collections.ObjectModel;
+global using System.Collections.Specialized;
 global using System.ComponentModel;
 global using System.Windows.Input;
 
@@ -18,13 +19,13 @@ global using StudentToolkit.Application.Common.Interfaces.Services;
 global using StudentToolkit.Application.DI;
 global using StudentToolkit.Configuration.DI;
 global using StudentToolkit.Infrastructure.DI;
+global using StudentToolkit.MVVM.Models;
 global using StudentToolkit.MVVM.Models.Navigation;
 global using StudentToolkit.MVVM.Models.Navigation.Messages;
 global using StudentToolkit.MVVM.Stores;
 global using StudentToolkit.MVVM.ViewModels;
 global using StudentToolkit.MVVM.ViewModels.Base;
 global using StudentToolkit.MVVM.ViewModels.Components;
-global using StudentToolkit.MVVM.ViewModels.Model;
 global using StudentToolkit.MVVM.ViewModels.Presentation.CreateGroup;
 global using StudentToolkit.MVVM.Views.Windows;
 global using StudentToolkit.WpfCore.Commands.CreateGroup;
