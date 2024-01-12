@@ -25,7 +25,7 @@ public sealed class ShowCreateStudentDialogCommand : Command
         if (student is null)
             return;
 
-        _viewModel.Group.Students.Add(student);
+        _viewModel.Students.Add(student);
     }
 
     public override bool CanExecute()

@@ -20,10 +20,10 @@ public sealed class CreateGroupViewModel : ValidatableViewModel
         ArgumentNullException.ThrowIfNull(studentValidator, nameof(studentValidator));
         
         _validator = validator;
-        Group = new GroupViewModel();
         WindowTitle = "Создание группы студентов";
 
-        Group.Students.CollectionChanged += Students_CollectionChanged;
+        Students = [];
+        Students.CollectionChanged += Students_CollectionChanged;
 
         ShowCreateStudentDialogCommand = new ShowCreateStudentDialogCommand(this, studentValidator);
         CreateGroupCommand = new AsyncCreateGroupCommand(logger, this, groupStore);
@@ -31,7 +31,7 @@ public sealed class CreateGroupViewModel : ValidatableViewModel
         Validate(_validator, this);
     }
 
-    public GroupViewModel Group { get; }
+    public ObservableCollection<StudentModel> Students { get; }
 
     public string GroupCode
     {

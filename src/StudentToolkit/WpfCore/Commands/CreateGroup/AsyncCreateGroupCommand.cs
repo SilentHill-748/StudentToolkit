@@ -21,9 +21,13 @@ public sealed class AsyncCreateGroupCommand : AsyncCommand
 
     public override async Task ExecuteAsync()
     {
-        _viewModel.Group.GroupCode = _viewModel.GroupCode;
+        var group = new GroupModel()
+        {
+            GroupCode = _viewModel.GroupCode,
+            Students = _viewModel.Students
+        };
 
-        await _groupStore.CreateGroupAsync(_viewModel.Group);
+        await _groupStore.CreateGroupAsync(group);
 
         NavigationService.Navigate<NavigationViewModel, MainViewModel>();
     }
@@ -32,6 +36,6 @@ public sealed class AsyncCreateGroupCommand : AsyncCommand
     {
         return  !IsExecuting &&
                 _viewModel.HasNoErrors && 
-                _viewModel.Group.Students.Count > 5;
+                _viewModel.Students.Count > 5;
     }
 }

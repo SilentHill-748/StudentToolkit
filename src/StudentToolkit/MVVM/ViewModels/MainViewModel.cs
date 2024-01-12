@@ -28,7 +28,7 @@ public class MainViewModel : ViewModel
         set => Set(ref _content, value);
     }
 
-    private void OnStoreChanged(GroupViewModel groupVm)
+    private void OnStoreChanged(GroupModel groupVm)
     {
         StatusBarViewModel.GroupCode = groupVm.GroupCode;
     }
