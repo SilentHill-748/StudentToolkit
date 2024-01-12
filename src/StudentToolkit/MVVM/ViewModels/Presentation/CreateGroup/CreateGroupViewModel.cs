@@ -42,7 +42,7 @@ public sealed class CreateGroupViewModel : ValidatableViewModel
     public ICommand ShowCreateStudentDialogCommand { get; }
     public ICommand CreateGroupCommand { get; }
 
-    private void Students_CollectionChanged(object? sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
+    private void Students_CollectionChanged(object? sender, NotifyCollectionChangedEventArgs e)
     {
         Validate(_validator, this);
     }
