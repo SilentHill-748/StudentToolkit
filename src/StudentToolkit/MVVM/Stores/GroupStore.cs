@@ -14,7 +14,7 @@ public sealed class GroupStore : IDisposable
     private readonly WindowsRegistryProvider _registryProvider;
     private readonly Lazy<Task> _lazyInitialization;
 
-    private GroupModel _group;
+    private readonly GroupModel _group;
 
     public GroupStore(
         IGroupService groupService,
@@ -87,14 +87,8 @@ public sealed class GroupStore : IDisposable
             var groupCode = _registryProvider.ReadValue<string>(GroupCodeValueName);
 
             var groupDto = await _groupService.GetGroupAsync(g => g.GroupCode.Equals(groupCode));
-                
-            var students = groupDto.Students.Adapt<ICollection<StudentModel>>();
 
-            _group = new GroupModel()
-            {
-                GroupCode = groupCode,
-                Students = new ObservableCollection<StudentModel>(students)
-            };
+            _group.Update(groupDto);
         }
         catch (Exception ex)
         {
