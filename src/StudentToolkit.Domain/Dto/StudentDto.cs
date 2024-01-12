@@ -6,6 +6,4 @@ public class StudentDto
     public string FirstName { get; set; } = string.Empty;
     public string LastName { get; set; } = string.Empty;
     public string MiddleName { get; set; } = string.Empty;
-    public string FullName {  get; set; } = string.Empty;
-    public string ShortFullName {  get; set; } = string.Empty;
 }
