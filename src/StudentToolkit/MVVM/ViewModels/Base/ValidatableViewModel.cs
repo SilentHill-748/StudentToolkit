@@ -48,7 +48,7 @@ public class ValidatableViewModel : ViewModel, INotifyDataErrorInfo
         AddErrors(result);
     }
 
-    protected void OnErorrsChanged([CallerMemberName] string propertyName = "")
+    protected void OnErrorsChanged([CallerMemberName] string propertyName = "")
     {
         ErrorsChanged?.Invoke(this, new DataErrorsChangedEventArgs(propertyName));
     }
@@ -63,7 +63,7 @@ public class ValidatableViewModel : ViewModel, INotifyDataErrorInfo
 
         _errors.Remove(propertyName);
 
-        OnErorrsChanged(propertyName);
+        OnErrorsChanged(propertyName);
     }
 
 
@@ -84,6 +84,6 @@ public class ValidatableViewModel : ViewModel, INotifyDataErrorInfo
 
         _errors[error.PropertyName].Add(error.ErrorMessage);
 
-        OnErorrsChanged(error.PropertyName);
+        OnErrorsChanged(error.PropertyName);
     }
 }
