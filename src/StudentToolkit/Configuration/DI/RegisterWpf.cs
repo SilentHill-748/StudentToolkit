@@ -6,7 +6,7 @@ public static class RegisterWpf
 {
     public static Container RegisterWpfServices(this Container container)
     {
-        ViewModelSource.Instance.Provider = CreateViewModelResolver(container);
+        ViewModelSource.Provider = CreateViewModelResolver(container);
 
         container.Register<MainWindow>();
 

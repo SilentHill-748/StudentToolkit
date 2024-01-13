@@ -11,7 +11,7 @@ public static class NavigationService
         where TSourceViewModel : ViewModel
         where TDestinationViewModel : ViewModel
     {
-        var destinationVm = ViewModelSource.Instance.Resolve<TDestinationViewModel>();
+        var destinationVm = ViewModelSource.Resolve<TDestinationViewModel>();
 
         SendNavigationMessage<TSourceViewModel>(destinationVm);
     }
