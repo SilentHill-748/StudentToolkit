@@ -11,7 +11,7 @@ namespace StudentToolkit.Configuration;
 #pragma warning disable CA1822
 public class AppOptions : IDisposable
 {
-    private bool disposedValue;
+    private bool _disposedValue;
 
     public AppOptions()
     {
@@ -67,14 +67,14 @@ public class AppOptions : IDisposable
 
     protected virtual void Dispose(bool disposing)
     {
-        if (!disposedValue)
+        if (!_disposedValue)
         {
             if (disposing)
             {
                 Services.Dispose();
             }
 
-            disposedValue = true;
+            _disposedValue = true;
         }
     }
 }

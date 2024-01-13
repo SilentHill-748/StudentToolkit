@@ -4,32 +4,32 @@ namespace StudentToolkit.WpfCore.Commands.CreateGroup;
 
 public sealed class CreateStudentCommand : Command
 {
-    private readonly CreateStudentViewModel _viewModel;
+    private readonly CreateStudentViewModel _createStudentVm;
 
-    public CreateStudentCommand(CreateStudentViewModel viewModel)
+    public CreateStudentCommand(CreateStudentViewModel createStudentVm)
     {
-        _viewModel = viewModel;
+        _createStudentVm = createStudentVm;
     }
 
     public override void Execute()
     {
-        _viewModel.DialogResult = CreateStudent();
+        _createStudentVm.DialogResult = CreateStudent();
         
-        _viewModel.CloseDialog?.Invoke();
+        _createStudentVm.CloseDialog?.Invoke();
     }
 
     public override bool CanExecute()
     {
-        return _viewModel.HasNoErrors;
+        return _createStudentVm.HasNoErrors;
     }
 
     private StudentModel CreateStudent()
     {
         return new StudentModel()
         {
-            FirstName = _viewModel.FirstName,
-            LastName = _viewModel.LastName,
-            MiddleName = _viewModel.MiddleName
+            FirstName = _createStudentVm.FirstName,
+            LastName = _createStudentVm.LastName,
+            MiddleName = _createStudentVm.MiddleName
         };
     }
 }
