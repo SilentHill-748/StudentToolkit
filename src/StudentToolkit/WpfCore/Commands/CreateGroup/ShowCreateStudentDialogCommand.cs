@@ -5,31 +5,31 @@ namespace StudentToolkit.WpfCore.Commands.CreateGroup;
 
 public sealed class ShowCreateStudentDialogCommand : Command
 {
-    private readonly CreateGroupViewModel _viewModel;
-    private readonly CreateStudentViewModelValidator _validator;
+    private readonly CreateGroupViewModel _createGroupVm;
+    private readonly CreateStudentViewModelValidator _createStudentVmValidator;
 
     public ShowCreateStudentDialogCommand(
-        CreateGroupViewModel viewModel,
-        CreateStudentViewModelValidator validator)
+        CreateGroupViewModel createGroupVm,
+        CreateStudentViewModelValidator createStudentVmValidator)
     {
-        _viewModel = viewModel;
-        _validator = validator;
+        _createGroupVm = createGroupVm;
+        _createStudentVmValidator = createStudentVmValidator;
     }
 
     public override void Execute()
     {
-        var dialogViewModel = new CreateStudentViewModel(_validator);
+        var createStudentVm = new CreateStudentViewModel(_createStudentVmValidator);
 
-        var student = DialogService.ShowDialog(dialogViewModel);
+        var student = DialogService.ShowDialog(createStudentVm);
 
         if (student is null)
             return;
 
-        _viewModel.Students.Add(student);
+        _createGroupVm.Students.Add(student);
     }
 
     public override bool CanExecute()
     {
-        return _viewModel.HasNoErrors;
+        return _createGroupVm.HasNoErrors;
     }
 }

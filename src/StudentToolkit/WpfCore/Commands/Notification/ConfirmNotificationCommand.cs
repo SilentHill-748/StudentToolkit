@@ -5,17 +5,17 @@ namespace StudentToolkit.WpfCore.Commands.Notification;
 
 public class ConfirmNotificationCommand : Command
 {
-    private readonly NotificationWithConfirmViewModel _viewModel;
+    private readonly NotificationWithConfirmViewModel _notificationWithConfirmVm;
 
-    public ConfirmNotificationCommand(NotificationWithConfirmViewModel viewModel)
+    public ConfirmNotificationCommand(NotificationWithConfirmViewModel notificationWithConfirmVm)
     {
-        _viewModel = viewModel;
+        _notificationWithConfirmVm = notificationWithConfirmVm;
     }
 
     public override void Execute()
     {
-        _viewModel.IsConfirmed = true;
+        _notificationWithConfirmVm.IsConfirmed = true;
 
-        _viewModel.CloseDialog?.Invoke();
+        _notificationWithConfirmVm.CloseDialog?.Invoke();
     }
 }
