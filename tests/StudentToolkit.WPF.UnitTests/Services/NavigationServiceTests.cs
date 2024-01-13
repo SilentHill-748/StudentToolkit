@@ -16,10 +16,7 @@ public class NavigationServiceTests
 
         _container.Verify();
 
-        if (ViewModelSource.Instance.Provider is null)
-        {
-            ViewModelSource.Instance.Provider = CreateViewModelProvider();
-        }
+        ViewModelSource.Provider ??= CreateViewModelProvider();
     }
 
     [Fact]
