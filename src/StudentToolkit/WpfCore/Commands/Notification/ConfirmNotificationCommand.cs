@@ -1,4 +1,4 @@
-﻿using StudentToolkit.MVVM.ViewModels.Base.Notification;
+﻿using StudentToolkit.MVVM.ViewModels.Notification;
 using StudentToolkit.WpfCore.Commands.Base;
 
 namespace StudentToolkit.WpfCore.Commands.Notification;

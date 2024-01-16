@@ -1,4 +1,4 @@
-﻿using StudentToolkit.MVVM.ViewModels.Base.Notification;
+﻿using StudentToolkit.MVVM.ViewModels.Notification;
 
 namespace StudentToolkit.WpfCore.Services;
 
@@ -44,7 +44,7 @@ public static class NotificationService
     {
         var notificationVm = new NotificationWithConfirmViewModel(title, message);
 
-        ShowDialog(title, notificationVm);
+        OpenNotificationWindow(title, notificationVm);
 
         return notificationVm.IsConfirmed;
     }
@@ -53,14 +53,13 @@ public static class NotificationService
     {
         var notificationVm = new NotificationViewModel(title, message, icon);
 
-        ShowDialog(title, notificationVm);
+        OpenNotificationWindow(title, notificationVm);
     }
 
-    private static void ShowDialog(string title, DialogViewModel viewModel)
+    private static void OpenNotificationWindow(string title, NotificationViewModel viewModel)
     {
-        var window = new DialogWindow()
+        var window = new NotificationWindow()
         {
-            ResizeMode = System.Windows.ResizeMode.NoResize,
             Content = viewModel,
             Title = title
         };

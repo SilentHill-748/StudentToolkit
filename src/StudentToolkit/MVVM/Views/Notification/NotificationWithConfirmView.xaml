@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:ViewModel="clr-namespace:StudentToolkit.MVVM.ViewModels.Base.Notification"
+             xmlns:ViewModel="clr-namespace:StudentToolkit.MVVM.ViewModels.Notification"
              d:DataContext="{d:DesignInstance Type=ViewModel:NotificationWithConfirmViewModel}"
              mc:Ignorable="d">
     <UserControl.Resources>
@@ -47,14 +47,14 @@
                 IsDefault="True"
                 Content="Да"
                 Margin="0 0 10 0"
-                Command="{Binding OkCommand}"/>
+                Command="{Binding ApplyNotificationCommand}"/>
 
             <Button
                 MinWidth="70"
                 Padding="10 3"
                 IsCancel="True"
                 Content="Нет"
-                Command="{Binding CloseDialogCommand}"/>
+                Command="{Binding CloseNotificationCommand}"/>
         </StackPanel>
     </Grid>
 </UserControl>
