@@ -20,7 +20,7 @@ public sealed class CreateStudentCommand : Command
 
     public override bool CanExecute()
     {
-        return _createStudentVm.HasNoErrors;
+        return !_createStudentVm.HasErrors;
     }
 
     private StudentModel CreateStudent()

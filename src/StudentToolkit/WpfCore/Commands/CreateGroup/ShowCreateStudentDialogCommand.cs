@@ -30,6 +30,6 @@ public sealed class ShowCreateStudentDialogCommand : Command
 
     public override bool CanExecute()
     {
-        return _createGroupVm.HasNoErrors;
+        return !_createGroupVm.HasErrors;
     }
 }

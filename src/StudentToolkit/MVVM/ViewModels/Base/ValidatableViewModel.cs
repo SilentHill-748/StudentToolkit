@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Linq;
 using System.Runtime.CompilerServices;
 
 using FluentValidation.Results;
@@ -9,8 +10,8 @@ public class ValidatableViewModel : ViewModel, INotifyDataErrorInfo
 {
     private readonly Dictionary<string, List<string>> _errors = [];
 
+    public IValidator? Validator { get; protected set; }
     public bool HasErrors => _errors.Count > 0;
-    public bool HasNoErrors => _errors.Count == 0;
 
     public event EventHandler<DataErrorsChangedEventArgs>? ErrorsChanged;
 
@@ -22,35 +23,53 @@ public class ValidatableViewModel : ViewModel, INotifyDataErrorInfo
         return new List<string>();
     }
 
-    protected void ValidatableSet<TViewModel, TField>(
-        AbstractValidator<TViewModel> validator,
-        TViewModel instance,
-        ref TField field,
-        TField value,
-        [CallerMemberName] string propertyName = "")
+    protected void SetWithValidation<T>(ref T field, T value, [CallerMemberName] string propertyName = "")
     {
         Set(ref field, value, propertyName);
-        Validate(validator, instance, propertyName);
+        ValidateProperty(propertyName);
     }
 
-    protected void Validate<TViewModel>(
-        AbstractValidator<TViewModel> validator,
-        TViewModel instance,
-        [CallerMemberName] string propertyName = "")
+    protected void Validate()
     {
-        ArgumentNullException.ThrowIfNull(validator, nameof(validator));
-        ArgumentNullException.ThrowIfNull(instance, nameof(instance));
+        ClearErrors();
 
-        ValidationResult result = validator.Validate(instance);
+        ValidationResult result = GetValidationResult();
 
-        ClearErrors(propertyName);
+        foreach (ValidationFailure failure in result.Errors)
+        {
+            _errors[failure.PropertyName] = [failure.ErrorMessage];
 
-        AddErrors(result);
+            OnErrorsChanged(failure.PropertyName);
+        }
     }
 
     protected void OnErrorsChanged([CallerMemberName] string propertyName = "")
+        => ErrorsChanged?.Invoke(this, new DataErrorsChangedEventArgs(propertyName));
+
+    private void ValidateProperty(string propertyName)
     {
-        ErrorsChanged?.Invoke(this, new DataErrorsChangedEventArgs(propertyName));
+        ClearErrors(propertyName);
+
+        List<ValidationFailure> failures = GetValidationResult().Errors;
+
+        ValidationFailure? failure = failures
+            .FirstOrDefault(failure => failure.PropertyName == propertyName);
+
+        if (failure is null)
+            return;
+
+        _errors[propertyName] = [failure.ErrorMessage];
+
+        OnErrorsChanged(propertyName);
+    }
+
+    private ValidationResult GetValidationResult()
+    {
+        var context = new ValidationContext<ViewModel>(this);
+
+        return Validator is null
+            ? new ValidationResult()
+            : Validator.Validate(context);
     }
 
     private void ClearErrors(string propertyName = "")
@@ -64,26 +83,5 @@ public class ValidatableViewModel : ViewModel, INotifyDataErrorInfo
         _errors.Remove(propertyName);
 
         OnErrorsChanged(propertyName);
-    }
-
-
-    private void AddErrors(ValidationResult validationResult)
-    {
-        var errors = validationResult.Errors;
-
-        foreach (ValidationFailure error in errors)
-        {
-            AddError(error);
-        }
-    }
-
-    private void AddError(ValidationFailure error)
-    {
-        if (!_errors.ContainsKey(error.PropertyName))
-            _errors[error.PropertyName] = [];
-
-        _errors[error.PropertyName].Add(error.ErrorMessage);
-
-        OnErrorsChanged(error.PropertyName);
     }
 }
