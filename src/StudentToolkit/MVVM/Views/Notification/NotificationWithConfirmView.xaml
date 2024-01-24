@@ -47,7 +47,7 @@
                 IsDefault="True"
                 Content="Да"
                 Margin="0 0 10 0"
-                Command="{Binding ApplyNotificationCommand}"/>
+                Command="{Binding ConfirmNotificationCommand}"/>
 
             <Button
                 MinWidth="70"
