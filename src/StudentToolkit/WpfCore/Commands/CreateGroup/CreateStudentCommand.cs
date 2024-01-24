@@ -14,13 +14,13 @@ public sealed class CreateStudentCommand : Command
     public override void Execute()
     {
         _createStudentVm.DialogResult = CreateStudent();
-        
-        _createStudentVm.CloseDialog?.Invoke();
+
+        _createStudentVm.CloseDialogCommand.Execute(null);
     }
 
     public override bool CanExecute()
     {
-        return _createStudentVm.HasNoErrors;
+        return !_createStudentVm.HasErrors;
     }
 
     private StudentModel CreateStudent()

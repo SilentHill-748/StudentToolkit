@@ -44,7 +44,7 @@ public static class DialogService
             Title = viewModel.WindowTitle
         };
 
-        viewModel.CloseDialog = dialogWindow.Close;
+        viewModel.Close = dialogWindow.Close;
 
         dialogWindow.ShowDialog();
     }

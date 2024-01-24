@@ -1,4 +1,4 @@
-﻿using StudentToolkit.MVVM.ViewModels.Base.Notification;
+﻿using StudentToolkit.MVVM.ViewModels.Notification;
 using StudentToolkit.WpfCore.Commands.Base;
 
 namespace StudentToolkit.WpfCore.Commands.Notification;
@@ -16,6 +16,6 @@ public class ConfirmNotificationCommand : Command
     {
         _notificationWithConfirmVm.IsConfirmed = true;
 
-        _notificationWithConfirmVm.CloseDialog?.Invoke();
+        _notificationWithConfirmVm.CloseNotificationCommand.Execute(null);
     }
 }

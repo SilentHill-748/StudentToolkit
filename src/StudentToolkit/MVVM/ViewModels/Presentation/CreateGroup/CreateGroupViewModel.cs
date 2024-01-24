@@ -4,8 +4,6 @@ namespace StudentToolkit.MVVM.ViewModels.Presentation.CreateGroup;
 
 public sealed class CreateGroupViewModel : ValidatableViewModel
 {
-    private readonly CreateGroupViewModelValidator _groupCodeValidator;
-
     private string _groupCode = string.Empty;
 
     public CreateGroupViewModel(
@@ -19,7 +17,7 @@ public sealed class CreateGroupViewModel : ValidatableViewModel
         ArgumentNullException.ThrowIfNull(groupCodeValidator, nameof(groupCodeValidator));
         ArgumentNullException.ThrowIfNull(studentValidator, nameof(studentValidator));
         
-        _groupCodeValidator = groupCodeValidator;
+        Validator = groupCodeValidator;
         WindowTitle = "Создание группы студентов";
 
         Students = [];
@@ -28,7 +26,7 @@ public sealed class CreateGroupViewModel : ValidatableViewModel
         ShowCreateStudentDialogCommand = new ShowCreateStudentDialogCommand(this, studentValidator);
         CreateGroupCommand = new AsyncCreateGroupCommand(logger, this, groupStore);
 
-        Validate(_groupCodeValidator, this);
+        Validate();
     }
 
     public ObservableCollection<StudentModel> Students { get; }
@@ -36,7 +34,7 @@ public sealed class CreateGroupViewModel : ValidatableViewModel
     public string GroupCode
     {
         get => _groupCode;
-        set => ValidatableSet(_groupCodeValidator, this, ref _groupCode, value);
+        set => SetWithValidation(ref _groupCode, value);
     }
 
     public ICommand ShowCreateStudentDialogCommand { get; }
@@ -44,6 +42,6 @@ public sealed class CreateGroupViewModel : ValidatableViewModel
 
     private void Students_CollectionChanged(object? sender, NotifyCollectionChangedEventArgs e)
     {
-        Validate(_groupCodeValidator, this);
+        Validate();
     }
 }
