@@ -64,7 +64,7 @@ public static class NotificationService
             Title = title
         };
 
-        viewModel.CloseDialog = window.Close;
+        viewModel.Close = window.Close;
 
         window.ShowDialog();
     }

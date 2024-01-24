@@ -16,6 +16,6 @@ public class ConfirmNotificationCommand : Command
     {
         _notificationWithConfirmVm.IsConfirmed = true;
 
-        _notificationWithConfirmVm.CloseDialog?.Invoke();
+        _notificationWithConfirmVm.CloseNotificationCommand.Execute(null);
     }
 }

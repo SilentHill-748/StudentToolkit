@@ -1,8 +1,8 @@
-﻿using StudentToolkit.WpfCore.Commands.Notification;
+﻿using StudentToolkit.WpfCore.Commands;
 
 namespace StudentToolkit.MVVM.ViewModels.Notification;
 
-public class NotificationViewModel : ViewModel
+public class NotificationViewModel : ViewModel, IClosableViewModel
 {
     private readonly NotificationIcon _icon;
 
@@ -16,10 +16,10 @@ public class NotificationViewModel : ViewModel
 
         _icon = icon;
 
-        CloseNotificationCommand = new CloseNotificationCommand(this);
+        CloseNotificationCommand = new CloseWindowCommand(this);
     }
 
-    public Action? CloseDialog { get; set; }
+    public Action? Close { get; set; }
     public string Message { get; }
 
     public Uri NotificationImageSource
