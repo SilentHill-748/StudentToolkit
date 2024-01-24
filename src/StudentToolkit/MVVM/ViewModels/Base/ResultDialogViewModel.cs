@@ -2,5 +2,5 @@
 
 public abstract class ResultDialogViewModel<TResult> : DialogViewModel
 {
-    internal TResult? DialogResult { get; set; }
+    public TResult? DialogResult { get; set; }
 }
