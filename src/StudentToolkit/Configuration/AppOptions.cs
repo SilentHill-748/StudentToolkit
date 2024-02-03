@@ -1,9 +1,6 @@
 ﻿using System.Windows;
 using System.Windows.Threading;
 
-using SimpleInjector;
-
-using StudentToolkit.Domain.Exceptions;
 using StudentToolkit.WpfCore;
 
 namespace StudentToolkit.Configuration;
@@ -11,6 +8,9 @@ namespace StudentToolkit.Configuration;
 #pragma warning disable CA1822
 public class AppOptions : IDisposable
 {
+    private const string ActivationException = "Произошла кртитическая ошибка! Необходимо переустановить программу!";
+    private const string UnhandledException = "Произошла непредвиденная ошибка. Для решения проблемы попробуйте переустановить программу или связаться с автором программы через контакты в меню \'Справка\'!";
+
     private bool _disposedValue;
 
     public AppOptions()
@@ -22,11 +22,22 @@ public class AppOptions : IDisposable
 
     public void RegisterServices(string[] args)
     {
-        Services
-            .RegisterWpfServices()
-            .RegisterApplicationServices(typeof(App).Assembly)
-            .RegisterInfrastructureServices(args)
-            .Verify();
+        try
+        {
+            Services
+                .RegisterWpfServices()
+                .RegisterApplicationServices(typeof(App).Assembly)
+                .RegisterInfrastructureServices(args)
+                .Verify();
+        }
+        catch (Exception ex)
+        {
+            NotificationService.Alert("Ошибка инициализации программы", ActivationException);
+            
+            throw ex
+                .WrapWithMessage("Application can't register services.")
+                .SetDetail("Args", string.Join(',', args));
+        }
     }
 
     public void ApplyDataTemplates(ResourceDictionary appResources)
@@ -42,21 +53,22 @@ public class AppOptions : IDisposable
     public void GlobalExceptionHandler(object sender, DispatcherUnhandledExceptionEventArgs e)
     {
         var logger = Services.GetInstance<ILogger>();
-        var exception = e.Exception;
+        var currentException = e.Exception;
 
-        var logMessage = $"{exception.Source}: {exception.Message}";
-        var userMessage = CustomExceptionMessages.GetMessage(exception);
+        if (currentException is DataWrapperException wrappedException)
+        {
+            string currentExceptionMessage = wrappedException.GetMessageWithData();
 
-        logger.Fatal(exception, logMessage);
+            logger.Error(wrappedException.InnerException, currentExceptionMessage);
+        }
+        else
+        {
+            NotificationService.Alert("Критическая ошибка!", UnhandledException);
 
-        NotificationService.Alert("Критическая ошибка!", userMessage);
-    }
+            logger.Fatal(currentException, "Occured an exception that isn't configured.");
+        }
 
-    public void RegisterCustomExceptionMessages()
-    {
-        CustomExceptionMessages.Register<GroupNotFoundException>(UserMessageConstants.GroupNotFound);
-        CustomExceptionMessages.Register<ViewModelProviderNotSetException>(UserMessageConstants.NavigationError);
-        CustomExceptionMessages.Register<ActivationException>(UserMessageConstants.ActivationException);
+        e.Handled = true;
     }
 
     public void Dispose()

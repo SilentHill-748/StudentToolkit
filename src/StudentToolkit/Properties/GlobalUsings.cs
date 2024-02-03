@@ -15,8 +15,10 @@ global using Mapster;
 global using Serilog;
 
 global using StudentToolkit.Application.Common.Constants;
+global using StudentToolkit.Application.Common.Exceptions;
 global using StudentToolkit.Application.Common.Interfaces.Services;
 global using StudentToolkit.Application.DI;
+global using StudentToolkit.Application.Extentions;
 global using StudentToolkit.Configuration.DI;
 global using StudentToolkit.Infrastructure.DI;
 global using StudentToolkit.MVVM.Models;
