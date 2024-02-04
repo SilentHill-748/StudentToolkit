@@ -8,8 +8,8 @@ namespace StudentToolkit.Configuration;
 #pragma warning disable CA1822
 public class AppOptions : IDisposable
 {
-    private const string ActivationException = "Произошла кртитическая ошибка! Необходимо переустановить программу!";
-    private const string UnhandledException = "Произошла непредвиденная ошибка. Для решения проблемы попробуйте переустановить программу или связаться с автором программы через контакты в меню \'Справка\'!";
+    private const string FailInitializationOfServicesMessage = "Произошла кртитическая ошибка! Необходимо переустановить программу!";
+    private const string OccuredUnconfiguredExceptionMessage = "Произошла непредвиденная ошибка. Для решения проблемы попробуйте переустановить программу или связаться с автором программы через контакты в меню \'Справка\'!";
 
     private bool _disposedValue;
 
@@ -32,7 +32,7 @@ public class AppOptions : IDisposable
         }
         catch (Exception ex)
         {
-            NotificationService.Alert("Ошибка инициализации программы", ActivationException);
+            NotificationService.Alert("Ошибка инициализации программы", FailInitializationOfServicesMessage);
             
             throw ex
                 .WrapWithMessage("Application can't register services.")
@@ -63,7 +63,7 @@ public class AppOptions : IDisposable
         }
         else
         {
-            NotificationService.Alert("Критическая ошибка!", UnhandledException);
+            NotificationService.Alert("Критическая ошибка!", OccuredUnconfiguredExceptionMessage);
 
             logger.Fatal(currentException, "Occured an exception that isn't configured.");
         }
