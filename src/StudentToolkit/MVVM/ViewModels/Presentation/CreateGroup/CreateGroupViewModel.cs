@@ -7,7 +7,7 @@ public sealed class CreateGroupViewModel : ValidatableViewModel
     private string _groupCode = string.Empty;
 
     public CreateGroupViewModel(
-        GroupStore groupStore,
+        IGroupStore groupStore,
         CreateGroupViewModelValidator groupCodeValidator,
         CreateStudentViewModelValidator studentValidator)
     {

@@ -4,7 +4,7 @@ public class MainViewModel : ViewModel
 {
     private ViewModel? _content;
 
-    public MainViewModel(GroupStore groupStore)
+    public MainViewModel(IGroupStore groupStore)
     {
         _content = new AboutViewModel();
 

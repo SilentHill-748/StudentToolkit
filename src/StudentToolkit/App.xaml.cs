@@ -2,6 +2,7 @@
 using System.Windows;
 
 using StudentToolkit.Configuration;
+using StudentToolkit.MVVM.Stores.Group;
 
 using DotNetApplication = System.Windows.Application;
 
@@ -62,7 +63,7 @@ public partial class App : DotNetApplication
     {
         Container services = _options.Services;
         
-        var groupStore = services.GetInstance<GroupStore>();
+        var groupStore = services.GetInstance<IGroupStore>();
 
         await groupStore.LoadAsync();
 

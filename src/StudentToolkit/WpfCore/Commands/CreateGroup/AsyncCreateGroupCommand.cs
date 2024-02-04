@@ -9,9 +9,9 @@ public sealed class AsyncCreateGroupCommand : AsyncCommand
     private const string GroupNotCreatedUserMessage = "Операция создания группы завершилась с ошибкой. Проверьте доступ к сети интернет или попробуйте повторить операцию позже.";
 
     private readonly CreateGroupViewModel _createGroupVm;
-    private readonly GroupStore _groupStore;
+    private readonly IGroupStore _groupStore;
 
-    public AsyncCreateGroupCommand(CreateGroupViewModel createGroupVm, GroupStore groupStore)
+    public AsyncCreateGroupCommand(CreateGroupViewModel createGroupVm, IGroupStore groupStore)
     {
         _createGroupVm = createGroupVm;
         _groupStore = groupStore;
@@ -19,13 +19,10 @@ public sealed class AsyncCreateGroupCommand : AsyncCommand
 
     public override async Task ExecuteAsync()
     {
-        var group = new GroupModel()
-        {
-            GroupCode = _createGroupVm.GroupCode,
-            Students = _createGroupVm.Students
-        };
+        _groupStore.Group.GroupCode = _createGroupVm.GroupCode;
+        _groupStore.Group.Students = _createGroupVm.Students;
 
-        await _groupStore.CreateGroupAsync(group);
+        await _groupStore.CreateGroupAsync();
 
         NavigationService.Navigate<NavigationViewModel, MainViewModel>();
     }
