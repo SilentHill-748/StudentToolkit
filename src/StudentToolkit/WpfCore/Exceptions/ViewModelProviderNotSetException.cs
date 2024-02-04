@@ -2,5 +2,5 @@
 
 public class ViewModelProviderNotSetException : Exception
 {
-    public override string Message => "ViewModel provider is null!";
+    public ViewModelProviderNotSetException(string? message) : base(message) { }
 }

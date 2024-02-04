@@ -7,6 +7,9 @@ namespace StudentToolkit.MVVM.Stores;
 
 public sealed class GroupStore : IDisposable
 {
+    private const string GroupNotCreatedMessage = "Не удалось создать группу! Проверьте доступ к сети Интернет или повторите операцию позже. Если не помогает, то обратитесь к автору программы через меню 'Справка'.";
+    private const string GroupNotLoadedMessage = "Не удалось загрузить данные по группе. Проверьте доступ к сети Интернет или повторите операцию позже. Если не помогает, то обратитесь к автору программы через меню 'Справка'.";
+    private const string GroupNotUpdatedMessage = "Не удалось обновить данные по группе. Проверьте доступ к сети Интернет или повторите операцию позже. Если не помогает, то обратитесь к автору программы через меню 'Справка'.";
     private const string GroupCodeValueName = "GroupCode";
 
     private readonly IGroupService _groupService;
@@ -35,29 +38,66 @@ public sealed class GroupStore : IDisposable
 
     public async Task LoadAsync()
     {
-        await _lazyInitialization.Value;
+        try
+        {
+            await _lazyInitialization.Value;
 
-        Loaded?.Invoke(_group);
+            Loaded?.Invoke(_group);
+
+            _logger.Information("Group was loaded successfully.");
+        }
+        catch (Exception ex) when (ex.IsNotWrapped())
+        {
+            NotificationService.Alert("Ошибка загрузки данных по группе.", GroupNotLoadedMessage);
+
+            throw ex
+                .WrapWithMessage("Load data of GroupStore was cancelled with an exception.")
+                .SetDetail("Group code", _group.GroupCode);
+        }
     }
 
     public async Task CreateGroupAsync(GroupModel groupVm)
     {
         var groupDto = groupVm.Adapt<GroupDto>();
 
-        await _groupService.AddGroupAsync(groupDto);
+        try
+        {
+            await _groupService.AddGroupAsync(groupDto);
 
-        _registryProvider.WriteValue(GroupCodeValueName, groupVm.GroupCode);
+            _registryProvider.WriteValue(GroupCodeValueName, groupVm.GroupCode);
 
-        await UpdateAsync();
+            _logger.Information("Group was added successfully.");
+
+            await UpdateAsync();
+        }
+        catch (Exception ex) when (ex.IsNotWrapped())
+        {
+            NotificationService.Alert("Ошибка создания группы!", GroupNotCreatedMessage);
+
+            throw ex
+                .WrapWithMessage("The creating group process was cancelled with an exception.")
+                .SetDetail("Group code", groupVm.GroupCode);
+        }
     }
 
     public async Task UpdateGroupAsync()
     {
         var groupDto = _group.Adapt<GroupDto>();
 
-        await _groupService.UpdateGroupAsync(groupDto);
+        try
+        {
+            await _groupService.UpdateGroupAsync(groupDto);
 
-        await UpdateAsync();
+            await UpdateAsync();
+        }
+        catch (Exception ex) when (!ex.IsNotWrapped())
+        {
+            NotificationService.Alert("Ошибка обновления данных по группе!", GroupNotUpdatedMessage);
+
+            throw ex
+                .WrapWithMessage("The update GroupStore process was cancelled with an exception.")
+                .SetDetail("Group code", _group.GroupCode);
+        }
     }
 
     public void Dispose()
@@ -67,33 +107,38 @@ public sealed class GroupStore : IDisposable
 
     private async Task UpdateAsync()
     {
-        await InternalLoadAsync();
+        try
+        {
+            await InternalLoadAsync();
 
-        _logger.Debug("GroupStore is updated.");
+            Updated?.Invoke(_group);
 
-        Updated?.Invoke(_group);
+            _logger.Debug("GroupStore was updated successfully.");
+        }
+        catch (Exception ex) when (!ex.IsNotWrapped())
+        {
+            NotificationService.Alert("Ошибка обновления данных по группе!", GroupNotUpdatedMessage);
+
+            throw ex
+                .WrapWithMessage("Update of GroupStore was cancelled by an exception.")
+                .SetDetail("Group code", _group.GroupCode);
+        }
     }
 
     private async Task InternalLoadAsync()
     {
-        try
+        if (!_registryProvider.HasValue(GroupCodeValueName))
         {
-            if (!_registryProvider.HasValue(GroupCodeValueName))
-            {
-                _logger.Debug("GroupStore isn't loaded, because group code isn't set on Windows Registry.");
-                return;
-            }
-            
-            var groupCode = _registryProvider.ReadValue<string>(GroupCodeValueName);
-
-            var groupDto = await _groupService.GetGroupAsync(g => g.GroupCode.Equals(groupCode));
-
-            _group.Update(groupDto);
+            _logger.Debug("GroupStore isn't loaded, because group code isn't set on Windows Registry.");
+            return;
         }
-        catch (Exception ex)
-        {
-            _logger.Error(ex, "An exception has occured in load data to group store process.");
-            throw;
-        }
+
+        var groupCode = _registryProvider.ReadValue<string>(GroupCodeValueName);
+
+        var groupDto = await _groupService.GetGroupAsync(g => g.GroupCode.Equals(groupCode));
+
+        _group.Update(groupDto);
+
+        _logger.Debug("GroupStore was loaded successfully.");
     }
 }

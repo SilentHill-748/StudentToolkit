@@ -4,15 +4,6 @@ namespace StudentToolkit.WpfCore.Commands.Base;
 
 public abstract class AsyncCommand<T> : ICommand
 {
-    private readonly ILogger _logger;
-
-    public AsyncCommand(ILogger logger)
-    {
-        ArgumentNullException.ThrowIfNull(logger, nameof(logger));
-
-        _logger = logger;
-    }
-
     public event EventHandler? CanExecuteChanged
     {
         add => CommandManager.RequerySuggested += value;
@@ -25,26 +16,22 @@ public abstract class AsyncCommand<T> : ICommand
 
     public virtual bool CanExecute(T parameter) => !IsExecuting;
 
+    protected abstract Exception ConfigureException(Exception exception);
+
     bool ICommand.CanExecute(object? parameter) => CanExecute(CastParameter(parameter));
 
     async void ICommand.Execute(object? parameter)
     {
-        var commandName = GetType().Name;
+        IsExecuting = true;
 
         try
         {
             IsExecuting = true;
             await ExecuteAsync(CastParameter(parameter));
-
-            _logger.Debug($"The generic async command '{commandName}' is executed success.");
         }
         catch (Exception ex)
         {
-            _logger.Error(ex, $"An exception has occurred on executing process of generic async command '{commandName}'.");
-
-            var message = CustomExceptionMessages.GetMessage(ex);
-
-            NotificationService.Alert("Ошибка", message);
+            throw ConfigureException(ex);
         }
         finally
         {

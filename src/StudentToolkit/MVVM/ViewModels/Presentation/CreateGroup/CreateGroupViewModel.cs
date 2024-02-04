@@ -8,12 +8,10 @@ public sealed class CreateGroupViewModel : ValidatableViewModel
 
     public CreateGroupViewModel(
         GroupStore groupStore,
-        ILogger logger,
         CreateGroupViewModelValidator groupCodeValidator,
         CreateStudentViewModelValidator studentValidator)
     {
         ArgumentNullException.ThrowIfNull(groupStore, nameof(groupStore));
-        ArgumentNullException.ThrowIfNull(logger, nameof(logger));
         ArgumentNullException.ThrowIfNull(groupCodeValidator, nameof(groupCodeValidator));
         ArgumentNullException.ThrowIfNull(studentValidator, nameof(studentValidator));
         
@@ -24,7 +22,7 @@ public sealed class CreateGroupViewModel : ValidatableViewModel
         Students.CollectionChanged += Students_CollectionChanged;
 
         ShowCreateStudentDialogCommand = new ShowCreateStudentDialogCommand(this, studentValidator);
-        CreateGroupCommand = new AsyncCreateGroupCommand(logger, this, groupStore);
+        CreateGroupCommand = new AsyncCreateGroupCommand(this, groupStore);
 
         Validate();
     }

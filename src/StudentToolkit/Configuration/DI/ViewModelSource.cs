@@ -5,10 +5,19 @@
 /// </summary>
 public static class ViewModelSource
 {
+    private static Func<Type, ViewModel>? ViewModelProvider;
+
     /// <summary>
-    /// The <see cref="ViewModel"/> provider delegate.
+    /// Set the <see cref="ViewModel"/> provider if it wasn't setted.
     /// </summary>
-    public static Func<Type, ViewModel>? Provider { get; set; }
+    /// <param name="viewModelProvider"> The ViewModel provider delegate.</param>
+    /// <exception cref="ArgumentNullException"></exception>
+    public static void SetViewModelProvider(Func<Type, ViewModel> viewModelProvider)
+    {
+        ArgumentNullException.ThrowIfNull(viewModelProvider, nameof(viewModelProvider));
+
+        ViewModelProvider ??= viewModelProvider;
+    }
 
     /// <summary>
     /// Get instance of <typeparamref name="TViewModel"/>.
@@ -18,9 +27,9 @@ public static class ViewModelSource
     /// <exception cref="ViewModelProviderNotSetException"></exception>
     public static TViewModel Resolve<TViewModel>() where TViewModel : ViewModel
     {
-        if (Provider is null)
-            throw new ViewModelProviderNotSetException();
+        if (ViewModelProvider is null)
+            throw new ViewModelProviderNotSetException($"The \'{nameof(ViewModelProvider)}\' is null!");
 
-        return (TViewModel)Provider(typeof(TViewModel));
+        return (TViewModel)ViewModelProvider(typeof(TViewModel));
     }
 }
