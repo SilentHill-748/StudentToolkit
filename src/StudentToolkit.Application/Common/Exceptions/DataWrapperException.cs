@@ -41,12 +41,18 @@ public class DataWrapperException : Exception
         foreach (DictionaryEntry entry in Data)
         {
             // First item always is [System.Object] - [null].
-            if (entry.Value is not null)
+            if (!IsNullEntry(entry))
             {
                 sb.Append($"\n\t{entry.Key}: \'{entry.Value}\'");
             }
         }
 
         return sb.ToString();
+    }
+
+    private static bool IsNullEntry(DictionaryEntry entry)
+    {
+        return  (entry.Key is null) ||
+                (entry.Value is null);
     }
 }
