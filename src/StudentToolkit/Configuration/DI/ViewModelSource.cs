@@ -8,7 +8,7 @@ public static class ViewModelSource
     private static Func<Type, ViewModel>? ViewModelProvider;
 
     /// <summary>
-    /// Set the ViewModel provider if it wasn't setted.
+    /// Set the <see cref="ViewModel"/> provider if it wasn't setted.
     /// </summary>
     /// <param name="viewModelProvider"> The ViewModel provider delegate.</param>
     /// <exception cref="ArgumentNullException"></exception>

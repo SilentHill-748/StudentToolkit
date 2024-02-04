@@ -20,12 +20,12 @@ public static class RegisterWpf
 
     private static void ConfigureViewModelSource(Container container)
     {
-        Func<Type, ViewModel> viewModelProvider = CreateViewModelResolver(container);
+        Func<Type, ViewModel> viewModelProvider = CreateViewModelProvider(container);
 
         ViewModelSource.SetViewModelProvider(viewModelProvider);
     }
 
-    private static Func<Type, ViewModel> CreateViewModelResolver(Container container)
+    private static Func<Type, ViewModel> CreateViewModelProvider(Container container)
     {
         return type => (ViewModel)container.GetInstance(type);
     }
