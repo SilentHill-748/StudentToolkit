@@ -2,7 +2,6 @@
 using System.Windows;
 
 using StudentToolkit.Configuration;
-using StudentToolkit.MVVM.Stores.Group;
 
 using DotNetApplication = System.Windows.Application;
 
