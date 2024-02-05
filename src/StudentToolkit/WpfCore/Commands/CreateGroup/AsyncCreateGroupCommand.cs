@@ -36,6 +36,11 @@ public sealed class AsyncCreateGroupCommand : AsyncCommand
 
     protected override Exception ConfigureException(Exception exception)
     {
+        if (exception.IsWrapped())
+        {
+            return exception;
+        }
+
         NotificationService.Alert("Error", GroupNotCreatedUserMessage);
 
         string commandClassName = this.GetType().Name;
