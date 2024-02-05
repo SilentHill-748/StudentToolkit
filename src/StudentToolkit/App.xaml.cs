@@ -9,36 +9,24 @@ namespace StudentToolkit;
 
 public partial class App : DotNetApplication
 {
-    private const string ApplicationInitializationErrorMessage = "Ошибка инициализации! Необходимо переустановить программу! Если проблема повторяется, свяжитесь с автором программы.";
-
     private readonly AppOptions _options = new();
+
+    private bool _isSuccessInit;
 
     public App()
     {
-        DispatcherUnhandledException += _options.GlobalExceptionHandler;
+        DispatcherUnhandledException += AppUnhandledExceptionHandler;
     }
 
     protected override async void OnStartup(StartupEventArgs e)
     {
-        bool isSuccessInit = false;
-
         try
         {
-            await InternalStartupAsync(e.Args);
-
-            isSuccessInit = true;
+            _isSuccessInit = await InternalStartupAsync(e.Args);
         }
-        catch
+        catch (Exception ex) when (ex.IsNotWrapped())
         {
-            NotificationService.Alert("Критическая ошибка!", ApplicationInitializationErrorMessage);
-            throw;
-        }
-        finally
-        {
-            if (!isSuccessInit)
-            {
-                Shutdown();
-            }
+            throw ex.WrapWithMessage("Application initialization was finished with an exception.");
         }
     }
 
@@ -46,8 +34,18 @@ public partial class App : DotNetApplication
     {
         _options.Dispose();
     }
+    
+    private void AppUnhandledExceptionHandler(object sender, System.Windows.Threading.DispatcherUnhandledExceptionEventArgs e)
+    {
+        _options.GlobalExceptionHandler(e.Exception);
 
-    private async Task InternalStartupAsync(string[] args)
+        if (!_isSuccessInit)
+            Shutdown();
+
+        e.Handled = true;
+    }
+
+    private async Task<bool> InternalStartupAsync(string[] args)
     {
         _options.RegisterServices(args);
         _options.ApplyDataTemplates(Resources);
@@ -56,6 +54,8 @@ public partial class App : DotNetApplication
 
         MainWindow = _options.Services.GetInstance<MainWindow>();
         MainWindow.Show();
+
+        return true;
     }
 
     private async Task SetStartupViewModelAsync()

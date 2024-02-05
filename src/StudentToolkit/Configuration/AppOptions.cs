@@ -1,5 +1,4 @@
 ﻿using System.Windows;
-using System.Windows.Threading;
 
 using StudentToolkit.WpfCore;
 
@@ -50,12 +49,11 @@ public class AppOptions : IDisposable
         }
     }
 
-    public void GlobalExceptionHandler(object sender, DispatcherUnhandledExceptionEventArgs e)
+    public void GlobalExceptionHandler(Exception exception)
     {
         var logger = Services.GetInstance<ILogger>();
-        var currentException = e.Exception;
 
-        if (currentException is DataWrapperException wrappedException)
+        if (exception is DataWrapperException wrappedException)
         {
             string currentExceptionMessage = wrappedException.GetMessageWithData();
 
@@ -65,10 +63,8 @@ public class AppOptions : IDisposable
         {
             NotificationService.Alert("Критическая ошибка!", OccuredUnconfiguredExceptionMessage);
 
-            logger.Fatal(currentException, "Occured an exception that isn't configured.");
+            logger.Fatal(exception, "Occured an exception that isn't configured.");
         }
-
-        e.Handled = true;
     }
 
     public void Dispose()
