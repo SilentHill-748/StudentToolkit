@@ -11,7 +11,6 @@ public sealed class GroupStore : IGroupStore, IDisposable
 
     private readonly IGroupService _groupService;
     private readonly WindowsRegistryProvider _registryProvider;
-    private readonly Lazy<Task> _lazyInitialization;
 
     private bool disposedValue;
 
@@ -23,7 +22,6 @@ public sealed class GroupStore : IGroupStore, IDisposable
         _registryProvider = new WindowsRegistryProvider();
 
         Group = new GroupModel();
-        _lazyInitialization = new Lazy<Task>(InternalLoadAsync, true);
     }
 
     public event Action<GroupModel>? Loaded;
@@ -33,7 +31,7 @@ public sealed class GroupStore : IGroupStore, IDisposable
 
     public async Task LoadAsync()
     {
-        await _lazyInitialization.Value;
+        await InternalLoadAsync();
 
         Loaded?.Invoke(Group);
     }
@@ -79,7 +77,7 @@ public sealed class GroupStore : IGroupStore, IDisposable
 
     private async Task ReloadAsync()
     {
-        await _lazyInitialization.Value;
+        await InternalLoadAsync();
 
         Updated?.Invoke(Group);
     }
