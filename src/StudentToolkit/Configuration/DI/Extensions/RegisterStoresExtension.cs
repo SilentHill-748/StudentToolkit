@@ -2,9 +2,9 @@
 
 using StudentToolkit.MVVM.Stores.Group.Decorators;
 
-namespace StudentToolkit.Configuration.DI.Extentions;
+namespace StudentToolkit.Configuration.DI.Extensions;
 
-public static class RegisterStoresExtention
+public static class RegisterStoresExtension
 {
     public static Container RegisterStores(this Container container)
     {

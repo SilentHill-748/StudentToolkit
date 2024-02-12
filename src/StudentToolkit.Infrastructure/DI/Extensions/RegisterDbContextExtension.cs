@@ -1,8 +1,8 @@
 ﻿using StudentToolkit.Infrastructure.Data;
 
-namespace StudentToolkit.Infrastructure.DI.Extentions;
+namespace StudentToolkit.Infrastructure.DI.Extensions;
 
-public static class RegisterDbContextExtention
+public static class RegisterDbContextExtension
 {
     public static Container RegisterDbContext(this Container container, string[] args)
     {

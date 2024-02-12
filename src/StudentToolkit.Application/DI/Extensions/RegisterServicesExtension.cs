@@ -1,8 +1,8 @@
 ﻿using StudentToolkit.Application.Services;
 
-namespace StudentToolkit.Application.DI.Extentions;
+namespace StudentToolkit.Application.DI.Extensions;
 
-public static class RegisterServicesExtention
+public static class RegisterServicesExtension
 {
     public static Container RegisterServices(this Container container)
     {

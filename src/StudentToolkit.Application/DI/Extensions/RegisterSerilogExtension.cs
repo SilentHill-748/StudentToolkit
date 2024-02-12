@@ -1,9 +1,9 @@
 ﻿using Serilog.Core;
 using Serilog.Events;
 
-namespace StudentToolkit.Application.DI.Extentions;
+namespace StudentToolkit.Application.DI.Extensions;
 
-public static class RegisterSerilogExtention
+public static class RegisterSerilogExtension
 {
     private const string OutputTemplate
         = "{Timestamp:[dd-MM-yyyy] [HH:mm:ss]} [{Level:u3}] {Message:lj}{NewLine}{Exception}";

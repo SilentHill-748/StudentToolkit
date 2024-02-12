@@ -1,8 +1,8 @@
 ﻿using StudentToolkit.WpfCore.Providers;
 
-namespace StudentToolkit.Configuration.DI.Extentions;
+namespace StudentToolkit.Configuration.DI.Extensions;
 
-public static class RegisterServicesExtention
+public static class RegisterServicesExtension
 {
     public static Container RegisterServices(this Container container)
     {

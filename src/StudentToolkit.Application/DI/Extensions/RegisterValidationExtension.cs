@@ -1,8 +1,8 @@
 ﻿using System.Reflection;
 
-namespace StudentToolkit.Application.DI.Extentions;
+namespace StudentToolkit.Application.DI.Extensions;
 
-public static class RegisterValidationExtention
+public static class RegisterValidationExtension
 {
     public static Container RegisterValidation(this Container container, params Assembly[] assemplies)
     {

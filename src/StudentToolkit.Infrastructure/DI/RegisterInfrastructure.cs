@@ -1,4 +1,4 @@
-﻿using StudentToolkit.Infrastructure.DI.Extentions;
+﻿using StudentToolkit.Infrastructure.DI.Extensions;
 
 namespace StudentToolkit.Infrastructure.DI;
 
