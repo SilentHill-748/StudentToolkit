@@ -11,6 +11,8 @@ public class MainViewModel : ViewModel
         StatusBarViewModel = new StatusBarViewModel();
         WindowTitle = "Student Toolkit";
 
+        LoadedEventCommand = new AsyncMainViewLoadedCommand(groupStore);
+
         groupStore.Updated += OnStoreChanged;
         groupStore.Loaded += OnStoreChanged;
 
@@ -27,6 +29,8 @@ public class MainViewModel : ViewModel
         get => _content;
         set => Set(ref _content, value);
     }
+
+    public ICommand LoadedEventCommand { get; }
 
     private void OnStoreChanged(GroupModel groupVm)
     {
