@@ -1,4 +1,4 @@
-﻿namespace StudentToolkit.Configuration.DI.Extentions;
+﻿namespace StudentToolkit.Configuration.DI.Extensions;
 
 public static class RegisterViewModelsExtension
 {

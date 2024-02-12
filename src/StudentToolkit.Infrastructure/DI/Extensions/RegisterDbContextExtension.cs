@@ -1,6 +1,6 @@
 ﻿using StudentToolkit.Infrastructure.Data;
 
-namespace StudentToolkit.Infrastructure.DI.Extentions;
+namespace StudentToolkit.Infrastructure.DI.Extensions;
 
 public static class RegisterDbContextExtension
 {

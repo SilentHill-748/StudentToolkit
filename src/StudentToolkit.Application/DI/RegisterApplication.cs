@@ -1,6 +1,6 @@
 ﻿using System.Reflection;
 
-using StudentToolkit.Application.DI.Extentions;
+using StudentToolkit.Application.DI.Extensions;
 
 namespace StudentToolkit.Application.DI;
 

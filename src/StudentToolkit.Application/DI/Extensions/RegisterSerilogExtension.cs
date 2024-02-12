@@ -1,7 +1,7 @@
 ﻿using Serilog.Core;
 using Serilog.Events;
 
-namespace StudentToolkit.Application.DI.Extentions;
+namespace StudentToolkit.Application.DI.Extensions;
 
 public static class RegisterSerilogExtension
 {

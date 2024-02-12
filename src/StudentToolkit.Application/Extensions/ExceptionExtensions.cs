@@ -2,7 +2,7 @@
 
 using StudentToolkit.Application.Common.Exceptions;
 
-namespace StudentToolkit.Application.Extentions;
+namespace StudentToolkit.Application.Extensions;
 
 public static class ExceptionExtensions
 {

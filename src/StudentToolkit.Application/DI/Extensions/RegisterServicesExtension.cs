@@ -1,6 +1,6 @@
 ﻿using StudentToolkit.Application.Services;
 
-namespace StudentToolkit.Application.DI.Extentions;
+namespace StudentToolkit.Application.DI.Extensions;
 
 public static class RegisterServicesExtension
 {
