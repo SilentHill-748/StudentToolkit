@@ -7,6 +7,6 @@
         WindowStartupLocation="CenterScreen"
         SizeToContent="WidthAndHeight"
         SnapsToDevicePixels="True"
-        FontSize="14"
+        FontSize="18"
         MinWidth="300"
         MinHeight="150"/>

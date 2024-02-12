@@ -8,6 +8,6 @@
         SizeToContent="WidthAndHeight"
         SnapsToDevicePixels="True"
         ResizeMode="NoResize"
-        FontSize="14"
+        FontSize="18"
         MinWidth="300"
         MinHeight="150"/>
