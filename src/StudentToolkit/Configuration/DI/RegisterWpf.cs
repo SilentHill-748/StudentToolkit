@@ -8,7 +8,7 @@ public static class RegisterWpf
     {
         ConfigureViewModelSource(container);
 
-        container.Register<MainWindow>();
+        container.Register(() => CreateMainWindow(container));
 
         container
             .RegisterServices()
@@ -16,6 +16,16 @@ public static class RegisterWpf
             .RegisterStores();
 
         return container;
+    }
+
+    private static MainWindow CreateMainWindow(Container container)
+    {
+        NavigationViewModel navigationVm = new()
+        {
+            CurrentViewModel = container.GetInstance<MainViewModel>()
+        };
+
+        return new MainWindow(navigationVm);
     }
 
     private static void ConfigureViewModelSource(Container container)
