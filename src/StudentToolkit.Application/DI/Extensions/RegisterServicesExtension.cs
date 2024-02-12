@@ -2,7 +2,7 @@
 
 namespace StudentToolkit.Application.DI.Extentions;
 
-public static class RegisterServicesExtention
+public static class RegisterServicesExtension
 {
     public static Container RegisterServices(this Container container)
     {

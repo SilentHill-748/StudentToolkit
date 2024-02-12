@@ -4,7 +4,7 @@ using StudentToolkit.Application.Common.Exceptions;
 
 namespace StudentToolkit.Application.Extentions;
 
-public static class ExceptionExtentions
+public static class ExceptionExtensions
 {
     private const string EmptyMessage = "Occured an exception without a log message.";
 

@@ -4,7 +4,7 @@ using StudentToolkit.MVVM.Stores.Group.Decorators;
 
 namespace StudentToolkit.Configuration.DI.Extentions;
 
-public static class RegisterStoresExtention
+public static class RegisterStoresExtension
 {
     public static Container RegisterStores(this Container container)
     {

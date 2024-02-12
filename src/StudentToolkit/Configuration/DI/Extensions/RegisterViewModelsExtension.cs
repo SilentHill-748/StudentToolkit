@@ -1,6 +1,6 @@
 ﻿namespace StudentToolkit.Configuration.DI.Extentions;
 
-public static class RegisterViewModelsExtention
+public static class RegisterViewModelsExtension
 {
     public static Container RegisterViewModels(this Container container)
     {

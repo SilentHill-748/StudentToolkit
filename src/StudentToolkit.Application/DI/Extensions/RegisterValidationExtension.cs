@@ -2,7 +2,7 @@
 
 namespace StudentToolkit.Application.DI.Extentions;
 
-public static class RegisterValidationExtention
+public static class RegisterValidationExtension
 {
     public static Container RegisterValidation(this Container container, params Assembly[] assemplies)
     {
