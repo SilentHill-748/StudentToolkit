@@ -18,11 +18,11 @@ public partial class App : DotNetApplication
         DispatcherUnhandledException += AppUnhandledExceptionHandler;
     }
 
-    protected override async void OnStartup(StartupEventArgs e)
+    protected override void OnStartup(StartupEventArgs e)
     {
         try
         {
-            _isSuccessInit = await InternalStartupAsync(e.Args);
+            _isSuccessInit = InternalStartup(e.Args);
         }
         catch (Exception ex) when (ex.IsNotWrapped())
         {
@@ -45,31 +45,14 @@ public partial class App : DotNetApplication
         e.Handled = true;
     }
 
-    private async Task<bool> InternalStartupAsync(string[] args)
+    private bool InternalStartup(string[] args)
     {
         _options.RegisterServices(args);
         _options.ApplyDataTemplates(Resources);
-
-        await SetStartupViewModelAsync();
 
         MainWindow = _options.Services.GetInstance<MainWindow>();
         MainWindow.Show();
 
         return true;
-    }
-
-    private async Task SetStartupViewModelAsync()
-    {
-        Container services = _options.Services;
-        
-        var groupStore = services.GetInstance<IGroupStore>();
-
-        await groupStore.LoadAsync();
-
-        ViewModel startupVm = string.IsNullOrEmpty(groupStore.Group.GroupCode)
-            ? services.GetInstance<CreateGroupViewModel>()
-            : services.GetInstance<MainViewModel>();
-
-        NavigationService.Navigate<NavigationViewModel>(startupVm);
     }
 }
