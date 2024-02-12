@@ -31,6 +31,7 @@ global using StudentToolkit.MVVM.ViewModels.Components;
 global using StudentToolkit.MVVM.ViewModels.Presentation.CreateGroup;
 global using StudentToolkit.MVVM.Views.Windows;
 global using StudentToolkit.WpfCore.Commands.CreateGroup;
+global using StudentToolkit.WpfCore.Commands.Main;
 global using StudentToolkit.WpfCore.Common.Enums;
 global using StudentToolkit.WpfCore.Exceptions;
 global using StudentToolkit.WpfCore.Services;
