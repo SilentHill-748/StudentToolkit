@@ -1,4 +1,6 @@
-﻿using StudentToolkit.Application.Common.Exceptions;
+﻿using System.Diagnostics;
+
+using StudentToolkit.Application.Common.Exceptions;
 
 namespace StudentToolkit.Application.Extentions;
 
@@ -12,7 +14,8 @@ public static class ExceptionExtentions
             EmptyMessage :
             message;
 
-        return new DataWrapperException(message, exception);
+        return new DataWrapperException(message, exception)
+            .SetDetail("Source", exception.GetExceptionSourceFilename());
     }
 
     public static bool IsWrapped(this Exception exception)
@@ -20,4 +23,31 @@ public static class ExceptionExtentions
 
     public static bool IsNotWrapped(this Exception exception)
         => !IsWrapped(exception);
+
+    internal static string GetExceptionSourceFilename(this Exception exception)
+    {
+        StackTrace stackTrace = new(exception, true);
+
+        return GetFilenameFromStackFrame(stackTrace);
+    }
+
+    private static string GetFilenameFromStackFrame(StackTrace stackTrace)
+    {
+        string appName = "StudentToolkit";
+
+        foreach (StackFrame frame in stackTrace.GetFrames())
+        {
+            string? filename = frame.GetFileName();
+
+            if (filename is not null)
+            {
+                if (filename.Contains(appName))
+                {
+                    return Path.GetFileName(filename);
+                }
+            }
+        }
+
+        return "Unknown";
+    }
 }

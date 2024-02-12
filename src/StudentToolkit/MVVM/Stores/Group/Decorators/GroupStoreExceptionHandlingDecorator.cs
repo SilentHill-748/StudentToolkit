@@ -1,5 +1,4 @@
-﻿using System.Diagnostics;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 
 namespace StudentToolkit.MVVM.Stores.Group.Decorators;
 
@@ -69,11 +68,8 @@ public sealed class GroupStoreExceptionHandlingDecorator : IGroupStore, IDisposa
         {
             NotificationService.Alert(notificationTitle, notifiactionMessage);
 
-            string sourceFilename = GetExceptionSourceFilename(ex);
-
             throw ex
                 .WrapWithMessage("Operation of GroupStore was cancelled with an exception.")
-                .SetDetail("Exception source filename", sourceFilename)
                 .SetDetail("Group.GroupCode is", Group.GroupCode);
         }
     }
@@ -98,16 +94,5 @@ public sealed class GroupStoreExceptionHandlingDecorator : IGroupStore, IDisposa
 
             disposedValue = true;
         }
-    }
-
-    private static string GetExceptionSourceFilename(Exception exception)
-    {
-        StackTrace stackTrace = new(exception, true);
-
-        StackFrame? sourceFrame = stackTrace.GetFrame(stackTrace.FrameCount - 1);
-
-        string? sourceFilename = sourceFrame?.GetFileName();
-
-        return sourceFilename ?? "Unknown";
     }
 }
