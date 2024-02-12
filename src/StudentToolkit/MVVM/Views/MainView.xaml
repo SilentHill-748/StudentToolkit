@@ -7,7 +7,6 @@
              xmlns:ViewModel="clr-namespace:StudentToolkit.MVVM.ViewModels"
              xmlns:Components="clr-namespace:StudentToolkit.WpfCore.Components"
              mc:Ignorable="d"
-             FontSize="16"
              SnapsToDevicePixels="True"
              d:DataContext="{d:DesignInstance Type=ViewModel:MainViewModel}">
 
