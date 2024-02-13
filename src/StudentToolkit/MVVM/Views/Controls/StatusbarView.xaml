@@ -7,14 +7,12 @@
              d:DataContext="{d:DesignInstance Type=ViewModel:StatusBarViewModel}"
              mc:Ignorable="d"
              SnapsToDevicePixels="True">
-    
-    <Border>
-        <StackPanel Orientation="Horizontal">
-            <TextBlock Text="{Binding StringFormat={}Сегодня: {0:yyyy-MM-dd HH:mm:ss}, Path=CurrentDate}"
-                   Margin="10 0 0 0"/>
 
-            <TextBlock Text="{Binding StringFormat={}Группа: {0}, Path=GroupCode}"
-                   Margin="10 0 0 0"/>
-        </StackPanel>
-    </Border>
+    <StackPanel Orientation="Horizontal">
+        <TextBlock Text="{Binding StringFormat={}Сегодня: {0:yyyy-MM-dd HH:mm:ss}, Path=CurrentDate}"
+           Margin="10 0 0 0"/>
+
+        <TextBlock Text="{Binding StringFormat={}Группа: {0}, Path=GroupCode}"
+           Margin="10 0 0 0"/>
+    </StackPanel>
 </UserControl>
