@@ -1,6 +1,4 @@
-﻿using StudentToolkit.WpfCore.Commands.Base;
-
-namespace StudentToolkit.MVVM.ViewModels.Notification;
+﻿namespace StudentToolkit.MVVM.ViewModels.Notification;
 
 public class NotificationViewModel : ViewModel, IClosableViewModel
 {

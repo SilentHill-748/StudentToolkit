@@ -1,7 +1,5 @@
 ﻿using System.Threading.Tasks;
 
-using StudentToolkit.WpfCore.Commands.Base;
-
 namespace StudentToolkit.WpfCore.Commands.Presentation.CreateGroup;
 
 public sealed class AsyncCreateGroupCommand : AsyncCommand

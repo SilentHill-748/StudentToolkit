@@ -1,7 +1,5 @@
 ﻿using System.Threading.Tasks;
 
-using StudentToolkit.WpfCore.Commands.Base;
-
 namespace StudentToolkit.WpfCore.Commands.Presentation.Main;
 
 public class AsyncMainViewLoadedCommand : AsyncCommand

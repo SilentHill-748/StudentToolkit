@@ -1,6 +1,4 @@
-﻿using StudentToolkit.WpfCore.Commands.Base;
-
-namespace StudentToolkit.MVVM.ViewModels.Base;
+﻿namespace StudentToolkit.MVVM.ViewModels.Base;
 
 public abstract class DialogViewModel : ValidatableViewModel, IClosableViewModel
 {
