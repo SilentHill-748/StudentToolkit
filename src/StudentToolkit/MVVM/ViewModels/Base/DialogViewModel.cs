@@ -1,4 +1,4 @@
-﻿using StudentToolkit.WpfCore.Commands;
+﻿using StudentToolkit.WpfCore.Commands.Base;
 
 namespace StudentToolkit.MVVM.ViewModels.Base;
 
@@ -6,7 +6,7 @@ public abstract class DialogViewModel : ValidatableViewModel, IClosableViewModel
 {
     protected DialogViewModel()
     {
-        CloseDialogCommand = new CloseWindowCommand(this);
+        CloseDialogCommand = new DelegateCommand(() => Close?.Invoke());
     }
 
     public Action? Close{ get; set; }
