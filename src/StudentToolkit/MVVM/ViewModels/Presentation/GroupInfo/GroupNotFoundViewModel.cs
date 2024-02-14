@@ -1,6 +1,4 @@
-﻿using StudentToolkit.WpfCore.Commands.Navigation;
-
-namespace StudentToolkit.MVVM.ViewModels.Presentation.GroupInfo;
+﻿namespace StudentToolkit.MVVM.ViewModels.Presentation.GroupInfo;
 
 public class GroupNotFoundViewModel : ViewModel
 {

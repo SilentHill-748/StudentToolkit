@@ -1,6 +1,4 @@
-﻿using StudentToolkit.WpfCore.Commands.Base;
-
-namespace StudentToolkit.WpfCore.Commands.Navigation;
+﻿namespace StudentToolkit.WpfCore.Commands.Navigation;
 
 public sealed class NavigationCommand<TSourceViewModel, TDestinationViewModel> : Command
     where TSourceViewModel : ViewModel 

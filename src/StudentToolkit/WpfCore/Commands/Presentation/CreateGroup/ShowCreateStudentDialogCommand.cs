@@ -1,7 +1,6 @@
 ﻿using StudentToolkit.MVVM.Validation.CreateGroup;
-using StudentToolkit.WpfCore.Commands.Base;
 
-namespace StudentToolkit.WpfCore.Commands.CreateGroup;
+namespace StudentToolkit.WpfCore.Commands.Presentation.CreateGroup;
 
 public sealed class ShowCreateStudentDialogCommand : Command
 {

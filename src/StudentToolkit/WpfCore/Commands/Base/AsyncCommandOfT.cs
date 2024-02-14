@@ -26,8 +26,11 @@ public abstract class AsyncCommand<T> : ICommand
 
         try
         {
-            IsExecuting = true;
             await ExecuteAsync(CastParameter(parameter));
+        }
+        catch (DataWrapperException)
+        {
+            throw;
         }
         catch (Exception ex)
         {
