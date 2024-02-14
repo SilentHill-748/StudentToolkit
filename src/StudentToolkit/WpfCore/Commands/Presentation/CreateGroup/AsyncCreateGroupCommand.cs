@@ -2,7 +2,7 @@
 
 using StudentToolkit.WpfCore.Commands.Base;
 
-namespace StudentToolkit.WpfCore.Commands.CreateGroup;
+namespace StudentToolkit.WpfCore.Commands.Presentation.CreateGroup;
 
 public sealed class AsyncCreateGroupCommand : AsyncCommand
 {
@@ -29,8 +29,8 @@ public sealed class AsyncCreateGroupCommand : AsyncCommand
 
     public override bool CanExecute()
     {
-        return  !IsExecuting &&
-                !_createGroupVm.HasErrors && 
+        return !IsExecuting &&
+                !_createGroupVm.HasErrors &&
                 _createGroupVm.Students.Count > 5;
     }
 
@@ -43,7 +43,7 @@ public sealed class AsyncCreateGroupCommand : AsyncCommand
 
         NotificationService.Alert("Error", GroupNotCreatedUserMessage);
 
-        string commandClassName = this.GetType().Name;
+        string commandClassName = GetType().Name;
 
         return exception
             .WrapWithMessage($"{commandClassName}: Student group isn't created.")
