@@ -5,6 +5,7 @@ namespace StudentToolkit.WpfCore.Commands.Presentation.CreateGroup;
 public sealed class AsyncCreateGroupCommand : AsyncCommand
 {
     private const string GroupNotCreatedUserMessage = "Операция создания группы завершилась с ошибкой. Проверьте доступ к сети интернет или попробуйте повторить операцию позже.";
+    private const string ExceptionLogMessage = "Occured an exception in creating the group of students process.";
 
     private readonly CreateGroupViewModel _createGroupVm;
     private readonly IGroupStore _groupStore;
@@ -34,17 +35,10 @@ public sealed class AsyncCreateGroupCommand : AsyncCommand
 
     protected override Exception ConfigureException(Exception exception)
     {
-        if (exception.IsWrapped())
-        {
-            return exception;
-        }
-
         NotificationService.Alert("Error", GroupNotCreatedUserMessage);
 
-        string commandClassName = GetType().Name;
-
         return exception
-            .WrapWithMessage($"{commandClassName}: Student group isn't created.")
+            .WrapWithMessage(ExceptionLogMessage)
             .SetDetail("Group code", _createGroupVm.GroupCode)
             .SetDetail("Students count", _createGroupVm.Students.Count);
     }

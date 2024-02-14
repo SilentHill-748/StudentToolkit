@@ -4,6 +4,8 @@ namespace StudentToolkit.WpfCore.Commands.Presentation.Main;
 
 public class AsyncMainViewLoadedCommand : AsyncCommand
 {
+    private const string ExceptionLogMessage = "Loading of MainView at async cpmmand was stopped by an exception.";
+
     private readonly IGroupStore _groupStore;
 
     public AsyncMainViewLoadedCommand(IGroupStore groupStore)
@@ -18,7 +20,6 @@ public class AsyncMainViewLoadedCommand : AsyncCommand
 
     protected override Exception ConfigureException(Exception exception)
     {
-        // GroupStore will handle this exception.
-        return exception;
+        return exception.WrapWithMessage(ExceptionLogMessage);
     }
 }

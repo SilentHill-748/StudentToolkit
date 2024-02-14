@@ -28,6 +28,10 @@ public abstract class AsyncCommand : ICommand
         {
             await ExecuteAsync();
         }
+        catch (DataWrapperException)
+        {
+            throw;
+        }
         catch (Exception ex)
         {
             throw ConfigureException(ex);
