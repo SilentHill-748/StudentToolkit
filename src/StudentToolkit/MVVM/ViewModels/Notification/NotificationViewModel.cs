@@ -1,6 +1,6 @@
 ﻿namespace StudentToolkit.MVVM.ViewModels.Notification;
 
-public class NotificationViewModel : ViewModel, IClosableViewModel
+public class NotificationViewModel : ViewModel
 {
     private readonly NotificationIcon _icon;
 

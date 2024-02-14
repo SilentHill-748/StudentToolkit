@@ -1,6 +1,6 @@
 ﻿namespace StudentToolkit.MVVM.ViewModels.Base;
 
-public abstract class DialogViewModel : ValidatableViewModel, IClosableViewModel
+public abstract class DialogViewModel : ValidatableViewModel
 {
     protected DialogViewModel()
     {
