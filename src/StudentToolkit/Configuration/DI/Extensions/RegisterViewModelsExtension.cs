@@ -1,4 +1,6 @@
-﻿namespace StudentToolkit.Configuration.DI.Extensions;
+﻿using StudentToolkit.MVVM.ViewModels.Presentation.GroupInfo;
+
+namespace StudentToolkit.Configuration.DI.Extensions;
 
 public static class RegisterViewModelsExtension
 {
@@ -6,6 +8,8 @@ public static class RegisterViewModelsExtension
     {
         container.RegisterSingleton<MainViewModel>();
         container.Register<CreateGroupViewModel>();
+        container.Register<AboutViewModel>();
+        container.Register<GroupNotFoundViewModel>();
 
         return container;
     }

@@ -23,6 +23,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\StudentToolkit.Application\StudentToolkit.Application.csproj" />
+    <ProjectReference Include="..\StudentToolkit.CustomControls\StudentToolkit.CustomControls.csproj" />
     <ProjectReference Include="..\StudentToolkit.Infrastructure\StudentToolkit.Infrastructure.csproj" />
   </ItemGroup>
 
