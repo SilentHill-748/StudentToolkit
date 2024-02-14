@@ -28,7 +28,7 @@ public sealed class AsyncCreateGroupCommand : AsyncCommand
 
     public override bool CanExecute()
     {
-        return !IsExecuting &&
+        return  !IsExecuting &&
                 !_createGroupVm.HasErrors &&
                 _createGroupVm.Students.Count > 5;
     }
