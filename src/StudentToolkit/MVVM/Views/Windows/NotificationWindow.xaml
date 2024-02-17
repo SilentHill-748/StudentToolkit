@@ -6,8 +6,7 @@
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
         SizeToContent="WidthAndHeight"
-        SnapsToDevicePixels="True"
         ResizeMode="NoResize"
-        FontSize="18"
         MinWidth="300"
-        MinHeight="150"/>
+        MinHeight="150"
+        Style="{DynamicResource WindowStyle}"/>

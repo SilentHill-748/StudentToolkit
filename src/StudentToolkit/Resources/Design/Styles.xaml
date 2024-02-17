@@ -6,5 +6,6 @@
         <ResourceDictionary Source="Styles/CloseWindowButtonStyle.xaml"/>
         <ResourceDictionary Source="Styles/MaximizeWindowButtonStyle.xaml"/>
         <ResourceDictionary Source="Styles/MinimizeWindowButtonStyle.xaml"/>
+        <ResourceDictionary Source="Styles/WindowStyle.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>
