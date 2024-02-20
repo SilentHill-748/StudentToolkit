@@ -24,8 +24,7 @@ public sealed class GroupStore : IGroupStore, IDisposable
         Group = new GroupModel();
     }
 
-    public event Action<GroupModel>? Loaded;
-    public event Action<GroupModel>? Updated;
+    public event Action<GroupModel>? GroupStoreChanged;
 
     public GroupModel Group { get; }
 
@@ -33,7 +32,7 @@ public sealed class GroupStore : IGroupStore, IDisposable
     {
         await InternalLoadAsync();
 
-        Loaded?.Invoke(Group);
+        GroupStoreChanged?.Invoke(Group);
     }
 
     public async Task CreateGroupAsync()
@@ -79,7 +78,7 @@ public sealed class GroupStore : IGroupStore, IDisposable
     {
         await InternalLoadAsync();
 
-        Updated?.Invoke(Group);
+        GroupStoreChanged?.Invoke(Group);
     }
 
     private async Task InternalLoadAsync()

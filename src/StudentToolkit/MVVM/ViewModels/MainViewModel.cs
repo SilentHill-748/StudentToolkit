@@ -15,8 +15,7 @@ public class MainViewModel : ViewModel
 
         LoadedEventCommand = new AsyncMainViewLoadedCommand(groupStore);
 
-        groupStore.Updated += OnStoreChanged;
-        groupStore.Loaded += OnStoreChanged;
+        groupStore.GroupStoreChanged += OnStoreChanged;
 
         WeakReferenceMessenger.Default.Register<NavigationMessage>(this, (recipient, message) =>
         {

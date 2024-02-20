@@ -4,8 +4,7 @@ namespace StudentToolkit.MVVM.Stores.Group;
 
 public interface IGroupStore
 {
-    event Action<GroupModel>? Loaded;
-    event Action<GroupModel>? Updated;
+    event Action<GroupModel>? GroupStoreChanged;
 
     GroupModel Group { get; }
 
