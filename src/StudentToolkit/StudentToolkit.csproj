@@ -8,9 +8,11 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
 	<NoWarn>IDE0290</NoWarn>
 	<WarningsAsErrors>CS8602</WarningsAsErrors>
+	<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resources\Assets\icon.ico" />
     <None Remove="Resources\Assets\Notification\error.png" />
     <None Remove="Resources\Assets\Notification\info.png" />
     <None Remove="Resources\Assets\Notification\warning.png" />
@@ -28,6 +30,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Resources\Assets\icon.ico" />
     <Resource Include="Resources\Assets\Notification\error.png" />
     <Resource Include="Resources\Assets\Notification\info.png" />
     <Resource Include="Resources\Assets\Notification\warning.png" />

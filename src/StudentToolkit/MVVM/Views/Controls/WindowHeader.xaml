@@ -1,0 +1,57 @@
+﻿<UserControl x:Class="StudentToolkit.MVVM.Views.Controls.WindowHeader"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:Converters="clr-namespace:StudentToolkit.WpfCore.Converters"
+             mc:Ignorable="d"
+             MouseLeftButtonDown="OnMouseLeftButtonDown"
+             x:Name="header">
+
+    <UserControl.Resources>
+        <Converters:WindowButtonVisibilityConverter x:Key="WindowButtonVisibilityConverter"/>
+    </UserControl.Resources>
+    
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+        
+        <Image
+            Margin="5 2 0 2"
+            Width="16"
+            Source="{Binding ElementName=header, Path=Icon}"/>
+
+        <TextBlock
+            Grid.Column="1"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Text="{Binding ElementName=header, Path=Title}"/>
+
+        <StackPanel Grid.Column="2" Orientation="Horizontal">
+            <Button
+                Click="MinimizeWindowBtnClick"
+                Style="{DynamicResource MinimizeWindowButtonStyle}"
+                Visibility="{Binding 
+                    RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Window},
+                    Path=ResizeMode,
+                    Converter={StaticResource WindowButtonVisibilityConverter},
+                    ConverterParameter=Minimize}"/>
+
+            <Button
+                Click="MaximizeWindowBtnClick"
+                Style="{DynamicResource MaximizeWindowButtonStyle}"
+                Visibility="{Binding 
+                    RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Window},
+                    Path=ResizeMode,
+                    Converter={StaticResource WindowButtonVisibilityConverter},
+                    ConverterParameter=Maximize}"/>
+
+            <Button
+                Click="CloseWindowBtnClick"
+                Style="{DynamicResource CloseWindowButtonStyle}"/>
+        </StackPanel>
+    </Grid>
+</UserControl>

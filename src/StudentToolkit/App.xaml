@@ -4,7 +4,10 @@
              ShutdownMode="OnMainWindowClose">
     <Application.Resources>
         <ResourceDictionary>
-            
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Resources/Design/Themes/DarkBlueTheme.xaml"/>
+                <ResourceDictionary Source="Resources/Design/Styles.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>
 </Application>
