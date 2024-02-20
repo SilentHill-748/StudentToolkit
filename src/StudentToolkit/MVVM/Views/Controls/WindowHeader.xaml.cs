@@ -6,6 +6,9 @@ namespace StudentToolkit.MVVM.Views.Controls;
 
 public partial class WindowHeader : UserControl
 {
+    // Window will never be null.
+    private Window? _currentWindow;
+
     public static readonly DependencyProperty TitleProperty =
         DependencyProperty.Register("Title", typeof(string), typeof(WindowHeader));
 
@@ -29,33 +32,41 @@ public partial class WindowHeader : UserControl
         set => SetValue(IconProperty, value);
     }
 
+    public override void OnApplyTemplate()
+    {
+        _currentWindow = Window.GetWindow(this);
+        
+        _currentWindow.SourceInitialized += (sender, args) =>
+        {
+            new WindowInteropService(_currentWindow)
+                .AddWindowProcedureHook();
+        };
+
+        base.OnApplyTemplate();
+    }
+
     private void MinimizeWindowBtnClick(object sender, RoutedEventArgs e)
     {
-        GetParentWindow().WindowState = WindowState.Minimized;
+        _currentWindow!.WindowState = WindowState.Minimized;
     }
 
     private void MaximizeWindowBtnClick(object sender, RoutedEventArgs e)
     {
-        Window window = GetParentWindow();
-
-        window.WindowState = window.WindowState is WindowState.Normal ?
-            WindowState.Maximized :
-            WindowState.Normal;
+        _currentWindow!.WindowState = _currentWindow.WindowState == WindowState.Normal
+            ? WindowState.Maximized
+            : WindowState.Normal;
     }
 
     private void CloseWindowBtnClick(object sender, RoutedEventArgs e)
     {
-        GetParentWindow().Close();
+        _currentWindow!.Close();
     }
 
     private void OnMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
     {
         if (e.LeftButton is MouseButtonState.Pressed)
         {
-            GetParentWindow().DragMove();
+            _currentWindow!.DragMove();
         }
     }
-
-    private Window GetParentWindow()
-        => Window.GetWindow(this);
 }

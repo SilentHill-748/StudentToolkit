@@ -8,6 +8,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
 	<NoWarn>IDE0290</NoWarn>
 	<WarningsAsErrors>CS8602</WarningsAsErrors>
+	<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
 
   <ItemGroup>
