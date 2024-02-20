@@ -1,5 +1,4 @@
-﻿using System.Diagnostics;
-using System.Runtime.InteropServices;
+﻿using System.Runtime.InteropServices;
 using System.Windows;
 using System.Windows.Interop;
 
@@ -21,7 +20,6 @@ public partial class WindowInteropService
     /// <summary>
     /// Set a new sizes for minimize and maximize specified window by changing of <see cref="Window.WindowState"/>.
     /// </summary>
-    /// <param name="window"></param>
     public void AddWindowProcedureHook()
     {
         IntPtr handle = new WindowInteropHelper(_window).Handle;
