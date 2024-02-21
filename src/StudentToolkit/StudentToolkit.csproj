@@ -9,6 +9,7 @@
 	<NoWarn>IDE0290</NoWarn>
 	<WarningsAsErrors>CS8602</WarningsAsErrors>
 	<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+	<ApplicationIcon>Resources\Assets\icon.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
