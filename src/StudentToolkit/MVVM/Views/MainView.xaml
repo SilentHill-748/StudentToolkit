@@ -6,6 +6,7 @@
              xmlns:Behaviors="http://schemas.microsoft.com/xaml/behaviors"
              xmlns:ViewModel="clr-namespace:StudentToolkit.MVVM.ViewModels"
              xmlns:Controls="clr-namespace:StudentToolkit.MVVM.Views.Controls"
+             xmlns:CustomControls="clr-namespace:StudentToolkit.CustomControls.Controls;assembly=StudentToolkit.CustomControls"
              mc:Ignorable="d"
              SnapsToDevicePixels="True"
              d:DataContext="{d:DesignInstance Type=ViewModel:MainViewModel}">
@@ -15,28 +16,38 @@
             <Behaviors:InvokeCommandAction Command="{Binding LoadedEventCommand}"/>
         </Behaviors:EventTrigger>
     </Behaviors:Interaction.Triggers>
+
+    <UserControl.Resources>
+        <Style x:Key="SideBarStyle" TargetType="{x:Type CustomControls:SideBar}">
+            <Setter Property="Background" Value="#FF202032"/>
+            <Setter Property="BorderBrush" Value="{DynamicResource WindowBorderBrush}"/>
+            <Setter Property="BorderThickness" Value="0 0 1 0"/>
+        </Style>
+    </UserControl.Resources>
     
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
-        <Menu FontSize="16" Grid.Row="0" Background="White">
-            <MenuItem Header="Модули">
-                <MenuItem Header="Составить расписание"/>
-                <MenuItem Header="Работа с посещаемостью"/>
-                <MenuItem Header="Домашние задания"/>
-            </MenuItem>
-            <MenuItem Header="Настройки"/>
-            <MenuItem Header="О программе"/>
-        </Menu>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
 
-        <ContentControl Grid.Row="1" Content="{Binding ContentViewModel}"/>
+        <CustomControls:SideBar Grid.RowSpan="2" Style="{StaticResource SideBarStyle}">
+            <Button Content="Группа" Margin="0 0 0 10" Command="{Binding NavigateToGroupInfoViewCommand}"/>
+            <Button Content="О программе" Margin="0 0 0 10" Command="{Binding NavigateToAboutViewCommand}"/>
+        </CustomControls:SideBar>
+
+        <ContentControl
+            Grid.Column="1"
+            Content="{Binding ContentViewModel}"/>
 
         <Controls:StatusbarView 
-            Grid.Row="2"
+            Grid.Row="1"
+            Grid.Column="1"
             HorizontalAlignment="Right"
             Margin="0 0 10 0"
             DataContext="{Binding StatusBarViewModel}"/>
