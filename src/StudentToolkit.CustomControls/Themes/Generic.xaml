@@ -10,7 +10,7 @@
                         BorderBrush="{TemplateBinding BorderBrush}"
                         BorderThickness="{TemplateBinding BorderThickness}"
                         Background="{TemplateBinding Background}">
-                        
+
                         <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="Auto"/>
@@ -26,33 +26,35 @@
                                 Grid.Column="0"
                                 Grid.Row="0"
                                 Margin="20"
-                                Padding="{TemplateBinding Padding}">
+                                Padding="7">
 
                                 <Path
                                     Stroke="{Binding ElementName=hideBtn, Path=Foreground}"
-                                    StrokeThickness="1.5">
+                                    StrokeThickness="2">
 
                                     <Path.Data>
                                         <GeometryGroup>
                                             <LineGeometry StartPoint="0 0" EndPoint="20 0"/>
-                                            <LineGeometry StartPoint="0 6" EndPoint="20 6"/>
-                                            <LineGeometry StartPoint="0 12" EndPoint="20 12"/>
+                                            <LineGeometry StartPoint="0 7" EndPoint="20 7"/>
+                                            <LineGeometry StartPoint="0 14" EndPoint="20 14"/>
                                         </GeometryGroup>
                                     </Path.Data>
                                 </Path>
                             </Button>
 
                             <ItemsControl
+                                x:Name="sidebarItems"
                                 Grid.Row="1"
-                                Grid.Column="1"
-                                Margin="0 0 20 0"
+                                Grid.ColumnSpan="2"
+                                MinWidth="225"
+                                Margin="20 0"
                                 Visibility="{Binding
                                     RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=CustomControls:SideBar},
                                     Path=ContentVisibility}"
                                 ItemsSource="{Binding
                                     RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=CustomControls:SideBar},
-                                    Path=Items}">
-                            </ItemsControl>
+                                    Path=Items}"
+                                />
                         </Grid>
                     </Border>
                 </ControlTemplate>
