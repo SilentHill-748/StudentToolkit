@@ -46,8 +46,8 @@ public partial class App : DotNetApplication
 
     private bool InternalStartup(string[] args)
     {
-        _options.RegisterServices(args);
         _options.ApplyDataTemplates(Resources);
+        _options.RegisterServices(args);
 
         MainWindow = _options.Services.GetInstance<MainWindow>();
         MainWindow.Show();
