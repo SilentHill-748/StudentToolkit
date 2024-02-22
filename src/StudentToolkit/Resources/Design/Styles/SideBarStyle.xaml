@@ -29,7 +29,8 @@
                                 Grid.Column="0"
                                 Grid.Row="0"
                                 Margin="20"
-                                Padding="7">
+                                Padding="7"
+                                Style="{DynamicResource ButtonStyle}">
 
                                 <Path
                                     Stroke="{Binding ElementName=hideBtn, Path=Foreground}"

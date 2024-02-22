@@ -72,11 +72,13 @@
                     Content="Создать"
                     Margin="0 0 10 0"
                     IsDefault="True"
-                    Command="{Binding CreateStudentCommand, Mode=OneTime}"/>
+                    Command="{Binding CreateStudentCommand, Mode=OneTime}"
+                    Style="{StaticResource ButtonStyle}"/>
 
             <Button Grid.Column="2"
                     Content="Отмена"
-                    Command="{Binding CloseDialogCommand, Mode=OneTime}"/>
+                    Command="{Binding CloseDialogCommand, Mode=OneTime}"
+                    Style="{StaticResource ButtonStyle}"/>
         </StackPanel>
     </Grid>
 </UserControl>
