@@ -44,6 +44,7 @@
             Content="Ок"
             VerticalAlignment="Bottom"
             HorizontalAlignment="Right"
-            Command="{Binding CloseNotificationCommand}"/>
+            Command="{Binding CloseNotificationCommand}"
+            Style="{StaticResource ButtonStyle}"/>
     </Grid>
 </UserControl>

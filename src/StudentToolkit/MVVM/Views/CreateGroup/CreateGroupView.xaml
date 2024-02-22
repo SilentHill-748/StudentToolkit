@@ -58,7 +58,8 @@
             Margin="0 10 0 50"
             HorizontalAlignment="Left"
             Content="Добавить студента"
-            Command="{Binding ShowCreateStudentDialogCommand, Mode=OneTime}"/>
+            Command="{Binding ShowCreateStudentDialogCommand, Mode=OneTime}"
+            Style="{StaticResource ButtonStyle}"/>
 
         <TextBlock 
             Grid.Row="3"
@@ -93,11 +94,13 @@
             <Button 
                 Content="Создать группу"
                 Margin="0 0 10 0"
-                Command="{Binding CreateGroupCommand, Mode=OneTime}"/>
+                Command="{Binding CreateGroupCommand, Mode=OneTime}"
+                Style="{StaticResource ButtonStyle}"/>
             
             <Button
                 Content="Выход"
-                Click="CloseBtn_Click"/>
+                Click="CloseBtn_Click"
+                Style="{StaticResource ButtonStyle}"/>
         </StackPanel>
     </Grid>
 </UserControl>
