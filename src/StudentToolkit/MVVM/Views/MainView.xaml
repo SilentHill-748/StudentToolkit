@@ -37,8 +37,15 @@
         </Grid.ColumnDefinitions>
 
         <CustomControls:SideBar Grid.RowSpan="2" Style="{StaticResource SideBarStyle}">
-            <Button Content="Группа" Margin="0 0 0 10" Command="{Binding NavigateToGroupInfoViewCommand}"/>
-            <Button Content="О программе" Margin="0 0 0 10" Command="{Binding NavigateToAboutViewCommand}"/>
+            <Button
+                Content="Группа"
+                Margin="0 0 0 10"
+                Command="{Binding NavigateToGroupInfoViewCommand}"/>
+            
+            <Button
+                Content="О программе"
+                Margin="0 0 0 10"
+                Command="{Binding NavigateToAboutViewCommand}"/>
         </CustomControls:SideBar>
 
         <ContentControl
