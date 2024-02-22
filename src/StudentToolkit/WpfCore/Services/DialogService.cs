@@ -16,7 +16,7 @@ public static class DialogService
     /// <returns>The result object that represents the specified <typeparamref name="TResult"/>.</returns>
     public static TResult? ShowDialog<TResult>(
         ResultDialogViewModel<TResult> viewModel,
-        ResizeMode resizeMode = ResizeMode.NoResize)
+        ResizeMode resizeMode = ResizeMode.CanResize)
     {
         InternalShowDialog(viewModel, resizeMode);
 
@@ -30,7 +30,7 @@ public static class DialogService
     /// <param name="resizeMode">The resize mode of dialog window. <see cref="ResizeMode.NoResize"/> by default.</param>
     public static void ShowDialog(
         DialogViewModel viewModel, 
-        ResizeMode resizeMode = ResizeMode.NoResize)
+        ResizeMode resizeMode = ResizeMode.CanResize)
     {
         InternalShowDialog(viewModel, resizeMode);
     }

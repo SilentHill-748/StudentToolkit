@@ -2,6 +2,7 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
     <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="Styles/SideBarStyle.xaml"/>
         <ResourceDictionary Source="Styles/ButtonStyle.xaml"/>
         <ResourceDictionary Source="Styles/CloseWindowButtonStyle.xaml"/>
         <ResourceDictionary Source="Styles/MaximizeWindowButtonStyle.xaml"/>

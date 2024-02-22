@@ -14,9 +14,10 @@ public class MainViewModel : ViewModel
         WindowTitle = "Student Toolkit";
 
         LoadedEventCommand = new AsyncMainViewLoadedCommand(groupStore);
+        NavigateToGroupInfoViewCommand = new NavigationCommand<MainViewModel, GroupNotFoundViewModel>();
+        NavigateToAboutViewCommand = new NavigationCommand<MainViewModel, AboutViewModel>();
 
-        groupStore.Updated += OnStoreChanged;
-        groupStore.Loaded += OnStoreChanged;
+        groupStore.GroupStoreChanged += OnStoreChanged;
 
         WeakReferenceMessenger.Default.Register<NavigationMessage>(this, (recipient, message) =>
         {
@@ -33,6 +34,8 @@ public class MainViewModel : ViewModel
     }
 
     public ICommand LoadedEventCommand { get; }
+    public ICommand NavigateToGroupInfoViewCommand { get; }
+    public ICommand NavigateToAboutViewCommand { get; }
 
     private void OnStoreChanged(GroupModel groupVm)
     {

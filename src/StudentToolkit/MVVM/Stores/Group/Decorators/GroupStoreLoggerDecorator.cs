@@ -20,15 +20,10 @@ public sealed class GroupStoreLoggerDecorator : IGroupStore, IDisposable
         _logger = logger;
     }
 
-    public event Action<GroupModel>? Loaded
+    public event Action<GroupModel>? GroupStoreChanged
     {
-        add => _decorateeGroupStore.Loaded += value;
-        remove => _decorateeGroupStore.Loaded -= value;
-    }
-    public event Action<GroupModel>? Updated
-    {
-        add => _decorateeGroupStore.Updated += value;
-        remove => _decorateeGroupStore.Updated -= value;
+        add => _decorateeGroupStore.GroupStoreChanged += value;
+        remove => _decorateeGroupStore.GroupStoreChanged -= value;
     }
 
     public GroupModel Group => _decorateeGroupStore.Group;
