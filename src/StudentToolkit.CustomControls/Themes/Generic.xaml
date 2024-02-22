@@ -43,7 +43,6 @@
                             </Button>
 
                             <ItemsControl
-                                x:Name="sidebarItems"
                                 Grid.Row="1"
                                 Grid.ColumnSpan="2"
                                 MinWidth="225"
