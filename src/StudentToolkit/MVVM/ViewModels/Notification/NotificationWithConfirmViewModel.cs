@@ -16,6 +16,6 @@ public class NotificationWithConfirmViewModel : NotificationViewModel
     {
         IsConfirmed = true;
 
-        Close?.Invoke();
+        CloseNotificationCommand.Execute(null);
     }
 }
