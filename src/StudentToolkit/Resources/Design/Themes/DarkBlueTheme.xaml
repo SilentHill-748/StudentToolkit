@@ -12,7 +12,6 @@
     <Color x:Key="DefaultButtonBackgroundColor">#424261</Color>
     <Color x:Key="DefaultButtonBackgroundMouseEnterColor">#313549</Color>
     <Color x:Key="DefaultButtonForegroundMouseEnterColor">White</Color>
-
     <Color x:Key="SidebarBackgroundColor">#1F1F32</Color>
     <!--#endregion-->
 
@@ -24,10 +23,8 @@
     <SolidColorBrush x:Key="WindowForegroundBrush" Color="{DynamicResource WindowForegroundColor}"/>
     <SolidColorBrush x:Key="WindowHeaderBackgroundBrush" Color="{DynamicResource WindowHeaderBackgroundColor}"/>
     <SolidColorBrush x:Key="WindowHeaderForegroundBrush" Color="{DynamicResource WindowHeaderForegroundColor}"/>
-
     <SolidColorBrush x:Key="DefaultButtonBackgroundBrush" Color="{DynamicResource DefaultButtonBackgroundColor}"/>
     <SolidColorBrush x:Key="DefaultButtonBackgroundMouseEnterBrush" Color="{DynamicResource DefaultButtonBackgroundMouseEnterColor}"/>
-
     <SolidColorBrush x:Key="SidebarBackgroundBrush" Color="{DynamicResource SidebarBackgroundColor}"/>
     <!--#endregion-->
 </ResourceDictionary>
