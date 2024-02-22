@@ -55,7 +55,6 @@
 
         <Button 
             Grid.Row="2"
-            Padding="10 3"
             Margin="0 10 0 50"
             HorizontalAlignment="Left"
             Content="Добавить студента"
@@ -94,13 +93,11 @@
             <Button 
                 Content="Создать группу"
                 Margin="0 0 10 0"
-                Padding="10 3"
                 Command="{Binding CreateGroupCommand, Mode=OneTime}"/>
             
             <Button
                 Content="Выход"
-                Click="CloseBtn_Click"
-                Padding="10 3"/>
+                Click="CloseBtn_Click"/>
         </StackPanel>
     </Grid>
 </UserControl>

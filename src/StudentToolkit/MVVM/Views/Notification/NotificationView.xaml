@@ -40,7 +40,6 @@
             Grid.Column="2"
             Grid.Row="2"
             MinWidth="70"
-            Padding="10 3"
             IsDefault="True"
             Content="Ок"
             VerticalAlignment="Bottom"

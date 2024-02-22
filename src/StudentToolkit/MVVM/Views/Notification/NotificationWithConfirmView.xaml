@@ -43,7 +43,6 @@
             VerticalAlignment="Bottom">
             <Button 
                 MinWidth="70"
-                Padding="10 3"
                 IsDefault="True"
                 Content="Да"
                 Margin="0 0 10 0"
@@ -51,7 +50,6 @@
 
             <Button
                 MinWidth="70"
-                Padding="10 3"
                 IsCancel="True"
                 Content="Нет"
                 Command="{Binding CloseNotificationCommand}"/>
