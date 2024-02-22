@@ -13,6 +13,10 @@
     <Color x:Key="DefaultButtonBackgroundMouseEnterColor">#313549</Color>
     <Color x:Key="DefaultButtonForegroundMouseEnterColor">White</Color>
     <Color x:Key="SidebarBackgroundColor">#1F1F32</Color>
+    <Color x:Key="ButtonMouseOverBorderBrushColor">#317990</Color>
+    <Color x:Key="DisabledButtonBackgroundColor">#4A4A59</Color>
+    <Color x:Key="ButtonMouseOverBackgroundColor">#454573</Color>
+    <Color x:Key="ButtonForegroundMouseEnterColor">#DFDFE7</Color>
     <!--#endregion-->
 
     <!--#region Brushes-->
@@ -26,5 +30,9 @@
     <SolidColorBrush x:Key="DefaultButtonBackgroundBrush" Color="{DynamicResource DefaultButtonBackgroundColor}"/>
     <SolidColorBrush x:Key="DefaultButtonBackgroundMouseEnterBrush" Color="{DynamicResource DefaultButtonBackgroundMouseEnterColor}"/>
     <SolidColorBrush x:Key="SidebarBackgroundBrush" Color="{DynamicResource SidebarBackgroundColor}"/>
+    <SolidColorBrush x:Key="ButtonForegroundMouseEnterBrush" Color="{DynamicResource ButtonForegroundMouseEnterColor}"/>
+    <SolidColorBrush x:Key="ButtonMouseOverBackgroundBrush" Color="{DynamicResource ButtonMouseOverBackgroundColor}"/>
+    <SolidColorBrush x:Key="DisabledButtonBackgroundBrush" Color="{DynamicResource DisabledButtonBackgroundColor}"/>
+    <SolidColorBrush x:Key="ButtonMouseOverBorderBrushBrush" Color="{DynamicResource ButtonMouseOverBorderBrushColor}"/>
     <!--#endregion-->
 </ResourceDictionary>
