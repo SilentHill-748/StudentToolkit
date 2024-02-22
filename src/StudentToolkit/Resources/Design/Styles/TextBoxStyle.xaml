@@ -49,10 +49,10 @@
                             <Setter Property="BorderBrush" Value="{DynamicResource ValidationFailedBrush}"/>
                         </Trigger>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="BorderBrush" Value="{DynamicResource ButtonMouseOverBorderBrushBrush}"/>
+                            <Setter Property="BorderBrush" Value="{DynamicResource MouseSelectionBorderBrushBrush}"/>
                         </Trigger>
                         <Trigger Property="IsFocused" Value="True">
-                            <Setter Property="BorderBrush" Value="{DynamicResource TextBoxIsFocusedBrush}"/>
+                            <Setter Property="BorderBrush" Value="{DynamicResource ControlIsFocusedBrush}"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
