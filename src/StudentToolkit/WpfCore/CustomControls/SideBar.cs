@@ -9,8 +9,8 @@ public class SideBar : Control
 {
     public static readonly DependencyProperty ContentVisibilityProperty =
         DependencyProperty.Register("ContentVisibility", typeof(Visibility), typeof(SideBar));
-
-    private bool _isHidden;
+    public static readonly DependencyProperty HideProperty =
+        DependencyProperty.Register("Hide", typeof(bool), typeof(SideBar));
 
     static SideBar()
     {
@@ -30,10 +30,16 @@ public class SideBar : Control
         set => SetValue(ContentVisibilityProperty, value);
     }
 
+    public bool Hide
+    {
+        get => (bool)GetValue(HideProperty);
+        set => SetValue(HideProperty, value);
+    }
+
     public override void OnApplyTemplate()
     {
-        if (ContentVisibility is Visibility.Collapsed)
-            _isHidden = true;
+        if (Hide)
+            ContentVisibility = Visibility.Collapsed;
 
         Button hideBtn = (Button)GetTemplateChild("hideBtn");
 
@@ -42,10 +48,10 @@ public class SideBar : Control
 
     private void OnHideBtnClick(object sender, RoutedEventArgs e)
     {
-        ContentVisibility = _isHidden ?
+        ContentVisibility = Hide ?
             Visibility.Visible :
             Visibility.Collapsed;
 
-        _isHidden = !_isHidden;
+        Hide = !Hide;
     }
 }
