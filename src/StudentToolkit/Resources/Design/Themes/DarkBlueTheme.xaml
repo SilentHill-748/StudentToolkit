@@ -2,37 +2,39 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
     <!--#region Colors-->
-    <Color x:Key="WindowBorderColor">#4B4469</Color>
+    <Color x:Key="WindowBorderBrushColor">#4B4469</Color>
     <Color x:Key="WindowBackgroundColor">#191924</Color>
     <Color x:Key="WindowForegroundColor">#BFBFCA</Color>
     <Color x:Key="WindowHeaderBackgroundColor">#272A3A</Color>
-    <Color x:Key="WindowHeaderForegroundColor">#BFBFCA</Color>
-    <Color x:Key="WindowHeaderButtonBackgroundColor">#272A3A</Color>
     <Color x:Key="CloseWindowButtonMouseOverBackgroundColor">#e32636</Color>
-    <Color x:Key="DefaultButtonBackgroundColor">#424261</Color>
-    <Color x:Key="DefaultButtonBackgroundMouseEnterColor">#313549</Color>
-    <Color x:Key="DefaultButtonForegroundMouseEnterColor">White</Color>
+    <Color x:Key="ButtonBackgroundColor">#424261</Color>
+    <Color x:Key="MouseSelectionBackgroundColor">#454573</Color>
+    <Color x:Key="MouseSelectionForegroundColor">#DFDFE7</Color>
     <Color x:Key="SidebarBackgroundColor">#1F1F32</Color>
-    <Color x:Key="ButtonMouseOverBorderBrushColor">#317990</Color>
+    <Color x:Key="MouseSelectionBorderBrushColor">#317990</Color>
     <Color x:Key="DisabledButtonBackgroundColor">#4A4A59</Color>
-    <Color x:Key="ButtonMouseOverBackgroundColor">#454573</Color>
-    <Color x:Key="ButtonForegroundMouseEnterColor">#DFDFE7</Color>
+    <Color x:Key="ValidationFailedColor">#900019</Color>
+    <Color x:Key="ControlIsFocusedColor">#33627E</Color>
+    <Color x:Key="TextBoxBackgroundColor">#363752</Color>
+    <Color x:Key="TextBoxBorderBrushColor">#514F6D</Color>
     <!--#endregion-->
 
     <!--#region Brushes-->
-    <SolidColorBrush x:Key="WindowHeaderButtonBackgroundBrush" Color="{DynamicResource WindowHeaderButtonBackgroundColor}"/>
     <SolidColorBrush x:Key="CloseWindowButtonMouseOverBackgroundBrush" Color="{DynamicResource CloseWindowButtonMouseOverBackgroundColor}"/>
-    <SolidColorBrush x:Key="WindowBorderBrush" Color="{DynamicResource WindowBorderColor}"/>
+    <SolidColorBrush x:Key="WindowBorderBrush" Color="{DynamicResource WindowBorderBrushColor}"/>
     <SolidColorBrush x:Key="WindowBackgroundBrush" Color="{DynamicResource WindowBackgroundColor}"/>
     <SolidColorBrush x:Key="WindowForegroundBrush" Color="{DynamicResource WindowForegroundColor}"/>
     <SolidColorBrush x:Key="WindowHeaderBackgroundBrush" Color="{DynamicResource WindowHeaderBackgroundColor}"/>
-    <SolidColorBrush x:Key="WindowHeaderForegroundBrush" Color="{DynamicResource WindowHeaderForegroundColor}"/>
-    <SolidColorBrush x:Key="DefaultButtonBackgroundBrush" Color="{DynamicResource DefaultButtonBackgroundColor}"/>
-    <SolidColorBrush x:Key="DefaultButtonBackgroundMouseEnterBrush" Color="{DynamicResource DefaultButtonBackgroundMouseEnterColor}"/>
+    <SolidColorBrush x:Key="WindowHeaderForegroundBrush" Color="{DynamicResource WindowForegroundColor}"/>
+    <SolidColorBrush x:Key="ButtonBackgroundBrush" Color="{DynamicResource ButtonBackgroundColor}"/>
     <SolidColorBrush x:Key="SidebarBackgroundBrush" Color="{DynamicResource SidebarBackgroundColor}"/>
-    <SolidColorBrush x:Key="ButtonForegroundMouseEnterBrush" Color="{DynamicResource ButtonForegroundMouseEnterColor}"/>
-    <SolidColorBrush x:Key="ButtonMouseOverBackgroundBrush" Color="{DynamicResource ButtonMouseOverBackgroundColor}"/>
+    <SolidColorBrush x:Key="MouseSelectionBackgroundBrush" Color="{DynamicResource MouseSelectionBackgroundColor}"/>
+    <SolidColorBrush x:Key="MouseSelectionForegroundBrush" Color="{DynamicResource MouseSelectionForegroundColor}"/>
+    <SolidColorBrush x:Key="MouseSelectionBorderBrushBrush" Color="{DynamicResource MouseSelectionBorderBrushColor}"/>
     <SolidColorBrush x:Key="DisabledButtonBackgroundBrush" Color="{DynamicResource DisabledButtonBackgroundColor}"/>
-    <SolidColorBrush x:Key="ButtonMouseOverBorderBrushBrush" Color="{DynamicResource ButtonMouseOverBorderBrushColor}"/>
+    <SolidColorBrush x:Key="ValidationFailedBrush" Color="{DynamicResource ValidationFailedColor}"/>
+    <SolidColorBrush x:Key="ControlIsFocusedBrush" Color="{StaticResource ControlIsFocusedColor}"/>
+    <SolidColorBrush x:Key="TextBoxBackgroundBrush" Color="{StaticResource TextBoxBackgroundColor}"/>
+    <SolidColorBrush x:Key="TextBoxBorderBrushBrush" Color="{StaticResource TextBoxBorderBrushColor}"/>
     <!--#endregion-->
 </ResourceDictionary>

@@ -9,7 +9,7 @@
         <Setter Property="Padding" Value="10 5"/>
         <Setter Property="BorderThickness" Value="2"/>
         <Setter Property="Foreground" Value="{DynamicResource WindowForegroundBrush}"/>
-        <Setter Property="Background" Value="{DynamicResource DefaultButtonBackgroundBrush}"/>
+        <Setter Property="Background" Value="{DynamicResource ButtonBackgroundBrush}"/>
 
         <Setter Property="Template">
             <Setter.Value>
@@ -33,9 +33,9 @@
 
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="BorderBrush" Value="{DynamicResource ButtonMouseOverBorderBrushBrush}"/>
-                <Setter Property="Foreground" Value="{DynamicResource ButtonForegroundMouseEnterBrush}"/>
-                <Setter Property="Background" Value="{DynamicResource ButtonMouseOverBackgroundBrush}"/>
+                <Setter Property="BorderBrush" Value="{DynamicResource MouseSelectionBorderBrushBrush}"/>
+                <Setter Property="Foreground" Value="{DynamicResource MouseSelectionForegroundBrush}"/>
+                <Setter Property="Background" Value="{DynamicResource MouseSelectionBackgroundBrush}"/>
             </Trigger>
 
             <Trigger Property="IsEnabled" Value="False">
@@ -67,7 +67,7 @@
 
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Background" Value="{DynamicResource DefaultButtonBackgroundMouseEnterBrush}"/>
+                <Setter Property="Background" Value="{DynamicResource MouseSelectionBackgroundBrush}"/>
             </Trigger>
         </Style.Triggers>
     </Style>
@@ -94,8 +94,8 @@
 
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Background" Value="{DynamicResource DefaultButtonBackgroundMouseEnterBrush}"/>
-                <Setter Property="Foreground" Value="{DynamicResource ButtonForegroundMouseEnterBrush}"/>
+                <Setter Property="Background" Value="{DynamicResource MouseSelectionBackgroundBrush}"/>
+                <Setter Property="Foreground" Value="{DynamicResource MouseSelectionForegroundBrush}"/>
             </Trigger>
         </Style.Triggers>
     </Style>
@@ -130,7 +130,7 @@
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
                 <Setter Property="Background" Value="{DynamicResource CloseWindowButtonMouseOverBackgroundBrush}"/>
-                <Setter Property="Foreground" Value="{DynamicResource ButtonForegroundMouseEnterBrush}"/>
+                <Setter Property="Foreground" Value="{DynamicResource MouseSelectionForegroundBrush}"/>
             </Trigger>
         </Style.Triggers>
     </Style>
