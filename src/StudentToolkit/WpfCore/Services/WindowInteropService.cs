@@ -29,6 +29,28 @@ public partial class WindowInteropService
             .AddHook(WindowProcedure);
     }
 
+    public static Rect GetCurrentMonitorArea()
+    {
+        GetCursorPos(out IntPoint mousePosition);
+
+        MonitorInfo monitorInfo = GetMonitorInfoFromPoint(mousePosition, MonitorOptions.DefaultToNearest);
+
+        IntRect monitorSize = monitorInfo.rcMonitor;
+
+        return new Rect(
+            monitorSize.Left,
+            monitorSize.Top,
+            monitorSize.Right - monitorSize.Left,
+            monitorSize.Bottom - monitorSize.Top);
+    }
+
+    public static Point GetMousePositionToScreen()
+    {
+        GetCursorPos(out IntPoint point);
+
+        return new Point(point.X, point.Y);
+    }
+
     private IntPtr WindowProcedure(
         IntPtr hwnd,
         int msg,
