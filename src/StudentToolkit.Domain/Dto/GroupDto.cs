@@ -4,5 +4,9 @@ public class GroupDto
 {
     public Guid Id { get; set; }
     public string GroupCode { get; set; } = string.Empty;
-    public ICollection<StudentDto> Students { get; set; } = new List<StudentDto>();
+    public string GroupName { get; set; } = string.Empty;
+    public string EducationFormat {  get; set; } = string.Empty;
+    public string EducationType {  get; set; } = string.Empty;
+    public int AdmissionYear { get; set; }
+    public ICollection<StudentDto> Students { get; set; } = [];
 }
