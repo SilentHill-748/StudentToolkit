@@ -35,7 +35,7 @@ public partial class WindowInteropService
 
         MonitorInfo monitorInfo = GetMonitorInfoFromPoint(mousePosition, MonitorOptions.DefaultToNearest);
 
-        IntRect monitorSize = monitorInfo.rcMonitor;
+        IntRect monitorSize = monitorInfo.rcWork;
 
         return new Rect(
             monitorSize.Left,

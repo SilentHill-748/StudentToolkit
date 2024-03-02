@@ -128,7 +128,7 @@ public partial class WindowHeader : UserControl
                 ? Math.Max(mousePosition.X, leftBound) - centerWidthOfWindow
                 : Math.Min(mousePosition.X, rightBound) - centerWidthOfWindow;
 
-        _currentWindow.Top = 0;
+        _currentWindow.Top = screenSize.Top;
     }
 
     private void ChangeWindowState()
