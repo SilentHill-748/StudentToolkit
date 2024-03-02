@@ -5,9 +5,11 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:Converters="clr-namespace:StudentToolkit.WpfCore.Converters"
              mc:Ignorable="d"
+             x:Name="header"
+             MouseMove="OnMouseMove"
+             MouseDoubleClick="OnMouseDoubleClick"
              MouseLeftButtonDown="OnMouseLeftButtonDown"
-             x:Name="header">
-
+             MouseLeftButtonUp="OnMouseLeftButtonUp">
     <UserControl.Resources>
         <Converters:WindowButtonVisibilityConverter x:Key="WindowButtonVisibilityConverter"/>
     </UserControl.Resources>
@@ -41,6 +43,7 @@
                     ConverterParameter=Minimize}"/>
 
             <Button
+                x:Name="maximizeWindowBtn"
                 Click="MaximizeWindowBtnClick"
                 Style="{DynamicResource MaximizeWindowButtonStyle}"
                 Visibility="{Binding 

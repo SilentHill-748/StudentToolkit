@@ -6,18 +6,22 @@ namespace StudentToolkit.MVVM.Views.Controls;
 
 public partial class WindowHeader : UserControl
 {
-    // Window will never be null.
-    private Window? _currentWindow;
+    private Window _currentWindow;
+    private Point _leftMouseButtonDownPoint;
+    private bool _isMoving;
 
     public static readonly DependencyProperty TitleProperty =
-        DependencyProperty.Register("Title", typeof(string), typeof(WindowHeader));
+        DependencyProperty.Register(nameof(Title), typeof(string), typeof(WindowHeader));
 
     public static readonly DependencyProperty IconProperty =
-        DependencyProperty.Register("Icon", typeof(ImageSource), typeof(WindowHeader));
+        DependencyProperty.Register(nameof(Icon), typeof(ImageSource), typeof(WindowHeader));
 
     public WindowHeader()
     {
         InitializeComponent();
+
+        // Default value was changed into OnApplyTemplate method.
+        _currentWindow = System.Windows.Application.Current.MainWindow;
     }
 
     public string Title
@@ -35,7 +39,7 @@ public partial class WindowHeader : UserControl
     public override void OnApplyTemplate()
     {
         _currentWindow = Window.GetWindow(this);
-        
+   
         _currentWindow.SourceInitialized += (sender, args) =>
         {
             new WindowInteropService(_currentWindow)
@@ -45,28 +49,97 @@ public partial class WindowHeader : UserControl
         base.OnApplyTemplate();
     }
 
-    private void MinimizeWindowBtnClick(object sender, RoutedEventArgs e)
+    private static (double DeltaX, double DeltaY) GetDeltaBetweenTwoPoints(Point point1, Point point2)
     {
-        _currentWindow!.WindowState = WindowState.Minimized;
+        double deltaX = Math.Abs(point1.X - point2.X);
+        double deltaY = Math.Abs(point1.Y - point2.Y);
+
+        return (deltaX, deltaY);
     }
+
+    private void MinimizeWindowBtnClick(object sender, RoutedEventArgs e)
+        => _currentWindow.WindowState = WindowState.Minimized;
 
     private void MaximizeWindowBtnClick(object sender, RoutedEventArgs e)
-    {
-        _currentWindow!.WindowState = _currentWindow.WindowState == WindowState.Normal
-            ? WindowState.Maximized
-            : WindowState.Normal;
-    }
+        => ChangeWindowState();
 
     private void CloseWindowBtnClick(object sender, RoutedEventArgs e)
-    {
-        _currentWindow!.Close();
-    }
+        => _currentWindow.Close();
 
     private void OnMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
     {
-        if (e.LeftButton is MouseButtonState.Pressed)
+        _isMoving = true;
+
+        _leftMouseButtonDownPoint = WindowInteropService.GetMousePositionToScreen();
+    }
+
+    private void OnMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        => _isMoving = false;
+
+    private void OnMouseMove(object sender, MouseEventArgs e)
+    {
+        if (e.LeftButton == MouseButtonState.Pressed && _isMoving)
         {
-            _currentWindow!.DragMove();
+            Point currentMouseMovePoint = WindowInteropService.GetMousePositionToScreen();
+
+            var (DeltaX, DeltaY) = GetDeltaBetweenTwoPoints(_leftMouseButtonDownPoint, currentMouseMovePoint);
+
+            if (DeltaX > 1 || DeltaY > 1)
+            {
+                if (_currentWindow.WindowState == WindowState.Maximized)
+                {
+                    ChangeWindowState();
+
+                    Rect screenArea = WindowInteropService.GetCurrentMonitorArea();
+
+                    SetWindowPosition(screenArea, currentMouseMovePoint);
+                }
+
+                _currentWindow.DragMove();
+            }
+        }
+    }
+
+    private void OnMouseDoubleClick(object sender, MouseButtonEventArgs e)
+    {
+        _isMoving = false;
+
+        Point lastClickPoint = WindowInteropService.GetMousePositionToScreen();
+
+        var (DeltaX, DeltaY) = GetDeltaBetweenTwoPoints(_leftMouseButtonDownPoint, lastClickPoint);
+
+        if (DeltaX < 2 || DeltaY < 2)
+        {
+            if (e.ChangedButton == MouseButton.Left)
+                ChangeWindowState();
+        }
+
+        e.Handled = true;
+    }
+
+    private void SetWindowPosition(Rect screenSize, Point mousePosition)
+    {
+        double centerWidthOfWindow = _currentWindow.Width / 2;
+        double leftBound = screenSize.Left + centerWidthOfWindow;
+        double rightBound = screenSize.Right - centerWidthOfWindow;
+
+        _currentWindow.Left =
+            mousePosition.X < leftBound
+                ? Math.Max(mousePosition.X, leftBound) - centerWidthOfWindow
+                : Math.Min(mousePosition.X, rightBound) - centerWidthOfWindow;
+
+        _currentWindow.Top = 0;
+    }
+
+    private void ChangeWindowState()
+    {
+        WindowState windowState = _currentWindow.WindowState;
+
+        if (maximizeWindowBtn.Visibility == Visibility.Visible)
+        {
+            _currentWindow.WindowState = windowState is WindowState.Normal
+                ? WindowState.Maximized
+                : WindowState.Normal;
         }
     }
 }
