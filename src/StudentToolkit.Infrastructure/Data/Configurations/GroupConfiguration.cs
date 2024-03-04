@@ -12,12 +12,32 @@ internal sealed class GroupConfiguration : IEntityTypeConfiguration<Group>
 
         builder
             .HasIndex(x => x.GroupCode)
-            .IsUnique();
+            .IsUnique(); 
 
         builder
             .Property(x => x.GroupCode)
             .HasColumnName("group_code")
-            .HasMaxLength(11)
+            .HasMaxLength(15)
+            .IsRequired();
+
+        builder.Property(x => x.GroupName)
+            .HasColumnName("group_name")
+            .HasMaxLength(150)
+            .IsRequired();
+
+        builder
+            .Property(x => x.EducationFormat)
+            .HasColumnName("education_format")
+            .IsRequired();
+
+        builder
+            .Property(x => x.EducationType)
+            .HasColumnName("education_type")
+            .IsRequired();
+
+        builder
+            .Property(x => x.AdmissionYear)
+            .HasColumnName("admission_year")
             .IsRequired();
     }
 }
