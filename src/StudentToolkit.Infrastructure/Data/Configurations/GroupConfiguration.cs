@@ -17,11 +17,11 @@ internal sealed class GroupConfiguration : IEntityTypeConfiguration<Group>
         builder
             .Property(x => x.GroupCode)
             .HasColumnName("group_code")
-            .HasMaxLength(15)
+            .HasMaxLength(50)
             .IsRequired();
 
-        builder.Property(x => x.GroupName)
-            .HasColumnName("group_name")
+        builder.Property(x => x.EducationDirection)
+            .HasColumnName("education_direction")
             .HasMaxLength(150)
             .IsRequired();
 
