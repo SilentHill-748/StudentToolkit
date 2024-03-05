@@ -5,8 +5,6 @@ namespace StudentToolkit.WpfCore.CustomControls;
 
 public class PlaceholderTextBox : TextBox
 {
-    private string _previousText = string.Empty;
-
     public static readonly DependencyProperty PlaceholderProperty =
         DependencyProperty.Register(nameof(Placeholder), typeof(string), typeof(PlaceholderTextBox), new PropertyMetadata(string.Empty));
 
@@ -16,12 +14,6 @@ public class PlaceholderTextBox : TextBox
     static PlaceholderTextBox()
     {
         DefaultStyleKeyProperty.OverrideMetadata(typeof(PlaceholderTextBox), new FrameworkPropertyMetadata(typeof(PlaceholderTextBox)));
-    }
-
-    public PlaceholderTextBox()
-    {
-        GotFocus += OnGotFocus;
-        LostFocus += OnLostFocus;
     }
 
     public string Placeholder
@@ -41,18 +33,5 @@ public class PlaceholderTextBox : TextBox
         IsEmpty = string.IsNullOrEmpty(Text);
 
         base.OnTextChanged(e);
-    }
-
-    private void OnLostFocus(object sender, RoutedEventArgs e)
-    {
-        if (string.IsNullOrEmpty(Text))
-            Text = _previousText;
-    }
-
-    private void OnGotFocus(object sender, RoutedEventArgs e)
-    {
-        _previousText = Text;
-
-        Text = string.Empty;
     }
 }
