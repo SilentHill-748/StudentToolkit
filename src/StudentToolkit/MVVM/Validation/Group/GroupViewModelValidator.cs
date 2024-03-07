@@ -14,8 +14,6 @@ public sealed class GroupViewModelValidator : AbstractValidator<GroupViewModel>
     private const string EducationTypeIsEmptyMessage = "Не выбрано значение типа образования!";
 
     private const string AdmissionYearIsBadInputMessage = "Год поступления указан неверно! Такая группа уже выпущена или еще не создана!";
-
-    private const string StudentsCountErrorMessage = "Минимальное число студентов - 5.";
     #endregion
 
     public GroupViewModelValidator()
