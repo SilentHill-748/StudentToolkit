@@ -10,11 +10,11 @@
     <Color x:Key="ButtonBackgroundColor">#424261</Color>
     <Color x:Key="MouseSelectionBackgroundColor">#454573</Color>
     <Color x:Key="MouseSelectionForegroundColor">#DFDFE7</Color>
+    <Color x:Key="MouseSelectionBorderBrushColor">#3B7E97</Color>
     <Color x:Key="SidebarBackgroundColor">#1F1F32</Color>
-    <Color x:Key="MouseSelectionBorderBrushColor">#317990</Color>
     <Color x:Key="DisabledButtonBackgroundColor">#4A4A59</Color>
     <Color x:Key="ValidationFailedColor">#900019</Color>
-    <Color x:Key="ControlIsFocusedColor">#33627E</Color>
+    <Color x:Key="ControlIsFocusedColor">#4266A9</Color>
     <Color x:Key="TextBoxBackgroundColor">#363752</Color>
     <Color x:Key="TextBoxBorderBrushColor">#514F6D</Color>
     <!--#endregion-->
