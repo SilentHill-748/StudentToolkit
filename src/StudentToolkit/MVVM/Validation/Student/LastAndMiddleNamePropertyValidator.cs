@@ -15,6 +15,6 @@ public partial class LastAndMiddleNamePropertyValidator : PropertyValidator<Stud
 
     // LastName and MiddleName can contains special char: [-, ] between words.
     // Also them should starts with one upper char and lower chars after.
-    [GeneratedRegex("^[А-ЯЁ]{1}[а-яёА-ЯЁ]+(?:[-' ][а-яёА-ЯЁ]+)*$")]
+    [GeneratedRegex("^[А-ЯЁ]{1}[а-яёА-ЯЁ]+(?:[-' ][а-яёА-ЯЁ]+)*$", RegexOptions.Singleline)]
     private static partial Regex LastAndMiddleNameRegex();
 }

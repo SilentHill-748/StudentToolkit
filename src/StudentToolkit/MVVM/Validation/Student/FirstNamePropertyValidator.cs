@@ -15,6 +15,6 @@ public partial class FirstNamePropertyValidator : PropertyValidator<StudentViewM
 
     // FirstName should starts with one upper and lower after cyrillic chars.
     // No digits, special chars and other not-word chars.
-    [GeneratedRegex("^[А-ЯЁ]{1}[а-яё]+$")]
+    [GeneratedRegex("^[А-ЯЁ]{1}[а-яё]+$", RegexOptions.Singleline)]
     private static partial Regex FirstNameRegex();
 }
