@@ -33,7 +33,7 @@
                         </Border>
 
                         <TextBlock
-                            x:Name="HasErrorChar"
+                            x:Name="ErrorChar"
                             Grid.Column="1"
                             IsHitTestVisible="False"
                             Text="!"
@@ -46,7 +46,7 @@
 
                     <ControlTemplate.Triggers>
                         <Trigger Property="Validation.HasError" Value="True">
-                            <Setter TargetName="HasErrorChar" Property="Visibility" Value="Visible"/>
+                            <Setter TargetName="ErrorChar" Property="Visibility" Value="Visible"/>
                             <Setter Property="BorderBrush" Value="{DynamicResource ValidationFailedBrush}"/>
                             <Setter Property="ToolTip" Value="{Binding RelativeSource={RelativeSource Self}, Path=(Validation.Errors)[0].ErrorContent}"/>
                         </Trigger>
