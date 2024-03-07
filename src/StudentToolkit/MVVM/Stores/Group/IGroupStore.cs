@@ -4,9 +4,9 @@ namespace StudentToolkit.MVVM.Stores.Group;
 
 public interface IGroupStore
 {
-    event Action<GroupModel>? GroupStoreChanged;
+    event Action<GroupViewModel>? GroupStoreChanged;
 
-    GroupModel Group { get; }
+    GroupViewModel Group { get; }
 
     Task LoadAsync();
     Task CreateGroupAsync();

@@ -21,13 +21,13 @@ public sealed class GroupStoreExceptionHandlingDecorator : IGroupStore, IDisposa
         _decoratedGroupStore = decoratedGroupStore;
     }
 
-    public GroupModel Group => _decoratedGroupStore.Group;
-
-    public event Action<GroupModel>? GroupStoreChanged
+    public event Action<GroupViewModel>? GroupStoreChanged
     {
         add => _decoratedGroupStore.GroupStoreChanged += value;
         remove => _decoratedGroupStore.GroupStoreChanged -= value;
     }
+
+    public GroupViewModel Group => _decoratedGroupStore.Group;
 
     public async Task LoadAsync()
     {

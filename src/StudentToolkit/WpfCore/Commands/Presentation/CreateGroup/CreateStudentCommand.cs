@@ -21,9 +21,9 @@ public sealed class CreateStudentCommand : Command
         return !_createStudentVm.HasErrors;
     }
 
-    private StudentModel CreateStudent()
+    private StudentViewModel CreateStudent()
     {
-        return new StudentModel()
+        return new StudentViewModel()
         {
             FirstName = _createStudentVm.FirstName,
             LastName = _createStudentVm.LastName,

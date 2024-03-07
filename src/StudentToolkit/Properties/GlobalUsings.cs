@@ -28,6 +28,7 @@ global using StudentToolkit.MVVM.Stores.Group;
 global using StudentToolkit.MVVM.ViewModels;
 global using StudentToolkit.MVVM.ViewModels.Base;
 global using StudentToolkit.MVVM.ViewModels.Components;
+global using StudentToolkit.MVVM.ViewModels.Model;
 global using StudentToolkit.MVVM.ViewModels.Presentation.CreateGroup;
 global using StudentToolkit.MVVM.Views.Windows;
 global using StudentToolkit.WpfCore.Commands.Base;
