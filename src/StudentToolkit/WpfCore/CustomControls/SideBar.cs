@@ -2,7 +2,7 @@
 using System.Windows.Controls;
 using System.Windows.Markup;
 
-namespace StudentToolkit.WpfCore.CustomControls.Controls;
+namespace StudentToolkit.WpfCore.CustomControls;
 
 [ContentProperty("Items")]
 public class SideBar : Control
