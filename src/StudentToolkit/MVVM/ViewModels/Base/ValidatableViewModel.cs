@@ -6,14 +6,14 @@ using FluentValidation.Results;
 
 namespace StudentToolkit.MVVM.ViewModels.Base;
 
-public class ValidatableViewModel : ViewModel, INotifyDataErrorInfo
+public abstract class ValidatableViewModel : ViewModel, INotifyDataErrorInfo
 {
     private readonly Dictionary<string, List<string>> _errors = [];
 
+    public event EventHandler<DataErrorsChangedEventArgs>? ErrorsChanged;
+
     public IValidator? Validator { get; protected set; }
     public bool HasErrors => _errors.Count > 0;
-
-    public event EventHandler<DataErrorsChangedEventArgs>? ErrorsChanged;
 
     public IEnumerable GetErrors(string? propertyName)
     {
@@ -23,13 +23,7 @@ public class ValidatableViewModel : ViewModel, INotifyDataErrorInfo
         return new List<string>();
     }
 
-    protected void SetWithValidation<T>(ref T field, T value, [CallerMemberName] string propertyName = "")
-    {
-        Set(ref field, value, propertyName);
-        ValidateProperty(propertyName);
-    }
-
-    protected void Validate()
+    public void Validate()
     {
         ClearErrors();
 
@@ -43,8 +37,27 @@ public class ValidatableViewModel : ViewModel, INotifyDataErrorInfo
         }
     }
 
+    protected void SetWithValidation<T>(ref T field, T value, [CallerMemberName] string propertyName = "")
+    {
+        Set(ref field, value, propertyName);
+        ValidateProperty(propertyName);
+    }
+
     protected void OnErrorsChanged([CallerMemberName] string propertyName = "")
         => ErrorsChanged?.Invoke(this, new DataErrorsChangedEventArgs(propertyName));
+
+    protected void ClearErrors(string propertyName = "")
+    {
+        if (string.IsNullOrEmpty(propertyName))
+        {
+            _errors.Clear();
+            return;
+        }
+
+        _errors.Remove(propertyName);
+
+        OnErrorsChanged(propertyName);
+    }
 
     private void ValidateProperty(string propertyName)
     {
@@ -70,18 +83,5 @@ public class ValidatableViewModel : ViewModel, INotifyDataErrorInfo
         return Validator is null
             ? new ValidationResult()
             : Validator.Validate(context);
-    }
-
-    private void ClearErrors(string propertyName = "")
-    {
-        if (string.IsNullOrEmpty(propertyName))
-        {
-            _errors.Clear();
-            return;
-        }
-
-        _errors.Remove(propertyName);
-
-        OnErrorsChanged(propertyName);
     }
 }
