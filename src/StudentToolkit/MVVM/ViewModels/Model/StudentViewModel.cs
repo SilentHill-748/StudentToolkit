@@ -1,10 +1,17 @@
-﻿namespace StudentToolkit.MVVM.ViewModels.Model;
+﻿using StudentToolkit.MVVM.Validation.Student;
+
+namespace StudentToolkit.MVVM.ViewModels.Model;
 
 public class StudentViewModel : ValidatableViewModel
 {
     private string _firstName = string.Empty;
     private string _lastName = string.Empty;
     private string _middleName = string.Empty;
+
+    public StudentViewModel()
+    {
+        Validator = new StudentViewModelValidator();
+    }
 
     public Guid Id { get; set; }
     public string FullName => GetFullName();
