@@ -1,4 +1,6 @@
-﻿namespace StudentToolkit.MVVM.ViewModels.Model;
+﻿using StudentToolkit.MVVM.Validation.Group;
+
+namespace StudentToolkit.MVVM.ViewModels.Model;
 
 public class GroupViewModel : ValidatableViewModel
 {
@@ -11,6 +13,7 @@ public class GroupViewModel : ValidatableViewModel
 
     public GroupViewModel()
     {
+        Validator = new GroupViewModelValidator();
         Students = [];
 
         Students.CollectionChanged += OnStudentsChanged;
