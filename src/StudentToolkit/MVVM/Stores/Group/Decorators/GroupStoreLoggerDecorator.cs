@@ -20,13 +20,13 @@ public sealed class GroupStoreLoggerDecorator : IGroupStore, IDisposable
         _logger = logger;
     }
 
-    public event Action<GroupModel>? GroupStoreChanged
+    public event Action<GroupViewModel>? GroupStoreChanged
     {
         add => _decorateeGroupStore.GroupStoreChanged += value;
         remove => _decorateeGroupStore.GroupStoreChanged -= value;
     }
 
-    public GroupModel Group => _decorateeGroupStore.Group;
+    public GroupViewModel Group => _decorateeGroupStore.Group;
 
     public async Task LoadAsync()
     {

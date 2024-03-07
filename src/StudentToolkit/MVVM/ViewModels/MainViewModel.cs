@@ -37,7 +37,7 @@ public class MainViewModel : ViewModel
     public ICommand NavigateToGroupInfoViewCommand { get; }
     public ICommand NavigateToAboutViewCommand { get; }
 
-    private void OnStoreChanged(GroupModel groupVm)
+    private void OnStoreChanged(GroupViewModel groupVm)
     {
         StatusBarViewModel.GroupCode = groupVm.GroupCode;
     }

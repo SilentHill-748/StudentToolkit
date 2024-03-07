@@ -21,12 +21,12 @@ public sealed class GroupStore : IGroupStore, IDisposable
         _groupService = groupService;
         _registryProvider = new WindowsRegistryProvider();
 
-        Group = new GroupModel();
+        Group = new GroupViewModel();
     }
 
-    public event Action<GroupModel>? GroupStoreChanged;
+    public event Action<GroupViewModel>? GroupStoreChanged;
 
-    public GroupModel Group { get; }
+    public GroupViewModel Group { get; }
 
     public async Task LoadAsync()
     {
@@ -89,7 +89,18 @@ public sealed class GroupStore : IGroupStore, IDisposable
 
             var groupDto = await _groupService.GetGroupAsync(g => g.GroupCode.Equals(groupCode));
 
-            Group.Update(groupDto);
+            UpdateGroup(groupDto);
         }
+    }
+
+    private void UpdateGroup(GroupDto groupDto)
+    {
+        Group.Students = groupDto.Students.Adapt<ObservableCollection<StudentViewModel>>();
+
+        Group.GroupCode = groupDto.GroupCode;
+        Group.EducationDirection = groupDto.EducationDirection;
+        Group.EducationFormat = groupDto.EducationFormat;
+        Group.EducationType = groupDto.EducationType;
+        Group.AdmissionYear = groupDto.AdmissionYear;
     }
 }

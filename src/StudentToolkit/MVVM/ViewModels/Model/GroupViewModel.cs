@@ -20,7 +20,7 @@ public class GroupViewModel : ValidatableViewModel
     }
 
     public Guid Id { get; set; }
-    public ObservableCollection<StudentViewModel> Students { get; }
+    public ObservableCollection<StudentViewModel> Students { get; set; }
 
     public bool IsInvalidStudentsCount
     {

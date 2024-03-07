@@ -27,7 +27,7 @@ public sealed class CreateGroupViewModel : ValidatableViewModel
         Validate();
     }
 
-    public ObservableCollection<StudentModel> Students { get; }
+    public ObservableCollection<StudentViewModel> Students { get; }
 
     public string GroupCode
     {

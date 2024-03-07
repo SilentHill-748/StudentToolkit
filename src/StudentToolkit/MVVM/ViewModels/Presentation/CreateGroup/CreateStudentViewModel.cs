@@ -2,7 +2,7 @@
 
 namespace StudentToolkit.MVVM.ViewModels.Presentation.CreateGroup;
 
-public sealed class CreateStudentViewModel : ResultDialogViewModel<StudentModel>
+public sealed class CreateStudentViewModel : ResultDialogViewModel<StudentViewModel>
 {
     private string _firstName = string.Empty;
     private string _middleName = string.Empty;
