@@ -49,23 +49,15 @@ public class StudentViewModel : ValidatableViewModel
 
     private string GetFullName()
     {
-        return CheckNameProperties()
+        return HasErrors
             ? ""
             : $"{LastName} {FirstName} {MiddleName}";
     }
 
     private string GetShortFullName()
     {
-        return CheckNameProperties()
+        return HasErrors
             ? ""
             : $"{LastName} {FirstName[0]}. {MiddleName[0]}.";
-    }
-
-    private bool CheckNameProperties()
-    {
-        return
-           string.IsNullOrWhiteSpace(FirstName) &&
-           string.IsNullOrWhiteSpace(LastName) &&
-           string.IsNullOrWhiteSpace(MiddleName);
     }
 }
