@@ -33,7 +33,7 @@ global using StudentToolkit.MVVM.ViewModels.Presentation.CreateGroup;
 global using StudentToolkit.MVVM.Views.Windows;
 global using StudentToolkit.WpfCore.Commands.Base;
 global using StudentToolkit.WpfCore.Commands.Navigation;
-global using StudentToolkit.WpfCore.Commands.Presentation.CreateGroup;
+global using StudentToolkit.WpfCore.Commands.Presentation.Group;
 global using StudentToolkit.WpfCore.Commands.Presentation.Main;
 global using StudentToolkit.WpfCore.Common.Enums;
 global using StudentToolkit.WpfCore.Exceptions;

@@ -1,4 +1,4 @@
-﻿namespace StudentToolkit.WpfCore.Commands.Presentation.CreateGroup;
+﻿namespace StudentToolkit.WpfCore.Commands.Presentation.Group;
 
 public sealed class CreateStudentCommand : Command
 {
