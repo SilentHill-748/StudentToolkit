@@ -1,7 +1,7 @@
 ﻿using StudentToolkit.MVVM.ViewModels.Presentation.GroupInfo;
 using StudentToolkit.WpfCore.Common.Helpers;
 
-namespace StudentToolkit.MVVM.ViewModels.Presentation.CreateGroup;
+namespace StudentToolkit.MVVM.ViewModels.Presentation.Group;
 
 public class InputGroupDataViewModel : ViewModel
 {

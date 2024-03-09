@@ -1,6 +1,6 @@
 ﻿using StudentToolkit.MVVM.ViewModels.Presentation.GroupInfo;
 
-namespace StudentToolkit.MVVM.ViewModels.Presentation.CreateGroup;
+namespace StudentToolkit.MVVM.ViewModels.Presentation.Group;
 
 public class AddStudentsToGroupViewModel : ViewModel
 {
