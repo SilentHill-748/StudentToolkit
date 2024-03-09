@@ -22,6 +22,8 @@ public sealed class AsyncCreateGroupCommand : AsyncCommand
 
     public override async Task ExecuteAsync()
     {
+        _groupStore.Group.Students = _createGroupVm.Students.Adapt<ObservableCollection<StudentViewModel>>();
+
         await _groupStore.CreateGroupAsync();
 
         NavigationService.Navigate<MainViewModel, GroupNotFoundViewModel>();

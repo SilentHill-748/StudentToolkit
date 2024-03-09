@@ -2,7 +2,7 @@
 
 namespace StudentToolkit.MVVM.ViewModels.Model;
 
-public class StudentViewModel : ValidatableViewModel
+public class StudentViewModel : ValidatableViewModel, ICloneable
 {
     private string _firstName = string.Empty;
     private string _lastName = string.Empty;
@@ -39,7 +39,22 @@ public class StudentViewModel : ValidatableViewModel
         MiddleName = string.Empty;
 
         if (isCleanValidationErrors)
-            ClearErrors();
+        {
+            ClearErrors(nameof(FirstName));
+            ClearErrors(nameof(LastName));
+            ClearErrors(nameof(MiddleName));
+        }
+    }
+
+    public object Clone()
+    {
+        return new StudentViewModel()
+        {
+            Id = this.Id,
+            FirstName = this.FirstName,
+            LastName = this.LastName,
+            MiddleName = this.MiddleName
+        };
     }
 
     public override string ToString()

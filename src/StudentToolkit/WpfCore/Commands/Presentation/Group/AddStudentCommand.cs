@@ -17,13 +17,19 @@ public class AddStudentCommand : Command
 
         if (IsNotValidationErrors(student))
         {
-            _addStudentToGroupVm.Students.Add(student);
-
-            _addStudentToGroupVm.Student = new StudentViewModel();
+            AddStudent(student);
         }
     }
 
     private static bool IsNotValidationErrors(StudentViewModel student)
         => !student.HasErrors;
         
+    private void AddStudent(StudentViewModel source)
+    {
+        var value = (StudentViewModel)source.Clone();
+
+        _addStudentToGroupVm.Students.Add(value);
+
+        source.ClearNameProperties(isCleanValidationErrors: true);
+    }
 }
