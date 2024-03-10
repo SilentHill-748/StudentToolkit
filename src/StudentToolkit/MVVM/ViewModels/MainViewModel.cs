@@ -10,7 +10,7 @@ public class MainViewModel : ViewModel
     {
         _contentViewModel = new GroupNotFoundViewModel();
 
-        StatusBarViewModel = new StatusBarViewModel();
+        StatusBarViewModel = new StatusbarViewModel();
         WindowTitle = "Student Toolkit";
 
         LoadedEventCommand = new AsyncMainViewLoadedCommand(groupStore);
@@ -25,7 +25,7 @@ public class MainViewModel : ViewModel
         });
     }
 
-    public StatusBarViewModel StatusBarViewModel { get; }
+    public StatusbarViewModel StatusBarViewModel { get; }
 
     public ViewModel? ContentViewModel
     {

@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:ViewModel="clr-namespace:StudentToolkit.MVVM.ViewModels.Components"
              xmlns:Culture="clr-namespace:System.Globalization;assembly=netstandard"
-             d:DataContext="{d:DesignInstance Type=ViewModel:StatusBarViewModel}"
+             d:DataContext="{d:DesignInstance Type=ViewModel:StatusbarViewModel}"
              mc:Ignorable="d"
              SnapsToDevicePixels="True">
 
