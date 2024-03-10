@@ -8,7 +8,6 @@
         <Setter Property="Background" Value="{DynamicResource TextBoxBackgroundBrush}"/>
         <Setter Property="BorderBrush" Value="{DynamicResource TextBoxBorderBrushBrush}"/>
         <Setter Property="BorderThickness" Value="2"/>
-        <Setter Property="VerticalContentAlignment" Value="Center"/>
 
         <Setter Property="Template">
             <Setter.Value>
@@ -56,7 +55,6 @@
 
                             <ScrollViewer
                                 x:Name="PART_ContentHost"
-                                VerticalAlignment="Top"
                                 VerticalScrollBarVisibility="Disabled"
                                 HorizontalScrollBarVisibility="Disabled"/>
                         </Border>
