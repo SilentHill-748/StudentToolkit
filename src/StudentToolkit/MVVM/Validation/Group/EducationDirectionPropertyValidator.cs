@@ -19,7 +19,7 @@ public partial class EducationDirectionPropertyValidator : PropertyValidator<Gro
     }
 
     // String value should contains cyrillic words and space or dash char between words. Last space char is invalid.
-    [GeneratedRegex(@"^([А-Яа-я]+)([ \-]{1}[А-Яа-я]+)*$", RegexOptions.Singleline)]
+    [GeneratedRegex(@"^([А-Яа-я]+[ -]?)+([(А-Яа-я]+[ -]?)+( - )?([А-Яа-я]+\)?)$", RegexOptions.Singleline)]
     private static partial Regex HasCyrillicCharsWithSpacesRegex();
 
     // String value should not contains other language words, digits and all special chars.
