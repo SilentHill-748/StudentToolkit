@@ -7,7 +7,7 @@ public sealed class GroupViewModelValidator : AbstractValidator<GroupViewModel>
     private const string GroupCodeIsBadInputMessage = "В шифре группы должны быть числа, символы кириллицы или латиницы, а также спец-символы!";
 
     private const string EducationDirectionIsEmptyMessage = "Значение названия учебного направления не должно быть пустым!";
-    private const string EducationDirectionIsBadInputMessage = "Название не должно содержать латиницу или спец-символы!";
+    private const string EducationDirectionIsBadInputMessage = "Название может содержать только символы кириллицы, символы пробела и ()-";
 
     private const string EducationFormatIsEmptyMessage = "Не выбрано значение формата обучения!";
 
