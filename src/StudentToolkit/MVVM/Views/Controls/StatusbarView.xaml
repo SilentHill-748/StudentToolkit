@@ -4,15 +4,21 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:ViewModel="clr-namespace:StudentToolkit.MVVM.ViewModels.Components"
-             d:DataContext="{d:DesignInstance Type=ViewModel:StatusBarViewModel}"
+             xmlns:Culture="clr-namespace:System.Globalization;assembly=netstandard"
+             d:DataContext="{d:DesignInstance Type=ViewModel:StatusbarViewModel}"
              mc:Ignorable="d"
              SnapsToDevicePixels="True">
 
     <StackPanel Orientation="Horizontal">
-        <TextBlock Text="{Binding StringFormat={}Сегодня: {0:yyyy-MM-dd HH:mm:ss}, Path=CurrentDate}"
-           Margin="10 0 0 0"/>
+        <TextBlock
+            Text="{Binding
+                StringFormat={}Сегодня: {0:M} {0:yyyy} {0:HH:mm:ss},
+                Path=CurrentDateTime,
+                ConverterCulture={x:Static Culture:CultureInfo.CurrentCulture}}"
+            Margin="10 0 0 0"/>
 
-        <TextBlock Text="{Binding StringFormat={}Группа: {0}, Path=GroupCode}"
-           Margin="10 0 0 0"/>
+        <TextBlock
+            Text="{Binding StringFormat={}Группа: {0}, Path=GroupCode}"
+            Margin="10 0 0 0"/>
     </StackPanel>
 </UserControl>
