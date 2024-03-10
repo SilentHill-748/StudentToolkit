@@ -7,7 +7,8 @@ public static class RegisterViewModelsExtension
     public static Container RegisterViewModels(this Container container)
     {
         container.RegisterSingleton<MainViewModel>();
-        container.Register<CreateGroupViewModel>();
+        container.RegisterSingleton<AddStudentsToGroupViewModel>();
+        container.RegisterSingleton<InputGroupDataViewModel>();
         container.Register<AboutViewModel>();
         container.Register<GroupNotFoundViewModel>();
 
