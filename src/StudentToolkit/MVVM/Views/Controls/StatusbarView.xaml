@@ -11,9 +11,10 @@
 
     <StackPanel Orientation="Horizontal">
         <TextBlock
-            Text="{Binding StringFormat={}Сегодня: {0:M} {0:yyyy} {0:HH:mm:ss},
-                           Path=CurrentDateTime,
-                           ConverterCulture={x:Static Culture:CultureInfo.CurrentCulture}}"
+            Text="{Binding
+                StringFormat={}Сегодня: {0:M} {0:yyyy} {0:HH:mm:ss},
+                Path=CurrentDateTime,
+                ConverterCulture={x:Static Culture:CultureInfo.CurrentCulture}}"
             Margin="10 0 0 0"/>
 
         <TextBlock
