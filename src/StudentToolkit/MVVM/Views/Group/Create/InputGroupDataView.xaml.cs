@@ -1,7 +1,7 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
 
-namespace StudentToolkit.MVVM.Views.Group;
+namespace StudentToolkit.MVVM.Views.Group.Create;
 
 public partial class InputGroupDataView : UserControl
 {

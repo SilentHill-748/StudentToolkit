@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="StudentToolkit.MVVM.Views.Group.AddStudentsToGroupView"
+﻿<UserControl x:Class="StudentToolkit.MVVM.Views.Group.Create.AddStudentsToGroupView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -114,15 +114,15 @@
                 <DataGridTextColumn
                     Header="Фамилия"
                     Binding="{Binding LastName}"/>
-                
+
                 <DataGridTextColumn
                     Header="Имя"
                     Binding="{Binding FirstName}"/>
-                
+
                 <DataGridTextColumn
                     Header="Отчество"
                     Binding="{Binding MiddleName}"/>
-                
+
                 <DataGridTemplateColumn>
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
