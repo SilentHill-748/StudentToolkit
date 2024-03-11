@@ -17,6 +17,7 @@
     <Color x:Key="ControlIsFocusedColor">#4266A9</Color>
     <Color x:Key="TextBoxBackgroundColor">#363752</Color>
     <Color x:Key="TextBoxBorderBrushColor">#514F6D</Color>
+    <Color x:Key="ContentTileBackgroundColor">#272638</Color>
     <!--#endregion-->
 
     <!--#region Brushes-->
@@ -36,5 +37,6 @@
     <SolidColorBrush x:Key="ControlIsFocusedBrush" Color="{StaticResource ControlIsFocusedColor}"/>
     <SolidColorBrush x:Key="TextBoxBackgroundBrush" Color="{StaticResource TextBoxBackgroundColor}"/>
     <SolidColorBrush x:Key="TextBoxBorderBrushBrush" Color="{StaticResource TextBoxBorderBrushColor}"/>
+    <SolidColorBrush x:Key="ContentTileBackgroundBrush" Color="{StaticResource ContentTileBackgroundColor}"/>
     <!--#endregion-->
 </ResourceDictionary>
