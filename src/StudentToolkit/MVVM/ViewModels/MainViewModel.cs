@@ -1,6 +1,4 @@
-﻿using StudentToolkit.MVVM.ViewModels.Presentation.GroupInfo;
-
-namespace StudentToolkit.MVVM.ViewModels;
+﻿namespace StudentToolkit.MVVM.ViewModels;
 
 public class MainViewModel : ViewModel
 {

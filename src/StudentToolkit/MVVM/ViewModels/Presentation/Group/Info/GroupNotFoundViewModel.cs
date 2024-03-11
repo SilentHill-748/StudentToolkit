@@ -1,4 +1,4 @@
-﻿namespace StudentToolkit.MVVM.ViewModels.Presentation.GroupInfo;
+﻿namespace StudentToolkit.MVVM.ViewModels.Presentation.Group.Info;
 
 public class GroupNotFoundViewModel : ViewModel
 {

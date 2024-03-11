@@ -1,12 +1,12 @@
-﻿<UserControl x:Class="StudentToolkit.MVVM.Views.Group.InputGroupDataView"
+﻿<UserControl x:Class="StudentToolkit.MVVM.Views.Group.Create.InputGroupDataView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:ViewModel="clr-namespace:StudentToolkit.MVVM.ViewModels.Presentation.Group"
+             xmlns:ViewModel="clr-namespace:StudentToolkit.MVVM.ViewModels.Presentation.Group.Create"
              xmlns:CustomControls="clr-namespace:StudentToolkit.WpfCore.CustomControls"
              d:DataContext="{d:DesignInstance Type=ViewModel:InputGroupDataViewModel}"
-             mc:Ignorable="d"
+             mc:Ignorable="d" 
              SizeChanged="OnSizeChanged">
 
     <Grid x:Name="ContentGrid" Margin="200 10">
