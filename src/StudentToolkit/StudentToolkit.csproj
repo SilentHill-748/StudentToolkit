@@ -38,7 +38,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="MVVM\ViewModels\Presentation\Group\" />
     <Folder Include="WpfCore\Commands\Presentation\Group\" />
   </ItemGroup>
 
