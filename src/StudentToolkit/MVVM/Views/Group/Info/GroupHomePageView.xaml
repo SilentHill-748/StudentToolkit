@@ -1,0 +1,11 @@
+﻿<UserControl x:Class="StudentToolkit.MVVM.Views.Group.Info.GroupHomePageView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:ViewModel="clr-namespace:StudentToolkit.MVVM.ViewModels.Presentation.Group.Info"
+             d:DataContext="{d:DesignInstance Type=ViewModel:GroupHomePageViewModel}"
+             mc:Ignorable="d">
+
+    <ContentControl Content="{Binding CurrentViewModel}"/>
+</UserControl>
