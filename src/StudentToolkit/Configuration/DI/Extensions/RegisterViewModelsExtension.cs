@@ -9,7 +9,6 @@ public static class RegisterViewModelsExtension
         container.RegisterSingleton<InputGroupDataViewModel>();
         container.RegisterSingleton<GroupHomePageViewModel>();
         container.Register<AboutViewModel>();
-        container.Register<GroupNotFoundViewModel>();
 
         return container;
     }
