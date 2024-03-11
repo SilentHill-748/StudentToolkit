@@ -6,13 +6,11 @@ public class MainViewModel : ViewModel
 
     public MainViewModel(IGroupStore groupStore)
     {
-        _contentViewModel = new GroupNotFoundViewModel();
-
         StatusbarViewModel = new StatusbarViewModel();
         WindowTitle = "Student Toolkit";
 
         LoadedEventCommand = new AsyncMainViewLoadedCommand(groupStore);
-        NavigateToGroupInfoViewCommand = new NavigationCommand<MainViewModel, GroupNotFoundViewModel>();
+        NavigateToGroupInfoViewCommand = new NavigationCommand<MainViewModel, GroupHomePageViewModel>();
         NavigateToAboutViewCommand = new NavigationCommand<MainViewModel, AboutViewModel>();
 
         groupStore.GroupStoreChanged += OnStoreChanged;

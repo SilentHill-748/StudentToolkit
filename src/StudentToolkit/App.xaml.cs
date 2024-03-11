@@ -52,6 +52,8 @@ public partial class App : DotNetApplication
         MainWindow = _options.Services.GetInstance<MainWindow>();
         MainWindow.Show();
 
+        NavigationService.Navigate<MainViewModel, GroupHomePageViewModel>();
+
         return true;
     }
 }

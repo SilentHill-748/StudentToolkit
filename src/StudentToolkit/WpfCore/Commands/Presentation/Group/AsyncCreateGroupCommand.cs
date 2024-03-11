@@ -24,7 +24,7 @@ public sealed class AsyncCreateGroupCommand : AsyncCommand
 
         await _groupStore.CreateGroupAsync();
 
-        NavigationService.Navigate<MainViewModel, GroupNotFoundViewModel>();
+        NavigationService.Navigate<MainViewModel, GroupHomePageViewModel>();
     }
 
     public override bool CanExecute()

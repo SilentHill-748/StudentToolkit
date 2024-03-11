@@ -14,7 +14,7 @@ public class InputGroupDataViewModel : ViewModel
         ViewTitle = "Укажите данные по Вашей группе";
 
         SetGroupDataAndMoveToNextViewCommand = new SetGroupDataAndMoveToNextViewCommand(this, groupStore.Group);
-        CancelCommand = new NavigationCommand<MainViewModel, GroupNotFoundViewModel>();
+        CancelCommand = new NavigationCommand<MainViewModel, GroupHomePageViewModel>();
     }
 
     public ObservableCollection<string> EducationFormats { get; }
