@@ -54,6 +54,6 @@
             Grid.Column="1"
             HorizontalAlignment="Right"
             Margin="0 0 10 0"
-            DataContext="{Binding StatusBarViewModel}"/>
+            DataContext="{Binding StatusbarViewModel}"/>
     </Grid>
 </UserControl>
