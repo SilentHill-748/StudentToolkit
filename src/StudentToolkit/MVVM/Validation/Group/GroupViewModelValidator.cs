@@ -12,12 +12,14 @@ public sealed class GroupViewModelValidator : AbstractValidator<GroupViewModel>
     private const string EducationFormatIsEmptyMessage = "Не выбрано значение формата обучения!";
 
     private const string EducationTypeIsEmptyMessage = "Не выбрано значение типа образования!";
-
-    private const string AdmissionYearIsBadInputMessage = "Год поступления указан неверно! Такая группа уже выпущена или еще не создана!";
     #endregion
 
     public GroupViewModelValidator()
     {
+        (int MinYear, int MaxYear) = TimeService.GetMinMaxAdmissionYears();
+
+        string _admissionYearIsBadInputMessage = $"Год поступления должен быть между {MinYear} и {MaxYear} включительно!";
+
         RuleFor(group => group.GroupCode)
             .NotEmpty()
                 .WithMessage(GroupCodeIsEmptyMessage)
@@ -40,6 +42,6 @@ public sealed class GroupViewModelValidator : AbstractValidator<GroupViewModel>
 
         RuleFor(group => group.AdmissionYear)
             .SetValidator(new AdmissionYearPropertyValidator())
-                .WithMessage(AdmissionYearIsBadInputMessage);
+                .WithMessage(_admissionYearIsBadInputMessage);
     }
 }

@@ -8,7 +8,7 @@ public class AdmissionYearPropertyValidator : PropertyValidator<GroupViewModel, 
 
     public override bool IsValid(ValidationContext<GroupViewModel> context, int value)
     {
-        (int MinYear, int MaxYear) = TimeService.GetValidAdmissionYearRange();
+        (int MinYear, int MaxYear) = TimeService.GetMinMaxAdmissionYears();
 
         return
             value >= MinYear &&
