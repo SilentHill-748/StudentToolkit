@@ -1,6 +1,4 @@
-﻿using System.Windows.Threading;
-
-namespace StudentToolkit.MVVM.ViewModels.Components;
+﻿namespace StudentToolkit.MVVM.ViewModels.Components;
 
 public sealed class StatusbarViewModel : ViewModel
 {
@@ -9,7 +7,10 @@ public sealed class StatusbarViewModel : ViewModel
 
     public StatusbarViewModel()
     {
-        InitializeTimer();
+        TimeService.TimerTickCallback += (currentDateTime) =>
+        {
+            CurrentDateTime = currentDateTime;
+        };
     }
 
     public string GroupCode
@@ -21,18 +22,5 @@ public sealed class StatusbarViewModel : ViewModel
     {
         get => _currentDateTime;
         set => Set(ref _currentDateTime, value);
-    }
-
-    private void InitializeTimer()
-    {
-        CurrentDateTime = DateTime.Now;
-
-        var timer = new DispatcherTimer(DispatcherPriority.Render, App.Current.Dispatcher)
-        {
-            Interval = TimeSpan.FromSeconds(1)
-        };
-
-        timer.Tick += (s, e) => { CurrentDateTime = CurrentDateTime.AddSeconds(1); };
-        timer.Start();
     }
 }
