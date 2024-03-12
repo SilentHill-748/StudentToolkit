@@ -8,27 +8,10 @@ public class AdmissionYearPropertyValidator : PropertyValidator<GroupViewModel, 
 
     public override bool IsValid(ValidationContext<GroupViewModel> context, int value)
     {
-        (int MinYear, int MaxYear) = GetValidAdmissionYearRange();
+        (int MinYear, int MaxYear) = TimeService.GetValidAdmissionYearRange();
 
         return
             value >= MinYear &&
             value <= MaxYear;
-    }
-
-    private static (int MinYear, int MaxYear) GetValidAdmissionYearRange()
-    {
-        DateOnly currentDate = DateOnly.FromDateTime(DateTime.Now);
-
-        int endYear = currentDate.Year;
-        int startYear = currentDate.Year - 5;
-        int currentMonth = currentDate.Month;
-
-        if (currentMonth < 9)
-        {
-            startYear--;
-            endYear--;
-        }
-
-        return (startYear, endYear);
     }
 }
