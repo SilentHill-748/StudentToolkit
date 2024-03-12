@@ -6,13 +6,11 @@ public class MainViewModel : ViewModel
 
     public MainViewModel(IGroupStore groupStore)
     {
-        _contentViewModel = new GroupNotFoundViewModel();
-
         StatusbarViewModel = new StatusbarViewModel();
         WindowTitle = "Student Toolkit";
 
         LoadedEventCommand = new AsyncMainViewLoadedCommand(groupStore);
-        NavigateToGroupInfoViewCommand = new NavigationCommand<MainViewModel, GroupNotFoundViewModel>();
+        NavigateToGroupHomePageCommand = new NavigationCommand<MainViewModel, GroupHomePageViewModel>();
         NavigateToAboutViewCommand = new NavigationCommand<MainViewModel, AboutViewModel>();
 
         groupStore.GroupStoreChanged += OnStoreChanged;
@@ -32,7 +30,7 @@ public class MainViewModel : ViewModel
     }
 
     public ICommand LoadedEventCommand { get; }
-    public ICommand NavigateToGroupInfoViewCommand { get; }
+    public ICommand NavigateToGroupHomePageCommand { get; }
     public ICommand NavigateToAboutViewCommand { get; }
 
     private void OnStoreChanged(GroupViewModel groupVm)

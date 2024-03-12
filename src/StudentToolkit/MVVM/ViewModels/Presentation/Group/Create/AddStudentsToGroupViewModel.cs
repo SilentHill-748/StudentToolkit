@@ -11,7 +11,7 @@ public class AddStudentsToGroupViewModel : ViewModel
         AsyncCreateGroupCommand = new AsyncCreateGroupCommand(this, groupStore);
         AddStudentCommand = new AddStudentCommand(this);
         GoBackCommand = new NavigationCommand<MainViewModel, InputGroupDataViewModel>();
-        CancelCommand = new NavigationCommand<MainViewModel, GroupNotFoundViewModel>();
+        CancelCommand = new NavigationCommand<MainViewModel, GroupHomePageViewModel>();
     }
 
     public ObservableCollection<StudentViewModel> Students { get; }
