@@ -4,9 +4,10 @@ namespace StudentToolkit.MVVM.ViewModels.Base;
 
 public class ViewModel : INotifyPropertyChanged
 {
-    public string WindowTitle { get; set; } = string.Empty;
-
     public event PropertyChangedEventHandler? PropertyChanged;
+
+    public string WindowTitle { get; set; } = string.Empty;
+    public string ViewTitle { get; set; } = string.Empty;
 
     protected void Set<T>(ref T field, T value, [CallerMemberName] string propertyName = "")
     {

@@ -16,7 +16,6 @@ public class AddStudentsToGroupViewModel : ViewModel
 
     public ObservableCollection<StudentViewModel> Students { get; }
     public StudentViewModel Student { get; set; }
-    public string ViewTitle { get; }
 
     public ICommand GoBackCommand { get; }
     public ICommand AsyncCreateGroupCommand { get; }
