@@ -17,7 +17,7 @@ public class AdmissionYearPropertyValidator : PropertyValidator<GroupViewModel, 
 
     private static (int MinYear, int MaxYear) GetValidAdmissionYearRange()
     {
-        DateOnly currentDate = DateOnly.FromDateTime(DateTime.Now);
+        DateOnly currentDate = TimeService.CurrentDate;
 
         int endYear = currentDate.Year;
         int startYear = currentDate.Year - 5;
