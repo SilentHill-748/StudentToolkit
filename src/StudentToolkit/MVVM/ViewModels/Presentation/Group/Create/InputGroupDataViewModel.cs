@@ -20,7 +20,6 @@ public class InputGroupDataViewModel : ViewModel
     public ObservableCollection<string> EducationFormats { get; }
     public ObservableCollection<string> EducationTypes { get; }
     public GroupViewModel GroupData { get; }
-    public string ViewTitle { get; }
 
     public ICommand SetGroupDataAndMoveToNextViewCommand { get; }
     public ICommand CancelCommand { get; }
