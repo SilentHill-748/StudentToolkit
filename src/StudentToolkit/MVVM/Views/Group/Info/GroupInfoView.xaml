@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:ViewModel="clr-namespace:StudentToolkit.MVVM.ViewModels.Presentation.Group.Info"
+             xmlns:CustomControls="clr-namespace:StudentToolkit.WpfCore.CustomControls"
              d:DataContext="{d:DesignInstance Type=ViewModel:GroupInfoViewModel}"
              mc:Ignorable="d">
 
@@ -26,13 +27,12 @@
             HorizontalAlignment="Center"
             Text="{Binding ViewTitle}"/>
 
-        <Border
+        <CustomControls:TileContentControl
             Grid.Column="0"
             Grid.Row="1"
-            Background="{DynamicResource ContentTileBackgroundBrush}"
-            CornerRadius="25">
+            Style="{DynamicResource TileContentControlStyle}">
 
-            <Grid Grid.Column="0" Margin="30 15">
+            <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
@@ -56,15 +56,14 @@
                     </ListView.ItemContainerStyle>
                 </ListView>
             </Grid>
-        </Border>
+        </CustomControls:TileContentControl>
 
-        <Border
+        <CustomControls:TileContentControl
             Grid.Column="2"
             Grid.Row="1"
-            CornerRadius="25"
-            Background="{DynamicResource ContentTileBackgroundBrush}">
+            Style="{DynamicResource TileContentControlStyle}">
 
-            <Grid Margin="30 15">
+            <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
@@ -121,6 +120,6 @@
                         Margin="0 0 0 10"/>
                 </Grid>
             </Grid>
-        </Border>
+        </CustomControls:TileContentControl>
     </Grid>
 </UserControl>
