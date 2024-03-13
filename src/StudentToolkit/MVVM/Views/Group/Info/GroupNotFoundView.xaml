@@ -18,7 +18,7 @@
 
             <Button
                 HorizontalAlignment="Center"
-                Content="А давайте создим её..."
+                Content="А давайте создадим её..."
                 Command="{Binding NavigateToCreateGroupViewCommand}"
                 Style="{StaticResource ButtonStyle}"/>
         </StackPanel>
