@@ -46,7 +46,7 @@
 
                 <ListView
                     Grid.Row="1"
-                    VerticalAlignment="Top"
+                    MinWidth="200"
                     SelectionMode="Single"
                     ItemsSource="{Binding Group.Students}"
                     Style="{DynamicResource ListViewStyle}"/>
