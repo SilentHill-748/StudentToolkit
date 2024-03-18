@@ -35,7 +35,7 @@
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
 
                 <TextBlock
@@ -45,16 +45,11 @@
                      Margin="0 0 0 10"/>
 
                 <ListView
-                     Grid.Row="1"
-                     SelectionMode="Single"
-                     ItemsSource="{Binding Group.Students}">
-
-                    <ListView.ItemContainerStyle>
-                        <Style TargetType="{x:Type ListViewItem}">
-                            <Setter Property="MinWidth" Value="200"/>
-                        </Style>
-                    </ListView.ItemContainerStyle>
-                </ListView>
+                    Grid.Row="1"
+                    VerticalAlignment="Top"
+                    SelectionMode="Single"
+                    ItemsSource="{Binding Group.Students}"
+                    Style="{DynamicResource ListViewStyle}"/>
             </Grid>
         </CustomControls:TileContentControl>
 
