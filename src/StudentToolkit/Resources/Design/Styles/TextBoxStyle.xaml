@@ -54,7 +54,7 @@
                             <Setter Property="BorderBrush" Value="{DynamicResource MouseSelectionBorderBrushBrush}"/>
                         </Trigger>
                         <Trigger Property="IsFocused" Value="True">
-                            <Setter Property="BorderBrush" Value="{DynamicResource ControlIsFocusedBrush}"/>
+                            <Setter Property="BorderBrush" Value="{DynamicResource IsFocusedBackgroundBrush}"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>

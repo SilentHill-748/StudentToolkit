@@ -41,8 +41,8 @@
                             <Setter Property="Foreground" Value="{DynamicResource MouseSelectionForegroundBrush}"/>
                         </Trigger>
                         <Trigger Property="IsSelected" Value="True">
-                            <Setter Property="Background" Value="{DynamicResource ControlIsFocusedBrush}"/>
-                            <Setter Property="Foreground" Value="{DynamicResource ControlIsSelectedForegroundBrush}"/>
+                            <Setter Property="Background" Value="{DynamicResource IsSelectedBackgroundBrush}"/>
+                            <Setter Property="Foreground" Value="{DynamicResource IsSelectedForegroundBrush}"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
