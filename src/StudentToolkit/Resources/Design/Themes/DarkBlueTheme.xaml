@@ -15,6 +15,7 @@
     <Color x:Key="DisabledButtonBackgroundColor">#4A4A59</Color>
     <Color x:Key="ValidationFailedColor">#900019</Color>
     <Color x:Key="IsFocusedBackgroundColor">#4266A9</Color>
+    <Color x:Key="IsFocusedBorderBrushColor">#4266A9</Color>
     <Color x:Key="IsSelectedForegroundColor">White</Color>
     <Color x:Key="IsSelectedBackgroundColor">#4266A9</Color>
     <Color x:Key="TextBoxBackgroundColor">#363752</Color>
@@ -37,6 +38,7 @@
     <SolidColorBrush x:Key="DisabledButtonBackgroundBrush" Color="{DynamicResource DisabledButtonBackgroundColor}"/>
     <SolidColorBrush x:Key="ValidationFailedBrush" Color="{DynamicResource ValidationFailedColor}"/>
     <SolidColorBrush x:Key="IsFocusedBackgroundBrush" Color="{StaticResource IsFocusedBackgroundColor}"/>
+    <SolidColorBrush x:Key="IsFocusedBorderBrushBrush" Color="{StaticResource IsFocusedBorderBrushColor}"/>
     <SolidColorBrush x:Key="IsSelectedBackgroundBrush" Color="{StaticResource IsSelectedBackgroundColor}"/>
     <SolidColorBrush x:Key="IsSelectedForegroundBrush" Color="{StaticResource IsSelectedForegroundColor}"/>
     <SolidColorBrush x:Key="TextBoxBackgroundBrush" Color="{StaticResource TextBoxBackgroundColor}"/>
