@@ -72,7 +72,7 @@
                         </Trigger>
 
                         <Trigger Property="IsFocused" Value="True">
-                            <Setter Property="BorderBrush" Value="{DynamicResource ControlIsFocusedBrush}"/>
+                            <Setter Property="BorderBrush" Value="{DynamicResource IsFocusedBorderBrushBrush}"/>
                         </Trigger>
 
                         <Trigger Property="IsMouseOver" Value="True">
