@@ -99,16 +99,8 @@
 
         <DataGrid
             Grid.Row="3"
-            ScrollViewer.CanContentScroll="True"
-            VerticalScrollBarVisibility="Auto"
-            AutoGenerateColumns="False"
             ItemsSource="{Binding Students}"
-            SelectionMode="Single"
-            ColumnWidth="*"
-            HeadersVisibility="Column"
-            CanUserAddRows="False"
-            CanUserDeleteRows="False"
-            CanUserResizeRows="False">
+            Style="{DynamicResource DataGridStyle}">
 
             <DataGrid.Columns>
                 <DataGridTextColumn
@@ -126,10 +118,7 @@
                 <DataGridTemplateColumn>
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Button
-                                Content="Удалить"
-                                FontSize="14"
-                                Style="{DynamicResource ButtonStyle}"/>
+                            <Button Style="{DynamicResource DataGridRemoveOperationStyle}"/>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
