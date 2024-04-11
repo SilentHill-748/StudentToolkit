@@ -11,9 +11,9 @@
                 <ControlTemplate TargetType="{x:Type DataGridCell}">
                     <Border Background="Transparent">
                         <ContentPresenter
-                        Margin="{TemplateBinding Padding}"
-                        VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                        HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"/>
+                            Margin="{TemplateBinding Padding}"
+                            VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                            HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"/>
                     </Border>
 
                     <ControlTemplate.Triggers>
