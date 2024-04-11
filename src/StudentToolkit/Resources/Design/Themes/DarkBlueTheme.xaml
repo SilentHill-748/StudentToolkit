@@ -21,6 +21,9 @@
     <Color x:Key="TextBoxBackgroundColor">#363752</Color>
     <Color x:Key="TextBoxBorderBrushColor">#514F6D</Color>
     <Color x:Key="ContentTileBackgroundColor">#272638</Color>
+    <Color x:Key="DataGridBackgroundColor">#242633</Color>
+    <Color x:Key="RowBackgroundColor">#2D2D49</Color>
+    <Color x:Key="ColumnHeaderBackgroundColor">#212336</Color>
     <!--#endregion-->
 
     <!--#region Brushes-->
@@ -44,5 +47,8 @@
     <SolidColorBrush x:Key="TextBoxBackgroundBrush" Color="{StaticResource TextBoxBackgroundColor}"/>
     <SolidColorBrush x:Key="TextBoxBorderBrushBrush" Color="{StaticResource TextBoxBorderBrushColor}"/>
     <SolidColorBrush x:Key="ContentTileBackgroundBrush" Color="{StaticResource ContentTileBackgroundColor}"/>
+    <SolidColorBrush x:Key="DataGridBackgroundBrush" Color="{DynamicResource DataGridBackgroundColor}"/>
+    <SolidColorBrush x:Key="RowBackgroundBrush" Color="{DynamicResource RowBackgroundColor}"/>
+    <SolidColorBrush x:Key="ColumnHeaderBackgroundBrush" Color="{DynamicResource ColumnHeaderBackgroundColor}"/>
     <!--#endregion-->
 </ResourceDictionary>
