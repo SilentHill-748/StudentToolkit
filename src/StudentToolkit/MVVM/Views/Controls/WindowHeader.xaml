@@ -36,7 +36,7 @@
             <Button
                 Click="MinimizeWindowBtnClick"
                 VerticalContentAlignment="Bottom"
-                Style="{DynamicResource WindowHeaderButtonStyle}"
+                Style="{StaticResource WindowHeaderButtonStyle}"
                 Visibility="{Binding 
                     RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Window},
                     Path=ResizeMode,
@@ -52,7 +52,7 @@
             <Button
                 x:Name="maximizeWindowBtn"
                 Click="MaximizeWindowBtnClick"
-                Style="{DynamicResource WindowHeaderButtonStyle}"
+                Style="{StaticResource WindowHeaderButtonStyle}"
                 Visibility="{Binding 
                     RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Window},
                     Path=ResizeMode,
@@ -62,14 +62,14 @@
                 <Rectangle
                     Width="12"
                     Height="12"
-                    Style="{DynamicResource ShapeStyle}"/>
+                    Style="{StaticResource ShapeStyle}"/>
             </Button>
 
             <Button
                 Click="CloseWindowBtnClick"
-                Style="{DynamicResource CloseWindowButtonStyle}">
+                Style="{StaticResource CloseWindowButtonStyle}">
 
-                <Path Style="{DynamicResource ShapeStyle}" StrokeThickness="2">
+                <Path Style="{StaticResource ShapeStyle}" StrokeThickness="2">
                     <Path.Data>
                         <GeometryGroup>
                             <LineGeometry StartPoint="0 0" EndPoint="10 10"/>

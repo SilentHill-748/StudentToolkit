@@ -9,4 +9,4 @@
         Height="600"
         MinHeight="600"
         WindowStartupLocation="CenterScreen"
-        Style="{DynamicResource WindowStyle}"/>
+        Style="{StaticResource WindowStyle}"/>
