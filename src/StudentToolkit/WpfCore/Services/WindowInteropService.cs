@@ -2,7 +2,7 @@
 using System.Windows;
 using System.Windows.Interop;
 
-using StudentToolkit.WpfCore.Common.InteropObjects;
+using StudentToolkit.WpfCore.Common.Interop.Structs;
 
 namespace StudentToolkit.WpfCore.Services;
 

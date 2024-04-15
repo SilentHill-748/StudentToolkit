@@ -1,7 +1,7 @@
 ﻿using System.Runtime.InteropServices;
 using System.Windows;
 
-using StudentToolkit.WpfCore.Common.InteropObjects;
+using StudentToolkit.WpfCore.Common.Interop.Structs;
 
 namespace StudentToolkit.WpfCore.Common.Helpers;
 
