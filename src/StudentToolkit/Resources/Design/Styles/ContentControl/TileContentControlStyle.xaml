@@ -1,0 +1,13 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:CustomControls="clr-namespace:StudentToolkit.WpfCore.CustomControls">
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="Templates/TileContentControlTemplate.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
+    
+    <Style x:Key="TileContentControlStyle" TargetType="{x:Type CustomControls:TileContentControl}">
+        <Setter Property="Background" Value="{DynamicResource ContentTileBackgroundBrush}"/>
+        <Setter Property="Padding" Value="30 15"/>
+        <Setter Property="Template" Value="{StaticResource TileContentControlTemplate}"/>
+    </Style>
+</ResourceDictionary>

@@ -85,7 +85,6 @@
                 Grid.Row="3"
                 Grid.ColumnSpan="3"
                 HorizontalAlignment="Left"
-                Padding="20 5"
                 Content="Добавить студента"
                 Command="{Binding AddStudentCommand}"
                 Style="{DynamicResource ButtonStyle}"/>

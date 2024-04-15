@@ -35,26 +35,49 @@
         <StackPanel Grid.Column="2" Orientation="Horizontal">
             <Button
                 Click="MinimizeWindowBtnClick"
-                Style="{DynamicResource MinimizeWindowButtonStyle}"
+                VerticalContentAlignment="Bottom"
+                Style="{DynamicResource WindowHeaderButtonStyle}"
                 Visibility="{Binding 
                     RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Window},
                     Path=ResizeMode,
                     Converter={StaticResource WindowButtonVisibilityConverter},
-                    ConverterParameter=Minimize}"/>
+                    ConverterParameter=Minimize}">
+
+                <Path
+                    Data="M0,0 L10,0"
+                    StrokeThickness="2"
+                    Style="{StaticResource ShapeStyle}"/>
+            </Button>
 
             <Button
                 x:Name="maximizeWindowBtn"
                 Click="MaximizeWindowBtnClick"
-                Style="{DynamicResource MaximizeWindowButtonStyle}"
+                Style="{DynamicResource WindowHeaderButtonStyle}"
                 Visibility="{Binding 
                     RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Window},
                     Path=ResizeMode,
                     Converter={StaticResource WindowButtonVisibilityConverter},
-                    ConverterParameter=Maximize}"/>
+                    ConverterParameter=Maximize}">
+                
+                <Rectangle
+                    Width="12"
+                    Height="12"
+                    Style="{DynamicResource ShapeStyle}"/>
+            </Button>
 
             <Button
                 Click="CloseWindowBtnClick"
-                Style="{DynamicResource CloseWindowButtonStyle}"/>
+                Style="{DynamicResource CloseWindowButtonStyle}">
+
+                <Path Style="{DynamicResource ShapeStyle}" StrokeThickness="2">
+                    <Path.Data>
+                        <GeometryGroup>
+                            <LineGeometry StartPoint="0 0" EndPoint="10 10"/>
+                            <LineGeometry StartPoint="10 0" EndPoint="0 10"/>
+                        </GeometryGroup>
+                    </Path.Data>
+                </Path>
+            </Button>
         </StackPanel>
     </Grid>
 </UserControl>
