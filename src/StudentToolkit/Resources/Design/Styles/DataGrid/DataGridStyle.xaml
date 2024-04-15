@@ -15,11 +15,11 @@
         <Setter Property="HorizontalScrollBarVisibility" Value="Disabled"/>
         <Setter Property="ScrollViewer.CanContentScroll" Value="True"/>
         <Setter Property="Background" Value="{DynamicResource DataGridBackgroundBrush}"/>
-        <Setter Property="Foreground" Value="{DynamicResource WindowForegroundBrush}"/>
-        <Setter Property="RowBackground" Value="{DynamicResource RowBackgroundBrush}"/>
+        <Setter Property="Foreground" Value="{DynamicResource AppForegroundBrush}"/>
+        <Setter Property="RowBackground" Value="{DynamicResource DataGridRowBackgroundBrush}"/>
         <Setter Property="VerticalGridLinesBrush" Value="Transparent"/>
         <Setter Property="HorizontalGridLinesBrush" Value="Transparent"/>
-        <Setter Property="BorderBrush" Value="{DynamicResource WindowBorderBrush}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource AppBorderBrushBrush}"/>
         <Setter Property="ColumnWidth" Value="*"/>
         <Setter Property="HeadersVisibility" Value="Column"/>
         <Setter Property="EnableRowVirtualization" Value="True"/>

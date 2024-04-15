@@ -7,8 +7,8 @@
     </ResourceDictionary.MergedDictionaries>
     
     <Style x:Key="ComboBoxToggleButtonStyle" TargetType="{x:Type ToggleButton}" BasedOn="{StaticResource ButtonStyle}">
-        <Setter Property="BorderBrush" Value="{DynamicResource TextBoxBorderBrushBrush}"/>
-        <Setter Property="Background" Value="{DynamicResource TextBoxBackgroundBrush}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource ComboBoxBorderBrushBrush}"/>
+        <Setter Property="Background" Value="{DynamicResource ComboBoxBackgroundBrush}"/>
         <Setter Property="BorderThickness" Value="2"/>
         <Setter Property="Template" Value="{StaticResource ComboBoxToggleButtonTemplate}"/>
     </Style>

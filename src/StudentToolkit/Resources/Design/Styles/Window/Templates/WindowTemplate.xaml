@@ -15,7 +15,7 @@
 
                 <Controls:WindowHeader
                     Background="{DynamicResource WindowHeaderBackgroundBrush}"
-                    Foreground="{DynamicResource WindowHeaderForegroundBrush}"
+                    Foreground="{DynamicResource AppForegroundBrush}"
                     BorderBrush="{TemplateBinding BorderBrush}"
                     Icon="{TemplateBinding Icon}"
                     Title="{TemplateBinding Title}"

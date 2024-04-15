@@ -11,7 +11,7 @@
         <Setter Property="MinHeight" Value="20"/>
         <Setter Property="Padding" Value="5 0 0 0"/>
         <Setter Property="Background" Value="{DynamicResource TextBoxBackgroundBrush}"/>
-        <Setter Property="Foreground" Value="{DynamicResource WindowForegroundBrush}"/>
+        <Setter Property="Foreground" Value="{DynamicResource AppForegroundBrush}"/>
         <Setter Property="BorderBrush" Value="{DynamicResource TextBoxBorderBrushBrush}"/>
         <Setter Property="BorderThickness" Value="2"/>
         <Setter Property="Template" Value="{StaticResource TextBoxTemplate}"/>

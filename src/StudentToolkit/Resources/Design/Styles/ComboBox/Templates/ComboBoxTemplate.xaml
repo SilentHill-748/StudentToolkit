@@ -73,7 +73,7 @@
 
                     <Border
                         x:Name="DropDownBorder"
-                        Background="{DynamicResource TextBoxBackgroundBrush}">
+                        Background="{DynamicResource ComboBoxBackgroundBrush}">
 
                         <ScrollViewer>
                             <StackPanel IsItemsHost="True"/>

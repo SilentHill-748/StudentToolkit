@@ -7,7 +7,7 @@
     
     <Style x:Key="SideBarStyle" TargetType="{x:Type CustomControls:SideBar}">
         <Setter Property="Background" Value="{DynamicResource SidebarBackgroundBrush}"/>
-        <Setter Property="BorderBrush" Value="{DynamicResource WindowBorderBrush}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource AppBorderBrushBrush}"/>
         <Setter Property="BorderThickness" Value="0 0 1 0"/>
         <Setter Property="Hide" Value="True"/>
         <Setter Property="Template" Value="{StaticResource SideBarTemplate}"/>

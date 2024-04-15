@@ -10,6 +10,6 @@
         <Setter Property="Padding" Value="20 5"/>
         <Setter Property="BorderThickness" Value="1"/>
         <Setter Property="Background" Value="{DynamicResource ButtonBackgroundBrush}"/>
-        <Setter Property="Foreground" Value="{DynamicResource WindowForegroundBrush}"/>
+        <Setter Property="Foreground" Value="{DynamicResource AppForegroundBrush}"/>
     </Style>
 </ResourceDictionary>
