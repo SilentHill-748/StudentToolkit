@@ -11,6 +11,7 @@ public static class RegisterWpf
         container.Register(() => CreateMainWindow(container));
 
         container
+            .RegisterWinApiServices()
             .RegisterServices()
             .RegisterViewModels()
             .RegisterStores();
