@@ -1,5 +1,6 @@
 ﻿using System.Windows;
 
+using StudentToolkit.Configuration.DI.Extensions;
 using StudentToolkit.WpfCore;
 
 namespace StudentToolkit.Configuration;
@@ -28,6 +29,8 @@ public class AppOptions : IDisposable
                 .RegisterApplicationServices(typeof(App).Assembly)
                 .RegisterInfrastructureServices(args)
                 .Verify();
+
+            Services.ConfigureWinApiServices();
         }
         catch (Exception ex)
         {
