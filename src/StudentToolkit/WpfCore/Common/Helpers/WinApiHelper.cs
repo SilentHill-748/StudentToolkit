@@ -1,5 +1,7 @@
 ﻿using System.Runtime.InteropServices;
 using System.Windows;
+using System.Windows.Interop;
+using System.Windows.Media;
 
 using StudentToolkit.WpfCore.Common.Interop.Structs;
 
@@ -7,6 +9,16 @@ namespace StudentToolkit.WpfCore.Common.Helpers;
 
 internal partial class WinApiHelper
 {
+    public static Window GetWindowFromHandle(IntPtr hwnd)
+    {
+        Visual visualRoot = HwndSource.FromHwnd(hwnd).RootVisual;
+
+        if (visualRoot is Window window)
+            return window;
+
+        throw new NotWindowHandleException(hwnd);
+    }
+
     public static IntPoint GetCursorPosition()
     {
         GetCursorPos(out IntPoint position);
