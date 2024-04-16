@@ -44,8 +44,7 @@ public partial class WindowHeader : UserControl
    
         _currentWindow.SourceInitialized += (sender, args) =>
         {
-            new WindowInteropService(_currentWindow)
-                .AddWindowProcedureHook();
+            WindowInteropService.AddWindowProcedureHook(_currentWindow);
         };
 
         base.OnApplyTemplate();
