@@ -15,8 +15,9 @@ internal class SettingChangedHandler : IMessageHandler
 
         if (window.WindowState == WindowState.Maximized)
         {
-            Rect workArea = WinApiHelper.GetCurrentMonitorArea();
-            IntRect moveToArea = CalculateMoveWindowArea(workArea);
+            IntPoint windowPositionPoint = GetWindowPosition(window);
+            MonitorInfo monitorInfo = WinApiHelper.GetMonitorInfoFromPoint(windowPositionPoint);
+            IntRect moveToArea = CalculateMoveWindowArea(monitorInfo.rcWork);
 
             WinApiHelper.MoveWindow(args.Hwnd, moveToArea);
         }
@@ -24,14 +25,21 @@ internal class SettingChangedHandler : IMessageHandler
         return true;
     }
 
-    private static IntRect CalculateMoveWindowArea(Rect workArea)
+    private static IntPoint GetWindowPosition(Window window)
+    {
+        return new IntPoint(
+            (int)window.Left,
+            (int)window.Top);
+    }
+
+    private static IntRect CalculateMoveWindowArea(IntRect workArea)
     {
         return new IntRect()
         {
-            Left = (int)workArea.X,
-            Top = (int)workArea.Y,
-            Right = (int)workArea.Width,
-            Bottom = (int)workArea.Height
+            Left = workArea.Left,
+            Top = workArea.Top,
+            Right = Math.Abs(workArea.Right - workArea.Left),
+            Bottom = Math.Abs(workArea.Bottom - workArea.Top)
         };
     }
 }
