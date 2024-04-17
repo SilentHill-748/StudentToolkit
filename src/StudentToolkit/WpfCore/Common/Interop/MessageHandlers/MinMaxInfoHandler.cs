@@ -16,20 +16,21 @@ internal class MinMaxInfoHandler : IMessageHandler
         IntPoint mousePosition = WinApiHelper.GetCursorPosition();
         MonitorInfo primaryScreenInfo = WinApiHelper.GetMonitorInfoFromPoint(new IntPoint(), MonitorOptions.DefaultToPrimary);
         MonitorInfo currentScreenInfo = WinApiHelper.GetMonitorInfoFromPoint(mousePosition);
-
         MinMaxInfo minMaxInfo = Marshal.PtrToStructure<MinMaxInfo>(args.LongParameter);
 
         minMaxInfo.PointMaxSize = CalculateMaxSize(primaryScreenInfo, currentScreenInfo);
         minMaxInfo.PointMaxPosition = CalculateMaxPosition(primaryScreenInfo);
         minMaxInfo.PointMinTrackSize = CalculateMinTrackSize(args.Hwnd);
-        minMaxInfo.PointMaxTrackSize.X = CalculateMaxTrackHeight(currentScreenInfo);
+        minMaxInfo.PointMaxTrackSize.Y = CalculateMaxTrackHeight(currentScreenInfo);
 
         Marshal.StructureToPtr(minMaxInfo, args.LongParameter, true);
         
         return true;
     }
 
-    private static IntPoint CalculateMaxSize(MonitorInfo primaryScreenInfo, MonitorInfo currentScreenInfo)
+    private static IntPoint CalculateMaxSize(
+        MonitorInfo primaryScreenInfo,
+        MonitorInfo currentScreenInfo)
     {
         int workHeight = Math.Abs(currentScreenInfo.rcWork.Bottom - currentScreenInfo.rcWork.Top);
         int workWidth = Math.Min(

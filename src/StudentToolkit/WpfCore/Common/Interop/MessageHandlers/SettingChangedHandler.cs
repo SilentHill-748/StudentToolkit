@@ -15,22 +15,23 @@ internal class SettingChangedHandler : IMessageHandler
 
         if (window.WindowState == WindowState.Maximized)
         {
-            IntPoint mousePosition = WinApiHelper.GetCursorPosition();
-            MonitorInfo monitorInfo = WinApiHelper.GetMonitorInfoFromPoint(mousePosition);
+            Rect workArea = WinApiHelper.GetCurrentMonitorArea();
+            IntRect moveToArea = CalculateMoveWindowArea(workArea);
 
-            MoveWindow(args.Hwnd, monitorInfo.rcWork);
+            WinApiHelper.MoveWindow(args.Hwnd, moveToArea);
         }
 
         return true;
     }
 
-    private static void MoveWindow(IntPtr hwnd, IntRect workArea)
+    private static IntRect CalculateMoveWindowArea(Rect workArea)
     {
-        int top = workArea.Top;
-        int left = workArea.Left;
-        int width = Math.Abs(workArea.Right - workArea.Left);
-        int height = Math.Abs(workArea.Bottom - workArea.Top);
-
-        WinApiHelper.MoveWindow(hwnd, left, top, width, height);
+        return new IntRect()
+        {
+            Left = (int)workArea.X,
+            Top = (int)workArea.Y,
+            Right = (int)workArea.Width,
+            Bottom = (int)workArea.Height
+        };
     }
 }

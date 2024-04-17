@@ -6,7 +6,7 @@ using StudentToolkit.WpfCore.Common.Interop.Structs;
 
 namespace StudentToolkit.WpfCore.Services;
 
-public static class WindowInteropService
+internal static class WindowInteropService
 {
     private static readonly Dictionary<int, IMessageHandler> MessageHandlers = [];
 

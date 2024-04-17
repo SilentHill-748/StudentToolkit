@@ -26,7 +26,9 @@ internal partial class WinApiHelper
         return position;
     }
 
-    public static MonitorInfo GetMonitorInfoFromPoint(IntPoint point, MonitorOptions options = MonitorOptions.DefaultToNearest)
+    public static MonitorInfo GetMonitorInfoFromPoint(
+        IntPoint point,
+        MonitorOptions options = MonitorOptions.DefaultToNearest)
     {
         MonitorInfo monitorInfo = new();
         IntPtr monitor = MonitorFromPoint(point, options);
@@ -36,9 +38,15 @@ internal partial class WinApiHelper
         return monitorInfo;
     }
 
-    public static void MoveWindow(IntPtr hwnd, int x, int y, int width, int height)
+    public static void MoveWindow(IntPtr hwnd, IntRect moveToArea)
     {
-        MoveWindow(hwnd, x, y, width, height, true);
+        MoveWindow(
+            hwnd,
+            x: moveToArea.Left,
+            y: moveToArea.Top,
+            nWidth: moveToArea.Right,
+            nHeight: moveToArea.Bottom,
+            true);
     }
 
     public static Rect GetCurrentMonitorArea()
