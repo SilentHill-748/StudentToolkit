@@ -23,11 +23,12 @@
         
         <Image
             Margin="5 2 0 2"
-            Width="16"
+            Width="18"
             Source="{Binding ElementName=header, Path=Icon}"/>
 
         <TextBlock
             Grid.Column="1"
+            Margin="0 3"
             HorizontalAlignment="Center"
             VerticalAlignment="Center"
             Text="{Binding ElementName=header, Path=Title}"/>
@@ -35,7 +36,7 @@
         <StackPanel Grid.Column="2" Orientation="Horizontal">
             <Button
                 Click="MinimizeWindowBtnClick"
-                VerticalContentAlignment="Bottom"
+                Padding="0 12 0 0"
                 Style="{StaticResource WindowHeaderButtonStyle}"
                 Visibility="{Binding 
                     RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Window},
@@ -45,7 +46,6 @@
 
                 <Path
                     Data="M0,0 L10,0"
-                    StrokeThickness="2"
                     Style="{StaticResource ShapeStyle}"/>
             </Button>
 
@@ -69,7 +69,7 @@
                 Click="CloseWindowBtnClick"
                 Style="{StaticResource CloseWindowButtonStyle}">
 
-                <Path Style="{StaticResource ShapeStyle}" StrokeThickness="2">
+                <Path Style="{StaticResource ShapeStyle}">
                     <Path.Data>
                         <GeometryGroup>
                             <LineGeometry StartPoint="0 0" EndPoint="10 10"/>
