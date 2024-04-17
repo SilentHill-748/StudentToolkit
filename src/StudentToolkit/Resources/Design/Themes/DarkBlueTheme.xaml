@@ -2,15 +2,15 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
     <!--#region Colors-->
-    <Color x:Key="WindowBorderBrushColor">#4B4469</Color>
+    <Color x:Key="AppBorderBrushColor">#4B4469</Color>
+    <Color x:Key="AppForegroundColor">#BFBFCA</Color>
     <Color x:Key="WindowBackgroundColor">#191924</Color>
-    <Color x:Key="WindowForegroundColor">#BFBFCA</Color>
     <Color x:Key="WindowHeaderBackgroundColor">#272A3A</Color>
-    <Color x:Key="CloseWindowButtonMouseOverBackgroundColor">#e32636</Color>
     <Color x:Key="ButtonBackgroundColor">#424261</Color>
     <Color x:Key="MouseSelectionBackgroundColor">#454573</Color>
     <Color x:Key="MouseSelectionForegroundColor">#DFDFE7</Color>
     <Color x:Key="MouseSelectionBorderBrushColor">#3B7E97</Color>
+    <Color x:Key="MouseSelectionCloseButtonBackgroundColor">#e32636</Color>
     <Color x:Key="SidebarBackgroundColor">#1F1F32</Color>
     <Color x:Key="DisabledButtonBackgroundColor">#4A4A59</Color>
     <Color x:Key="ValidationFailedColor">#900019</Color>
@@ -20,24 +20,25 @@
     <Color x:Key="IsSelectedBackgroundColor">#4266A9</Color>
     <Color x:Key="TextBoxBackgroundColor">#363752</Color>
     <Color x:Key="TextBoxBorderBrushColor">#514F6D</Color>
-    <Color x:Key="ContentTileBackgroundColor">#272638</Color>
+    <Color x:Key="ComboBoxBackgroundColor">#363752</Color>
+    <Color x:Key="ComboBoxBorderBrushColor">#514F6D</Color>
+    <Color x:Key="TileContentControlBackgroundColor">#272638</Color>
     <Color x:Key="DataGridBackgroundColor">#242633</Color>
-    <Color x:Key="RowBackgroundColor">#2D2D49</Color>
-    <Color x:Key="ColumnHeaderBackgroundColor">#212336</Color>
+    <Color x:Key="DataGridRowBackgroundColor">#2D2D49</Color>
+    <Color x:Key="DataGridColumnHeaderBackgroundColor">#212336</Color>
     <!--#endregion-->
 
     <!--#region Brushes-->
-    <SolidColorBrush x:Key="CloseWindowButtonMouseOverBackgroundBrush" Color="{DynamicResource CloseWindowButtonMouseOverBackgroundColor}"/>
-    <SolidColorBrush x:Key="WindowBorderBrush" Color="{DynamicResource WindowBorderBrushColor}"/>
+    <SolidColorBrush x:Key="AppBorderBrushBrush" Color="{DynamicResource AppBorderBrushColor}"/>
     <SolidColorBrush x:Key="WindowBackgroundBrush" Color="{DynamicResource WindowBackgroundColor}"/>
-    <SolidColorBrush x:Key="WindowForegroundBrush" Color="{DynamicResource WindowForegroundColor}"/>
+    <SolidColorBrush x:Key="AppForegroundBrush" Color="{DynamicResource AppForegroundColor}"/>
     <SolidColorBrush x:Key="WindowHeaderBackgroundBrush" Color="{DynamicResource WindowHeaderBackgroundColor}"/>
-    <SolidColorBrush x:Key="WindowHeaderForegroundBrush" Color="{DynamicResource WindowForegroundColor}"/>
     <SolidColorBrush x:Key="ButtonBackgroundBrush" Color="{DynamicResource ButtonBackgroundColor}"/>
     <SolidColorBrush x:Key="SidebarBackgroundBrush" Color="{DynamicResource SidebarBackgroundColor}"/>
     <SolidColorBrush x:Key="MouseSelectionBackgroundBrush" Color="{DynamicResource MouseSelectionBackgroundColor}"/>
     <SolidColorBrush x:Key="MouseSelectionForegroundBrush" Color="{DynamicResource MouseSelectionForegroundColor}"/>
     <SolidColorBrush x:Key="MouseSelectionBorderBrushBrush" Color="{DynamicResource MouseSelectionBorderBrushColor}"/>
+    <SolidColorBrush x:Key="MouseSelectionCloseButtonBackgroundBrush" Color="{DynamicResource MouseSelectionCloseButtonBackgroundColor}"/>
     <SolidColorBrush x:Key="DisabledButtonBackgroundBrush" Color="{DynamicResource DisabledButtonBackgroundColor}"/>
     <SolidColorBrush x:Key="ValidationFailedBrush" Color="{DynamicResource ValidationFailedColor}"/>
     <SolidColorBrush x:Key="IsFocusedBackgroundBrush" Color="{StaticResource IsFocusedBackgroundColor}"/>
@@ -46,9 +47,11 @@
     <SolidColorBrush x:Key="IsSelectedForegroundBrush" Color="{StaticResource IsSelectedForegroundColor}"/>
     <SolidColorBrush x:Key="TextBoxBackgroundBrush" Color="{StaticResource TextBoxBackgroundColor}"/>
     <SolidColorBrush x:Key="TextBoxBorderBrushBrush" Color="{StaticResource TextBoxBorderBrushColor}"/>
-    <SolidColorBrush x:Key="ContentTileBackgroundBrush" Color="{StaticResource ContentTileBackgroundColor}"/>
+    <SolidColorBrush x:Key="ComboBoxBackgroundBrush" Color="{StaticResource ComboBoxBackgroundColor}"/>
+    <SolidColorBrush x:Key="ComboBoxBorderBrushBrush" Color="{StaticResource ComboBoxBorderBrushColor}"/>
+    <SolidColorBrush x:Key="TileContentControlBackgroundBrush" Color="{StaticResource TileContentControlBackgroundColor}"/>
     <SolidColorBrush x:Key="DataGridBackgroundBrush" Color="{DynamicResource DataGridBackgroundColor}"/>
-    <SolidColorBrush x:Key="RowBackgroundBrush" Color="{DynamicResource RowBackgroundColor}"/>
-    <SolidColorBrush x:Key="ColumnHeaderBackgroundBrush" Color="{DynamicResource ColumnHeaderBackgroundColor}"/>
+    <SolidColorBrush x:Key="DataGridRowBackgroundBrush" Color="{DynamicResource DataGridRowBackgroundColor}"/>
+    <SolidColorBrush x:Key="DataGridColumnHeaderBackgroundBrush" Color="{DynamicResource DataGridColumnHeaderBackgroundColor}"/>
     <!--#endregion-->
 </ResourceDictionary>

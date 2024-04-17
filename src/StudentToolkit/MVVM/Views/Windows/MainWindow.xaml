@@ -8,7 +8,7 @@
         d:DataContext="{d:DesignInstance Type=VM:NavigationViewModel}"
         WindowStartupLocation="CenterScreen"
         Title="{Binding CurrentViewModel.WindowTitle}"
-        Style="{DynamicResource WindowStyle}">
+        Style="{StaticResource WindowStyle}">
 
     <ContentControl Content="{Binding CurrentViewModel}"/>
 </Window>

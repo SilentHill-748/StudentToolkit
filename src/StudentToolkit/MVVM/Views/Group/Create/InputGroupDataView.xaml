@@ -33,7 +33,7 @@
                 MaxLength="150"
                 Placeholder="До 150 символов."
                 TextWrapping="Wrap"
-                Style="{DynamicResource PlaceholderTextBoxStyle}"
+                Style="{StaticResource PlaceholderTextBoxStyle}"
                 Text="{Binding GroupData.EducationDirection}"/>
         </StackPanel>
 
@@ -81,7 +81,7 @@
                 VerticalAlignment="Center"
                 TextWrapping="Wrap"
                 MinWidth="200"
-                Style="{DynamicResource PlaceholderTextBoxStyle}"
+                Style="{StaticResource PlaceholderTextBoxStyle}"
                 Text="{Binding GroupData.GroupCode}"/>
 
             <TextBox   
@@ -92,7 +92,7 @@
                 HorizontalAlignment="Left"
                 VerticalAlignment="Center"
                 MinWidth="100"
-                Style="{DynamicResource TextBoxStyle}"
+                Style="{StaticResource TextBoxStyle}"
                 Text="{Binding GroupData.AdmissionYear}"/>
 
             <ComboBox 
@@ -101,7 +101,7 @@
                 HorizontalAlignment="Left"
                 VerticalAlignment="Center"
                 MinWidth="200"
-                Style="{DynamicResource NotEditableComboBoxStyle}"
+                Style="{StaticResource NotEditableComboBoxStyle}"
                 ItemsSource="{Binding EducationTypes}"
                 SelectedItem="{Binding GroupData.EducationType}"/>
 
@@ -112,7 +112,7 @@
                 HorizontalAlignment="Left"
                 VerticalAlignment="Center"
                 MinWidth="200"
-                Style="{DynamicResource NotEditableComboBoxStyle}"
+                Style="{StaticResource NotEditableComboBoxStyle}"
                 ItemsSource="{Binding EducationFormats}"
                 SelectedItem="{Binding GroupData.EducationFormat}"/>
         </Grid>
@@ -128,13 +128,13 @@
                 Content="Далее"
                 IsDefault="True"
                 Command="{Binding SetGroupDataAndMoveToNextViewCommand}"
-                Style="{DynamicResource ButtonStyle}"/>
+                Style="{StaticResource ButtonStyle}"/>
 
             <Button
                 Content="Отмена"
                 IsCancel="True"
                 Command="{Binding CancelCommand}"
-                Style="{DynamicResource ButtonStyle}"/>
+                Style="{StaticResource ButtonStyle}"/>
         </WrapPanel>
     </Grid>
 </UserControl>

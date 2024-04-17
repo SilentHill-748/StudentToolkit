@@ -2,14 +2,15 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="Styles/DataGridStyle.xaml"/>
-        <ResourceDictionary Source="Styles/ListViewStyle.xaml"/>
-        <ResourceDictionary Source="Styles/TileContentControlStyle.xaml"/>
-        <ResourceDictionary Source="Styles/ComboBoxStyle.xaml"/>
-        <ResourceDictionary Source="Styles/TextBoxStyle.xaml"/>
-        <ResourceDictionary Source="Styles/PlaceholderTextBoxStyle.xaml"/>
-        <ResourceDictionary Source="Styles/ButtonStyles.xaml"/>
-        <ResourceDictionary Source="Styles/SideBarStyle.xaml"/>
-        <ResourceDictionary Source="Styles/WindowStyle.xaml"/>
+        <ResourceDictionary Source="Styles/Button/ButtonStylesDictionary.xaml"/>
+        <ResourceDictionary Source="Styles/Shape/ShapeStylesDictionary.xaml"/>
+        <ResourceDictionary Source="Styles/DataGrid/DataGridDictionary.xaml"/>
+        <ResourceDictionary Source="Styles/ListView/ListViewDictionary.xaml"/>
+        <ResourceDictionary Source="Styles/TextBox/TextBoxDictionary.xaml"/>
+        <ResourceDictionary Source="Styles/PlaceholderTextBox/PlaceholderTextBoxDictionary.xaml"/>
+        <ResourceDictionary Source="Styles/ComboBox/ComboBoxDictionary.xaml"/>
+        <ResourceDictionary Source="Styles/SideBar/SideBarDictionary.xaml"/>
+        <ResourceDictionary Source="Styles/Window/WindowDictionary.xaml"/>
+        <ResourceDictionary Source="Styles/ContentControl/ContentControlDictionary.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>
