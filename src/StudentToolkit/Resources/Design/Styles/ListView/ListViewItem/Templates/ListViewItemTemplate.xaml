@@ -5,7 +5,7 @@
         <Border
             CornerRadius="5"
             Background="{TemplateBinding Background}">
-            
+
             <ContentPresenter
                 Content="{TemplateBinding Content}"
                 Margin="{TemplateBinding Padding}"/>
