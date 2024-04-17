@@ -12,7 +12,7 @@
         BasedOn="{StaticResource BaseButtonStyle}">
 
         <Setter Property="Width" Value="45"/>
-        <Setter Property="Padding" Value="0 5"/>
+        <Setter Property="Padding" Value="0"/>
         <Setter Property="Background" Value="{DynamicResource WindowHeaderBackgroundBrush}"/>
         <Setter Property="Template" Value="{StaticResource WindowHeaderButtonTemplate}"/>
 

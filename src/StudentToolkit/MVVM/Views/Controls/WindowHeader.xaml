@@ -36,7 +36,7 @@
         <StackPanel Grid.Column="2" Orientation="Horizontal">
             <Button
                 Click="MinimizeWindowBtnClick"
-                Padding="0 16 0 5"
+                Padding="0 12 0 0"
                 Style="{StaticResource WindowHeaderButtonStyle}"
                 Visibility="{Binding 
                     RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Window},
