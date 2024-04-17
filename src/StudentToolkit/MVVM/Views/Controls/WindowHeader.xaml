@@ -27,7 +27,7 @@
             Source="{Binding ElementName=header, Path=Icon}"/>
 
         <TextBlock
-            Grid.Column="1"
+            Grid.ColumnSpan="3"
             Margin="0 3"
             HorizontalAlignment="Center"
             VerticalAlignment="Center"
