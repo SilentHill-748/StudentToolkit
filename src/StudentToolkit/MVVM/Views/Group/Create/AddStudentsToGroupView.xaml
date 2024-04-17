@@ -117,7 +117,7 @@
                 <DataGridTemplateColumn>
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Button Style="{StaticResource DataGridRemoveOperationStyle}"/>
+                            <Button Style="{StaticResource DataGridRemoveOperationButtonStyle}"/>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
