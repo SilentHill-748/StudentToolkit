@@ -6,7 +6,11 @@
         <ResourceDictionary Source="Templates/ButtonTemplate.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
-    <Style x:Key="ButtonStyle" TargetType="{x:Type ButtonBase}" BasedOn="{StaticResource BaseButtonStyle}">
+    <Style
+        x:Key="ButtonStyle"
+        TargetType="{x:Type ButtonBase}"
+        BasedOn="{StaticResource BaseButtonStyle}">
+        
         <Setter Property="Template" Value="{StaticResource ButtonTemplate}"/>
 
         <Style.Triggers>

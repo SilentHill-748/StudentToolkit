@@ -33,35 +33,22 @@
 
         <ControlTemplate.Triggers>
             <Trigger Property="Validation.HasError" Value="True">
-                <Setter
-                    TargetName="ErrorChar"
-                    Property="Visibility"
-                    Value="Visible"/>
-                
-                <Setter
-                    Property="BorderBrush"
-                    Value="{DynamicResource ValidationFailedBrush}"/>
-                
+                <Setter TargetName="ErrorChar" Property="Visibility" Value="Visible"/>
+                <Setter Property="BorderBrush" Value="{DynamicResource ValidationFailedBrush}"/>
                 <Setter
                     Property="ToolTip"
                     Value="{Binding
                         RelativeSource={RelativeSource Self},
                         Path=(Validation.Errors)[0].ErrorContent}"/>
             </Trigger>
-            
-            <Trigger
-                Property="IsMouseOver"
-                Value="True">
-                
-                <Setter
-                    Property="BorderBrush"
-                    Value="{DynamicResource MouseSelectionBorderBrushBrush}"/>
+
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="BorderBrush" Value="{DynamicResource MouseSelectionBorderBrushBrush}"/>
+                <Setter Property="Background" Value="{DynamicResource MouseSelectionBackgroundBrush}"/>
             </Trigger>
             
             <Trigger Property="IsFocused" Value="True">
-                <Setter
-                    Property="BorderBrush"
-                    Value="{DynamicResource IsFocusedBorderBrushBrush}"/>
+                <Setter Property="BorderBrush" Value="{DynamicResource IsFocusedBorderBrushBrush}"/>
             </Trigger>
         </ControlTemplate.Triggers>
     </ControlTemplate>

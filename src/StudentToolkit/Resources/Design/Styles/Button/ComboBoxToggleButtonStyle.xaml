@@ -6,7 +6,11 @@
         <ResourceDictionary Source="ButtonStyle.xaml"/>
     </ResourceDictionary.MergedDictionaries>
     
-    <Style x:Key="ComboBoxToggleButtonStyle" TargetType="{x:Type ToggleButton}" BasedOn="{StaticResource ButtonStyle}">
+    <Style
+        x:Key="ComboBoxToggleButtonStyle"
+        TargetType="{x:Type ToggleButton}"
+        BasedOn="{StaticResource ButtonStyle}">
+        
         <Setter Property="BorderBrush" Value="{DynamicResource ComboBoxBorderBrushBrush}"/>
         <Setter Property="Background" Value="{DynamicResource ComboBoxBackgroundBrush}"/>
         <Setter Property="BorderThickness" Value="2"/>

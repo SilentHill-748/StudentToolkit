@@ -2,7 +2,11 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:CustomControls="clr-namespace:StudentToolkit.WpfCore.CustomControls"
                     xmlns:Converters="clr-namespace:StudentToolkit.WpfCore.Converters">
-    <ControlTemplate x:Key="PlaceholderTextBoxTemplate" TargetType="{x:Type CustomControls:PlaceholderTextBox}">
+    
+    <ControlTemplate
+        x:Key="PlaceholderTextBoxTemplate"
+        TargetType="{x:Type CustomControls:PlaceholderTextBox}">
+        
         <ControlTemplate.Resources>
             <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
             <Converters:AddLeftPaddingConverter x:Key="AddLeftPaddingConverter"/>
@@ -53,8 +57,8 @@
 
         <ControlTemplate.Triggers>
             <Trigger Property="Validation.HasError" Value="True">
-                <Setter Property="BorderBrush" Value="{DynamicResource ValidationFailedBrush}"/>
                 <Setter TargetName="ErrorChar" Property="Visibility" Value="Visible"/>
+                <Setter Property="BorderBrush" Value="{DynamicResource ValidationFailedBrush}"/>
                 <Setter
                     Property="ToolTip"
                     Value="{Binding
@@ -68,6 +72,7 @@
 
             <Trigger Property="IsMouseOver" Value="True">
                 <Setter Property="BorderBrush" Value="{DynamicResource MouseSelectionBorderBrushBrush}"/>
+                <Setter Property="Background" Value="{DynamicResource MouseSelectionBackgroundBrush}"/>
             </Trigger>
         </ControlTemplate.Triggers>
     </ControlTemplate>

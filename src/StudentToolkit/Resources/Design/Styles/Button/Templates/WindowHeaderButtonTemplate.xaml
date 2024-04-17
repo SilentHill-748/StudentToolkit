@@ -3,7 +3,6 @@
 
     <ControlTemplate x:Key="WindowHeaderButtonTemplate" TargetType="{x:Type Button}">
         <Border Background="{TemplateBinding Background}">
-
             <ContentControl
                 Content="{TemplateBinding Content}"
                 VerticalAlignment="{TemplateBinding VerticalContentAlignment}"

@@ -5,7 +5,11 @@
         <ResourceDictionary Source="WindowHeaderButtonStyle.xaml"/>
     </ResourceDictionary.MergedDictionaries>
     
-    <Style x:Key="CloseWindowButtonStyle" TargetType="{x:Type Button}" BasedOn="{StaticResource WindowHeaderButtonStyle}">
+    <Style
+        x:Key="CloseWindowButtonStyle"
+        TargetType="{x:Type Button}"
+        BasedOn="{StaticResource WindowHeaderButtonStyle}">
+        
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
                 <Setter Property="Background" Value="{DynamicResource MouseSelectionCloseButtonBackgroundBrush}"/>

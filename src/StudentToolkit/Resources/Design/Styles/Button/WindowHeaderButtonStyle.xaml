@@ -6,7 +6,11 @@
         <ResourceDictionary Source="Templates/WindowHeaderButtonTemplate.xaml"/>
     </ResourceDictionary.MergedDictionaries>
     
-    <Style x:Key="WindowHeaderButtonStyle" TargetType="{x:Type Button}" BasedOn="{StaticResource BaseButtonStyle}">
+    <Style
+        x:Key="WindowHeaderButtonStyle"
+        TargetType="{x:Type Button}"
+        BasedOn="{StaticResource BaseButtonStyle}">
+        
         <Setter Property="Padding" Value="10 5"/>
         <Setter Property="Background" Value="{DynamicResource WindowHeaderBackgroundBrush}"/>
         <Setter Property="Template" Value="{StaticResource WindowHeaderButtonTemplate}"/>
