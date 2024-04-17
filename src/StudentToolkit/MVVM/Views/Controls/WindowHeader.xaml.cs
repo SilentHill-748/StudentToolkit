@@ -2,6 +2,8 @@
 using System.Windows.Controls;
 using System.Windows.Media;
 
+using StudentToolkit.WpfCore.Common.Helpers;
+
 namespace StudentToolkit.MVVM.Views.Controls;
 
 public partial class WindowHeader : UserControl
@@ -42,8 +44,7 @@ public partial class WindowHeader : UserControl
    
         _currentWindow.SourceInitialized += (sender, args) =>
         {
-            new WindowInteropService(_currentWindow)
-                .AddWindowProcedureHook();
+            WindowInteropService.AddWindowProcedureHook(_currentWindow);
         };
 
         base.OnApplyTemplate();
@@ -70,7 +71,7 @@ public partial class WindowHeader : UserControl
     {
         _isMoving = true;
 
-        _leftMouseButtonDownPoint = WindowInteropService.GetMousePositionToScreen();
+        _leftMouseButtonDownPoint = WinApiHelper.GetMousePositionToScreen();
     }
 
     private void OnMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
@@ -80,7 +81,7 @@ public partial class WindowHeader : UserControl
     {
         if (e.LeftButton == MouseButtonState.Pressed && _isMoving)
         {
-            Point currentMouseMovePoint = WindowInteropService.GetMousePositionToScreen();
+            Point currentMouseMovePoint = WinApiHelper.GetMousePositionToScreen();
 
             var (DeltaX, DeltaY) = GetDeltaBetweenTwoPoints(_leftMouseButtonDownPoint, currentMouseMovePoint);
 
@@ -90,7 +91,7 @@ public partial class WindowHeader : UserControl
                 {
                     ChangeWindowState();
 
-                    Rect screenArea = WindowInteropService.GetCurrentMonitorArea();
+                    Rect screenArea = WinApiHelper.GetCurrentMonitorArea();
 
                     SetWindowPosition(screenArea, currentMouseMovePoint);
                 }
@@ -104,7 +105,7 @@ public partial class WindowHeader : UserControl
     {
         _isMoving = false;
 
-        Point lastClickPoint = WindowInteropService.GetMousePositionToScreen();
+        Point lastClickPoint = WinApiHelper.GetMousePositionToScreen();
 
         var (DeltaX, DeltaY) = GetDeltaBetweenTwoPoints(_leftMouseButtonDownPoint, lastClickPoint);
 
