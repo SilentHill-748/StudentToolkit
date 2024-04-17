@@ -10,8 +10,9 @@
         x:Key="WindowHeaderButtonStyle"
         TargetType="{x:Type Button}"
         BasedOn="{StaticResource BaseButtonStyle}">
-        
-        <Setter Property="Padding" Value="10 5"/>
+
+        <Setter Property="Width" Value="45"/>
+        <Setter Property="Padding" Value="0 5"/>
         <Setter Property="Background" Value="{DynamicResource WindowHeaderBackgroundBrush}"/>
         <Setter Property="Template" Value="{StaticResource WindowHeaderButtonTemplate}"/>
 
