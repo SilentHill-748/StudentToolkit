@@ -12,5 +12,6 @@
         <ResourceDictionary Source="Styles/SideBar/SideBarDictionary.xaml"/>
         <ResourceDictionary Source="Styles/Window/WindowDictionary.xaml"/>
         <ResourceDictionary Source="Styles/ContentControl/ContentControlDictionary.xaml"/>
+        <ResourceDictionary Source="Styles/InputField/InputFieldDictionary.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

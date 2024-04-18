@@ -1,0 +1,27 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:CustomControls="clr-namespace:StudentToolkit.WpfCore.CustomControls">
+    
+    <ControlTemplate
+        x:Key="InputFieldTemplate"
+        TargetType="{x:Type CustomControls:InputField}">
+        
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" SharedSizeGroup="Title"/>
+                <ColumnDefinition Width="25"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Label
+                Foreground="{TemplateBinding Foreground}"
+                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                Content="{TemplateBinding Title}"/>
+
+            <ContentControl
+                Grid.Column="2"
+                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                Content="{TemplateBinding Field}"/>
+        </Grid>
+    </ControlTemplate>
+</ResourceDictionary>
