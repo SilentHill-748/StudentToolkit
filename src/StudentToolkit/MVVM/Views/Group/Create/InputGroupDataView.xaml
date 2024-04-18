@@ -14,115 +14,95 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
         <TextBlock
-            HorizontalAlignment="Center" 
-            Text="{Binding ViewTitle}"
-            FontSize="24"/>
+            HorizontalAlignment="Center"
+            FontSize="24"
+            Text="{Binding ViewTitle}"/>
 
-        <StackPanel Grid.Row="1" Margin="0 30">
-            <TextBlock
-                Text="Название направления"
-                Margin="0 0 0 5"/>
+        <CustomControls:InputField
+            Grid.Row="1"
+            Title="Название направления"
+            Margin="0 30"
+            Template="{StaticResource VerticalInputFieldTemplate}"
+            Style="{StaticResource InputFieldStyle}">
 
             <CustomControls:PlaceholderTextBox
-                MaxLines="1"
+                Placeholder="До 150 символов."
                 Height="80"
                 MaxLength="150"
-                Placeholder="До 150 символов."
                 TextWrapping="Wrap"
-                Style="{StaticResource PlaceholderTextBoxStyle}"
-                Text="{Binding GroupData.EducationDirection}"/>
+                Text="{Binding GroupData.EducationDirection}"
+                Style="{StaticResource PlaceholderTextBoxStyle}"/>
+        </CustomControls:InputField>
+
+        <StackPanel
+            Grid.Row="2"
+            Grid.IsSharedSizeScope="True"
+            HorizontalAlignment="Left">
+
+            <CustomControls:InputField
+                Title="Код группы"
+                Margin="0 0 0 10"
+                VerticalContentAlignment="Stretch"
+                Style="{StaticResource InputFieldStyle}">
+
+                <CustomControls:PlaceholderTextBox
+                    Placeholder="До 50 сим."
+                    MaxLength="50"
+                    TextWrapping="Wrap"
+                    MinWidth="200"
+                    VerticalContentAlignment="Center"
+                    Style="{StaticResource PlaceholderTextBoxStyle}"
+                    Text="{Binding GroupData.GroupCode}"/>
+            </CustomControls:InputField>
+
+            <CustomControls:InputField
+                Title="Год поступления"
+                VerticalContentAlignment="Stretch"
+                HorizontalAlignment="Left"
+                Style="{StaticResource InputFieldStyle}">
+
+                <TextBox
+                    x:Name="GroupCodeInputTb"
+                    MaxLength="4"
+                    MinWidth="100"
+                    VerticalContentAlignment="Center"
+                    Text="{Binding GroupData.AdmissionYear}"
+                    Style="{StaticResource TextBoxStyle}"/>
+            </CustomControls:InputField>
+
+            <CustomControls:InputField
+                Title="Тип образования"
+                Margin="0 10"
+                Style="{StaticResource InputFieldStyle}">
+
+                <ComboBox
+                    MinWidth="200"
+                    ItemsSource="{Binding EducationTypes}"
+                    SelectedItem="{Binding GroupData.EducationType}"
+                    Style="{StaticResource NotEditableComboBoxStyle}"/>
+            </CustomControls:InputField>
+
+            <CustomControls:InputField
+                Title="Формат обучения"
+                Style="{StaticResource InputFieldStyle}">
+
+                <ComboBox
+                    MinWidth="200"
+                    ItemsSource="{Binding EducationFormats}"
+                    SelectedItem="{Binding GroupData.EducationFormat}"
+                    Style="{StaticResource NotEditableComboBoxStyle}"/>
+            </CustomControls:InputField>
         </StackPanel>
-
-        <Grid Grid.Row="2" Grid.Column="0" HorizontalAlignment="Left">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="10"/>
-                <ColumnDefinition Width="Auto"/>
-            </Grid.ColumnDefinitions>
-
-            <TextBlock
-                Grid.Row="0"
-                VerticalAlignment="Center"
-                Text="Код группы"/>
-
-            <TextBlock
-                Grid.Row="1"
-                Text="Год поступления"
-                VerticalAlignment="Center"
-                Margin="0 10"/>
-
-            <TextBlock
-                Grid.Row="2"
-                VerticalAlignment="Center"
-                Text="Тип образования"/>
-
-            <TextBlock
-                Grid.Row="3"
-                Margin="0 10"
-                VerticalAlignment="Center"
-                Text="Формат обучения"/>
-
-            <CustomControls:PlaceholderTextBox
-                x:Name="GroupCodeInputTb"
-                Grid.Column="2"
-                Placeholder="До 50 сим."
-                MaxLength="50"
-                HorizontalAlignment="Left"
-                VerticalAlignment="Center"
-                TextWrapping="Wrap"
-                MinWidth="200"
-                Style="{StaticResource PlaceholderTextBoxStyle}"
-                Text="{Binding GroupData.GroupCode}"/>
-
-            <TextBox   
-                Grid.Row="1"
-                Grid.Column="2"
-                Margin="0 10"
-                MaxLength="4"
-                HorizontalAlignment="Left"
-                VerticalAlignment="Center"
-                MinWidth="100"
-                Style="{StaticResource TextBoxStyle}"
-                Text="{Binding GroupData.AdmissionYear}"/>
-
-            <ComboBox 
-                Grid.Row="2"
-                Grid.Column="2"
-                HorizontalAlignment="Left"
-                VerticalAlignment="Center"
-                MinWidth="200"
-                Style="{StaticResource NotEditableComboBoxStyle}"
-                ItemsSource="{Binding EducationTypes}"
-                SelectedItem="{Binding GroupData.EducationType}"/>
-
-            <ComboBox
-                Grid.Row="3" 
-                Grid.Column="2"
-                Margin="0 10"
-                HorizontalAlignment="Left"
-                VerticalAlignment="Center"
-                MinWidth="200"
-                Style="{StaticResource NotEditableComboBoxStyle}"
-                ItemsSource="{Binding EducationFormats}"
-                SelectedItem="{Binding GroupData.EducationFormat}"/>
-        </Grid>
 
         <WrapPanel 
             Grid.Row="3"
-            Grid.ColumnSpan="3"
             Margin="0 50 0 0"
-            VerticalAlignment="Top"
             HorizontalAlignment="Center">
+
             <Button
                 Margin="0 0 25 0"
                 Content="Далее"
