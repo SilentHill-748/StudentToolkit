@@ -6,7 +6,7 @@
         <ResourceDictionary Source="Templates/PlaceholderTextBoxTemplate.xaml"/>
     </ResourceDictionary.MergedDictionaries>
     
-    <Style x:Key="PlaceholderTextBoxStyle" TargetType="{x:Type CustomControls:PlaceholderTextBox}">
+    <Style TargetType="{x:Type CustomControls:PlaceholderTextBox}">
         <Setter Property="Padding" Value="5 0 0 0"/>
         <Setter Property="Background" Value="{DynamicResource TextBoxBackgroundBrush}"/>
         <Setter Property="BorderBrush" Value="{DynamicResource TextBoxBorderBrushBrush}"/>

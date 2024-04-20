@@ -5,8 +5,8 @@
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="Templates/SideBarTemplate.xaml"/>
     </ResourceDictionary.MergedDictionaries>
-    
-    <Style x:Key="SideBarStyle" TargetType="{x:Type CustomControls:SideBar}">
+
+    <Style TargetType="{x:Type CustomControls:SideBar}">
         <Setter Property="Background" Value="{DynamicResource SidebarBackgroundBrush}"/>
         <Setter Property="BorderBrush" Value="{DynamicResource AppBorderBrushBrush}"/>
         <Setter Property="BorderThickness" Value="0 0 1 0"/>

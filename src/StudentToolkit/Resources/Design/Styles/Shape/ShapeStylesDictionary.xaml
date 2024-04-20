@@ -1,5 +1,8 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="ShapeStyle.xaml"/>
+
+        <ResourceDictionary Source="Path/PathStyle.xaml"/>
+        <ResourceDictionary Source="Rectangle/RectangleStyle.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

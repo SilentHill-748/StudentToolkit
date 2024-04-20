@@ -6,7 +6,7 @@
         <ResourceDictionary Source="Templates/ListViewTemplate.xaml"/>
     </ResourceDictionary.MergedDictionaries>
     
-    <Style x:Key="ListViewStyle" TargetType="{x:Type ListView}">
+    <Style TargetType="{x:Type ListView}">
         <Setter Property="OverridesDefaultStyle" Value="True"/>
         <Setter Property="ScrollViewer.CanContentScroll" Value="True"/>
         <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto"/>

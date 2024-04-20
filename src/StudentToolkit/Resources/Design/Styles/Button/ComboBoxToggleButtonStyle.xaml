@@ -2,14 +2,14 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
     <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="BaseButtonStyle.xaml"/>
         <ResourceDictionary Source="Templates/ComboBoxToggleButtonTemplate.xaml"/>
-        <ResourceDictionary Source="ButtonStyle.xaml"/>
     </ResourceDictionary.MergedDictionaries>
     
     <Style
         x:Key="ComboBoxToggleButtonStyle"
         TargetType="{x:Type ToggleButton}"
-        BasedOn="{StaticResource ButtonStyle}">
+        BasedOn="{StaticResource {x:Type ButtonBase}}">
         
         <Setter Property="BorderBrush" Value="{DynamicResource ComboBoxBorderBrushBrush}"/>
         <Setter Property="Background" Value="{DynamicResource ComboBoxBackgroundBrush}"/>
