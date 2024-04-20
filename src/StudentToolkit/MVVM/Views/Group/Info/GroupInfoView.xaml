@@ -29,8 +29,7 @@
 
         <CustomControls:TileContentControl
             Grid.Column="0"
-            Grid.Row="1"
-            Style="{StaticResource TileContentControlStyle}">
+            Grid.Row="1">
 
             <Grid>
                 <Grid.RowDefinitions>
@@ -48,15 +47,13 @@
                     Grid.Row="1"
                     MinWidth="200"
                     SelectionMode="Single"
-                    ItemsSource="{Binding Group.Students}"
-                    Style="{StaticResource ListViewStyle}"/>
+                    ItemsSource="{Binding Group.Students}"/>
             </Grid>
         </CustomControls:TileContentControl>
 
         <CustomControls:TileContentControl
             Grid.Column="2"
-            Grid.Row="1"
-            Style="{StaticResource TileContentControlStyle}">
+            Grid.Row="1">
 
             <Grid>
                 <Grid.RowDefinitions>

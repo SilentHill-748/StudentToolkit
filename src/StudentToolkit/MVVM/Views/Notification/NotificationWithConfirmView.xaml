@@ -46,15 +46,13 @@
                 IsDefault="True"
                 Content="Да"
                 Margin="0 0 10 0"
-                Command="{Binding ConfirmNotificationCommand}"
-                Style="{StaticResource ButtonStyle}"/>
+                Command="{Binding ConfirmNotificationCommand}"/>
 
             <Button
                 MinWidth="70"
                 IsCancel="True"
                 Content="Нет"
-                Command="{Binding CloseNotificationCommand}"
-                Style="{StaticResource ButtonStyle}"/>
+                Command="{Binding CloseNotificationCommand}"/>
         </StackPanel>
     </Grid>
 </UserControl>

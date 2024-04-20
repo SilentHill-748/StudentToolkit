@@ -6,10 +6,7 @@
         <ResourceDictionary Source="Templates/InputFieldTemplate.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
-    <Style
-        x:Key="InputFieldStyle"
-        TargetType="{x:Type CustomControls:InputField}">
-        
+    <Style TargetType="{x:Type CustomControls:InputField}">
         <Setter Property="VerticalContentAlignment" Value="Center"/>
         <Setter Property="Foreground" Value="{DynamicResource AppForegroundBrush}"/>
         <Setter Property="Template" Value="{StaticResource InputFieldTemplate}"/>

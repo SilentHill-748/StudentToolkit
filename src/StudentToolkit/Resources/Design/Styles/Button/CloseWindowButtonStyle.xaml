@@ -7,7 +7,7 @@
     
     <Style
         x:Key="CloseWindowButtonStyle"
-        TargetType="{x:Type Button}"
+        TargetType="{x:Type ButtonBase}"
         BasedOn="{StaticResource WindowHeaderButtonStyle}">
         
         <Style.Triggers>

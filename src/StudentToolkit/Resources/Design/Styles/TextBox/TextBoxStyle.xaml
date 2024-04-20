@@ -4,8 +4,8 @@
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="Templates/TextBoxTemplate.xaml"/>
     </ResourceDictionary.MergedDictionaries>
-    
-    <Style x:Key="TextBoxStyle" TargetType="{x:Type TextBox}">
+
+    <Style TargetType="{x:Type TextBox}">
         <Setter Property="OverridesDefaultStyle" Value="True"/>
         <Setter Property="SnapsToDevicePixels" Value="True"/>
         <Setter Property="MinWidth" Value="120"/>

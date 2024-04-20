@@ -3,23 +3,13 @@
 
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="BaseButtonStyle.xaml"/>
-        <ResourceDictionary Source="Templates/ButtonTemplate.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
     <Style
-        x:Key="ButtonStyle"
-        TargetType="{x:Type ButtonBase}"
-        BasedOn="{StaticResource BaseButtonStyle}">
-        
-        <Setter Property="Template" Value="{StaticResource ButtonTemplate}"/>
+        TargetType="{x:Type Button}"
+        BasedOn="{StaticResource {x:Type ButtonBase}}">
 
         <Style.Triggers>
-            <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="BorderBrush" Value="{DynamicResource MouseSelectionBorderBrushBrush}"/>
-                <Setter Property="Foreground" Value="{DynamicResource MouseSelectionForegroundBrush}"/>
-                <Setter Property="Background" Value="{DynamicResource MouseSelectionBackgroundBrush}"/>
-            </Trigger>
-
             <Trigger Property="IsEnabled" Value="False">
                 <Setter Property="Background" Value="{DynamicResource DisabledButtonBackgroundBrush}"/>
                 <Setter Property="BorderBrush" Value="Transparent"/>

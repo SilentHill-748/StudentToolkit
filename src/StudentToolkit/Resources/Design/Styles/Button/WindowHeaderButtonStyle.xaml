@@ -8,8 +8,8 @@
     
     <Style
         x:Key="WindowHeaderButtonStyle"
-        TargetType="{x:Type Button}"
-        BasedOn="{StaticResource BaseButtonStyle}">
+        TargetType="{x:Type ButtonBase}"
+        BasedOn="{StaticResource {x:Type ButtonBase}}">
 
         <Setter Property="Width" Value="45"/>
         <Setter Property="Padding" Value="0"/>

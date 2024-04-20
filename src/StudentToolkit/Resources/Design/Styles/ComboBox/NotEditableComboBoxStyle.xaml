@@ -6,7 +6,7 @@
         <ResourceDictionary Source="ComboBoxItem/ComboBoxItemStyle.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
-    <Style x:Key="NotEditableComboBoxStyle" TargetType="{x:Type ComboBox}">
+    <Style TargetType="{x:Type ComboBox}">
         <Setter Property="OverridesDefaultStyle" Value="True"/>
         <Setter Property="SnapsToDevicePixels" Value="true"/>
         <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Auto"/>

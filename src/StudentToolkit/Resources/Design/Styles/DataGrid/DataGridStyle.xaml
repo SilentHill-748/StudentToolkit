@@ -7,7 +7,7 @@
         <ResourceDictionary Source="DataGridCell/DataGridCellStyles.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
-    <Style x:Key="DataGridStyle" TargetType="{x:Type DataGrid}">
+    <Style TargetType="{x:Type DataGrid}">
         <Setter Property="SnapsToDevicePixels" Value="True"/>
         <Setter Property="IsReadOnly" Value="True"/>
         <Setter Property="AutoGenerateColumns" Value="False"/>
@@ -20,7 +20,6 @@
         <Setter Property="VerticalGridLinesBrush" Value="Transparent"/>
         <Setter Property="HorizontalGridLinesBrush" Value="Transparent"/>
         <Setter Property="BorderBrush" Value="{DynamicResource AppBorderBrushBrush}"/>
-        <Setter Property="ColumnWidth" Value="*"/>
         <Setter Property="HeadersVisibility" Value="Column"/>
         <Setter Property="EnableRowVirtualization" Value="True"/>
         <Setter Property="CanUserAddRows" Value="False"/>

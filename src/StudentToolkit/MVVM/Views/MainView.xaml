@@ -28,21 +28,16 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-        <CustomControls:SideBar
-            Grid.RowSpan="2"
-            Style="{StaticResource SideBarStyle}">
-            
+        <CustomControls:SideBar Grid.RowSpan="2">
             <Button
                 Content="Группа"
                 Margin="0 0 0 10"
-                Command="{Binding NavigateToGroupHomePageCommand}"
-                Style="{StaticResource ButtonStyle}"/>
+                Command="{Binding NavigateToGroupHomePageCommand}"/>
             
             <Button
                 Content="О программе"
                 Margin="0 0 0 10"
-                Command="{Binding NavigateToAboutViewCommand}"
-                Style="{StaticResource ButtonStyle}"/>
+                Command="{Binding NavigateToAboutViewCommand}"/>
         </CustomControls:SideBar>
 
         <ContentControl

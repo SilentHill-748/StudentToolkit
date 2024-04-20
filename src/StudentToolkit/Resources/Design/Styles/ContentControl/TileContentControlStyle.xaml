@@ -6,7 +6,7 @@
         <ResourceDictionary Source="Templates/TileContentControlTemplate.xaml"/>
     </ResourceDictionary.MergedDictionaries>
     
-    <Style x:Key="TileContentControlStyle" TargetType="{x:Type CustomControls:TileContentControl}">
+    <Style TargetType="{x:Type CustomControls:TileContentControl}">
         <Setter Property="Background" Value="{DynamicResource TileContentControlBackgroundBrush}"/>
         <Setter Property="Padding" Value="30 15"/>
         <Setter Property="Template" Value="{StaticResource TileContentControlTemplate}"/>
