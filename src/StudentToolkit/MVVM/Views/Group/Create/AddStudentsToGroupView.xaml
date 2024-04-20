@@ -34,35 +34,18 @@
             </Grid.RowDefinitions>
 
             <StackPanel Grid.IsSharedSizeScope="True">
-                <CustomControls:InputField
-                    Title="Фамилия"
-                    Margin="0 0 0 5"
-                    Style="{StaticResource InputFieldStyle}">
-
+                <CustomControls:InputField Title="Фамилия" Margin="0 0 0 5">
                     <TextBox
                         MinWidth="250"
-                        Style="{StaticResource TextBoxStyle}"
                         Text="{Binding Student.LastName, UpdateSourceTrigger=PropertyChanged}"/>
                 </CustomControls:InputField>
 
-                <CustomControls:InputField
-                    Title="Имя"
-                    Margin="0 0 0 5"
-                    Style="{StaticResource InputFieldStyle}">
-
-                    <TextBox
-                        Style="{StaticResource TextBoxStyle}"
-                        Text="{Binding Student.FirstName, UpdateSourceTrigger=PropertyChanged}"/>
+                <CustomControls:InputField Title="Имя" Margin="0 0 0 5">
+                    <TextBox Text="{Binding Student.FirstName, UpdateSourceTrigger=PropertyChanged}"/>
                 </CustomControls:InputField>
 
-                <CustomControls:InputField
-                    Title="Отчество"
-                    Margin="0 0 0 5"
-                    Style="{StaticResource InputFieldStyle}">
-
-                    <TextBox
-                        Style="{StaticResource TextBoxStyle}"
-                        Text="{Binding Student.MiddleName, UpdateSourceTrigger=PropertyChanged}"/>
+                <CustomControls:InputField Title="Отчество" Margin="0 0 0 5">
+                    <TextBox Text="{Binding Student.MiddleName, UpdateSourceTrigger=PropertyChanged}"/>
                 </CustomControls:InputField>
             </StackPanel>
 
@@ -71,8 +54,7 @@
                 Content="Добавить студента"
                 Margin="0 10 0 0"
                 HorizontalAlignment="Left"
-                Command="{Binding AddStudentCommand}"
-                Style="{StaticResource ButtonStyle}"/>
+                Command="{Binding AddStudentCommand}"/>
         </Grid>
 
         <TextBlock
@@ -83,8 +65,7 @@
 
         <DataGrid
             Grid.Row="3"
-            ItemsSource="{Binding Students}"
-            Style="{StaticResource DataGridStyle}">
+            ItemsSource="{Binding Students}">
 
             <DataGrid.Columns>
                 <DataGridTextColumn
@@ -118,20 +99,17 @@
             <Button
                 Content="Вернуться"
                 Margin="0 0 25 0"
-                Command="{Binding GoBackCommand}"
-                Style="{StaticResource ButtonStyle}"/>
+                Command="{Binding GoBackCommand}"/>
 
             <Button
                 Content="Создать"
                 Margin="0 0 25 0"
-                Command="{Binding AsyncCreateGroupCommand}"
-                Style="{StaticResource ButtonStyle}"/>
+                Command="{Binding AsyncCreateGroupCommand}"/>
 
             <Button
                 Content="Отмена"
                 Margin="0 0 25 0"
-                Command="{Binding CancelCommand}"
-                Style="{StaticResource ButtonStyle}"/>
+                Command="{Binding CancelCommand}"/>
         </WrapPanel>
     </Grid>
 </UserControl>
