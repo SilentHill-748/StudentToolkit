@@ -65,6 +65,7 @@
 
         <DataGrid
             Grid.Row="3"
+            ColumnWidth="*"
             ItemsSource="{Binding Students}">
 
             <DataGrid.Columns>
