@@ -4,7 +4,7 @@ using System.Windows.Media;
 
 using StudentToolkit.WpfCore.Common.Helpers;
 
-namespace StudentToolkit.MVVM.Views.Controls;
+namespace StudentToolkit.MVVM.Components.Views;
 
 public partial class WindowHeader : UserControl
 {

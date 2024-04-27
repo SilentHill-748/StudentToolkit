@@ -1,4 +1,4 @@
-﻿namespace StudentToolkit.MVVM.ViewModels.Components;
+﻿namespace StudentToolkit.MVVM.Components.ViewModels;
 
 public sealed class StatusbarViewModel : ViewModel
 {

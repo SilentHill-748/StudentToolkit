@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:Behaviors="http://schemas.microsoft.com/xaml/behaviors"
              xmlns:ViewModel="clr-namespace:StudentToolkit.MVVM.ViewModels"
-             xmlns:Controls="clr-namespace:StudentToolkit.MVVM.Views.Controls"
+             xmlns:Controls="clr-namespace:StudentToolkit.MVVM.Components.Views"
              xmlns:CustomControls="clr-namespace:StudentToolkit.WpfCore.CustomControls"
              mc:Ignorable="d"
              SnapsToDevicePixels="True"

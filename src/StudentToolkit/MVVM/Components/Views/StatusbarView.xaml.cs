@@ -1,6 +1,6 @@
 ﻿using System.Windows.Controls;
 
-namespace StudentToolkit.MVVM.Views.Controls;
+namespace StudentToolkit.MVVM.Components.Views;
 
 public partial class StatusbarView : UserControl
 {
