@@ -3,7 +3,7 @@
 using StudentToolkit.Domain.Dto;
 using StudentToolkit.WpfCore.Providers;
 
-namespace StudentToolkit.MVVM.Stores.Group;
+namespace StudentToolkit.Stores.Group;
 
 public sealed class GroupStore : IGroupStore, IDisposable
 {

@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 
-namespace StudentToolkit.MVVM.Stores.Group;
+namespace StudentToolkit.Stores.Group;
 
 public interface IGroupStore
 {

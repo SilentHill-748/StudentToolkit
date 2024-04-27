@@ -1,4 +1,4 @@
-﻿using StudentToolkit.MVVM.Validation.Group;
+﻿using StudentToolkit.Validation.Group;
 
 namespace StudentToolkit.MVVM.ViewModels.Model;
 

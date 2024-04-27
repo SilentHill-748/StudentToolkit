@@ -1,6 +1,6 @@
 ﻿using SimpleInjector;
 
-using StudentToolkit.MVVM.Stores.Group.Decorators;
+using StudentToolkit.Stores.Group.Decorators;
 
 namespace StudentToolkit.Configuration.DI.Extensions;
 

@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 
-namespace StudentToolkit.MVVM.Stores.Group.Decorators;
+namespace StudentToolkit.Stores.Group.Decorators;
 
 public sealed class GroupStoreLoggerDecorator : IGroupStore, IDisposable
 {
