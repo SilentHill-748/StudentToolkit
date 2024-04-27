@@ -1,4 +1,4 @@
-﻿namespace StudentToolkit.MVVM.ViewModels;
+﻿namespace StudentToolkit.MVVM.Main.ViewModels;
 
 public class MainViewModel : ViewModel
 {

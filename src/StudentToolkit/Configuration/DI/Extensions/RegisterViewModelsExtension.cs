@@ -1,6 +1,4 @@
-﻿using StudentToolkit.MVVM.Group.GroupInfo.ViewModels;
-
-namespace StudentToolkit.Configuration.DI.Extensions;
+﻿namespace StudentToolkit.Configuration.DI.Extensions;
 
 public static class RegisterViewModelsExtension
 {

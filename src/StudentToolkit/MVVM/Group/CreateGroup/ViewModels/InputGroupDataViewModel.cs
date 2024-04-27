@@ -1,5 +1,4 @@
-﻿using StudentToolkit.MVVM.Group.GroupInfo.ViewModels;
-using StudentToolkit.WpfCore.Common.Helpers;
+﻿using StudentToolkit.WpfCore.Common.Helpers;
 
 namespace StudentToolkit.MVVM.Group.CreateGroup.ViewModels;
 
