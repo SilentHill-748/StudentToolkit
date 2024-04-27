@@ -1,4 +1,6 @@
-﻿namespace StudentToolkit.MVVM.Main.ViewModels;
+﻿using StudentToolkit.MVVM.About.ViewModels;
+
+namespace StudentToolkit.MVVM.Main.ViewModels;
 
 public class MainViewModel : ViewModel
 {

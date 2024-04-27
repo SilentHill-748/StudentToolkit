@@ -25,6 +25,7 @@ global using StudentToolkit.Navigation;
 global using StudentToolkit.Navigation.Messages;
 global using StudentToolkit.Stores.Group;
 global using StudentToolkit.MVVM.Main.ViewModels;
+global using StudentToolkit.MVVM.About.ViewModels;
 global using StudentToolkit.MVVM.ViewModels;
 global using StudentToolkit.MVVM.ViewModels.Base;
 global using StudentToolkit.MVVM.Components.ViewModels;

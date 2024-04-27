@@ -1,6 +1,6 @@
 ﻿using System.Windows.Controls;
 
-namespace StudentToolkit.MVVM.Views;
+namespace StudentToolkit.MVVM.About.Views;
 
 public partial class AboutView : UserControl
 {
