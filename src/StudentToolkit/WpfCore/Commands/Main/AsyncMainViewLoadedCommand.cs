@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 
-namespace StudentToolkit.WpfCore.Commands.Presentation.Main;
+namespace StudentToolkit.WpfCore.Commands.Main;
 
 public class AsyncMainViewLoadedCommand : AsyncCommand
 {
