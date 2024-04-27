@@ -1,6 +1,7 @@
-﻿using StudentToolkit.Validation.Group;
+﻿using StudentToolkit.MVVM.Student;
+using StudentToolkit.Validation.Group;
 
-namespace StudentToolkit.MVVM.ViewModels.Model;
+namespace StudentToolkit.MVVM.Group;
 
 public class GroupViewModel : ValidatableViewModel
 {

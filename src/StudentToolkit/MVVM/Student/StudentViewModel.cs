@@ -1,6 +1,6 @@
 ﻿using StudentToolkit.Validation.Student;
 
-namespace StudentToolkit.MVVM.ViewModels.Model;
+namespace StudentToolkit.MVVM.Student;
 
 public class StudentViewModel : ValidatableViewModel, ICloneable
 {
@@ -50,10 +50,10 @@ public class StudentViewModel : ValidatableViewModel, ICloneable
     {
         return new StudentViewModel()
         {
-            Id = this.Id,
-            FirstName = this.FirstName,
-            LastName = this.LastName,
-            MiddleName = this.MiddleName
+            Id = Id,
+            FirstName = FirstName,
+            LastName = LastName,
+            MiddleName = MiddleName
         };
     }
 
