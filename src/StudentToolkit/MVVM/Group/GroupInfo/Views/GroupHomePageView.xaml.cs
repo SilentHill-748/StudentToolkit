@@ -1,6 +1,6 @@
 ﻿using System.Windows.Controls;
 
-namespace StudentToolkit.MVVM.Views.Group.Info;
+namespace StudentToolkit.MVVM.Group.GroupInfo.Views;
 
 public partial class GroupHomePageView : UserControl
 {

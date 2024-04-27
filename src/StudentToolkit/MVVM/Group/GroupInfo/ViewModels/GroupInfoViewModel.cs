@@ -1,4 +1,4 @@
-﻿namespace StudentToolkit.MVVM.ViewModels.Presentation.Group.Info;
+﻿namespace StudentToolkit.MVVM.Group.GroupInfo.ViewModels;
 
 public class GroupInfoViewModel : ViewModel
 {
@@ -7,7 +7,7 @@ public class GroupInfoViewModel : ViewModel
         ArgumentNullException.ThrowIfNull(group, nameof(group));
 
         Group = group;
-        
+
         ViewTitle = "Данные по Вашей группе";
     }
 

@@ -1,6 +1,6 @@
 ﻿using System.Windows.Controls;
 
-namespace StudentToolkit.MVVM.Views.Group.Create;
+namespace StudentToolkit.MVVM.Group.CreateGroup.Views;
 
 public partial class AddStudentsToGroupView : UserControl
 {
