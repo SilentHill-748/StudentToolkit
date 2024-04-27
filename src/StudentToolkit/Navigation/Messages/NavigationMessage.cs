@@ -1,4 +1,4 @@
-﻿namespace StudentToolkit.MVVM.Models.Navigation.Messages;
+﻿namespace StudentToolkit.Navigation.Messages;
 
 public sealed class NavigationMessage : ValueChangedMessage<NavigationModel>
 {

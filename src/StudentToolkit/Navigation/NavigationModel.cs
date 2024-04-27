@@ -1,4 +1,4 @@
-﻿namespace StudentToolkit.MVVM.Models.Navigation;
+﻿namespace StudentToolkit.Navigation;
 
 public sealed class NavigationModel
 {
