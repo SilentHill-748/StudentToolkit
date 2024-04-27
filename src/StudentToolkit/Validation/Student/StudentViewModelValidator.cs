@@ -1,4 +1,6 @@
-﻿namespace StudentToolkit.MVVM.Validation.Student;
+﻿using StudentToolkit.MVVM.Validation.Student;
+
+namespace StudentToolkit.Validation.Student;
 
 public sealed class StudentViewModelValidator : AbstractValidator<StudentViewModel>
 {

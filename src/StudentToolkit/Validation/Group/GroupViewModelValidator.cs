@@ -1,4 +1,6 @@
-﻿namespace StudentToolkit.MVVM.Validation.Group;
+﻿using StudentToolkit.MVVM.Validation.Group;
+
+namespace StudentToolkit.Validation.Group;
 
 public sealed class GroupViewModelValidator : AbstractValidator<GroupViewModel>
 {
