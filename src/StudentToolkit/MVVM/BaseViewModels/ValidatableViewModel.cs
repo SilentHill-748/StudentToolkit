@@ -4,7 +4,7 @@ using System.Runtime.CompilerServices;
 
 using FluentValidation.Results;
 
-namespace StudentToolkit.MVVM.ViewModels.Base;
+namespace StudentToolkit.MVVM.BaseViewModels;
 
 public abstract class ValidatableViewModel : ViewModel, INotifyDataErrorInfo
 {

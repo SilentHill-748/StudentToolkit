@@ -1,4 +1,4 @@
-﻿namespace StudentToolkit.MVVM.ViewModels.Base;
+﻿namespace StudentToolkit.MVVM.BaseViewModels;
 
 public abstract class ResultDialogViewModel<TResult> : DialogViewModel
 {

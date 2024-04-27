@@ -1,5 +1,4 @@
 ﻿using CommunityToolkit.Mvvm.Messaging;
-using StudentToolkit.Navigation.Messages;
 
 namespace StudentToolkit.WPF.UnitTests.TestDoubles.Stubs.ViewModels;
 

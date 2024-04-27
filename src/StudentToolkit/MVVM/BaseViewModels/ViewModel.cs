@@ -1,6 +1,6 @@
 ﻿using System.Runtime.CompilerServices;
 
-namespace StudentToolkit.MVVM.ViewModels.Base;
+namespace StudentToolkit.MVVM.BaseViewModels;
 
 public class ViewModel : INotifyPropertyChanged
 {
