@@ -1,4 +1,4 @@
-﻿namespace StudentToolkit.MVVM.ViewModels.Notification;
+﻿namespace StudentToolkit.MVVM.Notification.ViewModels;
 
 public class NotificationViewModel : ViewModel
 {

@@ -1,11 +1,12 @@
-﻿<UserControl x:Class="StudentToolkit.MVVM.Views.Notification.NotificationWithConfirmView"
+﻿<UserControl x:Class="StudentToolkit.MVVM.Notification.Views.NotificationView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:ViewModel="clr-namespace:StudentToolkit.MVVM.ViewModels.Notification"
-             d:DataContext="{d:DesignInstance Type=ViewModel:NotificationWithConfirmViewModel}"
+             xmlns:ViewModel="clr-namespace:StudentToolkit.MVVM.Notification.ViewModels"
+             d:DataContext="{d:DesignInstance Type=ViewModel:NotificationViewModel}"
              mc:Ignorable="d">
+    
     <UserControl.Resources>
         <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
     </UserControl.Resources>
@@ -35,24 +36,14 @@
             TextWrapping="Wrap"
             Text="{Binding Message}"/>
 
-        <StackPanel 
-            Grid.Row="2" 
+        <Button 
             Grid.Column="2"
-            Orientation="Horizontal"
+            Grid.Row="2"
+            MinWidth="70"
+            IsDefault="True"
+            Content="Ок"
+            VerticalAlignment="Bottom"
             HorizontalAlignment="Right"
-            VerticalAlignment="Bottom">
-            <Button 
-                MinWidth="70"
-                IsDefault="True"
-                Content="Да"
-                Margin="0 0 10 0"
-                Command="{Binding ConfirmNotificationCommand}"/>
-
-            <Button
-                MinWidth="70"
-                IsCancel="True"
-                Content="Нет"
-                Command="{Binding CloseNotificationCommand}"/>
-        </StackPanel>
+            Command="{Binding CloseNotificationCommand}"/>
     </Grid>
 </UserControl>

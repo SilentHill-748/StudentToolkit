@@ -1,6 +1,6 @@
 ﻿using System.Windows.Controls;
 
-namespace StudentToolkit.MVVM.Views.Notification;
+namespace StudentToolkit.MVVM.Notification.Views;
 
 public partial class NotificationWithConfirmView : UserControl
 {
