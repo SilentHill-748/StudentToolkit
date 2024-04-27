@@ -1,4 +1,4 @@
-﻿namespace StudentToolkit.WpfCore.Commands.Presentation.Group;
+﻿namespace StudentToolkit.WpfCore.Commands.Group.CreateGroup;
 
 public class AddStudentCommand : Command
 {
@@ -23,7 +23,7 @@ public class AddStudentCommand : Command
 
     private static bool IsNotValidationErrors(StudentViewModel student)
         => !student.HasErrors;
-        
+
     private void AddStudent(StudentViewModel source)
     {
         var value = (StudentViewModel)source.Clone();

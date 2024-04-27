@@ -1,4 +1,4 @@
-﻿namespace StudentToolkit.WpfCore.Commands.Presentation.Group;
+﻿namespace StudentToolkit.WpfCore.Commands.Group.CreateGroup;
 
 public class SetGroupDataAndMoveToNextViewCommand : Command
 {
