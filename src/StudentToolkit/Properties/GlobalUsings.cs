@@ -32,7 +32,7 @@ global using StudentToolkit.MVVM.Components.ViewModels;
 global using StudentToolkit.MVVM.ViewModels.Model;
 global using StudentToolkit.MVVM.Group.CreateGroup.ViewModels;
 global using StudentToolkit.MVVM.Group.GroupInfo.ViewModels;
-global using StudentToolkit.MVVM.Views.Windows;
+global using StudentToolkit.MVVM.Windows;
 global using StudentToolkit.WpfCore.Commands.Base;
 global using StudentToolkit.WpfCore.Commands.Navigation;
 global using StudentToolkit.WpfCore.Commands.Presentation.Group;

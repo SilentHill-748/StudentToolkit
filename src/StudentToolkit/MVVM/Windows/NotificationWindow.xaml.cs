@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 
-namespace StudentToolkit.MVVM.Views.Windows;
+namespace StudentToolkit.MVVM.Windows;
 
 public partial class NotificationWindow : Window
 {
