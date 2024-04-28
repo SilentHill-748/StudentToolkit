@@ -1,0 +1,54 @@
+﻿<UserControl x:Class="StudentToolkit.MVVM.Main.Views.MainView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:Behaviors="http://schemas.microsoft.com/xaml/behaviors"
+             xmlns:ViewModel="clr-namespace:StudentToolkit.MVVM.Main.ViewModels"
+             xmlns:Controls="clr-namespace:StudentToolkit.MVVM.Components.Views"
+             xmlns:CustomControls="clr-namespace:StudentToolkit.WpfCore.CustomControls"
+             mc:Ignorable="d"
+             SnapsToDevicePixels="True"
+             d:DataContext="{d:DesignInstance Type=ViewModel:MainViewModel}">
+
+    <Behaviors:Interaction.Triggers>
+        <Behaviors:EventTrigger EventName="Loaded">
+            <Behaviors:InvokeCommandAction Command="{Binding LoadedEventCommand}"/>
+        </Behaviors:EventTrigger>
+    </Behaviors:Interaction.Triggers>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <CustomControls:SideBar Grid.RowSpan="2">
+            <Button
+                Content="Группа"
+                Margin="0 0 0 10"
+                Command="{Binding NavigateToGroupHomePageCommand}"/>
+            
+            <Button
+                Content="О программе"
+                Margin="0 0 0 10"
+                Command="{Binding NavigateToAboutViewCommand}"/>
+        </CustomControls:SideBar>
+
+        <ContentControl
+            Grid.Column="1"
+            Content="{Binding ContentViewModel}"/>
+
+        <Controls:StatusbarView 
+            Grid.Row="1"
+            Grid.Column="1"
+            HorizontalAlignment="Right"
+            Margin="0 0 10 0"
+            DataContext="{Binding StatusbarViewModel}"/>
+    </Grid>
+</UserControl>

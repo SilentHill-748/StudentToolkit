@@ -1,4 +1,4 @@
-﻿using StudentToolkit.MVVM.ViewModels.Notification;
+﻿using StudentToolkit.MVVM.Notification.ViewModels;
 
 namespace StudentToolkit.WpfCore.Services;
 

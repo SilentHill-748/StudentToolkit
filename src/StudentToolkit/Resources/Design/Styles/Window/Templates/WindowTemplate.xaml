@@ -1,6 +1,6 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:Controls="clr-namespace:StudentToolkit.MVVM.Views.Controls">
+                    xmlns:Controls="clr-namespace:StudentToolkit.MVVM.Components.Views">
     
     <ControlTemplate x:Key="WindowTemplate" TargetType="{x:Type Window}">
         <Border

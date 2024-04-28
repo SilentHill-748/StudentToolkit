@@ -1,0 +1,81 @@
+﻿<UserControl x:Class="StudentToolkit.MVVM.About.Views.AboutView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:ViewModel="clr-namespace:StudentToolkit.MVVM.About.ViewModels"
+             d:DataContext="{d:DesignInstance Type=ViewModel:AboutViewModel}"
+             mc:Ignorable="d">
+    <Grid Margin="10 5">
+        <FlowDocumentScrollViewer VerticalScrollBarVisibility="Auto">
+            <FlowDocument>
+                <Paragraph 
+                    FontWeight="Bold"
+                    FontSize="26">
+                    Студенческий инструментарий Student Toolkit
+                </Paragraph>
+                <Section>
+                    <Paragraph 
+                        FontWeight="Bold"
+                        FontSize="22">
+                        Что из себя представляет инструментарий?
+                    </Paragraph>
+                    <Paragraph>
+                        <Bold>Student Toolkit</Bold> представляет из себя набор программных решений для автоматизации работы старосты в студенческой группе.
+                        Данный программный продукт позволяет выполнять работу по работе с расписанием, посещаемостью и контролем домашних заданий.
+                    </Paragraph>
+                    <Paragraph FontStyle="Italic">
+                        Программа обладает следущими инструментами:
+                    </Paragraph>
+                    <List>
+                        <ListItem>
+                            <Paragraph>
+                                <Run FontWeight="Bold">Автоматизация построения расписания</Run>: этот инструмент позволяет построить новый Excel файл по исходному, подстраивая формат
+                                расписания под тот, что сконфигурирован в настройках.
+                            </Paragraph>
+                        </ListItem>
+                        <ListItem>
+                            <Paragraph>
+                                <Run FontWeight="Bold">Констроль посещаемости</Run>: данный инструмент отвечает за хранение всей истории посещаемости группы.
+                                При необходимости можно будет создать файл Excel с отчетом за указанную неделю.
+                                Все пропуски имеют ряд атрибутов, которые необходимо обязательно указывать.
+                            </Paragraph>
+                        </ListItem>
+                        <ListItem>
+                            <Paragraph>
+                                <Run FontWeight="Bold">Работа со списком домашних заданий</Run>: по аналогии схоже с программами - списками задач, где каждая задача имеет заголовок, описание, дату окончания и прочие атрибуты.
+                                В этом инструменте все домашние задания будут разбиты на блоки, где каждый блок - это отдельный предмет. 
+                                У домашнего задания будет указано что и когда надо выполнить.
+                            </Paragraph>
+                        </ListItem>
+                    </List>
+                </Section>
+                <Section>
+                    <Paragraph 
+                        FontWeight="Bold"
+                        FontSize="22">
+                        Как пользоваться программой?
+                    </Paragraph>
+
+                    <List MarkerStyle="Decimal">
+                        <ListItem>
+                            <Paragraph>
+                                Если не создана группа, то ее необходимо создать, описав название группы и всех студентов группы.
+                            </Paragraph>
+                        </ListItem>
+                        <ListItem>
+                            <Paragraph>
+                                Выбрать нужный инструмент через главное меню программы вверху, в блоке "Модули".
+                            </Paragraph>
+                        </ListItem>
+                        <ListItem>
+                            <Paragraph>
+                                Следовать инструкциям выбранного модуля.
+                            </Paragraph>
+                        </ListItem>
+                    </List>
+                </Section>
+            </FlowDocument>
+        </FlowDocumentScrollViewer>
+    </Grid>
+</UserControl>
