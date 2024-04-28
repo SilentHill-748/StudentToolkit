@@ -2,7 +2,7 @@
 
 using FluentValidation.Validators;
 
-namespace StudentToolkit.MVVM.Validation.Group;
+namespace StudentToolkit.Validation.Group;
 
 public partial class GroupCodePropertyValidator : PropertyValidator<GroupViewModel, string>
 {

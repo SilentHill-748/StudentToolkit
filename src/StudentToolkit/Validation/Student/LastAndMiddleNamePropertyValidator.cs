@@ -2,7 +2,7 @@
 
 using FluentValidation.Validators;
 
-namespace StudentToolkit.MVVM.Validation.Student;
+namespace StudentToolkit.Validation.Student;
 
 public partial class LastAndMiddleNamePropertyValidator : PropertyValidator<StudentViewModel, string>
 {
