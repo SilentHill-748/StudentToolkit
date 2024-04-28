@@ -50,10 +50,10 @@ public class StudentViewModel : ValidatableViewModel, ICloneable
     {
         return new StudentViewModel()
         {
-            Id = Id,
-            FirstName = FirstName,
-            LastName = LastName,
-            MiddleName = MiddleName
+            Id = this.Id,
+            FirstName = this.FirstName,
+            LastName = this.LastName,
+            MiddleName = this.MiddleName
         };
     }
 
