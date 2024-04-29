@@ -11,10 +11,6 @@ internal sealed class SubjectConfiguration : IEntityTypeConfiguration<Subject>
             .HasColumnName("subject_id");
 
         builder
-            .Property(x => x.TeacherId)
-            .HasColumnName("teacher_id");
-
-        builder
             .Property(x => x.Name)
             .HasColumnName("name")
             .HasMaxLength(50)
