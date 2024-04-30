@@ -10,5 +10,6 @@ global using SimpleInjector;
 
 global using StudentToolkit.Application.Common.Interfaces;
 global using StudentToolkit.Application.Common.Interfaces.Services;
+global using StudentToolkit.Application.Extensions;
 global using StudentToolkit.Domain.Dto;
 global using StudentToolkit.Domain.Entities;
