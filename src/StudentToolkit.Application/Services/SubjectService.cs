@@ -61,22 +61,22 @@ public class SubjectService : Service, ISubjectService
 
     public async Task UpdateSubjectAsync(SubjectDto subjectDto)
     {
-        await InternalUpdateSubject(subjectDto);
+        await InternalUpdateSubjectAsync(subjectDto);
         
         await DbContext.SaveChangesAsync();
     }
 
-    public async Task UpdateSubjects(IEnumerable<SubjectDto> subjectDtos)
+    public async Task UpdateSubjectsAsync(IEnumerable<SubjectDto> subjectDtos)
     {
         foreach (SubjectDto subjectDto in subjectDtos)
         {
-            await InternalUpdateSubject(subjectDto);
+            await InternalUpdateSubjectAsync(subjectDto);
         }
 
         await DbContext.SaveChangesAsync();
     }
 
-    private async Task InternalUpdateSubject(SubjectDto subjectDto)
+    private async Task InternalUpdateSubjectAsync(SubjectDto subjectDto)
     {
         Subject subjectEntity =
             await InternalGetSubjectByIdAsync(subjectDto.Id);

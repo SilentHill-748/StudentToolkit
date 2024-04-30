@@ -9,7 +9,7 @@ public interface ISubjectService
     Task DeleteAllSubjectsAsync();
 
     Task UpdateSubjectAsync(SubjectDto subjectDto);
-    Task UpdateSubjects(IEnumerable<SubjectDto> subjectDtos);
+    Task UpdateSubjectsAsync(IEnumerable<SubjectDto> subjectDtos);
 
     Task<SubjectDto> GetSubjectByIdAsync(Guid id);
     IEnumerable<SubjectDto> GetAllSubjects();
