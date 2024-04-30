@@ -1,4 +1,6 @@
 ﻿
+using StudentToolkit.Domain.Exceptions;
+
 namespace StudentToolkit.Application.Services;
 
 public class SubjectService : Service, ISubjectService
@@ -93,6 +95,6 @@ public class SubjectService : Service, ISubjectService
         return await DbContext.Subjects
             .AsTrackingWithStrategy(trackingBehavior)
             .FirstOrDefaultAsync(subject => subject.Id == id)
-                ?? throw new Exception();
+                ?? throw new SubjectNotFoundException(id);
     }
 }
