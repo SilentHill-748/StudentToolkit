@@ -1,5 +1,4 @@
-﻿
-using StudentToolkit.Domain.Exceptions;
+﻿using StudentToolkit.Domain.Exceptions;
 
 namespace StudentToolkit.Application.Services;
 
@@ -48,7 +47,7 @@ public class SubjectService : Service, ISubjectService
     public async Task<SubjectDto> GetSubjectByIdAsync(Guid id)
     {
         Subject subjectEntity =
-            await InternalGetSubjectByIdAsync(id, QueryTrackingBehavior.NoTracking);
+            await InternalGetSubjectByIdAsync(id, hasTracking: false);
 
         return subjectEntity.Adapt<SubjectDto>();
     }
@@ -90,11 +89,14 @@ public class SubjectService : Service, ISubjectService
 
     private async Task<Subject> InternalGetSubjectByIdAsync(
         Guid id,
-        QueryTrackingBehavior trackingBehavior = QueryTrackingBehavior.TrackAll)
+        bool hasTracking = true)
     {
-        return await DbContext.Subjects
-            .AsTrackingWithStrategy(trackingBehavior)
-            .FirstOrDefaultAsync(subject => subject.Id == id)
+        IQueryable<Subject> subjectEntities = hasTracking
+            ? DbContext.Subjects
+            : DbContext.Subjects.AsNoTracking();
+
+        return await subjectEntities
+            .SingleOrDefaultAsync(subject => subject.Id == id)
                 ?? throw new SubjectNotFoundException(id);
     }
 }
