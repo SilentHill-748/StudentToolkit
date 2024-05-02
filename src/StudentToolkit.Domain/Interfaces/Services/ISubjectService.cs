@@ -1,4 +1,4 @@
-﻿namespace StudentToolkit.Application.Common.Interfaces.Services;
+﻿namespace StudentToolkit.Domain.Interfaces.Services;
 
 public interface ISubjectService
 {
