@@ -9,7 +9,6 @@ global using Serilog;
 global using SimpleInjector;
 
 global using StudentToolkit.Application.Common.Interfaces;
-global using StudentToolkit.Application.Common.Interfaces.Services;
 global using StudentToolkit.Application.Extensions;
 global using StudentToolkit.Domain.Interfaces.Services;
 global using StudentToolkit.Domain.Dto;

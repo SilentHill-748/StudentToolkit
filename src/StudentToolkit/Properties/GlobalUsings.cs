@@ -16,10 +16,10 @@ global using Serilog;
 
 global using StudentToolkit.Application.Common.Constants;
 global using StudentToolkit.Application.Common.Exceptions;
-global using StudentToolkit.Application.Common.Interfaces.Services;
 global using StudentToolkit.Application.DI;
 global using StudentToolkit.Application.Extensions;
 global using StudentToolkit.Configuration.DI;
+global using StudentToolkit.Domain.Interfaces.Services;
 global using StudentToolkit.Infrastructure.DI;
 global using StudentToolkit.MVVM;
 global using StudentToolkit.MVVM.About.ViewModels;
