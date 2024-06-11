@@ -4,6 +4,8 @@
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="/Resources/Design/Styles/Shape/ShapeStylesDictionary.xaml"/>
         <ResourceDictionary Source="/Resources/Design/Styles/Button/ComboBoxToggleButtonStyle.xaml"/>
+        
+        <ResourceDictionary Source="/Resources/Design/FontFamilyDictionary.xaml"/>
     </ResourceDictionary.MergedDictionaries>
     
     <ControlTemplate x:Key="ComboBoxTemplate" TargetType="{x:Type ComboBox}">
@@ -30,7 +32,9 @@
                 FontSize="20"
                 Margin="10 0 0 0"
                 FontWeight="Bold"
-                Visibility="Collapsed"
+                Visibility="Hidden"
+                VerticalAlignment="Center"
+                FontFamily="{StaticResource TextBoxFontFamily}"
                 Foreground="{DynamicResource ValidationFailedBrush}"/>
 
             <Path

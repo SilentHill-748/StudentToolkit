@@ -2,6 +2,10 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:CustomControls="clr-namespace:StudentToolkit.WpfCore.CustomControls"
                     xmlns:Converters="clr-namespace:StudentToolkit.WpfCore.Converters">
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="/Resources/Design/FontFamilyDictionary.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
     
     <ControlTemplate
         x:Key="PlaceholderTextBoxTemplate"
@@ -34,13 +38,16 @@
                     Converter={StaticResource BooleanToVisibilityConverter}}"/>
 
             <TextBlock
-                x:Name="ErrorChar"
                 Grid.Column="1"
+                x:Name="ErrorChar"
+                VerticalAlignment="Center"
                 Margin="10 0 0 0"
                 Text="!"
+                Panel.ZIndex="3"
+                Visibility="Hidden"
                 FontSize="20"
                 FontWeight="Bold"
-                Visibility="Collapsed"
+                FontFamily="{StaticResource TextBoxFontFamily}"
                 Foreground="{DynamicResource ValidationFailedBrush}"/>
 
             <Border
@@ -48,10 +55,7 @@
                 BorderBrush="{TemplateBinding BorderBrush}"
                 BorderThickness="{TemplateBinding BorderThickness}">
 
-                <ScrollViewer
-                    x:Name="PART_ContentHost"
-                    VerticalScrollBarVisibility="Disabled"
-                    HorizontalScrollBarVisibility="Disabled"/>
+                <ScrollViewer x:Name="PART_ContentHost"/>
             </Border>
         </Grid>
 
