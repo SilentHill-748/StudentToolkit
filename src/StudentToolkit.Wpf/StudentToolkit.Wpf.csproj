@@ -10,6 +10,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\StudentToolkit.Application\StudentToolkit.Application.csproj" />
     <ProjectReference Include="..\StudentToolkit.Presentation\StudentToolkit.Presentation.csproj" />
   </ItemGroup>
 
