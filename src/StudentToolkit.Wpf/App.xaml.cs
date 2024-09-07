@@ -14,10 +14,7 @@ public partial class App : Application
 
         MainWindow = new MainWindow()
         {
-            DataContext = new MainWindowViewModel()
-            {
-                HostedViewModel = new MainViewModel()
-            }
+            DataContext = Services.GetInstance<MainWindowViewModel>()
         };
 
         MainWindow.Show();
