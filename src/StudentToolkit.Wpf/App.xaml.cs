@@ -10,7 +10,7 @@ public partial class App : Application
 
     protected override void OnStartup(StartupEventArgs e)
     {
-        ConfigureApp();
+        this.Configure();
 
         MainWindow = new MainWindow()
         {
@@ -18,11 +18,5 @@ public partial class App : Application
         };
 
         MainWindow.Show();
-    }
-
-    private void ConfigureApp()
-    {
-        this.ConfigureServices();
-        this.SetViewToViewModelDataTemplates();
     }
 }
