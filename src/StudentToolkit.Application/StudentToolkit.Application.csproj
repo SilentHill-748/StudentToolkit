@@ -1,16 +1,15 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net8.0-windows</TargetFramework>
-    <Nullable>enable</Nullable>
-    <UseWPF>true</UseWPF>
+    <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
 	<NoWarn>IDE0290;IDE0028</NoWarn>
 	<WarningsAsErrors>CS8602</WarningsAsErrors>
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\StudentToolkit.Application\StudentToolkit.Application.csproj" />
+    <PackageReference Include="SimpleInjector" Version="5.5.0" />
   </ItemGroup>
 
 </Project>

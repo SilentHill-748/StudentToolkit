@@ -6,16 +6,15 @@ namespace StudentToolkit.Wpf;
 
 public partial class App : Application
 {
+    public Container Services { get; } = new Container();
+
     protected override void OnStartup(StartupEventArgs e)
     {
         ConfigureApp();
 
         MainWindow = new MainWindow()
         {
-            DataContext = new MainWindowViewModel()
-            {
-                HostedViewModel = new MainViewModel()
-            }
+            DataContext = Services.GetInstance<MainWindowViewModel>()
         };
 
         MainWindow.Show();
@@ -23,6 +22,7 @@ public partial class App : Application
 
     private void ConfigureApp()
     {
+        this.ConfigureServices();
         this.SetViewToViewModelDataTemplates();
     }
 }

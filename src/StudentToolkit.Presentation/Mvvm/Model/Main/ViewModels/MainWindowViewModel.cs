@@ -2,8 +2,9 @@
 
 public class MainWindowViewModel : WindowViewModel
 {
-    public MainWindowViewModel()
+    public MainWindowViewModel(MainViewModel mainViewModel)
     {
         Title = TextConstants.DefaultWindowTitle;
+        HostedViewModel = mainViewModel;
     }
 }

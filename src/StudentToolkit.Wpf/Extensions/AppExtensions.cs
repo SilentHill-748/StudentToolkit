@@ -6,6 +6,11 @@ namespace StudentToolkit.Wpf.Extensions;
 
 public static class AppExtensions
 {
+    public static void ConfigureServices(this App app)
+    {
+        app.Services.AddServices();
+    }
+
     public static void SetViewToViewModelDataTemplates(this App app)
     {
         IEnumerable<DataTemplate> dataTemplates =
