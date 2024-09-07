@@ -8,4 +8,8 @@
 	<WarningsAsErrors>CS8602</WarningsAsErrors>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="SimpleInjector" Version="5.5.0" />
+  </ItemGroup>
+
 </Project>
