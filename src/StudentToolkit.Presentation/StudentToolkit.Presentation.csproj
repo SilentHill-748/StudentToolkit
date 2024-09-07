@@ -5,7 +5,7 @@
     <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>
     <ImplicitUsings>enable</ImplicitUsings>
-	<NoWarn>IDE0290</NoWarn>
+	<NoWarn>IDE0290;IDE0028</NoWarn>
 	<WarningsAsErrors>CS8602</WarningsAsErrors>
   </PropertyGroup>
 
