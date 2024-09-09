@@ -5,7 +5,7 @@
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                
+                <ResourceDictionary Source="\StudentToolkit.Presentation;component\Resources\PresentationDictionary.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>
