@@ -7,6 +7,7 @@
     <UseWPF>true</UseWPF>
 	<NoWarn>IDE0290;IDE0028</NoWarn>
 	<WarningsAsErrors>CS8602</WarningsAsErrors>
+    <ApplicationIcon>..\StudentToolkit.Presentation\Resources\Assets\Icons\icon.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
