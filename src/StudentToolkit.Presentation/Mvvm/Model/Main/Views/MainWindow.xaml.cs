@@ -1,6 +1,4 @@
-﻿using System.Windows;
-
-namespace StudentToolkit.Presentation.Mvvm.Model.Main.Views;
+﻿namespace StudentToolkit.Presentation.Mvvm.Model.Main.Views;
 
 public partial class MainWindow : Window
 {
