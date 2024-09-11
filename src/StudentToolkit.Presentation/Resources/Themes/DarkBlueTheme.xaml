@@ -13,6 +13,7 @@
     <Color x:Key="Colors.Button.Background">#424261</Color>
     <Color x:Key="Colors.Button.IsNotEnabled.Background">#4A4A59</Color>
     <Color x:Key="Colors.DangerButton.MouseOver.Background">#e32636</Color>
+    <Color x:Key="Colors.Button.WindowTitleBar.MouseOver.Background">#3A3A50</Color>
 
     <Color x:Key="Colors.ComboBox.Background">#363752</Color>
     <Color x:Key="Colors.ComboBox.BorderBrush">#514F6D</Color>
@@ -27,7 +28,7 @@
     <Color x:Key="Colors.Sidebar.Background">#1F1F32</Color>
 
     <Color x:Key="Colors.MouseOver.Background">#454573</Color>
-    <Color x:Key="Colors.MouseOver.Foreground">#DFDFE7</Color>
+    <Color x:Key="Colors.MouseOver.Foreground">White</Color>
     <Color x:Key="Colors.MouseOver.BorderBrush">#3B7E97</Color>
 
     <Color x:Key="Colors.IsFocused.Background">#4266A9</Color>
@@ -51,6 +52,7 @@
     <SolidColorBrush x:Key="Brushes.Button.Background" Color="{StaticResource Colors.Button.Background}"/>
     <SolidColorBrush x:Key="Brushes.Button.IsNotEnabled.Background" Color="{StaticResource Colors.Button.IsNotEnabled.Background}"/>
     <SolidColorBrush x:Key="Brushes.DangerButton.MouseOver.Background" Color="{StaticResource Colors.DangerButton.MouseOver.Background}"/>
+    <SolidColorBrush x:Key="Brushes.Button.WindowTitleBar.MouseOver.Background" Color="{StaticResource Colors.Button.WindowTitleBar.MouseOver.Background}"/>
 
     <SolidColorBrush x:Key="Brushes.ComboBox.Background" Color="{StaticResource Colors.ComboBox.Background}"/>
     <SolidColorBrush x:Key="Brushes.ComboBox.BorderBrush" Color="{StaticResource Colors.ComboBox.BorderBrush}"/>

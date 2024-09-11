@@ -1,0 +1,73 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="WindowTitlebarButtonStyle.xaml"/>
+        <ResourceDictionary Source="../../Path/PathStylesDictionary.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
+
+    <Style
+        x:Key="Button.Styles.MaximizeButton"
+        TargetType="{x:Type Button}"
+        BasedOn="{StaticResource Button.Styles.WindowTitlebarButton}">
+
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}">
+
+                        <Path
+                            x:Name="MaximizeIcon"
+                            Data="M0,0 L10,0 L10,10 L0,10Z"
+                            Margin="{TemplateBinding Padding}"
+                            VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                            HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                            Style="{StaticResource Path.Styles.Default}"/>
+                    </Border>
+
+                    <ControlTemplate.Triggers>
+                        <DataTrigger
+                            Binding="{Binding
+                                RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Window},
+                                Path=ResizeMode}"
+                            Value="CanMinimize">
+
+                            <Setter Property="Visibility" Value="Collapsed"/>
+                        </DataTrigger>
+
+                        <DataTrigger
+                            Binding="{Binding
+                                RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Window},
+                                Path=ResizeMode}"
+                            Value="NoResize">
+
+                            <Setter Property="Visibility" Value="Collapsed"/>
+                        </DataTrigger>
+
+                        <DataTrigger
+                            Binding="{Binding
+                                RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Window},
+                                Path=WindowState}"
+                            Value="Maximized">
+
+                            <Setter
+                                TargetName="MaximizeIcon"
+                                Property="Data"
+                                Value="M0,4 L4,4 L4,0 L14,0 L14,10 L10,10 L10,14 L0,14 L0,4 L10,4 L10,14"/>
+                        </DataTrigger>
+
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter
+                                TargetName="MaximizeIcon"
+                                Property="Stroke"
+                                Value="{DynamicResource Brushes.MouseOver.Foreground}"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

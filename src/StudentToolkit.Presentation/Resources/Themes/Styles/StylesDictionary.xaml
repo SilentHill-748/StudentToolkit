@@ -6,5 +6,6 @@
         <ResourceDictionary Source="Path/PathStylesDictionary.xaml"/>
         <ResourceDictionary Source="Rectangle/RectangleStylesDictionary.xaml"/>
         <ResourceDictionary Source="Shape/ShapeStylesDictionary.xaml"/>
+        <ResourceDictionary Source="Button/ButtonStylesDictionary.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>
