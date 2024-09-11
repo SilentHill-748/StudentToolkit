@@ -2,8 +2,6 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="Themes/Styles/StylesDictionary.xaml"/>
-        
-        <ResourceDictionary Source="Themes/DarkBlueTheme.xaml"/>
+        <ResourceDictionary Source="PathStyle.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

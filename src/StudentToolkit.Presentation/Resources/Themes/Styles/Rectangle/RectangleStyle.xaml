@@ -2,8 +2,11 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="Themes/Styles/StylesDictionary.xaml"/>
-        
-        <ResourceDictionary Source="Themes/DarkBlueTheme.xaml"/>
+        <ResourceDictionary Source="../Shape/ShapeStylesDictionary.xaml"/>
     </ResourceDictionary.MergedDictionaries>
+
+    <Style
+        x:Key="Rectangle.Styles.Default"
+        TargetType="{x:Type Rectangle}"
+        BasedOn="{StaticResource {x:Type Shape}}"/>
 </ResourceDictionary>
