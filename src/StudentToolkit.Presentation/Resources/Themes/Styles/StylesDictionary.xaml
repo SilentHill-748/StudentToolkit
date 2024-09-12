@@ -8,5 +8,6 @@
         <ResourceDictionary Source="Shape/ShapeStylesDictionary.xaml"/>
         <ResourceDictionary Source="Button/ButtonStylesDictionary.xaml"/>
         <ResourceDictionary Source="TextInput/TextInputStylesDictionary.xaml"/>
+        <ResourceDictionary Source="Window/WindowStylesDictionary.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

@@ -3,4 +3,6 @@
                     xmlns:sys="clr-namespace:System;assembly=mscorlib">
 
     <sys:Double x:Key="FontSize.TextInput.BadValidationChar">20</sys:Double>
+
+    <sys:Double x:Key="FontSize.Window.Default">18</sys:Double>
 </ResourceDictionary>
