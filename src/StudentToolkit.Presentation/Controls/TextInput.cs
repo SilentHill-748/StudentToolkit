@@ -1,8 +1,8 @@
-﻿namespace StudentToolkit.Presentation.Controls;
+﻿
+namespace StudentToolkit.Presentation.Controls;
 
 public class TextInput : TextBox
 {
-    private bool _isEmpty;
     private string _previousText = string.Empty;
 
     public static readonly DependencyProperty PlaceholderProperty =
@@ -19,6 +19,19 @@ public class TextInput : TextBox
             typeof(TextInput),
             new PropertyMetadata(false));
 
+    public static readonly DependencyProperty IsEmptyProperty =
+        DependencyProperty.Register(
+            nameof(IsEmpty),
+            typeof(bool),
+            typeof(TextInput),
+            new PropertyMetadata(true));
+
+    public TextInput()
+    {
+        GotFocus += OnGotFocus;
+        LostFocus += OnLostFocus;
+    }
+
     public string Placeholder
     {
         get => (string)GetValue(PlaceholderProperty);
@@ -31,24 +44,20 @@ public class TextInput : TextBox
         set => SetValue(HidePlaceholderIfFocusedProperty, value);
     }
 
+    public bool IsEmpty
+    {
+        get => (bool)GetValue(IsEmptyProperty);
+        set => SetValue(IsEmptyProperty, value);
+    }
+
     protected override void OnTextChanged(TextChangedEventArgs e)
     {
-        _isEmpty = string.IsNullOrEmpty(Text);
+        IsEmpty = string.IsNullOrEmpty(Text);
 
         base.OnTextChanged(e);
     }
 
-    protected override void OnGotFocus(RoutedEventArgs e)
-    {
-        if (_isEmpty)
-        {
-            Text = _previousText;
-        }
-
-        base.OnGotFocus(e);
-    }
-
-    protected override void OnLostFocus(RoutedEventArgs e)
+    private void OnGotFocus(object sender, RoutedEventArgs e)
     {
         if (HidePlaceholderIfFocused)
         {
@@ -56,7 +65,13 @@ public class TextInput : TextBox
 
             Text = string.Empty;
         }
+    }
 
-        base.OnLostFocus(e);
+    private void OnLostFocus(object sender, RoutedEventArgs e)
+    {
+        if (IsEmpty)
+        {
+            Text = _previousText;
+        }
     }
 }

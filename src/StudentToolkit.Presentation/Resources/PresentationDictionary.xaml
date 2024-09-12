@@ -4,6 +4,10 @@
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="Themes/Styles/StylesDictionary.xaml"/>
         
+        <ResourceDictionary Source="Dictionaries/FontFamilyDictionary.xaml"/>
+        <ResourceDictionary Source="Dictionaries/ConvertersDictionary.xaml"/>
+        <ResourceDictionary Source="Dictionaries/FontSizeDictionary.xaml"/>
+
         <ResourceDictionary Source="Themes/DarkBlueTheme.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>
