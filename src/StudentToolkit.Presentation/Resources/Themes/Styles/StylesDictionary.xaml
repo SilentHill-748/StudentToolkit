@@ -10,5 +10,6 @@
         <ResourceDictionary Source="TextInput/TextInputStylesDictionary.xaml"/>
         <ResourceDictionary Source="Window/WindowStylesDictionary.xaml"/>
         <ResourceDictionary Source="ComboBox/ComboBoxStylesDictionary.xaml"/>
+        <ResourceDictionary Source="Tile/TileStylesDictionary.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>
