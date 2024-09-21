@@ -12,5 +12,6 @@
         <ResourceDictionary Source="ComboBox/ComboBoxStylesDictionary.xaml"/>
         <ResourceDictionary Source="Tile/TileStylesDictionary.xaml"/>
         <ResourceDictionary Source="Sidebar/SidebarStylesDictionary.xaml"/>
+        <ResourceDictionary Source="ListBox/ListBoxStylesDictionary.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>
