@@ -2,7 +2,7 @@
 
 namespace StudentToolkit.Presentation.Controls;
 
-[ContentProperty("Items")]
+[ContentProperty("Buttons")]
 public class Sidebar : Control
 {
     public static readonly DependencyProperty IsHideProperty =
@@ -10,14 +10,14 @@ public class Sidebar : Control
             nameof(IsHide),
             typeof(bool),
             typeof(Sidebar),
-            new PropertyMetadata(false));
+            new PropertyMetadata(true));
 
     public Sidebar()
     {
-        Items = new List<object>();
+        Buttons = new List<SidebarButton>();
     }
 
-    public List<object> Items { get; set; }
+    public List<SidebarButton> Buttons { get; set; }
 
     public bool IsHide
     {

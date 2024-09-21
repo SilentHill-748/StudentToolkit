@@ -10,7 +10,23 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resources\Assets\Sidebar\about.png" />
+    <None Remove="Resources\Assets\Sidebar\attendance.png" />
+    <None Remove="Resources\Assets\Sidebar\schedule.png" />
+    <None Remove="Resources\Assets\Sidebar\settings.png" />
+    <None Remove="Resources\Assets\Sidebar\students.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\StudentToolkit.Application\StudentToolkit.Application.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\Assets\Sidebar\about.png" />
+    <Resource Include="Resources\Assets\Sidebar\attendance.png" />
+    <Resource Include="Resources\Assets\Sidebar\schedule.png" />
+    <Resource Include="Resources\Assets\Sidebar\settings.png" />
+    <Resource Include="Resources\Assets\Sidebar\students.png" />
   </ItemGroup>
 
 </Project>
