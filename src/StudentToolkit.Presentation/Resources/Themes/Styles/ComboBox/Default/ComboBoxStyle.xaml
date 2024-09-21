@@ -103,7 +103,7 @@
                     <ControlTemplate.Triggers>
                         <Trigger Property="HasItems" Value="False">
                             <Setter Property="IsEnabled" Value="False"/>
-                            <Setter Property="Background" Value="{DynamicResource Brushes.Button.IsNotEnabled.Background}"/>
+                            <Setter Property="Background" Value="{DynamicResource Brushes.Button.Disabled.Background}"/>
                         </Trigger>
 
                         <Trigger Property="IsDropDownOpen" Value="True">

@@ -3,7 +3,6 @@
 
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="WindowTitlebarButtonStyle.xaml"/>
-        <ResourceDictionary Source="../../Path/PathStylesDictionary.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
     <Style
@@ -25,7 +24,7 @@
                             Margin="{TemplateBinding Padding}"
                             VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
                             HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                            Style="{StaticResource Path.Styles.Default}"/>
+                            Style="{DynamicResource Path.Styles.Default}"/>
                     </Border>
 
                     <ControlTemplate.Triggers>

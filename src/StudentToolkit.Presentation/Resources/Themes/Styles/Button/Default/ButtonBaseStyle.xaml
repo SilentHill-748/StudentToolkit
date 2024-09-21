@@ -8,7 +8,7 @@
         <Setter Property="OverridesDefaultStyle" Value="True"/>
         <Setter Property="SnapsToDevicePixels" Value="True"/>
         <Setter Property="Background" Value="{DynamicResource Brushes.Button.Background}"/>
-        <Setter Property="Foreground" Value="{DynamicResource Brushes.Window.Foreground}"/>
+        <Setter Property="Foreground" Value="{DynamicResource Brushes.App.Foreground}"/>
         <Setter Property="BorderBrush" Value="{DynamicResource Brushes.Button.Background}"/>
         <Setter Property="BorderThickness" Value="1"/>
         <Setter Property="VerticalContentAlignment" Value="Center"/>

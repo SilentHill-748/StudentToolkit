@@ -15,7 +15,11 @@
             <Trigger Property="IsEnabled" Value="False">
                 <Setter
                     Property="Background"
-                    Value="{DynamicResource Brushes.Button.IsNotEnabled.Background}"/>
+                    Value="{DynamicResource Brushes.Button.Disabled.Background}"/>
+
+                <Setter
+                    Property="BorderBrush"
+                    Value="{DynamicResource Brushes.Button.Disabled.Background}"/>
             </Trigger>
         </Style.Triggers>
     </Style>

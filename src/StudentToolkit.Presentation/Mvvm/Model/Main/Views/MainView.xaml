@@ -22,7 +22,7 @@
             <controls:SidebarButton
                 Icon="/StudentToolkit.Presentation;component/Resources/Assets/Sidebar/attendance.png"
                 Content="Посещаемость"
-                Margin="0 10"/>
+                Margin="0 2.5"/>
 
             <controls:SidebarButton
                 Icon="/StudentToolkit.Presentation;component/Resources/Assets/Sidebar/schedule.png"
@@ -31,7 +31,7 @@
             <controls:SidebarButton
                 Icon="/StudentToolkit.Presentation;component/Resources/Assets/Sidebar/settings.png"
                 Content="Настройки"
-                Margin="0 10"/>
+                Margin="0 2.5"/>
 
             <controls:SidebarButton
                 Icon="/StudentToolkit.Presentation;component/Resources/Assets/Sidebar/about.png"

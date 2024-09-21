@@ -11,7 +11,7 @@
     <Style TargetType="{x:Type controls:TextInput}">
         <Setter Property="SnapsToDevicePixels" Value="True"/>
         <Setter Property="Padding" Value="5 7"/>
-        <Setter Property="Foreground" Value="{DynamicResource Brushes.Window.Foreground}"/>
+        <Setter Property="Foreground" Value="{DynamicResource Brushes.App.Foreground}"/>
         <Setter Property="Background" Value="{DynamicResource Brushes.TextInput.Background}"/>
         <Setter Property="BorderBrush" Value="{DynamicResource Brushes.TextInput.BorderBrush}"/>
         <Setter Property="BorderThickness" Value="1"/>

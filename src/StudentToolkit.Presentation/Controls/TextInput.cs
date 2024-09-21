@@ -1,5 +1,4 @@
-﻿
-namespace StudentToolkit.Presentation.Controls;
+﻿namespace StudentToolkit.Presentation.Controls;
 
 public class TextInput : TextBox
 {

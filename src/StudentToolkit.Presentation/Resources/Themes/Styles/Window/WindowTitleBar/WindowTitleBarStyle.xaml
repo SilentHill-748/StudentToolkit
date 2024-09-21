@@ -5,8 +5,8 @@
     <Style TargetType="{x:Type controls:WindowTitleBar}">
         <Setter Property="SnapsToDevicePixels" Value="True"/>
         <Setter Property="Background" Value="{DynamicResource Brushes.WindowTitleBar.Background}"/>
-        <Setter Property="Foreground" Value="{DynamicResource Brushes.Window.Foreground}"/>
-        <Setter Property="BorderBrush" Value="{DynamicResource Brushes.Window.BorderBrush}"/>
+        <Setter Property="Foreground" Value="{DynamicResource Brushes.App.Foreground}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource Brushes.App.BorderBrush}"/>
         <Setter Property="BorderThickness" Value="0 0 0 1"/>
         <Setter Property="Height" Value="30"/>
 

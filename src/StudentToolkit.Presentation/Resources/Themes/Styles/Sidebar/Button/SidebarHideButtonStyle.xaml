@@ -7,10 +7,12 @@
         TargetType="{x:Type Button}">
 
         <Setter Property="Background" Value="{DynamicResource Brushes.Sidebar.Background}"/>
-        <Setter Property="Foreground" Value="{DynamicResource Brushes.Window.Foreground}"/>
+        <Setter Property="Foreground" Value="{DynamicResource Brushes.App.Foreground}"/>
         <Setter Property="BorderBrush" Value="Transparent"/>
         <Setter Property="Cursor" Value="Hand"/>
         <Setter Property="Padding" Value="10"/>
+        <Setter Property="Margin" Value="0 0 0 20"/>
+        <Setter Property="HorizontalAlignment" Value="Left"/>
 
         <Setter Property="Template">
             <Setter.Value>

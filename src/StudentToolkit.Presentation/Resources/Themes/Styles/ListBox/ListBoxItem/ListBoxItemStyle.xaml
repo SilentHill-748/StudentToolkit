@@ -23,13 +23,23 @@
 
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Background" Value="{DynamicResource Brushes.MouseOver.Background}"/>
-                            <Setter Property="Foreground" Value="{DynamicResource Brushes.MouseOver.Foreground}"/>
+                            <Setter
+                                Property="Background"
+                                Value="{DynamicResource Brushes.MouseOver.Background}"/>
+                            
+                            <Setter
+                                Property="Foreground"
+                                Value="{DynamicResource Brushes.MouseOver.Foreground}"/>
                         </Trigger>
 
                         <Trigger Property="IsSelected" Value="True">
-                            <Setter Property="Background" Value="{DynamicResource Brushes.IsSelected.Background}"/>
-                            <Setter Property="Foreground" Value="{DynamicResource Brushes.IsSelected.Foreground}"/>
+                            <Setter
+                                Property="Background"
+                                Value="{DynamicResource Brushes.IsSelected.Background}"/>
+                            
+                            <Setter
+                                Property="Foreground"
+                                Value="{DynamicResource Brushes.IsSelected.Foreground}"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
