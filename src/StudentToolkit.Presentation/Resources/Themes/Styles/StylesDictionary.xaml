@@ -1,0 +1,17 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:controls="clr-namespace:StudentToolkit.Presentation.Controls">
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="Path/PathStylesDictionary.xaml"/>
+        <ResourceDictionary Source="Rectangle/RectangleStylesDictionary.xaml"/>
+        <ResourceDictionary Source="Shape/ShapeStylesDictionary.xaml"/>
+        <ResourceDictionary Source="Button/ButtonStylesDictionary.xaml"/>
+        <ResourceDictionary Source="TextInput/TextInputStylesDictionary.xaml"/>
+        <ResourceDictionary Source="Window/WindowStylesDictionary.xaml"/>
+        <ResourceDictionary Source="ComboBox/ComboBoxStylesDictionary.xaml"/>
+        <ResourceDictionary Source="Tile/TileStylesDictionary.xaml"/>
+        <ResourceDictionary Source="Sidebar/SidebarStylesDictionary.xaml"/>
+        <ResourceDictionary Source="ListBox/ListBoxStylesDictionary.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
+</ResourceDictionary>

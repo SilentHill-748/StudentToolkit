@@ -2,13 +2,44 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:controls="clr-namespace:StudentToolkit.Presentation.Controls"
              xmlns:vm="clr-namespace:StudentToolkit.Presentation.Mvvm.Model.Main.ViewModels"
              mc:Ignorable="d"
              d:DataContext="{d:DesignInstance Type=vm:MainViewModel}">
 
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <controls:Sidebar>
+            <controls:SidebarButton
+                Icon="/StudentToolkit.Presentation;component/Resources/Assets/Sidebar/students.png"
+                Content="Группа"/>
+
+            <controls:SidebarButton
+                Icon="/StudentToolkit.Presentation;component/Resources/Assets/Sidebar/attendance.png"
+                Content="Посещаемость"
+                Margin="0 2.5"/>
+
+            <controls:SidebarButton
+                Icon="/StudentToolkit.Presentation;component/Resources/Assets/Sidebar/schedule.png"
+                Content="Расписание"/>
+
+            <controls:SidebarButton
+                Icon="/StudentToolkit.Presentation;component/Resources/Assets/Sidebar/settings.png"
+                Content="Настройки"
+                Margin="0 2.5"/>
+
+            <controls:SidebarButton
+                Icon="/StudentToolkit.Presentation;component/Resources/Assets/Sidebar/about.png"
+                Content="О программе"/>
+        </controls:Sidebar>
+        
         <ContentControl
+            Grid.Column="1"
             Content="{Binding HostedViewModel}"/>
     </Grid>
 </UserControl>

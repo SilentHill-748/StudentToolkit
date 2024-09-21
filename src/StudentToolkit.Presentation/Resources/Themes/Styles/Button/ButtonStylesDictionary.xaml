@@ -1,0 +1,13 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="Default/ButtonBaseStyle.xaml"/>
+        <ResourceDictionary Source="Default/ButtonStyle.xaml"/>
+        
+        <ResourceDictionary Source="WindowTitleBar/WindowTitleBarButtonStyle.xaml"/>
+        <ResourceDictionary Source="WindowTitleBar/CloseWindowButtonStyle.xaml"/>
+        <ResourceDictionary Source="WindowTitleBar/MinimizeWindowButtonStyle.xaml"/>
+        <ResourceDictionary Source="WindowTitleBar/MaximizeWindowButtonStyle.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
+</ResourceDictionary>

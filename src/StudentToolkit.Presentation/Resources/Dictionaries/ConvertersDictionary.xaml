@@ -1,0 +1,24 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:converters="clr-namespace:StudentToolkit.Presentation.Converters">
+
+    <converters:Bool2VisibilityConverter
+        x:Key="Converters.Bool2Visibility"/>
+    
+    <converters:Bool2VisibilityConverter
+        x:Key="Converters.Bool2Visibility.HiddenIfFalse"
+        False="Hidden"/>
+    
+    <converters:Bool2VisibilityConverter
+        x:Key="Converters.Bool2Visibility.Reversed"
+        True="Collapsed"
+        False="Visible"/>
+    
+    <converters:Bool2VisibilityConverter
+        x:Key="Converters.Bool2Visibility.Reversed.HiddenIfTrue"
+        True="Hidden"
+        False="Visible"/>
+
+    <converters:AddLeftPaddingConverter
+        x:Key="Converters.AddLeftPadding"/>
+</ResourceDictionary>
